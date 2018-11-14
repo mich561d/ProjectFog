@@ -40,7 +40,7 @@ public class CarportCalculatorTest {
         CC = new CarportCalculator(210, 640, 270);
         assertEquals(8, CC.CalcPolesSides()); // 640-30=610 : 4 for each side
 
-        CC = new CarportCalculator(210, 330, 270); 
+        CC = new CarportCalculator(210, 330, 270);
         assertEquals(4, CC.CalcPolesSides()); // 330-30=300 : 2 for each side
 
         CC = new CarportCalculator(210, 350, 270);
@@ -69,35 +69,58 @@ public class CarportCalculatorTest {
     }
 
     @Test
-    public void CalcCarportRoofWidth() { 
+    public void CalcCarportRoofWidth() {
         CarportCalculator CC = new CarportCalculator(210, 310, 270);
         CC.CalcRoofRafterWidth();
         assertEquals(1, CC.getProductList().size());
         CC.CalcRoofRafterLength();
         assertEquals(3, CC.getProductList().size());
-        
+
         CC = new CarportCalculator(210, 350, 250);
         CC.CalcRoofRafterWidth();
         assertEquals(1, CC.getProductList().size());
         CC.CalcRoofRafterLength();
         assertEquals(3, CC.getProductList().size());
-        
+
         CC = new CarportCalculator(210, 420, 310);
         CC.CalcRoofRafterWidth();
         assertEquals(2, CC.getProductList().size());
         CC.CalcRoofRafterLength();
         assertEquals(3, CC.getProductList().size());
-        
+
         CC = new CarportCalculator(210, 740, 640);
         CC.CalcRoofRafterWidth();
         assertEquals(2, CC.getProductList().size());
         CC.CalcRoofRafterLength();
         assertEquals(4, CC.getProductList().size());
-        
+
         CC = new CarportCalculator(210, 10000, 10000);
         CC.CalcRoofRafterWidth();
         assertEquals(15, CC.getProductList().size());
         CC.CalcRoofRafterLength();
         assertEquals(30, CC.getProductList().size());
+    }
+
+    @Test
+    public void CalcCarportRoofMiddleRafts() {
+        CarportCalculator CC = new CarportCalculator(210, 310, 270);
+        CC.CalcRoofRafterMiddle();
+        assertEquals(4, CC.getProductList().size());
+
+        CC = new CarportCalculator(210, 330, 270);
+        CC.CalcRoofRafterMiddle();
+        assertEquals(5, CC.getProductList().size());
+
+        CC = new CarportCalculator(210, 350, 270);
+        CC.CalcRoofRafterMiddle();
+        assertEquals(5, CC.getProductList().size());
+
+        CC = new CarportCalculator(210, 640, 270);
+        CC.CalcRoofRafterMiddle();
+        assertEquals(9, CC.getProductList().size());
+
+        CC = new CarportCalculator(210, 10000, 270);
+        CC.CalcRoofRafterMiddle();
+        assertEquals(134, CC.getProductList().size());
     }
 }

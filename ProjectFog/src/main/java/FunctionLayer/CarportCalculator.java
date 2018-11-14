@@ -148,11 +148,9 @@ public class CarportCalculator {
         int calcLength = LENGTH - 30;
         double raftThickness = 4.7;
         int distanceBetweenRafts = 70;
-        for (double distance = 0; distance < calcLength; distance++) {
-            if (distance + raftThickness + distanceBetweenRafts < calcLength) {
-                distance += raftThickness + distanceBetweenRafts;
-                products.add("Middle Raft, length: " + WIDTH);
-            }
+        for (double distance = 0; distance < calcLength;) {
+            distance += raftThickness + distanceBetweenRafts;
+            products.add("Middle Raft, length: " + WIDTH);
         }
     }
 
