@@ -41,10 +41,10 @@ public class CarportCalculator {
         CalcRoofRafter();
         // Calc vandbræt
         CalcWaterBoard();
-        // Calc beklædning
-        CalcCladding();
         // Calc tag
         CalcRoof();
+        // Calc beklædning
+        CalcCladding();
 
         return CalcTotalPrice();
     }
@@ -103,15 +103,12 @@ public class CarportCalculator {
                 lengthOfRaft = 420;
             } else if (width >= 360) {
                 lengthOfRaft = 360;
-            } else if (width >= 300) {
-                lengthOfRaft = 300;
             } else {
-                // What to do:
                 lengthOfRaft = 300;
-                // or
-                // lengthOfRaft = width;
             }
-            products.add("Raft, length: " + lengthOfRaft);
+            for (int i = 0; i < 2; i++) {
+                products.add("Raft, length: " + lengthOfRaft);
+            }
             width -= lengthOfRaft;
         }
     }
@@ -133,15 +130,12 @@ public class CarportCalculator {
                 lengthOfRaft = 420;
             } else if (length >= 360) {
                 lengthOfRaft = 360;
-            } else if (length >= 300) {
-                lengthOfRaft = 300;
             } else {
-                // What to do:
                 lengthOfRaft = 300;
-                // or
-                // lengthOfRaft = width;
             }
-            products.add("Raft, length: " + lengthOfRaft);
+            for (int i = 0; i < 2; i++) {
+                products.add("Raft, length: " + lengthOfRaft);
+            }
             length -= lengthOfRaft;
         }
     }
@@ -157,8 +151,60 @@ public class CarportCalculator {
     }
 
     private void CalcWaterBoard() { // Give better name
-        CalcRoofRafterWidth();
-        CalcRoofRafterLength();
+        CalcRoofWaterBoardWidth();
+        CalcRoofWaterBoardLength();
+    }
+
+    public void CalcRoofWaterBoardWidth() {
+        double thincknessOfWaterBoard = 1.9 * 2;
+        for (double width = WIDTH + thincknessOfWaterBoard; width > 0;) {
+            int lengthOfWaterBoard;
+            if (width >= 420) {
+                lengthOfWaterBoard = 420;
+            } else if (width >= 360) {
+                lengthOfWaterBoard = 360;
+            } else if (width >= 300) {
+                lengthOfWaterBoard = 300;
+            } else if (width >= 270) {
+                lengthOfWaterBoard = 270;
+            } else if (width >= 240) {
+                lengthOfWaterBoard = 240;
+            } else if (width >= 210) {
+                lengthOfWaterBoard = 210;
+            } else {
+                lengthOfWaterBoard = 180;
+            }
+            for (int i = 0; i < 2; i++) {
+                products.add("WaterBoard, length: " + lengthOfWaterBoard);
+            }
+            width -= lengthOfWaterBoard;
+        }
+    }
+
+    public void CalcRoofWaterBoardLength() {
+        double thincknessOfWaterBoard = 1.9 * 2;
+        for (double length = LENGTH + thincknessOfWaterBoard; length > 0;) {
+            int lengthOfWaterBoard;
+            if (length >= 420) {
+                lengthOfWaterBoard = 420;
+            } else if (length >= 360) {
+                lengthOfWaterBoard = 360;
+            } else if (length >= 300) {
+                lengthOfWaterBoard = 300;
+            } else if (length >= 270) {
+                lengthOfWaterBoard = 270;
+            } else if (length >= 240) {
+                lengthOfWaterBoard = 240;
+            } else if (length >= 210) {
+                lengthOfWaterBoard = 210;
+            } else {
+                lengthOfWaterBoard = 180;
+            }
+            for (int i = 0; i < 2; i++) {
+                products.add("Raft, length: " + lengthOfWaterBoard);
+            }
+            length -= lengthOfWaterBoard;
+        }
     }
 
     private void CalcRoof() {

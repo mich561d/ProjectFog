@@ -72,33 +72,33 @@ public class CarportCalculatorTest {
     public void CalcCarportRoofWidth() {
         CarportCalculator CC = new CarportCalculator(210, 310, 270);
         CC.CalcRoofRafterWidth();
-        assertEquals(1, CC.getProductList().size());
+        assertEquals(2, CC.getProductList().size());
         CC.CalcRoofRafterLength();
-        assertEquals(3, CC.getProductList().size());
+        assertEquals(6, CC.getProductList().size());
 
         CC = new CarportCalculator(210, 350, 250);
         CC.CalcRoofRafterWidth();
-        assertEquals(1, CC.getProductList().size());
+        assertEquals(2, CC.getProductList().size());
         CC.CalcRoofRafterLength();
-        assertEquals(3, CC.getProductList().size());
+        assertEquals(6, CC.getProductList().size());
 
         CC = new CarportCalculator(210, 420, 310);
         CC.CalcRoofRafterWidth();
-        assertEquals(2, CC.getProductList().size());
+        assertEquals(4, CC.getProductList().size());
         CC.CalcRoofRafterLength();
-        assertEquals(3, CC.getProductList().size());
+        assertEquals(6, CC.getProductList().size());
 
         CC = new CarportCalculator(210, 740, 640);
         CC.CalcRoofRafterWidth();
-        assertEquals(2, CC.getProductList().size());
-        CC.CalcRoofRafterLength();
         assertEquals(4, CC.getProductList().size());
+        CC.CalcRoofRafterLength();
+        assertEquals(8, CC.getProductList().size());
 
         CC = new CarportCalculator(210, 10000, 10000);
         CC.CalcRoofRafterWidth();
-        assertEquals(15, CC.getProductList().size());
-        CC.CalcRoofRafterLength();
         assertEquals(30, CC.getProductList().size());
+        CC.CalcRoofRafterLength();
+        assertEquals(60, CC.getProductList().size());
     }
 
     @Test
@@ -123,6 +123,13 @@ public class CarportCalculatorTest {
         CC.CalcRoofRafterMiddle();
         assertEquals(134, CC.getProductList().size());
     }
+    
+    @Test
+    public void CalcCarportWaterBoards() {
+        CarportCalculator CC = new CarportCalculator(210, 310, 270);
+        //CC.CalcWaterBoard();
+        assertEquals(4, CC.getProductList().size());
+    }
 
     @Test
     public void CalcCarportRoof() {
@@ -146,5 +153,12 @@ public class CarportCalculatorTest {
         CC.CalcRoofLength(CC.CalcRoofWidth());
         assertEquals(1458, CC.getProductList().size());
 
+    }
+
+    @Test
+    public void CompletCarportTest() {
+        CarportCalculator CC = new CarportCalculator(210, 310, 270);
+        CC.CalcCarport();
+        assertEquals(17, CC.getProductList().size());
     }
 }
