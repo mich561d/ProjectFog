@@ -250,7 +250,7 @@ public class CarportCalculator {
         return count;
     }
 
-    private void CalcCladding() { // only shed or hole carport
+    private void CalcCladding() { // only shed or whole carport
 
     }
 }
