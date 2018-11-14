@@ -39,6 +39,8 @@ public class CarportCalculator {
         CalcPoles();
         // Calc tag spær
         CalcRoofRafter();
+        // Calc vandbræt
+        CalcWaterBoard();
         // Calc beklædning
         CalcCladding();
         // Calc tag
@@ -154,11 +156,16 @@ public class CarportCalculator {
         }
     }
 
-    private void CalcCladding() {
-
+    private void CalcWaterBoard() { // Give better name
+        CalcRoofRafterWidth();
+        CalcRoofRafterLength();
     }
 
     private void CalcRoof() {
+        
+    }
+
+    private void CalcCladding() { // only shed or hole carport
 
     }
 }
