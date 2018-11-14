@@ -81,11 +81,11 @@ public class CarportCalculator {
     private void CalcRoofRafter() {
         CalcRoofRafterWidth();
         CalcRoofRafterLength();
+        CalcRoofRafterMiddle();
     }
 
     public void CalcRoofRafterWidth() {
-        int calcWidth = WIDTH;
-        for (int width = calcWidth; width > 0;) {
+        for (int width = WIDTH; width > 0;) {
             int lengthOfRaft;
             if (width >= 720) {
                 lengthOfRaft = 720;
@@ -115,8 +115,7 @@ public class CarportCalculator {
     }
 
     public void CalcRoofRafterLength() {
-        int calcLength = LENGTH;
-        for (int length = calcLength; length > 0;) {
+        for (int length = LENGTH; length > 0;) {
             int lengthOfRaft;
             if (length >= 720) {
                 lengthOfRaft = 720;
@@ -143,6 +142,10 @@ public class CarportCalculator {
             products.add("Raft, length: " + lengthOfRaft);
             length -= lengthOfRaft;
         }
+    }
+    
+    public void CalcRoofRafterMiddle() {
+        
     }
 
     private void CalcCladding() {
