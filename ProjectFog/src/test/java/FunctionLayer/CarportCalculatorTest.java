@@ -12,7 +12,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Michael
+ * @author Michael & Christian
  */
 public class CarportCalculatorTest {
 
@@ -122,5 +122,29 @@ public class CarportCalculatorTest {
         CC = new CarportCalculator(210, 10000, 270);
         CC.CalcRoofRafterMiddle();
         assertEquals(134, CC.getProductList().size());
+    }
+
+    @Test
+    public void CalcCarportRoof() {
+        CarportCalculator CC = new CarportCalculator(210, 310, 270);
+        CC.CalcRoofLength(CC.CalcRoofWidth());
+        assertEquals(6, CC.getProductList().size());
+
+        CC = new CarportCalculator(210, 360, 310);
+        CC.CalcRoofLength(CC.CalcRoofWidth());
+        assertEquals(4, CC.getProductList().size());
+
+        CC = new CarportCalculator(210, 480, 360);
+        CC.CalcRoofLength(CC.CalcRoofWidth());
+        assertEquals(4, CC.getProductList().size());
+
+        CC = new CarportCalculator(210, 640, 480);
+        CC.CalcRoofLength(CC.CalcRoofWidth());
+        assertEquals(10, CC.getProductList().size());
+
+        CC = new CarportCalculator(210, 10000, 8000);
+        CC.CalcRoofLength(CC.CalcRoofWidth());
+        assertEquals(1458, CC.getProductList().size());
+
     }
 }

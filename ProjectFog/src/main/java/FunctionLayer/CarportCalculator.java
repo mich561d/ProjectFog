@@ -185,7 +185,11 @@ public class CarportCalculator {
             for (int i = 0; i < width; i++) {
                 products.add("Trapez, length: " + lengthOfTrapez);
             }
-            length -= lengthOfTrapez - lengthOfOverlap;
+            if (length == lengthOfTrapez) {
+                length -= lengthOfTrapez;
+            } else {
+                length -= lengthOfTrapez - lengthOfOverlap;
+            }
         }
     }
 
