@@ -27,11 +27,6 @@ public class CarportCalculatorTest {
     public static void tearDownClass() {
     }
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
     @Test
     public void CalcCarportLength() { // take length minus 30 so there is space for the roof
         CarportCalculator CC = new CarportCalculator(210, 310, 270);
