@@ -162,7 +162,42 @@ public class CarportCalculator {
     }
 
     private void CalcRoof() {
-        
+        CalcRoofLength(CalcRoofWidth());
+    }
+
+    public void CalcRoofLength(int width) {
+        int lengthOfOverlap = 15;
+        for (int length = LENGTH; length > 0;) {
+            int lengthOfTrapez;
+            if (length >= 600) {
+                lengthOfTrapez = 600;
+            } else if (length >= 480) {
+                lengthOfTrapez = 480;
+            } else if (length >= 420) {
+                lengthOfTrapez = 420;
+            } else if (length >= 360) {
+                lengthOfTrapez = 360;
+            } else if (length >= 300) {
+                lengthOfTrapez = 300;
+            } else {
+                lengthOfTrapez = 240;
+            }
+            for (int i = 0; i < width; i++) {
+                products.add("Trapez, length: " + lengthOfTrapez);
+            }
+            length -= lengthOfTrapez - lengthOfOverlap;
+        }
+    }
+
+    public int CalcRoofWidth() {
+        int widthOfOverlap = 10;
+        int widthOfTrapez = 109;
+        int count = 0;
+        for (int width = WIDTH; width > 0;) {
+            count++;
+            width -= widthOfTrapez - widthOfOverlap;
+        }
+        return count;
     }
 
     private void CalcCladding() { // only shed or hole carport
