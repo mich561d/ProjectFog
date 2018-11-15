@@ -30,7 +30,7 @@ public class FrontController extends HttpServlet {
         try {
             Command action = CommandController.from(request);
             String view = action.execute(request, response);
-            request.getRequestDispatcher(view + ".jsp").forward(request, response);
+            request.getRequestDispatcher("/Webpages/" + view + ".jsp").forward(request, response);
         } catch (FogException ex) {
             request.getSession().setAttribute("error", ex.getMessage());
             request.getRequestDispatcher("/WEB-INF/error.jsp").forward(request, response);
