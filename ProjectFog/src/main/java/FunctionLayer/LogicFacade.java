@@ -13,6 +13,8 @@ public class LogicFacade {
     }
 
     public static ArrayList<String> GetProductListFromCalculatedCustomCarport(int length, int width, int height) {
-        return new CarportCalculator(height, length, width).getProductList();
+        CarportCalculator CC = new CarportCalculator(height, length, width);
+        CC.calcCarport();
+        return CC.getProductList();
     }
 }

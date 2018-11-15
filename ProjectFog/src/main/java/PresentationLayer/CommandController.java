@@ -1,6 +1,7 @@
 package PresentationLayer;
 
 import PresentationLayer.Commands.CustomCarportCommand;
+import PresentationLayer.Commands.ProductReviewCommand;
 import PresentationLayer.Commands.UnknownCommand;
 import java.util.HashMap;
 import javax.servlet.http.HttpServletRequest;
@@ -15,7 +16,8 @@ public abstract class CommandController {
 
     private static void initCommands() {
         commands = new HashMap<>();
-        commands.put("Calculator", new CustomCarportCommand());
+        commands.put("CustomCarport", new CustomCarportCommand());
+        commands.put("ProductReview", new ProductReviewCommand());
     }
 
     static Command from(HttpServletRequest request) {

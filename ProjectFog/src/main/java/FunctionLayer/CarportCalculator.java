@@ -24,7 +24,7 @@ public class CarportCalculator {
     private double calcTotalPrice() {
         double totalPrice = 0.0;
         for (int i = 0; i < products.size(); i++) {
-            // TODO: totalPrice += products.get(i).getPrice; ect...
+            totalPrice += 873;//products.get(i).getPrice; ect...
         }
         return totalPrice;
     }

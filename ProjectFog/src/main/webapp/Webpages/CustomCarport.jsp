@@ -16,12 +16,12 @@
         <div class="container-fluid">        
             <div class="col-lg-6">
                 <div class="card">
-                    <form name="Calculator" action="FrontController" method="POST">
+                    <form name="Product" action="FrontController" method="POST">
                         <div class="card-header">
                             <h3>Intast dine mål</h3>
                         </div>
                         <div class="card-body">
-                            <input type="hidden" name="command" value="Calculator">
+                            <input type="hidden" name="command" value="ProductReview">
                             <table>
                                 <tr>
                                     <th width="100%">
