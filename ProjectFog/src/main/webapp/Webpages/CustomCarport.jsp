@@ -17,11 +17,16 @@
             <form name="Calculator" action="FrontController" method="POST">
                 <input type="hidden" name="command" value="Calculator">
                 <h3>Carport</h3>
-                <input type="number" name="carportlength" placeholder="cm" min="240" max="780">
-                <input type="number" name="carportwidth" placeholder="cm" min="240" max="750">
-                <input type="number" name="carportheight" placeholder="cm" min="200" max="250">
+                <input type="number" name="carportLength" placeholder="Cm" min="240" max="780" required>
+                <input type="number" name="carportWidth" placeholder="Cm" min="240" max="750" required>
+                <input type="number" name="carportHeight" placeholder="Cm" min="200" max="250" required>
                 <h3>Tag</h3>
-                <input type="number" name="carportlength" placeholder="cm" min="240" max="780">
+                <input type="checkbox" name="angledRoof">
+                <input type="number" name="roofAngle" placeholder="Grader" min="0" max="60">
+                <h3>Skur</h3>
+                <input type="checkbox" name="Skur">
+                <input type="number" name="shedLength" placeholder="cm" min="200" max="250" required>
+                <input type="number" name="shedWidth" placeholder="cm" min="200" max="250" required>
             </form>
         </div>
     </body>
