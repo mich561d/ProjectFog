@@ -22,11 +22,13 @@
                 <input type="number" name="carportHeight" placeholder="Cm" min="200" max="250" required>
                 <h3>Tag</h3>
                 <input type="checkbox" name="angledRoof">
-                <input type="number" name="roofAngle" placeholder="Grader" min="0" max="60">
+                <input type="number" name="roofAngle" placeholder="Grader" min="0" max="75">
                 <h3>Skur</h3>
-                <input type="checkbox" name="Skur">
-                <input type="number" name="shedLength" placeholder="cm" min="200" max="250" required>
-                <input type="number" name="shedWidth" placeholder="cm" min="200" max="250" required>
+                <input type="checkbox" name="shed">
+                <input type="number" name="shedLength" placeholder="Cm" min="210" max="750" required>
+                <input type="number" name="shedWidth" placeholder="Cm" min="210" max="720" required>
+                <input type="submit" name="next" value="Næste">
+                <input type="submit" name="update" value="Opdater">
             </form>
         </div>
     </body>
