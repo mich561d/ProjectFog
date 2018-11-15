@@ -21,7 +21,7 @@ public class CarportCalculator {
     }
 
     // Calc price
-    private double CalcTotalPrice() {
+    private double calcTotalPrice() {
         double totalPrice = 0.0;
         for (int i = 0; i < products.size(); i++) {
             // TODO: totalPrice += products.get(i).getPrice; ect...
@@ -34,33 +34,33 @@ public class CarportCalculator {
     }
 
     // Calc  method:
-    public double CalcCarport() {
+    public double calcCarport() {
         // Calc hjørne stolper
-        CalcPoles();
+        calcPoles();
         // Calc tag spær
-        CalcRoofRafter();
+        calcRoofRafter();
         // Calc vandbræt
-        CalcWaterBoard();
+        calcWaterBoard();
         // Calc tag
-        CalcRoof();
+        calcRoof();
         // Calc beklædning
-        CalcCladding();
+        calcCladding();
 
-        return CalcTotalPrice();
+        return calcTotalPrice();
     }
 
-    private void CalcPoles() {
+    private void calcPoles() {
         int calcHeight = HEIGHT + 90; // height to be calc'ed
         int poles = 0;
-        poles += CalcPolesSides();
-        poles += CalcPolesBack();
+        poles += calcPolesSides();
+        poles += calcPolesBack();
 
         for (int i = 0; i < poles; i++) {
             products.add("Pole, length: " + calcHeight);
         }
     }
 
-    public int CalcPolesSides() {
+    public int calcPolesSides() {
         int poles = 0;
         int maxDistance = 300;
         double estPolesSides = ((float) LENGTH - 30) / (float) maxDistance;
@@ -69,7 +69,7 @@ public class CarportCalculator {
         return poles;
     }
 
-    public int CalcPolesBack() {
+    public int calcPolesBack() {
         int poles = 0;
 
         if (WIDTH >= 300) {
@@ -80,13 +80,13 @@ public class CarportCalculator {
         return poles;
     }
 
-    private void CalcRoofRafter() {
-        CalcRoofRafterWidth();
-        CalcRoofRafterLength();
-        CalcRoofRafterMiddle();
+    private void calcRoofRafter() {
+        calcRoofRafterWidth();
+        calcRoofRafterLength();
+        calcRoofRafterMiddle();
     }
 
-    public void CalcRoofRafterWidth() {
+    public void calcRoofRafterWidth() {
         for (int width = WIDTH; width > 0;) {
             int lengthOfRaft;
             if (width >= 720) {
@@ -113,7 +113,7 @@ public class CarportCalculator {
         }
     }
 
-    public void CalcRoofRafterLength() {
+    public void calcRoofRafterLength() {
         for (int length = LENGTH; length > 0;) {
             int lengthOfRaft;
             if (length >= 720) {
@@ -140,7 +140,7 @@ public class CarportCalculator {
         }
     }
 
-    public void CalcRoofRafterMiddle() {
+    public void calcRoofRafterMiddle() {
         int calcLength = LENGTH - 30;
         double raftThickness = 4.7;
         int distanceBetweenRafts = 70;
@@ -150,12 +150,12 @@ public class CarportCalculator {
         }
     }
 
-    private void CalcWaterBoard() { // Give better name
-        CalcRoofWaterBoardWidth();
-        CalcRoofWaterBoardLength();
+    private void calcWaterBoard() { // Give better name
+        calcRoofWaterBoardWidth();
+        calcRoofWaterBoardLength();
     }
 
-    public void CalcRoofWaterBoardWidth() {
+    public void calcRoofWaterBoardWidth() {
         double thincknessOfWaterBoard = 1.9 * 2;
         for (double width = WIDTH + thincknessOfWaterBoard; width > 0;) {
             int lengthOfWaterBoard;
@@ -181,7 +181,7 @@ public class CarportCalculator {
         }
     }
 
-    public void CalcRoofWaterBoardLength() {
+    public void calcRoofWaterBoardLength() {
         double thincknessOfWaterBoard = 1.9 * 2;
         for (double length = LENGTH + thincknessOfWaterBoard; length > 0;) {
             int lengthOfWaterBoard;
@@ -207,11 +207,11 @@ public class CarportCalculator {
         }
     }
 
-    private void CalcRoof() {
-        CalcRoofLength(CalcRoofWidth());
+    private void calcRoof() {
+        calcRoofLength(calcRoofWidth());
     }
 
-    public void CalcRoofLength(int width) {
+    public void calcRoofLength(int width) {
         int lengthOfOverlap = 15;
         for (int length = LENGTH; length > 0;) {
             int lengthOfTrapez;
@@ -239,7 +239,7 @@ public class CarportCalculator {
         }
     }
 
-    public int CalcRoofWidth() {
+    public int calcRoofWidth() {
         int widthOfOverlap = 10;
         int widthOfTrapez = 109;
         int count = 0;
@@ -250,7 +250,7 @@ public class CarportCalculator {
         return count;
     }
 
-    private void CalcCladding() { // only shed or whole carport
+    private void calcCladding() { // only shed or whole carport
 
     }
 }
