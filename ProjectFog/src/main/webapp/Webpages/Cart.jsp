@@ -29,26 +29,27 @@
                             <div class="card-body">
                                 <input type="hidden" name="command" value="Cart">
                                 <table border="1" cellpadding='20' width='100%'>
+                                        <h1>Prodoukter:</h1>
                                     <tr>
-                                        <th width="100%" colspan="2" valign='top'>
+                                        <th width='50%'>
+                                            
+                                        </th>
+                                        <th width='25%'>
                                             <label>
-                                                <th>
-                                                <label>
-                                                    <p>Pris: <%= totalPrice%></p>
-                                                </label>
-                                                </th>
-                                                <th>
-                                                <label>
-                                                    <p>Moms udgør: <%= tax%></p>
-                                                </label>
-                                                </th>
+                                                <p>Pris: <%= totalPrice%></p>
                                             </label>
                                         </th>
-                                        </div>
-                                        </form>
-                                        </div>
-                                        </div>
-                                        </div>
-                                        </div>
-                                        </body>
-                                        </html>
+                                        <th width='25%'>
+                                            <label>
+                                                <p>Moms udgør: <%= tax%></p>
+                                            </label>
+                                        </th>
+                                    </tr>
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
