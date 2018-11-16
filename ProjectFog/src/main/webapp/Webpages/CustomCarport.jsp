@@ -22,7 +22,7 @@
                         </div>
                         <div class="card-body">
                             <input type="hidden" name="command" value="ProductReview">
-                            <table>
+                            <table border="1">
                                 <tr>
                                     <th width="100%">
                                         <label>
@@ -31,12 +31,10 @@
                                                 <p>Længde:</p>
                                                 <input type="number" class="form-control" name="carportLength" placeholder="Cm" min="240" max="780" required>
                                             </label>
-                                            <br>
                                             <label>
                                                 <p>Bredde:</p>
                                                 <input type="number" class="form-control" name="carportWidth" placeholder="Cm" min="240" max="750" required>
                                             </label>
-                                            <br>
                                             <label>
                                                 <p>Højde:</p>
                                                 <input type="number" class="form-control" name="carportHeight" placeholder="Cm" min="200" max="250" required>
@@ -69,7 +67,6 @@
                                                 <p>Længde:</p>
                                                 <input type="number" class="form-control" name="shedLength" placeholder="Cm" min="210" max="750">
                                             </label>
-                                            <br>
                                             <label>
                                                 <p>Bredde:</p>
                                                 <input type="number" class="form-control" name="shedWidth" placeholder="Cm" min="210" max="720">
