@@ -18,6 +18,7 @@ public abstract class CommandController {
         commands = new HashMap<>();
         commands.put("CustomCarport", new CustomCarportCommand());
         commands.put("ProductReview", new ProductReviewCommand());
+        commands.put("Cart", new ProductReviewCommand());
     }
 
     static Command from(HttpServletRequest request) {
