@@ -58,10 +58,9 @@ public class CarportCalculator {
         poles += calcPolesBack();
 
         for (int i = 0; i < poles; i++) {
-            String type = null, material = null, size = null;
+            String type = "Stolpe", material = "Trykimp Fyr", size = "97x97 " + calcHeight + "cm";
             Part part = DatabaseFacade.getPart(type, material, size);
             parts.add(part);
-            //parts.add("Pole, length: " + calcHeight);
         }
     }
 
@@ -112,10 +111,9 @@ public class CarportCalculator {
                 lengthOfRaft = 300;
             }
             for (int i = 0; i < 2; i++) {
-                String type = null, material = null, size = null;
+                String type = "Spær", material = "Ubh. Fyr", size = "47x200mm " + lengthOfRaft + "cm";
                 Part part = DatabaseFacade.getPart(type, material, size);
                 parts.add(part);
-                //parts.add("Raft, length: " + lengthOfRaft);
             }
             width -= lengthOfRaft;
         }
@@ -142,10 +140,9 @@ public class CarportCalculator {
                 lengthOfRaft = 300;
             }
             for (int i = 0; i < 2; i++) {
-                String type = null, material = null, size = null;
+                String type = "Spær", material = "Ubh. Fyr", size = "47x200mm " + lengthOfRaft + "cm";
                 Part part = DatabaseFacade.getPart(type, material, size);
                 parts.add(part);
-                //parts.add("Raft, length: " + lengthOfRaft);
             }
             length -= lengthOfRaft;
         }
@@ -157,10 +154,9 @@ public class CarportCalculator {
         int distanceBetweenRafts = 70;
         for (double distance = 0; distance < calcLength;) {
             distance += raftThickness + distanceBetweenRafts;
-            String type = null, material = null, size = null;
+            String type = "Spær", material = "Ubh. Fyr", size = "47x200mm " + calcLength + "cm";
             Part part = DatabaseFacade.getPart(type, material, size);
             parts.add(part);
-            //parts.add("Middle Raft, length: " + WIDTH);
         }
     }
 
@@ -189,10 +185,9 @@ public class CarportCalculator {
                 lengthOfWaterBoard = 180;
             }
             for (int i = 0; i < 2; i++) {
-                String type = null, material = null, size = null;
+                String type = "Vandbrædt", material = "Trykimp Fyr", size = "19x100mm " + lengthOfWaterBoard + "cm";
                 Part part = DatabaseFacade.getPart(type, material, size);
                 parts.add(part);
-                //parts.add("WaterBoard, length: " + lengthOfWaterBoard);
             }
             width -= lengthOfWaterBoard;
         }
@@ -218,10 +213,9 @@ public class CarportCalculator {
                 lengthOfWaterBoard = 180;
             }
             for (int i = 0; i < 2; i++) {
-                String type = null, material = null, size = null;
+                String type = "Vandbrædt", material = "Trykimp Fyr", size = "19x100mm " + lengthOfWaterBoard + "cm";
                 Part part = DatabaseFacade.getPart(type, material, size);
                 parts.add(part);
-                //parts.add("Raft, length: " + lengthOfWaterBoard);
             }
             length -= lengthOfWaterBoard;
         }
@@ -249,10 +243,9 @@ public class CarportCalculator {
                 lengthOfTrapez = 240;
             }
             for (int i = 0; i < width; i++) {
-                String type = null, material = null, size = null;
+                String type = "Trapezplade", material = "PVC", size = "109x" + lengthOfTrapez + "cm";
                 Part part = DatabaseFacade.getPart(type, material, size);
                 parts.add(part);
-                //parts.add("Trapez, length: " + lengthOfTrapez);
             }
             if (length == lengthOfTrapez) {
                 length -= lengthOfTrapez;
