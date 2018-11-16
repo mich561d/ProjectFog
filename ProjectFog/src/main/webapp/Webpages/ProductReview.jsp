@@ -66,7 +66,7 @@
                                     </th>
                                 <div class="card-footer">
                                     <input type="submit" class="btn btn-secondary" name="back" value="Tilbage">
-                                    <input type="submit" class="btn btn-primary" name="Cart" value="Tilføg til kurv">
+                                    <input type="submit" class="btn btn-primary" name="Cart" value="Tilføj til kurv">
                                 </div>
                         </div>
                     </form>
