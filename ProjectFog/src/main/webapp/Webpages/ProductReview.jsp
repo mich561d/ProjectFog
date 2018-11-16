@@ -28,7 +28,7 @@
                             <h3>Gennemgå din carport.</h3>
                         </div>
                         <div class="card-body">
-                            <input type="hidden" name="command" value="ProductReview">
+                            <input type="hidden" name="command" value="Cart">
                             <table border="1" cellpadding='20' width='100%'>
                                 <tr>
                                     <th width="50%" colspan="2" valign='top'>
