@@ -23,8 +23,8 @@ CREATE TABLE IF NOT EXISTS `ProjectFogDatabase`.`part` (
   `material` VARCHAR(45) NOT NULL,
   `size` VARCHAR(45) NOT NULL,
   `description` VARCHAR(200) NOT NULL,
-  `price` INT NOT NULL,
-  `brand` VARCHAR(45) NOT NULL,
+  `price` DOUBLE NOT NULL,
+  `brand` VARCHAR(45) NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 

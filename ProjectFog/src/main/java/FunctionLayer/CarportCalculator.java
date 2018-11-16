@@ -60,9 +60,9 @@ public class CarportCalculator {
         int poles = 0;
         poles += calcPolesSides();
         poles += calcPolesBack();
-
+        // TODO: Fix bug 200+90 = 290 not in database
         for (int i = 0; i < poles; i++) {
-            String type = "Stolpe", material = "Trykimp Fyr", size = "97x97 " + calcHeight + "cm";
+            String type = "Stolpe", material = "Trykimp Fyr", size = "97x97mm " + calcHeight + "cm";
             Part part = DatabaseFacade.getPart(type, material, size);
             parts.add(part);
         }

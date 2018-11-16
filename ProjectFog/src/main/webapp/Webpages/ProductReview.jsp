@@ -53,8 +53,13 @@
                                             <h3>Stykliste</h3>
                                             <label>
                                                 <% for (int i = 0; i < products.size(); i++) {
-                                                        Part partOfProduct = products.get(i);
-                                                        out.println(partOfProduct + "<br>");
+                                                        Part part = products.get(i);
+                                                        if (part == null) {
+                                                            out.println(part + "<br>");
+                                                        } else {
+                                                            String line = part.getType() + " " + part.getMaterial() + " " + part.getSize();
+                                                            out.println(line + "<br>");
+                                                        }
                                                     }%>
                                             </label>
                                         </label>
