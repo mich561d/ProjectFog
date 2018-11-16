@@ -64,7 +64,7 @@ public class CarportCalculatorTest {
     }
 
     @Test
-    public void CalcCarportRoofWidth() {
+    public void CalcCarportRoofWidth() throws FogException {
         CarportCalculator CC = new CarportCalculator(210, 310, 270);
         CC.calcRoofRafterWidth();
         assertEquals(2, CC.getProductList().size());
@@ -97,7 +97,7 @@ public class CarportCalculatorTest {
     }
 
     @Test
-    public void CalcCarportRoofMiddleRafts() {
+    public void CalcCarportRoofMiddleRafts() throws FogException {
         CarportCalculator CC = new CarportCalculator(210, 310, 270);
         CC.calcRoofRafterMiddle();
         assertEquals(4, CC.getProductList().size());
@@ -118,33 +118,33 @@ public class CarportCalculatorTest {
         CC.calcRoofRafterMiddle();
         assertEquals(134, CC.getProductList().size());
     }
-    
+
     @Test
-    public void CalcCarportWaterBoard() {
+    public void CalcCarportWaterBoard() throws FogException {
         CarportCalculator CC = new CarportCalculator(210, 310, 270);
         CC.calcRoofWaterBoardWidth();
         assertEquals(4, CC.getProductList().size());
         CC.calcRoofWaterBoardLength();
         assertEquals(8, CC.getProductList().size());
-        
+
         CC = new CarportCalculator(210, 360, 310);
         CC.calcRoofWaterBoardWidth();
         assertEquals(4, CC.getProductList().size());
         CC.calcRoofWaterBoardLength();
         assertEquals(8, CC.getProductList().size());
-        
+
         CC = new CarportCalculator(210, 420, 360);
         CC.calcRoofWaterBoardWidth();
         assertEquals(4, CC.getProductList().size());
         CC.calcRoofWaterBoardLength();
         assertEquals(8, CC.getProductList().size());
-        
+
         CC = new CarportCalculator(210, 640, 420);
         CC.calcRoofWaterBoardWidth();
         assertEquals(4, CC.getProductList().size());
         CC.calcRoofWaterBoardLength();
         assertEquals(10, CC.getProductList().size());
-        
+
         CC = new CarportCalculator(210, 10000, 8000);
         CC.calcRoofWaterBoardWidth();
         assertEquals(40, CC.getProductList().size());
@@ -153,7 +153,7 @@ public class CarportCalculatorTest {
     }
 
     @Test
-    public void CalcCarportRoof() {
+    public void CalcCarportRoof() throws FogException, FogException {
         CarportCalculator CC = new CarportCalculator(210, 310, 270);
         CC.calcRoofLength(CC.calcRoofWidth());
         assertEquals(6, CC.getProductList().size());
@@ -177,23 +177,23 @@ public class CarportCalculatorTest {
     }
 
     @Test
-    public void CompleteCarportTest() {
+    public void CompleteCarportTest() throws FogException {
         CarportCalculator CC = new CarportCalculator(210, 310, 270);
         CC.calcCarport();
         assertEquals(28, CC.getProductList().size());
-        
+
         CC = new CarportCalculator(210, 360, 310);
         CC.calcCarport();
         assertEquals(29, CC.getProductList().size());
-        
+
         CC = new CarportCalculator(210, 420, 360);
         CC.calcCarport();
         assertEquals(29, CC.getProductList().size());
-        
+
         CC = new CarportCalculator(210, 640, 420);
         CC.calcCarport();
         assertEquals(44, CC.getProductList().size());
-        
+
         CC = new CarportCalculator(210, 10000, 8000);
         CC.calcCarport();
         assertEquals(1832, CC.getProductList().size());

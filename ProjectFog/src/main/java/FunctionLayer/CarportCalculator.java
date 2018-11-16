@@ -1,5 +1,7 @@
 package FunctionLayer;
 
+import DatabaseLayer.DatabaseFacade;
+import FunctionLayer.Entities.Part;
 import java.util.ArrayList;
 
 /**
@@ -10,31 +12,31 @@ public class CarportCalculator {
 
     // Data
     private final int HEIGHT, LENGTH, WIDTH;
-    private ArrayList<String> products;
+    private ArrayList<Part> parts;
 
     // Constructor
     public CarportCalculator(int HEIGHT, int LENGTH, int WIDTH) {
         this.HEIGHT = HEIGHT;
         this.LENGTH = LENGTH;
         this.WIDTH = WIDTH;
-        this.products = new ArrayList();
+        this.parts = new ArrayList();
     }
 
     // Calc price
     private double calcTotalPrice() {
         double totalPrice = 0.0;
-        for (int i = 0; i < products.size(); i++) {
-            totalPrice += 873;//products.get(i).getPrice; ect...
+        for (Part part : parts) {
+            totalPrice += part.getPrice();
         }
         return totalPrice;
     }
 
-    public ArrayList<String> getProductList() {
-        return products;
+    public ArrayList<Part> getProductList() {
+        return parts;
     }
 
     // Calc  method:
-    public double calcCarport() {
+    public double calcCarport() throws FogException {
         // Calc hjørne stolper
         calcPoles();
         // Calc tag spær
@@ -49,14 +51,17 @@ public class CarportCalculator {
         return calcTotalPrice();
     }
 
-    private void calcPoles() {
+    private void calcPoles() throws FogException {
         int calcHeight = HEIGHT + 90; // height to be calc'ed
         int poles = 0;
         poles += calcPolesSides();
         poles += calcPolesBack();
 
         for (int i = 0; i < poles; i++) {
-            products.add("Pole, length: " + calcHeight);
+            String type = null, material = null, size = null;
+            Part part = DatabaseFacade.getPart(type, material, size);
+            parts.add(part);
+            //parts.add("Pole, length: " + calcHeight);
         }
     }
 
@@ -80,13 +85,13 @@ public class CarportCalculator {
         return poles;
     }
 
-    private void calcRoofRafter() {
+    private void calcRoofRafter() throws FogException {
         calcRoofRafterWidth();
         calcRoofRafterLength();
         calcRoofRafterMiddle();
     }
 
-    public void calcRoofRafterWidth() {
+    public void calcRoofRafterWidth() throws FogException {
         for (int width = WIDTH; width > 0;) {
             int lengthOfRaft;
             if (width >= 720) {
@@ -107,13 +112,16 @@ public class CarportCalculator {
                 lengthOfRaft = 300;
             }
             for (int i = 0; i < 2; i++) {
-                products.add("Raft, length: " + lengthOfRaft);
+                String type = null, material = null, size = null;
+                Part part = DatabaseFacade.getPart(type, material, size);
+                parts.add(part);
+                //parts.add("Raft, length: " + lengthOfRaft);
             }
             width -= lengthOfRaft;
         }
     }
 
-    public void calcRoofRafterLength() {
+    public void calcRoofRafterLength() throws FogException {
         for (int length = LENGTH; length > 0;) {
             int lengthOfRaft;
             if (length >= 720) {
@@ -134,28 +142,34 @@ public class CarportCalculator {
                 lengthOfRaft = 300;
             }
             for (int i = 0; i < 2; i++) {
-                products.add("Raft, length: " + lengthOfRaft);
+                String type = null, material = null, size = null;
+                Part part = DatabaseFacade.getPart(type, material, size);
+                parts.add(part);
+                //parts.add("Raft, length: " + lengthOfRaft);
             }
             length -= lengthOfRaft;
         }
     }
 
-    public void calcRoofRafterMiddle() {
+    public void calcRoofRafterMiddle() throws FogException {
         int calcLength = LENGTH - 30;
         double raftThickness = 4.7;
         int distanceBetweenRafts = 70;
         for (double distance = 0; distance < calcLength;) {
             distance += raftThickness + distanceBetweenRafts;
-            products.add("Middle Raft, length: " + WIDTH);
+            String type = null, material = null, size = null;
+            Part part = DatabaseFacade.getPart(type, material, size);
+            parts.add(part);
+            //parts.add("Middle Raft, length: " + WIDTH);
         }
     }
 
-    private void calcWaterBoard() { // Give better name
+    private void calcWaterBoard() throws FogException { // Give better name
         calcRoofWaterBoardWidth();
         calcRoofWaterBoardLength();
     }
 
-    public void calcRoofWaterBoardWidth() {
+    public void calcRoofWaterBoardWidth() throws FogException {
         double thincknessOfWaterBoard = 1.9 * 2;
         for (double width = WIDTH + thincknessOfWaterBoard; width > 0;) {
             int lengthOfWaterBoard;
@@ -175,13 +189,16 @@ public class CarportCalculator {
                 lengthOfWaterBoard = 180;
             }
             for (int i = 0; i < 2; i++) {
-                products.add("WaterBoard, length: " + lengthOfWaterBoard);
+                String type = null, material = null, size = null;
+                Part part = DatabaseFacade.getPart(type, material, size);
+                parts.add(part);
+                //parts.add("WaterBoard, length: " + lengthOfWaterBoard);
             }
             width -= lengthOfWaterBoard;
         }
     }
 
-    public void calcRoofWaterBoardLength() {
+    public void calcRoofWaterBoardLength() throws FogException {
         double thincknessOfWaterBoard = 1.9 * 2;
         for (double length = LENGTH + thincknessOfWaterBoard; length > 0;) {
             int lengthOfWaterBoard;
@@ -201,17 +218,20 @@ public class CarportCalculator {
                 lengthOfWaterBoard = 180;
             }
             for (int i = 0; i < 2; i++) {
-                products.add("Raft, length: " + lengthOfWaterBoard);
+                String type = null, material = null, size = null;
+                Part part = DatabaseFacade.getPart(type, material, size);
+                parts.add(part);
+                //parts.add("Raft, length: " + lengthOfWaterBoard);
             }
             length -= lengthOfWaterBoard;
         }
     }
 
-    private void calcRoof() {
+    private void calcRoof() throws FogException {
         calcRoofLength(calcRoofWidth());
     }
 
-    public void calcRoofLength(int width) {
+    public void calcRoofLength(int width) throws FogException {
         int lengthOfOverlap = 15;
         for (int length = LENGTH; length > 0;) {
             int lengthOfTrapez;
@@ -229,7 +249,10 @@ public class CarportCalculator {
                 lengthOfTrapez = 240;
             }
             for (int i = 0; i < width; i++) {
-                products.add("Trapez, length: " + lengthOfTrapez);
+                String type = null, material = null, size = null;
+                Part part = DatabaseFacade.getPart(type, material, size);
+                parts.add(part);
+                //parts.add("Trapez, length: " + lengthOfTrapez);
             }
             if (length == lengthOfTrapez) {
                 length -= lengthOfTrapez;
