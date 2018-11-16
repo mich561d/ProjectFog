@@ -5,6 +5,7 @@
 --%>
 
 <%@page import="java.util.ArrayList"%>
+<%@page import="FunctionLayer.Entities.Part"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -16,7 +17,7 @@
             double totalPrice = (double) request.getSession().getAttribute("ProductPrice");
             double price = totalPrice / 100 * 75;
             double tax = totalPrice - price;
-            ArrayList<String> products = (ArrayList<String>) request.getSession().getAttribute("ProductList");
+            ArrayList<Part> products = (ArrayList<Part>) request.getSession().getAttribute("ProductList");
         %>
     </head>
     <body>
@@ -52,7 +53,7 @@
                                             <h3>Stykliste</h3>
                                             <label>
                                                 <% for (int i = 0; i < products.size(); i++) {
-                                                        String partOfProduct = products.get(i);
+                                                        Part partOfProduct = products.get(i);
                                                         out.println(partOfProduct + "<br>");
                                                     }%>
                                             </label>

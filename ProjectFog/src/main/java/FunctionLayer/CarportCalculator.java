@@ -26,7 +26,11 @@ public class CarportCalculator {
     private double calcTotalPrice() {
         double totalPrice = 0.0;
         for (Part part : parts) {
+            try {
             totalPrice += part.getPrice();
+            } catch (NullPointerException e) {
+                totalPrice += 0.0001;
+            }
         }
         return totalPrice;
     }

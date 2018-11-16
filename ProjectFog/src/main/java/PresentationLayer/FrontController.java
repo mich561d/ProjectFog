@@ -32,10 +32,10 @@ public class FrontController extends HttpServlet {
             request.getRequestDispatcher("/Webpages/" + view + ".jsp").forward(request, response);
         } catch (FogException ex) {
             request.getSession().setAttribute("error", ex.getMessage());
-            request.getRequestDispatcher("/WEB-INF/error.jsp").forward(request, response);
+            request.getRequestDispatcher("/Webpages/error.jsp").forward(request, response);
         } catch (IOException | ServletException ex) {
-            request.getSession().setAttribute("error", "Something went wrong. Please try again");
-            request.getRequestDispatcher("/WEB-INF/error.jsp").forward(request, response);
+            request.getSession().setAttribute("error", ex.getMessage());
+            request.getRequestDispatcher("/Webpages/error.jsp").forward(request, response);
         }
     }
 
