@@ -22,9 +22,9 @@
                         </div>
                         <div class="card-body">
                             <input type="hidden" name="command" value="ProductReview">
-                            <table border="1">
+                            <table border="1" cellpadding='20'>
                                 <tr>
-                                    <th width="100%">
+                                    <th width="100%" colspan="2">
                                         <label>
                                             <h3>Carport</h3>
                                             <label>
@@ -43,24 +43,25 @@
                                     </th>
                                 </tr>
                                 <tr>
-                                    <th>
+                                    <th width="50%" valign='top'>
                                         <label>
                                             <h3>Tag</h3>
                                             <label class="form-control">
-                                                <p>Tag:</p>
+                                                <p>Tag med Rejsning:</p>
                                                 <input type="checkbox" name="angledRoof">
                                             </label>
                                             <label>
                                                 <p>Rejsning:</p>
                                                 <input type="number" class="form-control" name="roofAngle" placeholder="Grader" min="0" max="75">
                                             </label>
+                                            <p> *Hvis de ikke ønsker rejsning vil deres carport blive leveret med Trapezplade tag </p>
                                         </label>
                                     </th>
-                                    <th>
+                                    <th width="50%" valign='top'>
                                         <label>
                                             <h3>Skur</h3>
                                             <label class="form-control">
-                                                <p>Skur:</p>
+                                                <p>Tilvælg Skur:</p>
                                                 <input type="checkbox" name="shed">
                                             </label>
                                             <label>
@@ -71,6 +72,7 @@
                                                 <p>Bredde:</p>
                                                 <input type="number" class="form-control" name="shedWidth" placeholder="Cm" min="210" max="720">
                                             </label>
+                                            <p> *Hvis de ønsker et skur, vil det blive integreret i deres carport. De skal derfor øge længden af deres carport tilsvarende skurets længde.
                                         </label>
                                     </th>
                                 </tr>
