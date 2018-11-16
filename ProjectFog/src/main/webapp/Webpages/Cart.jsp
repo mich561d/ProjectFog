@@ -24,12 +24,12 @@
                     <form name="Product" action="FrontController" method="POST">
                         <div class="card-header">
                             <div class="card-header">
-                                <h3>Indkøbskurv.</h3>
+                                <h3>Indkøbskurv</h3>
                             </div>
                             <div class="card-body">
                                 <input type="hidden" name="command" value="Cart">
                                 <table border="1" cellpadding='20' width='100%'>
-                                        <h1>Prodoukter:</h1>
+                                        <h1>Produkter:</h1>
                                     <tr>
                                         <th width='50%'>
                                             
