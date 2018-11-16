@@ -17,8 +17,11 @@ public class ProductReviewCommand implements Command{
     public String execute(HttpServletRequest request, HttpServletResponse response) throws FogException {
         // Get meassurements
         int length = Integer.parseInt(request.getParameter("carportLength"));
+        request.getSession().setAttribute("CarportLength", length);
         int width = Integer.parseInt(request.getParameter("carportWidth"));
+        request.getSession().setAttribute("CarportWidth", width);
         int height = Integer.parseInt(request.getParameter("carportHeight"));
+        request.getSession().setAttribute("CarportHeight", height);
         // Calc Price
         request.getSession().setAttribute("ProductPrice", LogicFacade.CalculateCustomCarportPrice(length, width, height));
         // Get productlist

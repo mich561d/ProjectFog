@@ -8,17 +8,16 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Christian
+ * @author Christian & Michael
  */
 public class CartCommand implements Command {
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws FogException {
         if (request.getSession().getAttribute("ProductPrice") == null) {
-            int length = Integer.parseInt(request.getParameter("carportLength"));
-            int width = Integer.parseInt(request.getParameter("carportWidth"));
-            int height = Integer.parseInt(request.getParameter("carportHeight"));
-
+            int length = Integer.parseInt(request.getSession().getAttribute("CarportLength").toString());
+            int width = Integer.parseInt(request.getSession().getAttribute("CarportWidth").toString());
+            int height = Integer.parseInt(request.getSession().getAttribute("CarportHeight").toString());
             request.getSession().setAttribute("ProductPrice", LogicFacade.CalculateCustomCarportPrice(length, width, height));
         }
         return "Cart";
