@@ -36,3 +36,8 @@ VALUES ('Brædt', 'Trykimp Fyr', '25x200mm 300cm', 'Tryk impreneret brædt', '14
 ('Stolpe', 'Trykimp Fyr', '97x97mm 360cm', 'Tryk impreneret Stolpe af fyr', '136.63', 'FOG'),
 ('Stolpe', 'Trykimp Fyr', '97x97mm 420cm', 'Tryk impreneret Stolpe af fyr', '159.39', 'FOG');
 
+INSERT INTO `part` (`type`, `material`, `size`, `description`, `price`, `brand`) 
+VALUES ('Firkant Skive', 'Stål', '40x40x10', 'Firkant Skiver', 'til montering på bræddebolt. 50stk pr. pakke.', '279', 'VFZ'),
+('Bundskruer', 'Stål', '-', 'Bundskruer til montering af trapezplader. 200stk pr. pakke.', '399', 'Plastmo'),
+('Basic skrue', 'Stål', '-', 'Basic skrue til udendørs brug. 200stk pr. pakke.', '73,95', 'NKT'),
+('Bræddebolt', 'Stål', '-', 'Bræddebolt til montering af spær. husk firkant skiver. 25stk pr. pakke.', '269', 'NKT');
