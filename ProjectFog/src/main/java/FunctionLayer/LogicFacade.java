@@ -18,8 +18,16 @@ public class LogicFacade {
         CC.calcCarport();
         return CC.getProductList();
     }
-    
+
     public static String getDrawingFromAbove(int length, int width) {
         return UtilCarportDrawing.drawSchematicViewFromAbove(length, width);
+    }
+
+    public static String getDrawingFromAside(int length, int height) {
+        return UtilCarportDrawing.drawSchematicViewFromAside(length, height);
+    }
+
+    public static String getDrawingFromFront(int width, int height) {
+        return UtilCarportDrawing.drawSchematicViewFromFront(width, height);
     }
 }

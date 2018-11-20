@@ -78,9 +78,11 @@
                 <div class="col-lg-6">
                     <h3>Plantegninger af carport:</h3>
                     <h4>Oppe fra:</h4>
-                    <%= request.getSession().getAttribute("Drawing")%>
+                    <%= request.getSession().getAttribute("DrawingAbove")%>
                     <h4>Fra siden:</h4>
+                    <%= request.getSession().getAttribute("DrawingAside")%>
                     <h4>Forfra:</h4>
+                    <%= request.getSession().getAttribute("DrawingFront")%>
                 </div>
             </div>
         </div>

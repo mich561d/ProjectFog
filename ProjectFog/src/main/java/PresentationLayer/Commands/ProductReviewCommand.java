@@ -25,9 +25,10 @@ public class ProductReviewCommand implements Command{
         request.getSession().setAttribute("ProductPrice", LogicFacade.calculateCustomCarportPrice(length, width, height));
         // Get productlist
         request.getSession().setAttribute("ProductList", LogicFacade.getProductListFromCalculatedCustomCarport(length, width, height));
-        // Make drawing
-        System.out.println(LogicFacade.getDrawingFromAbove(length, width));
-        request.getSession().setAttribute("Drawing", LogicFacade.getDrawingFromAbove(length, width));
+        // Make drawings
+        request.getSession().setAttribute("DrawingAbove", LogicFacade.getDrawingFromAbove(length, width));
+        request.getSession().setAttribute("DrawingAside", LogicFacade.getDrawingFromAside(length, height));
+        request.getSession().setAttribute("DrawingFront", LogicFacade.getDrawingFromFront(width, height));
         return "ProductReview";
     }
     

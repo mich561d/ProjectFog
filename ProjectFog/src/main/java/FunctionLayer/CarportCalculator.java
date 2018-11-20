@@ -27,7 +27,7 @@ public class CarportCalculator {
         double totalPrice = 0.0;
         for (Part part : parts) {
             try {
-            totalPrice += part.getPrice();
+                totalPrice += part.getPrice();
             } catch (NullPointerException e) {
                 totalPrice += 0.0001;
             }
@@ -60,10 +60,13 @@ public class CarportCalculator {
         int poles = 0;
         poles += calcPolesSides();
         poles += calcPolesBack();
-        // TODO: Fix bug 200+90 = 290 not in database
         for (int i = 0; i < poles; i++) {
             String type = "Stolpe", material = "Trykimp Fyr", size = "97x97mm " + calcHeight + "cm";
             Part part = DatabaseFacade.getPart(type, material, size);
+            while (part == null) {
+                size = "97x97mm " + ++calcHeight + "cm";
+                part = DatabaseFacade.getPart(type, material, size);
+            }
             parts.add(part);
         }
     }
@@ -160,6 +163,10 @@ public class CarportCalculator {
             distance += raftThickness + distanceBetweenRafts;
             String type = "Spær", material = "Ubh. Fyr", size = "47x200mm " + calcLength + "cm";
             Part part = DatabaseFacade.getPart(type, material, size);
+            while (part == null) {
+                size = "47x200mm " + ++calcLength + "cm";
+                part = DatabaseFacade.getPart(type, material, size);
+            }
             parts.add(part);
         }
     }

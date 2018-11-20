@@ -19,6 +19,7 @@ INSERT INTO `part` (`type`, `material`, `size`, `description`, `price`, `brand`)
 ('Spær', 'Ubh. Fyr', '47x200mm 600cm', 'Ubehandlet Spærtræ, høvlet', '299.70', 'FOG'),
 ('Spær', 'Ubh. Fyr', '47x200mm 660cm', 'Ubehandlet Spærtræ, høvlet', '329.68', 'FOG'),
 ('Spær', 'Ubh. Fyr', '47x200mm 720cm', 'Ubehandlet Spærtræ, høvlet', '359.64', 'FOG'),
+('Spær', 'Ubh. Fyr', '47x200mm 780cm', 'Ubehandlet Spærtræ, høvlet', '389.60', 'FOG'),
 ('Trapezplade', 'PVC', '109x240cm', 'blåtonet, 2 års sol og slag garanti', '79.95', 'PLASTMO'),
 ('Trapezplade', 'PVC', '109x300cm', 'blåtonet, 2 års sol og slag garanti', '99.95', 'PLASTMO'),
 ('Trapezplade', 'PVC', '109x360cm', 'blåtonet, 2 års sol og slag garanti', '119', 'PLASTMO'),
