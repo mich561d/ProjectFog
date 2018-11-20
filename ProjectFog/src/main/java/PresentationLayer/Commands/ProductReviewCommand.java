@@ -3,7 +3,6 @@ package PresentationLayer.Commands;
 import FunctionLayer.FogException;
 import FunctionLayer.LogicFacade;
 import PresentationLayer.Command;
-import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -23,9 +22,12 @@ public class ProductReviewCommand implements Command{
         int height = Integer.parseInt(request.getParameter("carportHeight"));
         request.getSession().setAttribute("CarportHeight", height);
         // Calc Price
-        request.getSession().setAttribute("ProductPrice", LogicFacade.CalculateCustomCarportPrice(length, width, height));
+        request.getSession().setAttribute("ProductPrice", LogicFacade.calculateCustomCarportPrice(length, width, height));
         // Get productlist
-        request.getSession().setAttribute("ProductList", LogicFacade.GetProductListFromCalculatedCustomCarport(length, width, height));
+        request.getSession().setAttribute("ProductList", LogicFacade.getProductListFromCalculatedCustomCarport(length, width, height));
+        // Make drawing
+        System.out.println(LogicFacade.getDrawingFromAbove(length, width));
+        request.getSession().setAttribute("Drawing", LogicFacade.getDrawingFromAbove(length, width));
         return "ProductReview";
     }
     

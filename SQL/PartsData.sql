@@ -1,5 +1,5 @@
-INSERT INTO `part` (`type`, `material`, `size`, `description`, `price`, `brand`) 
-VALUES ('Brædt', 'Trykimp Fyr', '25x200mm 300cm', 'Tryk impreneret brædt', '149.85', 'FOG'),
+INSERT INTO `part` (`type`, `material`, `size`, `description`, `price`, `brand`) VALUES 
+('Brædt', 'Trykimp Fyr', '25x200mm 300cm', 'Tryk impreneret brædt', '149.85', 'FOG'),
 ('Brædt', 'Trykimp Fyr', '25x200mm 360cm', 'Tryk impreneret brædt', '179.83', 'FOG'),
 ('Brædt', 'Trykimp Fyr', '25x200mm 420cm', 'Tryk impreneret brædt', '209.79', 'FOG'),
 ('Brædt', 'Trykimp Fyr', '25x200mm 480cm', 'Tryk impreneret brædt', '239.76', 'FOG'),
@@ -36,8 +36,8 @@ VALUES ('Brædt', 'Trykimp Fyr', '25x200mm 300cm', 'Tryk impreneret brædt', '14
 ('Stolpe', 'Trykimp Fyr', '97x97mm 360cm', 'Tryk impreneret Stolpe af fyr', '136.63', 'FOG'),
 ('Stolpe', 'Trykimp Fyr', '97x97mm 420cm', 'Tryk impreneret Stolpe af fyr', '159.39', 'FOG');
 
-INSERT INTO `part` (`type`, `material`, `size`, `description`, `price`, `brand`) 
-VALUES ('Firkant Skive', 'Stål', '40x40x10', 'Firkant Skiver', 'til montering på bræddebolt. 50stk pr. pakke.', '279', 'VFZ'),
-('Bundskruer', 'Stål', '-', 'Bundskruer til montering af trapezplader. 200stk pr. pakke.', '399', 'Plastmo'),
-('Basic skrue', 'Stål', '-', 'Basic skrue til udendørs brug. 200stk pr. pakke.', '73,95', 'NKT'),
-('Bræddebolt', 'Stål', '-', 'Bræddebolt til montering af spær. husk firkant skiver. 25stk pr. pakke.', '269', 'NKT');
+INSERT INTO `part` (`type`, `material`, `size`, `description`, `price`, `brand`) VALUES 
+('Firkant Skive', 'Stål', '40x40x10mm', 'Firkant Skiver til montering på bræddebolt. 50stk pr. pakke.', '279.00', 'VFZ'),
+('Bundskruer', 'Stål', '-', 'Bundskruer til montering af trapezplader. 200stk pr. pakke.', '399.00', 'Plastmo'),
+('Basic skrue', 'Stål', '4.5x60mm', 'Basic skrue til udendørs brug. 200stk pr. pakke.', '73.95', 'NKT'),
+('Bræddebolt', 'Stål', '10x20mm', 'Bræddebolt til montering af spær. husk firkant skiver. 25stk pr. pakke.', '269.00', 'NKT');
