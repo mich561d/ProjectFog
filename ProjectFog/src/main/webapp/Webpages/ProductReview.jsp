@@ -4,6 +4,7 @@
     Author     : Michael & Christian
 --%>
 
+<%@page import="java.text.DecimalFormat"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="FunctionLayer.Entities.Part"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -14,9 +15,13 @@
         <title>Produkt Opsumering</title>
         <%@include file="/WEB-INF/Imports/StyleImporter.jsp" %>
         <%
+            DecimalFormat df = new DecimalFormat(".##");
             double totalPrice = (double) request.getSession().getAttribute("ProductPrice");
             double price = totalPrice / 100 * 75;
             double tax = totalPrice - price;
+            String formattedTotalPrice = df.format(totalPrice);
+            String formattedPrice = df.format(price);
+            String formattedTax = df.format(tax);
             ArrayList<Part> products = (ArrayList<Part>) request.getSession().getAttribute("ProductList");
         %>
     </head>
@@ -37,15 +42,15 @@
                                             <label>
                                                 <h3>Pris</h3>
                                                 <label>
-                                                    <p>Pris: <%= price%></p>
+                                                    <p>Pris: <%= formattedPrice%></p>
                                                 </label>
                                                 <br>
                                                 <label>
-                                                    <p>Moms: <%= tax%></p>
+                                                    <p>Moms: <%= formattedTax%></p>
                                                 </label>
                                                 <br>
                                                 <label>
-                                                    <p>Total: <%= totalPrice%></p>
+                                                    <p>Total: <%= formattedTotalPrice%></p>
                                                 </label>
                                             </label>
                                         </th>

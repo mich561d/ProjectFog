@@ -2,6 +2,7 @@ package FunctionLayer;
 
 import DatabaseLayer.DatabaseFacade;
 import FunctionLayer.Entities.Part;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 /**
@@ -26,11 +27,7 @@ public class CarportCalculator {
     private double calcTotalPrice() {
         double totalPrice = 0.0;
         for (Part part : parts) {
-            try {
-                totalPrice += part.getPrice();
-            } catch (NullPointerException e) {
-                totalPrice += 0.0001;
-            }
+            totalPrice += part.getPrice();
         }
         return totalPrice;
     }
@@ -156,15 +153,16 @@ public class CarportCalculator {
     }
 
     public void calcRoofRafterMiddle() throws FogException {
+        int calcWidth = WIDTH;
         int calcLength = LENGTH - 30;
         double raftThickness = 4.7;
         int distanceBetweenRafts = 70;
         for (double distance = 0; distance < calcLength;) {
             distance += raftThickness + distanceBetweenRafts;
-            String type = "Spær", material = "Ubh. Fyr", size = "47x200mm " + calcLength + "cm";
+            String type = "Spær", material = "Ubh. Fyr", size = "47x200mm " + calcWidth + "cm";
             Part part = DatabaseFacade.getPart(type, material, size);
             while (part == null) {
-                size = "47x200mm " + ++calcLength + "cm";
+                size = "47x200mm " + ++calcWidth + "cm";
                 part = DatabaseFacade.getPart(type, material, size);
             }
             parts.add(part);
