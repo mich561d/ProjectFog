@@ -276,6 +276,14 @@ public class CarportCalculator {
     }
 
     private void calcCladding() { // only shed or whole carport
+        
+  //Calc skruer, 4pr. brædt. 200 pr pakke.
+  
+  //calc bolte 2 pr spær 18 pr pakke.
+  
+  //Calc firkantskiver 1 pr. bolt. 25 pr. pakke.
+  
+  //calc bundskruer til trapez bredde pr. plade x hver 70cm. 200pr pakke.
 
     }
 }
