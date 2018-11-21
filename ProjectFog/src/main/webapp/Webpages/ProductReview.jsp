@@ -38,7 +38,7 @@
                                 <input type="hidden" name="command" value="Cart">
                                 <table border="1" cellpadding='20' width='100%'>
                                     <tr>
-                                        <th width="50%" colspan="2" valign='top'>
+                                        <th width="35%" colspan="2" valign='top'>
                                             <label>
                                                 <h3>Pris</h3>
                                                 <label>
@@ -54,7 +54,7 @@
                                                 </label>
                                             </label>
                                         </th>
-                                        <th width='50%' valign='top'>
+                                        <th width='65%' valign='top'>
                                             <label>
                                                 <h3>Stykliste</h3>
                                                 <label>
