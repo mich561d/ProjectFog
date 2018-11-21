@@ -47,6 +47,10 @@ public class CarportCalculator {
         calcRoof();
         // Calc beklædning
         calcCladding();
+        // Calc skruer vandbrædder
+        calcScrewsWaterBoard();
+        //Calc skruer beslag
+        calcScrewsBeslag();
 
         return calcTotalPrice();
     }
@@ -275,6 +279,27 @@ public class CarportCalculator {
     }
 
     private void calcCladding() { // only shed or whole carport
+
+    }
+
+    private void calcScrewsWaterBoard() throws FogException {
+        int plankCount = 4;
+        int screws = 0;
+        for (int i = 0; i < plankCount; i++) {
+            int length = 600;
+            double number = length / 100;
+            screws = (int) Math.ceil(number * 4);
+        }
+        int packs = (int) Math.ceil(screws / 200);
+        for (int i = 0; i < packs; i++) {
+            String type = "Basic skrue", material = "Stål", size = "4.5x60mm";
+            Part part = DatabaseFacade.getPart(type, material, size);
+            parts.add(part);
+        }
+
+    }
+
+    private void calcScrewsBeslag() {
 
     }
     //Calc skruer, 4pr. brædt pr meter. og 4 pr. universalbeslag. 200 pr pakke.
