@@ -42,3 +42,7 @@ INSERT INTO `part` (`type`, `material`, `size`, `description`, `price`, `brand`)
 ('Bundskruer', 'Stål', '-', 'Bundskruer til montering af trapezplader. 200stk pr. pakke.', '399.00', 'Plastmo'),
 ('Basic skrue', 'Stål', '4.5x60mm', 'Basic skrue til udendørs brug. 200stk pr. pakke.', '73.95', 'NKT'),
 ('Bræddebolt', 'Stål', '10x20mm', 'Bræddebolt til montering af spær. husk firkant skiver. 25stk pr. pakke.', '269.00', 'NKT');
+
+INSERT INTO `part` (`type`, `material`, `size`, `description`, `price`, `brand`) VALUES
+('Basic beslag, Højre', 'Stål', '190mm', 'Vinkel beslag, til montering af spær', '43.95', 'Paslode'),
+('Basic beslag, Venstre', 'Stål', '190mm', 'Vinkel beslag, til montering af spær', '43.95', 'Paslode');
