@@ -19,6 +19,7 @@
                 <img src="Assets/FOGLogo.jpg" alt="Umage betaler sig!" height="150" width="150"/>
             </div>
         </div>
+        <br>
         <div class="container">
             <div class="row">
                 <div class="col-lg-9 border border-primary">
