@@ -299,8 +299,23 @@ public class CarportCalculator {
 
     }
 
-    private void calcScrewsBeslag() {
-
+    private void calcScrewsBeslag() throws FogException {
+        int rafterCount = 10;
+        int beslag = 0;
+        for (int i = 0; i < rafterCount; i++) {
+            beslag += 4;
+        }
+        for (int i = 0; i < beslag; i++) {
+            String type = "basic beslag", material = "Stål", size = "190mm";
+            Part part = DatabaseFacade.getPart(type, material, size);
+            parts.add(part);
+        }
+        int packsOfScrews = (int) Math.ceil((beslag * 8) / 200);
+        for (int i = 0; i < packsOfScrews; i++) {
+            String type = "Basic skrue", material = "Stål", size = "4.5x60mm";
+            Part part = DatabaseFacade.getPart(type, material, size);
+            parts.add(part);
+        }
     }
     //Calc skruer, 4pr. brædt pr meter. og 4 pr. universalbeslag. 200 pr pakke.
     //calc bolte 2 pr spær 18 pr pakke.
