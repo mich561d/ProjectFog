@@ -276,10 +276,10 @@ public class CarportCalculator {
 
     private void calcCladding() { // only shed or whole carport
 
-        //Calc skruer, 4pr. brædt. og 4 pr. universalbeslag. 200 pr pakke.
+        //Calc skruer, 4pr. brædt pr meter. og 4 pr. universalbeslag. 200 pr pakke.
         //calc bolte 2 pr spær 18 pr pakke.
         //Calc firkantskiver 1 pr. bolt. 25 pr. pakke.
-        //calc bundskruer til trapez bredde pr. plade x hver 70cm. 200pr pakke.
+        //calc bundskruer til trapez 12 pr. bredde pr. plade x hver 70cm. 200pr pakke.
         //PASLODE UNIVERSALBESLAG, HØJRE 190 mm 2 pr. spær. pris 43.95 pr stk.
         //PASLODE UNIVERSALBESLAG, VENSTRE 190mm 2 pr. spær pris 43.95 pr stk.
     }
