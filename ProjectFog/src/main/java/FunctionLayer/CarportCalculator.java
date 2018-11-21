@@ -306,7 +306,7 @@ public class CarportCalculator {
             beslag += 4;
         }
         for (int i = 0; i < beslag; i++) {
-            String type = "basic beslag", material = "Stål", size = "190mm";
+            String type = "Basic beslag", material = "Stål", size = "190mm";
             Part part = DatabaseFacade.getPart(type, material, size);
             parts.add(part);
         }
