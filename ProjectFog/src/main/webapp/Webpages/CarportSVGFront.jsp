@@ -29,5 +29,8 @@
         <rect x="675" y="65" height="10" width="1.9" stroke="black" style="fill:white"/>
         <!--vandbrædder front og bagende-->
         <rect x="25" y="65" height="10" width="650" stroke="black" style="fill:white"/>
+        <!--Krydsmål linjer-->
+        <line x1="25" y1="90" x2="677" Y2="290" stroke-dasharray="10, 10" style="stroke:rgb(255,0,0);stroke-width:2"/>
+        <line x1="677" y1="90" x2="25" Y2="290" stroke-dasharray="10, 10" style="stroke:rgb(255,0,0);stroke-width:2"/>
     </body>
 </html>
