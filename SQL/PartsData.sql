@@ -44,5 +44,4 @@ INSERT INTO `part` (`type`, `material`, `size`, `description`, `price`, `brand`)
 ('Bræddebolt', 'Stål', '10x20mm', 'Bræddebolt til montering af spær. husk firkant skiver. 25stk pr. pakke.', '269.00', 'NKT');
 
 INSERT INTO `part` (`type`, `material`, `size`, `description`, `price`, `brand`) VALUES
-('Basic beslag, Højre', 'Stål', '190mm', 'Vinkel beslag, til montering af spær', '43.95', 'Paslode'),
-('Basic beslag, Venstre', 'Stål', '190mm', 'Vinkel beslag, til montering af spær', '43.95', 'Paslode');
+('Basic beslag', 'Stål', '190mm', 'Vinkel beslag, til montering af spær', '43.95', 'Paslode');
