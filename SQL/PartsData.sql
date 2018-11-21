@@ -50,4 +50,5 @@ INSERT INTO `part` (`type`, `material`, `size`, `description`, `price`, `brand`)
 INSERT INTO `part` (`type`, `material`, `size`, `description`, `price`, `brand`) VALUES
 ('Vingetagsten', 'Tegl', '100x100cm', 'Tagsten kvadratmeter', '156.69', 'Dantegl'),
 ('Sort højglas', 'Tegl', '100x100cm', 'Tagsten kvadratmeter', '222.58', 'Dantegl'),
-('Tagpap', 'Krydsfiner med tagpap', '100x100cm', 'tagpap pr. kvadradtmeter', '98', 'Adeso');
+('Tagpap', 'Krydsfiner med tagpap', '100x100cm', 'tagpap pr. kvadradtmeter', '98', 'Adeso'),
+('Monterings skrue', 'Stål', '7.5x112mm', 'Elforzinkede kromaterede skruer til montage af træ. 100stk pr. pakke', '66.25', 'Spit Karmanker');
