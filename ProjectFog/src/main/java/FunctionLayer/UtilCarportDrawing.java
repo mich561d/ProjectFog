@@ -10,6 +10,7 @@ public class UtilCarportDrawing {
         StringBuilder SB = new StringBuilder();
         SB.append(drawSVG(carportWidth, carportLength, DrawingFace.ABOVE)); // SVG
         SB.append(drawPolesFromAbove(carportWidth - 30, carportLength - 30)); // Poles
+        SB.append(drawFramesFromAbove(carportLength, carportWidth)); // Frame (Ramme)
         return SB.toString();
     }
 
@@ -50,7 +51,7 @@ public class UtilCarportDrawing {
             case FRONT:
                 return 272;
             default:
-                return 624;
+                return 404;
         }
     }
 
@@ -63,10 +64,10 @@ public class UtilCarportDrawing {
 
     private static String drawPolesCornerFromAbove(int width, int height) {
         StringBuilder SB = new StringBuilder();
-        SB.append(drawPole(15, 15)); // UpperLeft
-        SB.append(drawPole(width - 15, 15)); // UpperRight
-        SB.append(drawPole(15, height - 15)); // LowerLeft
-        SB.append(drawPole(width - 15, height - 15)); // LowerRight
+        SB.append(drawPoleFromAbove(15, 15)); // UpperLeft
+        SB.append(drawPoleFromAbove(width - 15, 15)); // UpperRight
+        SB.append(drawPoleFromAbove(15, height - 15)); // LowerLeft
+        SB.append(drawPoleFromAbove(width - 15, height - 15)); // LowerRight
         return SB.toString();
     }
 
@@ -78,27 +79,55 @@ public class UtilCarportDrawing {
         // Sides
         for (int i = 0; i < poleCountHeight; i++) {
             double distance = (height - doublePoleSize) / (poleCountHeight + 1);
-            double offset = 15 + (distance * (i + 1));
-            SB.append(drawPole(15, offset)); // Left
-            SB.append(drawPole(width - 15, offset)); // Right
+            double offset = 15 + (distance * (i + 1)) - (poleSize / 2);
+            SB.append(drawPoleFromAbove(15, offset)); // Left
+            SB.append(drawPoleFromAbove(width - 15, offset)); // Right
         }
         // Back
         for (int i = 0; i < poleCountWidth; i++) {
             double distance = (width - doublePoleSize) / (poleCountWidth + 1);
             double x = 15 + (distance * (i + 1));
             double y = 15;
-            SB.append(drawPole(x, y));
+            SB.append(drawPoleFromAbove(x, y));
         }
         return SB.toString();
     }
 
-    private static String drawPole(double x, double y) {
+    private static String drawPoleFromAbove(double x, double y) {
         StringBuilder SB = new StringBuilder();
         SB.append("<rect x=\"")
                 .append(x)
                 .append("\" y=\"")
                 .append(y)
                 .append("\" height=\"9.7\" width=\"9.7\" stroke=\"black\" style=\"fill:white\"/>");
+        return SB.toString();
+    }
+
+    private static String drawFramesFromAbove(int h, int w) {
+        StringBuilder SB = new StringBuilder();
+        double x = 15 - (9.7 / 2), y = 15 - (9.7 / 2);
+        SB.append(drawFrameFromAbove(x, y, h, 4.7)); // Left
+        x = w - x;
+        SB.append(drawFrameFromAbove(x, y, h, 4.7)); // Right
+        x = x - w;
+        y = h - y;
+        SB.append(drawFrameFromAbove(x, y, w, 4.7)); // Top
+        x = w - x;
+        SB.append(drawFrameFromAbove(x, y, w, 4.7)); // Bot
+        return SB.toString();
+    }
+
+    private static String drawFrameFromAbove(double x, double y, double h, double w) {
+        StringBuilder SB = new StringBuilder();
+        SB.append("<rect x=\"")
+                .append(x)
+                .append("\" y=\"")
+                .append(y)
+                .append("\" height=\"")
+                .append(h)
+                .append("\" width=\"")
+                .append(w)
+                .append("\" stroke=\"black\" style=\"fill:white\"/>");
         return SB.toString();
     }
 
