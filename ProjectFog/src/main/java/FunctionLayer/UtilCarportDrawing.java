@@ -9,8 +9,9 @@ public class UtilCarportDrawing {
     public static String drawSchematicViewFromAbove(int carportLength, int carportWidth) {
         StringBuilder SB = new StringBuilder();
         SB.append(drawSVG(carportWidth, carportLength, DrawingFace.ABOVE)); // SVG
-        SB.append(drawPolesFromAbove(carportWidth - 30, carportLength - 30)); // Poles
+        SB.append(drawPolesFromAbove(carportWidth, carportLength)); // Poles
         SB.append(drawFramesFromAbove(carportLength, carportWidth)); // Frame (Ramme)
+        SB.append(drawRaftsFromAbove(carportLength, carportWidth));
         return SB.toString();
     }
 
@@ -64,10 +65,12 @@ public class UtilCarportDrawing {
 
     private static String drawPolesCornerFromAbove(int width, int height) {
         StringBuilder SB = new StringBuilder();
-        SB.append(drawPoleFromAbove(15, 15)); // UpperLeft
-        SB.append(drawPoleFromAbove(width - 15, 15)); // UpperRight
-        SB.append(drawPoleFromAbove(15, height - 15)); // LowerLeft
-        SB.append(drawPoleFromAbove(width - 15, height - 15)); // LowerRight
+        int offset = 15;
+        double poleSize = 9.7;
+        SB.append(drawPoleFromAbove(offset, offset)); // UpperLeft
+        SB.append(drawPoleFromAbove(width - offset - poleSize, offset)); // UpperRight
+        SB.append(drawPoleFromAbove(offset, height - offset - poleSize)); // LowerLeft
+        SB.append(drawPoleFromAbove(width - offset - poleSize, height - offset - poleSize)); // LowerRight
         return SB.toString();
     }
 
@@ -81,7 +84,7 @@ public class UtilCarportDrawing {
             double distance = (height - doublePoleSize) / (poleCountHeight + 1);
             double offset = 15 + (distance * (i + 1)) - (poleSize / 2);
             SB.append(drawPoleFromAbove(15, offset)); // Left
-            SB.append(drawPoleFromAbove(width - 15, offset)); // Right
+            SB.append(drawPoleFromAbove(width - 15 - 9.7, offset)); // Right
         }
         // Back
         for (int i = 0; i < poleCountWidth; i++) {
@@ -105,19 +108,25 @@ public class UtilCarportDrawing {
 
     private static String drawFramesFromAbove(int h, int w) {
         StringBuilder SB = new StringBuilder();
-        double x = 15 - (9.7 / 2), y = 15 - (9.7 / 2);
-        SB.append(drawFrameFromAbove(x, y, h, 4.7)); // Left
-        x = w - x;
-        SB.append(drawFrameFromAbove(x, y, h, 4.7)); // Right
-        x = x - w;
-        y = h - y;
-        SB.append(drawFrameFromAbove(x, y, w, 4.7)); // Top
-        x = w - x;
-        SB.append(drawFrameFromAbove(x, y, w, 4.7)); // Bot
+        int offset = 15;
+        double plankWidth = 4.7, poleWidth = 9.7, halfPoleWidth = poleWidth / 2;
+        // Left
+        double x = offset + halfPoleWidth, y = 0;
+        SB.append(drawPlankFromAbove(x, y, h, plankWidth));
+        // Right
+        x = w - offset - poleWidth;
+        SB.append(drawPlankFromAbove(x, y, h, plankWidth));
+        // Top
+        x = 0;
+        y = offset + halfPoleWidth;
+        SB.append(drawPlankFromAbove(x, y, plankWidth, w));
+        // Bot
+        y = h - offset - poleWidth;
+        SB.append(drawPlankFromAbove(x, y, plankWidth, w));
         return SB.toString();
     }
 
-    private static String drawFrameFromAbove(double x, double y, double h, double w) {
+    private static String drawPlankFromAbove(double x, double y, double h, double w) {
         StringBuilder SB = new StringBuilder();
         SB.append("<rect x=\"")
                 .append(x)
@@ -128,6 +137,20 @@ public class UtilCarportDrawing {
                 .append("\" width=\"")
                 .append(w)
                 .append("\" stroke=\"black\" style=\"fill:white\"/>");
+        return SB.toString();
+    }
+
+    private static String drawRaftsFromAbove(int h, int w) {
+        StringBuilder SB = new StringBuilder();
+        int countRaft = 10;
+        double plankWidth = 4.7;
+        double space = (h - plankWidth) / countRaft;
+        int x = 0, y = 0;
+        for (int i = 0; i < countRaft; i++) {
+            SB.append(drawPlankFromAbove(x, y, plankWidth, w));
+            y += space;
+        }
+        SB.append(drawPlankFromAbove(x, h - plankWidth, plankWidth, w));
         return SB.toString();
     }
 
