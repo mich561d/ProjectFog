@@ -45,8 +45,6 @@ public class CarportCalculator {
         calcWaterBoard();
         // Calc tag
         calcRoof();
-        // Calc beklædning
-        calcCladding();
         // Calc skruer vandbrædder
         calcScrewsWaterBoard();
         //Calc skruer beslag
@@ -254,10 +252,6 @@ public class CarportCalculator {
             width -= widthOfTrapez - widthOfOverlap;
         }
         return count;
-    }
-
-    private void calcCladding() { // only shed or whole carport
-
     }
 
     private void calcScrewsWaterBoard() throws FogException {
