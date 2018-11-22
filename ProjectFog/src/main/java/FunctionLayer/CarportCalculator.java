@@ -11,14 +11,15 @@ import java.util.ArrayList;
 public class CarportCalculator {
 
     // Data
-    private final int HEIGHT, LENGTH, WIDTH;
+    private final int HEIGHT, LENGTH, WIDTH, ANGLE;
     private ArrayList<Part> parts;
 
     // Constructor
-    public CarportCalculator(int HEIGHT, int LENGTH, int WIDTH) {
+    public CarportCalculator(int HEIGHT, int LENGTH, int WIDTH, int ANGLE) {
         this.HEIGHT = HEIGHT;
         this.LENGTH = LENGTH;
         this.WIDTH = WIDTH;
+        this.ANGLE = ANGLE;
         this.parts = new ArrayList();
     }
 

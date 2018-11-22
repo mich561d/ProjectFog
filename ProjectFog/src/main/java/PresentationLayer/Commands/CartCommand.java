@@ -18,7 +18,8 @@ public class CartCommand implements Command {
             int length = Integer.parseInt(request.getSession().getAttribute("CarportLength").toString());
             int width = Integer.parseInt(request.getSession().getAttribute("CarportWidth").toString());
             int height = Integer.parseInt(request.getSession().getAttribute("CarportHeight").toString());
-            request.getSession().setAttribute("ProductPrice", LogicFacade.calculateCustomCarportPrice(length, width, height));
+            int angle = Integer.parseInt(request.getSession().getAttribute("RoofAngle").toString());
+            request.getSession().setAttribute("ProductPrice", LogicFacade.calculateCustomCarportPrice(length, width, height, angle));
         }
         return "Cart";
     }
