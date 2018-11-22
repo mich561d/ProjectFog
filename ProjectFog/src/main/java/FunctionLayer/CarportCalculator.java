@@ -12,14 +12,16 @@ public class CarportCalculator {
 
     // Data
     private final int HEIGHT, LENGTH, WIDTH, ANGLE;
+    private final boolean ANGLEDROOF;
     private ArrayList<Part> parts;
 
     // Constructor
-    public CarportCalculator(int HEIGHT, int LENGTH, int WIDTH, int ANGLE) {
+    public CarportCalculator(int HEIGHT, int LENGTH, int WIDTH, int ANGLE, boolean ANGLEDROOF) {
         this.HEIGHT = HEIGHT;
         this.LENGTH = LENGTH;
         this.WIDTH = WIDTH;
         this.ANGLE = ANGLE;
+        this.ANGLEDROOF = ANGLEDROOF;
         this.parts = new ArrayList();
     }
 
@@ -261,9 +263,9 @@ public class CarportCalculator {
         for (int i = 0; i < plankCount; i++) {
             int length = 600;
             double number = length / 100;
-            screws = (int) Math.ceil(number * 4);
+            screws += (int) Math.ceil(number * 4);
         }
-        int packs = (int) Math.ceil(screws / 200);
+        int packs = (int) Math.ceil((double) screws / 200.0);
         for (int i = 0; i < packs; i++) {
             String type = "Basic skrue", material = "Stål", size = "4.5x60mm";
             Part part = DatabaseFacade.getPart(type, material, size);
@@ -283,7 +285,7 @@ public class CarportCalculator {
             Part part = DatabaseFacade.getPart(type, material, size);
             parts.add(part);
         }
-        int packsOfScrews = (int) Math.ceil((beslag * 8) / 200);
+        int packsOfScrews = (int) Math.ceil(((double) beslag * 8.0) / 200.0);
         for (int i = 0; i < packsOfScrews; i++) {
             String type = "Basic skrue", material = "Stål", size = "4.5x60mm";
             Part part = DatabaseFacade.getPart(type, material, size);
