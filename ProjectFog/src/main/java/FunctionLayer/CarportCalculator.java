@@ -99,24 +99,7 @@ public class CarportCalculator {
 
     public void calcRoofRafterWidth() throws FogException {
         for (int width = WIDTH; width > 0;) {
-            int lengthOfRaft;
-            if (width >= 720) {
-                lengthOfRaft = 720;
-            } else if (width >= 660) {
-                lengthOfRaft = 660;
-            } else if (width >= 600) {
-                lengthOfRaft = 600;
-            } else if (width >= 540) {
-                lengthOfRaft = 540;
-            } else if (width >= 480) {
-                lengthOfRaft = 480;
-            } else if (width >= 420) {
-                lengthOfRaft = 420;
-            } else if (width >= 360) {
-                lengthOfRaft = 360;
-            } else {
-                lengthOfRaft = 300;
-            }
+            int lengthOfRaft = getLengthOfRaft(width);
             for (int i = 0; i < 2; i++) {
                 String type = "Spær", material = "Ubh. Fyr", size = "47x200mm " + lengthOfRaft + "cm";
                 Part part = DatabaseFacade.getPart(type, material, size);
@@ -126,26 +109,31 @@ public class CarportCalculator {
         }
     }
 
+    private int getLengthOfRaft(int width) {
+        int lengthOfRaft;
+        if (width >= 720) {
+            lengthOfRaft = 720;
+        } else if (width >= 660) {
+            lengthOfRaft = 660;
+        } else if (width >= 600) {
+            lengthOfRaft = 600;
+        } else if (width >= 540) {
+            lengthOfRaft = 540;
+        } else if (width >= 480) {
+            lengthOfRaft = 480;
+        } else if (width >= 420) {
+            lengthOfRaft = 420;
+        } else if (width >= 360) {
+            lengthOfRaft = 360;
+        } else {
+            lengthOfRaft = 300;
+        }
+        return lengthOfRaft;
+    }
+
     public void calcRoofRafterLength() throws FogException {
         for (int length = LENGTH; length > 0;) {
-            int lengthOfRaft;
-            if (length >= 720) {
-                lengthOfRaft = 720;
-            } else if (length >= 660) {
-                lengthOfRaft = 660;
-            } else if (length >= 600) {
-                lengthOfRaft = 600;
-            } else if (length >= 540) {
-                lengthOfRaft = 540;
-            } else if (length >= 480) {
-                lengthOfRaft = 480;
-            } else if (length >= 420) {
-                lengthOfRaft = 420;
-            } else if (length >= 360) {
-                lengthOfRaft = 360;
-            } else {
-                lengthOfRaft = 300;
-            }
+            int lengthOfRaft = getLengthOfRaft(length);
             for (int i = 0; i < 2; i++) {
                 String type = "Spær", material = "Ubh. Fyr", size = "47x200mm " + lengthOfRaft + "cm";
                 Part part = DatabaseFacade.getPart(type, material, size);
@@ -180,22 +168,7 @@ public class CarportCalculator {
     public void calcRoofWaterBoardWidth() throws FogException {
         double thincknessOfWaterBoard = 1.9 * 2;
         for (double width = WIDTH + thincknessOfWaterBoard; width > 0;) {
-            int lengthOfWaterBoard;
-            if (width >= 420) {
-                lengthOfWaterBoard = 420;
-            } else if (width >= 360) {
-                lengthOfWaterBoard = 360;
-            } else if (width >= 300) {
-                lengthOfWaterBoard = 300;
-            } else if (width >= 270) {
-                lengthOfWaterBoard = 270;
-            } else if (width >= 240) {
-                lengthOfWaterBoard = 240;
-            } else if (width >= 210) {
-                lengthOfWaterBoard = 210;
-            } else {
-                lengthOfWaterBoard = 180;
-            }
+            int lengthOfWaterBoard = getLengthOfWaterBoard(width);
             for (int i = 0; i < 2; i++) {
                 String type = "Vandbrædt", material = "Trykimp Fyr", size = "19x100mm " + lengthOfWaterBoard + "cm";
                 Part part = DatabaseFacade.getPart(type, material, size);
@@ -205,25 +178,30 @@ public class CarportCalculator {
         }
     }
 
+    private int getLengthOfWaterBoard(double width) {
+        int lengthOfWaterBoard;
+        if (width >= 420) {
+            lengthOfWaterBoard = 420;
+        } else if (width >= 360) {
+            lengthOfWaterBoard = 360;
+        } else if (width >= 300) {
+            lengthOfWaterBoard = 300;
+        } else if (width >= 270) {
+            lengthOfWaterBoard = 270;
+        } else if (width >= 240) {
+            lengthOfWaterBoard = 240;
+        } else if (width >= 210) {
+            lengthOfWaterBoard = 210;
+        } else {
+            lengthOfWaterBoard = 180;
+        }
+        return lengthOfWaterBoard;
+    }
+
     public void calcRoofWaterBoardLength() throws FogException {
         double thincknessOfWaterBoard = 1.9 * 2;
         for (double length = LENGTH + thincknessOfWaterBoard; length > 0;) {
-            int lengthOfWaterBoard;
-            if (length >= 420) {
-                lengthOfWaterBoard = 420;
-            } else if (length >= 360) {
-                lengthOfWaterBoard = 360;
-            } else if (length >= 300) {
-                lengthOfWaterBoard = 300;
-            } else if (length >= 270) {
-                lengthOfWaterBoard = 270;
-            } else if (length >= 240) {
-                lengthOfWaterBoard = 240;
-            } else if (length >= 210) {
-                lengthOfWaterBoard = 210;
-            } else {
-                lengthOfWaterBoard = 180;
-            }
+            int lengthOfWaterBoard = getLengthOfWaterBoard(length);
             for (int i = 0; i < 2; i++) {
                 String type = "Vandbrædt", material = "Trykimp Fyr", size = "19x100mm " + lengthOfWaterBoard + "cm";
                 Part part = DatabaseFacade.getPart(type, material, size);
