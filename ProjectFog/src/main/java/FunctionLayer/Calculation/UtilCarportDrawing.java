@@ -1,4 +1,6 @@
-package FunctionLayer;
+package FunctionLayer.Calculation;
+
+import FunctionLayer.DrawingFace;
 
 /**
  *

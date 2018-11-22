@@ -1,7 +1,8 @@
-package FunctionLayer;
+package FunctionLayer.Calculation;
 
 import DatabaseLayer.DatabaseFacade;
 import FunctionLayer.Entities.Part;
+import FunctionLayer.FogException;
 import java.util.ArrayList;
 
 /**
@@ -99,7 +100,7 @@ public class CarportCalculator {
     }
 
     public void calcRoofRafterWidth() throws FogException {
-        for (int width = WIDTH; width > 0;) {
+        for (int width = WIDTH; width >= 0;) {
             int lengthOfRaft = getLengthOfRaft(width);
             for (int i = 0; i < 2; i++) {
                 String type = "Spær", material = "Ubh. Fyr", size = "47x200mm " + lengthOfRaft + "cm";
@@ -133,7 +134,7 @@ public class CarportCalculator {
     }
 
     public void calcRoofRafterLength() throws FogException {
-        for (int length = LENGTH; length > 0;) {
+        for (int length = LENGTH; length >= 0;) {
             int lengthOfRaft = getLengthOfRaft(length);
             for (int i = 0; i < 2; i++) {
                 String type = "Spær", material = "Ubh. Fyr", size = "47x200mm " + lengthOfRaft + "cm";
@@ -168,7 +169,7 @@ public class CarportCalculator {
 
     public void calcRoofWaterBoardWidth() throws FogException {
         double thincknessOfWaterBoard = 1.9 * 2;
-        for (double width = WIDTH + thincknessOfWaterBoard; width > 0;) {
+        for (double width = WIDTH + thincknessOfWaterBoard; width >= 0;) {
             int lengthOfWaterBoard = getLengthOfWaterBoard(width);
             for (int i = 0; i < 2; i++) {
                 String type = "Vandbrædt", material = "Trykimp Fyr", size = "19x100mm " + lengthOfWaterBoard + "cm";
@@ -201,7 +202,7 @@ public class CarportCalculator {
 
     public void calcRoofWaterBoardLength() throws FogException {
         double thincknessOfWaterBoard = 1.9 * 2;
-        for (double length = LENGTH + thincknessOfWaterBoard; length > 0;) {
+        for (double length = LENGTH + thincknessOfWaterBoard; length >= 0;) {
             int lengthOfWaterBoard = getLengthOfWaterBoard(length);
             for (int i = 0; i < 2; i++) {
                 String type = "Vandbrædt", material = "Trykimp Fyr", size = "19x100mm " + lengthOfWaterBoard + "cm";
@@ -213,12 +214,81 @@ public class CarportCalculator {
     }
 
     private void calcRoof() throws FogException {
-        calcRoofLength(calcRoofWidth());
+        if (ANGLEDROOF) {
+            calcAngledRoof();
+        } else {
+            calcRoofLength(calcRoofWidth());
+        }
+    }
+
+    private void calcAngledRoof() throws FogException {
+        // Calc triangle
+        /* en fin trækænt
+        små = sider, store = vinkler
+                A
+              c b c
+            B a C a B
+         */
+        double plankSize = 4.7;
+        double halfWidth = WIDTH / 2;
+        double halfPlank = plankSize / 2;
+        double sideA = halfWidth - halfPlank;
+        double angleC = 90, angleB = ANGLE, angleA = 180 - angleB - angleC;
+        double sinB = Math.sin(angleB);
+        double sinA = Math.sin(angleA);
+        double tempCalc = sideA * sinB;
+        double sideB = tempCalc * sinA;
+        double sideC = Math.sqrt((sideA * sideA) + (sideB * sideB));
+        // Long plank/raft
+        calcAngledRoofRafter(LENGTH, 1);
+        // Calc planks
+        int raftCount = 10; // TODO: FIX THIS
+        for (int i = 0; i < raftCount; i++) {
+            calcAngledRoofRafter((int) Math.ceil(sideA), 2);
+        }
+        // Calc other way planks + Long plank
+        int plankWidth = 10, space = 30;
+        int plankCount = (int) Math.ceil(sideC / (space + plankWidth)); // TODO: FIX THIS
+        for (int i = 0; i < plankCount; i++) {
+            calcAngledRoofPlanks(LENGTH);
+        }
+        // Calc roofing
+        Part roofing = DatabaseFacade.getPart("Tagpap", "Krydsfiner med tagpap", "100x100cm");
+        Double area = ((sideC * LENGTH) * 2) + plankSize;
+        int squareMetersCount = (int) Math.ceil(area / 100);
+        for (int i = 0; i < squareMetersCount; i++) {
+            parts.add(roofing);
+        }
+
+    }
+
+    public void calcAngledRoofRafter(int l, int times) throws FogException {
+        for (int length = l; length >= 0;) {
+            int lengthOfRaft = getLengthOfRaft(length);
+            for (int i = 0; i < times; i++) {
+                String type = "Spær", material = "Ubh. Fyr", size = "47x200mm " + lengthOfRaft + "cm";
+                Part part = DatabaseFacade.getPart(type, material, size);
+                parts.add(part);
+            }
+            length -= lengthOfRaft;
+        }
+    }
+
+    public void calcAngledRoofPlanks(int l) throws FogException {
+        for (int length = l; length >= 0;) {
+            int lengthOfPlank = getLengthOfRaft(length);
+            for (int i = 0; i < 2; i++) {
+                String type = "Vandbrædt", material = "Trykimp Fyr", size = "19x100mm " + lengthOfPlank + "cm";
+                Part part = DatabaseFacade.getPart(type, material, size);
+                parts.add(part);
+            }
+            length -= lengthOfPlank;
+        }
     }
 
     public void calcRoofLength(int width) throws FogException {
         int lengthOfOverlap = 15;
-        for (int length = LENGTH; length > 0;) {
+        for (int length = LENGTH; length >= 0;) {
             int lengthOfTrapez;
             if (length >= 600) {
                 lengthOfTrapez = 600;
@@ -250,7 +320,7 @@ public class CarportCalculator {
         int widthOfOverlap = 10;
         int widthOfTrapez = 109;
         int count = 0;
-        for (int width = WIDTH; width > 0;) {
+        for (int width = WIDTH; width >= 0;) {
             count++;
             width -= widthOfTrapez - widthOfOverlap;
         }
@@ -298,4 +368,5 @@ public class CarportCalculator {
     //calc bundskruer til trapez 12 pr. bredde pr. plade x hver 70cm. 200pr pakke.
     //PASLODE UNIVERSALBESLAG, HØJRE 190 mm 2 pr. spær. pris 43.95 pr stk.
     //PASLODE UNIVERSALBESLAG, VENSTRE 190mm 2 pr. spær pris 43.95 pr stk.
+
 }

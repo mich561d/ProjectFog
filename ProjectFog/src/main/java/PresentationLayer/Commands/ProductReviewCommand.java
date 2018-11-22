@@ -22,7 +22,11 @@ public class ProductReviewCommand implements Command {
         int height = Integer.parseInt(request.getParameter("carportHeight"));
         request.getSession().setAttribute("CarportHeight", height);
         int angle = 0;
-        boolean angledRoof = Boolean.parseBoolean(request.getParameter("angledRoof"));
+        String onOrNot = request.getParameter("angledRoof");
+        boolean angledRoof = false;
+        if ("on".equals(onOrNot)) {
+            angledRoof = true;
+        }
         request.getSession().setAttribute("AngledRoof", angledRoof);
         if (angledRoof == true) {
             angle = Integer.parseInt(request.getParameter("roofAngle"));
