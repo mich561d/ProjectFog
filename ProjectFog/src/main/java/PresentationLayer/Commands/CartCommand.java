@@ -20,7 +20,7 @@ public class CartCommand implements Command {
             int height = Integer.parseInt(request.getSession().getAttribute("CarportHeight").toString());
             int angle = Integer.parseInt(request.getSession().getAttribute("RoofAngle").toString());
             boolean angledRoof = Boolean.parseBoolean(request.getAttribute("AngledRoof").toString());
-            request.getSession().setAttribute("ProductPrice", LogicFacade.calculateCustomCarportPrice(length, width, height, angle, angledRoof));
+            request.getSession().setAttribute("ProductPrice", LogicFacade.getPriceFromCarport());
         }
         return "Cart";
     }

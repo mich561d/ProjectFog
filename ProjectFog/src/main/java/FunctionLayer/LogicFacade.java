@@ -11,14 +11,19 @@ import java.util.ArrayList;
  */
 public class LogicFacade {
 
-    public static double calculateCustomCarportPrice(int length, int width, int height, int angle, boolean angledRoof) throws FogException {
-        return new CarportCalculator(height, length, width, angle, angledRoof).calcCarport();
+    private static CarportCalculator cc = new CarportCalculator(0, 0, 0, 0, false);
+
+    public static void calculateCustomCarport(int length, int width, int height, int angle, boolean angledRoof) throws FogException {
+        cc = new CarportCalculator(length, width, height, angle, angledRoof);
+        cc.calcCarport();
     }
 
-    public static ArrayList<Part> getProductListFromCalculatedCustomCarport(int length, int width, int height, int angle, boolean angledRoof) throws FogException {
-        CarportCalculator CC = new CarportCalculator(height, length, width, angle, angledRoof);
-        CC.calcCarport();
-        return CC.getProductList();
+    public static double getPriceFromCarport() throws FogException {
+        return cc.getTotalPrice();
+    }
+
+    public static ArrayList<Part> getProductsFromCarport() throws FogException {
+        return cc.getProductList();
     }
 
     public static String getDrawingFromAbove(int length, int width) {

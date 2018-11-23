@@ -14,7 +14,6 @@ public class ProductReviewCommand implements Command {
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws FogException {
-        // Get meassurements
         int length = Integer.parseInt(request.getParameter("carportLength"));
         request.getSession().setAttribute("CarportLength", length);
         int width = Integer.parseInt(request.getParameter("carportWidth"));
@@ -32,11 +31,9 @@ public class ProductReviewCommand implements Command {
             angle = Integer.parseInt(request.getParameter("roofAngle"));
             request.getSession().setAttribute("RoofAngle", angle);
         }
-        // Calc Price
-        request.getSession().setAttribute("ProductPrice", LogicFacade.calculateCustomCarportPrice(length, width, height, angle, angledRoof));
-        // Get productlist
-        request.getSession().setAttribute("ProductList", LogicFacade.getProductListFromCalculatedCustomCarport(length, width, height, angle, angledRoof));
-        // Make drawings
+        LogicFacade.calculateCustomCarport(length, width, height, angle, angledRoof);
+        request.getSession().setAttribute("ProductPrice", LogicFacade.getPriceFromCarport());
+        request.getSession().setAttribute("ProductList", LogicFacade.getProductsFromCarport());
         request.getSession().setAttribute("DrawingAbove", LogicFacade.getDrawingFromAbove(length, width));
         request.getSession().setAttribute("DrawingAside", LogicFacade.getDrawingFromAside(length, height));
         request.getSession().setAttribute("DrawingFront", LogicFacade.getDrawingFromFront(width, height));
