@@ -40,16 +40,15 @@
                     Login
                 </div>
             </div>
-            <div style="background-color: #0c2069; position:absolute; bottom:0; width:100%;">
-                <p style="color: white" font="Ariel">JOHANNES FOG, CARPORT DESIGNER</p>  
-                <p>   
-                <address style="color: white" font="Ariel"> JOHANNES FOG VÆRLØSE   
-                </address>   
-                </p>  
-                <p style="color: white" font="Ariel">KONTAKT INFORMATION:   
-                    <a href="JohannesFog@gmail.com">JohannesFog@gmail.com</a>.  
-                </p>  
-            </div>
+                <div style="background-color: #0c2069; position: absolute; bottom:0; width:100%;">
+                    <p style="color: white" font="Ariel">JOHANNES FOG, CARPORT DESIGNER</p>    
+                    <address style="color: white" font="Ariel"> JOHANNES FOG VÆRLØSE   
+                    </address>    
+                    <p style="color: white" font="Ariel">KONTAKT INFORMATION:   
+                        <a href="JohannesFog@gmail.com">JohannesFog@gmail.com</a>.  
+                    </p>  
+                </div>
+        </div>
     </body>
 </html>
 

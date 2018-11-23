@@ -18,6 +18,16 @@
         %>
     </head>
     <body>
+        <div class="container">
+            <div class=row style="background-color: #0c2069">
+                <div>
+                    <img src="Assets/FOGLogo.jpg" alt="Umage betaler sig!" height="150" width="150"/>
+                </div>
+                <div class="col-lg-1">
+                    <h1 style="color: white" font="Ariel" align:right>UMAGE BETALER SIG</h1>
+                </div>
+            </div>
+        </div>
         <div class="container-fluid">        
             <div class="col-lg-6">
                 <div class="card">
@@ -29,10 +39,10 @@
                             <div class="card-body">
                                 <input type="hidden" name="command" value="Cart">
                                 <table border="1" cellpadding='20' width='100%'>
-                                        <h1>Produkter:</h1>
+                                    <h1>Produkter:</h1>
                                     <tr>
                                         <th width='50%'>
-                                            
+
                                         </th>
                                         <th width='25%'>
                                             <label>
