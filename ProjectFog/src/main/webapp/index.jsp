@@ -28,20 +28,16 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-9 border border-primary">
-                    <h1></h1>
-                    <h2></h2>
-                    <p>Prøv vores nye carport system</p>
                     <form name="Calculator" action="FrontController" method="POST">
                         <input type="hidden" name="command" value="CustomCarport">
-                        <input type="submit" name="toCalc" value="Køb Carport">
+                        <input type="image" src="Assets/CarportBillede.png" alt="Lav din egen carport!" height="300" width="650"/>
                     </form>
-                    <br>
                 </div>
                 <div class="col-lg-3 border border-primary">
                     Login
                 </div>
             </div>
-                <div style="background-color: #0c2069; position: absolute; bottom:0; width:100%;">
+                <div style="background-color: #0c2069; position: absolute; bottom:0; width:100%; left:0">
                     <p style="color: white" font="Ariel">JOHANNES FOG, CARPORT DESIGNER</p>    
                     <address style="color: white" font="Ariel"> JOHANNES FOG VÆRLØSE   
                     </address>    

@@ -38,11 +38,19 @@ public class CarportCalculator {
     public ArrayList<Part> getProductList() {
         return parts;
     }
-    
-    private HashMap<String, Part> convertListToMap() {
-        HashMap<String, Part> list = new HashMap();
+
+    private HashMap<String, ArrayList<Part>> convertListToMap() {
+        HashMap<String, ArrayList<Part>> list = new HashMap();
         for (Part part : parts) {
-            
+            String key = part.getType();
+            ArrayList<Part> al;
+            if (list.containsKey(key)) {
+                al = (ArrayList<Part>) list.get(key);
+            } else {
+                al = new ArrayList();
+            }
+            al.add(part);
+            list.put(key, al);
         }
         return list;
     }
