@@ -28,13 +28,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-9 border border-primary">
-                    <h1>Her kommer indexsiden</h1>
-                    <h2>Indtil videre kan de prøve vores carport beregner.</h2>
+                    <h1></h1>
+                    <h2></h2>
                     <p>Prøv vores nye carport system</p>
                     <form name="Calculator" action="FrontController" method="POST">
                         <input type="hidden" name="command" value="CustomCarport">
-                        <input type="submit" name="toCalc" value="Til systemet">
+                        <input type="submit" name="toCalc" value="Køb Carport">
                     </form>
+                    <br>
                 </div>
                 <div class="col-lg-3 border border-primary">
                     Login
