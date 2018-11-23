@@ -3,6 +3,7 @@ package FunctionLayer.Calculation;
 import FunctionLayer.Entities.Part;
 import FunctionLayer.FogException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  *
@@ -13,7 +14,7 @@ public class CarportCalculator {
     // Data
     private final int HEIGHT, LENGTH, WIDTH, ANGLE;
     private final boolean ANGLEDROOF;
-    private final ArrayList<Part> PARTS;
+    private ArrayList<Part> parts;
 
     // Constructor
     public CarportCalculator(int HEIGHT, int LENGTH, int WIDTH, int ANGLE, boolean ANGLEDROOF) {
@@ -22,29 +23,37 @@ public class CarportCalculator {
         this.WIDTH = WIDTH;
         this.ANGLE = ANGLE;
         this.ANGLEDROOF = ANGLEDROOF;
-        this.PARTS = new ArrayList();
+        this.parts = new ArrayList();
     }
 
     // Calc price
     public double getTotalPrice() {
         double totalPrice = 0.0;
-        for (Part part : PARTS) {
+        for (Part part : parts) {
             totalPrice += part.getPrice();
         }
         return totalPrice;
     }
 
     public ArrayList<Part> getProductList() {
-        return PARTS;
+        return parts;
+    }
+    
+    private HashMap<String, Part> convertListToMap() {
+        HashMap<String, Part> list = new HashMap();
+        for (Part part : parts) {
+            
+        }
+        return list;
     }
 
     // Calc  method:
     public void calcCarport() throws FogException {
-        CarportBaseCalculator cbc = new CarportBaseCalculator(HEIGHT, LENGTH, WIDTH, PARTS);
-        PARTS.addAll(cbc.calcBase());
+        CarportBaseCalculator cbc = new CarportBaseCalculator(HEIGHT, LENGTH, WIDTH, parts);
+        parts = cbc.calcBase();
 
-        CarportRoofCalculator crc = new CarportRoofCalculator(LENGTH, WIDTH, ANGLE, ANGLEDROOF, PARTS);
-        PARTS.addAll(crc.calcRoof());
+        CarportRoofCalculator crc = new CarportRoofCalculator(LENGTH, WIDTH, ANGLE, ANGLEDROOF, parts);
+        parts = crc.calcRoof();
 
         // TODO: CarportShedCalculator constructor
         // TODO: CarportShedCalcualtor calcShed()
