@@ -14,9 +14,14 @@
         <%@include file="/WEB-INF/Imports/StyleImporter.jsp" %>
     </head>
     <body>
-        <div style="background-color: #002699">
-            <div>
-                <img src="Assets/FOGLogo.jpg" alt="Umage betaler sig!" height="150" width="150"/>
+        <div class="container">
+            <div class=row style="background-color: #0c2069">
+                <div>
+                    <img src="Assets/FOGLogo.jpg" alt="Umage betaler sig!" height="150" width="150"/>
+                </div>
+                <div class="col-lg-1">
+                    <h1 style="color: white" font="Ariel" align:right>UMAGE BETALER SIG</h1>
+                </div>
             </div>
         </div>
         <br>
@@ -35,7 +40,16 @@
                     Login
                 </div>
             </div>
-        </div>
+            <div style="background-color: #0c2069; position:absolute; bottom:0; width:100%;">
+                <p style="color: white" font="Ariel">JOHANNES FOG, CARPORT DESIGNER</p>  
+                <p>   
+                <address style="color: white" font="Ariel"> JOHANNES FOG VÆRLØSE   
+                </address>   
+                </p>  
+                <p style="color: white" font="Ariel">KONTAKT INFORMATION:   
+                    <a href="JohannesFog@gmail.com">JohannesFog@gmail.com</a>.  
+                </p>  
+            </div>
     </body>
 </html>
 
