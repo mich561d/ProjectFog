@@ -1,5 +1,6 @@
 package FunctionLayer.Calculation;
 
+import DatabaseLayer.DatabaseFacade;
 import FunctionLayer.Entities.Part;
 import FunctionLayer.FogException;
 import java.util.ArrayList;
@@ -57,14 +58,34 @@ public class CarportCalculator {
 
     // Calc  method:
     public void calcCarport() throws FogException {
-        CarportBaseCalculator cbc = new CarportBaseCalculator(LENGTH, WIDTH, HEIGHT, parts);
+        BaseCalculator cbc = new BaseCalculator(LENGTH, WIDTH, HEIGHT, parts);
         parts = cbc.calcBase();
+        calcScrewsBeslag();
 
         CarportRoofCalculator crc = new CarportRoofCalculator(LENGTH, WIDTH, ANGLE, ANGLEDROOF, parts);
         parts = crc.calcRoof();
 
         // TODO: CarportShedCalculator constructor
         // TODO: CarportShedCalcualtor calcShed()
+    }
+
+    private void calcScrewsBeslag() throws FogException {
+        int rafterCount = convertListToMap().get("Spær").size();
+        int beslag = 0;
+        for (int i = 0; i < rafterCount; i++) {
+            beslag += 4;
+        }
+        for (int i = 0; i < beslag; i++) {
+            String type = "Basic beslag", material = "Stål", size = "190mm";
+            Part part = DatabaseFacade.getPart(type, material, size);
+            parts.add(part);
+        }
+        int packsOfScrews = (int) Math.ceil(((double) beslag * 8.0) / 200.0);
+        for (int i = 0; i < packsOfScrews; i++) {
+            String type = "Basic skrue", material = "Stål", size = "4.5x60mm";
+            Part part = DatabaseFacade.getPart(type, material, size);
+            parts.add(part);
+        }
     }
 
     //TODO LIST:
