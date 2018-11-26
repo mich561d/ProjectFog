@@ -17,7 +17,7 @@ public class CarportCalculator {
     private ArrayList<Part> parts;
 
     // Constructor
-    public CarportCalculator(int HEIGHT, int LENGTH, int WIDTH, int ANGLE, boolean ANGLEDROOF) {
+    public CarportCalculator(int LENGTH, int WIDTH, int HEIGHT, int ANGLE, boolean ANGLEDROOF) {
         this.HEIGHT = HEIGHT;
         this.LENGTH = LENGTH;
         this.WIDTH = WIDTH;
@@ -57,7 +57,7 @@ public class CarportCalculator {
 
     // Calc  method:
     public void calcCarport() throws FogException {
-        CarportBaseCalculator cbc = new CarportBaseCalculator(HEIGHT, LENGTH, WIDTH, parts);
+        CarportBaseCalculator cbc = new CarportBaseCalculator(LENGTH, WIDTH, HEIGHT, parts);
         parts = cbc.calcBase();
 
         CarportRoofCalculator crc = new CarportRoofCalculator(LENGTH, WIDTH, ANGLE, ANGLEDROOF, parts);

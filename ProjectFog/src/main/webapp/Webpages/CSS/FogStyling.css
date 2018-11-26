@@ -3,6 +3,13 @@
     Author     : Michael
 */
 
+body {
+    background-color: #e8edfc;
+}
+
+
+
+//What is this
 .form-control { display: block; width: 100%; box-sizing: border-box; }
 
-.table-optimizer { width: 100%; align-content: center;}
+.table-optimizer { width: 100%; align-content: center; }

@@ -3,8 +3,6 @@
     Created on : 15-11-2018, 08:47:35
     Author     : Michael
 --%>
-<!--Styling-->
-<link href="../../Webpages/CSS/FogStyling.css" rel="stylesheet" type="text/css"/>
 <!--favicon-->
 <link rel="icon" href="Assets/favicon.png">
 <!--Bootstrap-->

@@ -11,10 +11,10 @@ import java.util.ArrayList;
  */
 public class CarportBaseCalculator {
 
-    private final int HEIGHT, LENGTH, WIDTH;
+    private final int LENGTH, WIDTH, HEIGHT;
     private final ArrayList<Part> PARTS;
 
-    public CarportBaseCalculator(int HEIGHT, int LENGTH, int WIDTH, ArrayList<Part> PARTS) {
+    public CarportBaseCalculator(int LENGTH, int WIDTH, int HEIGHT, ArrayList<Part> PARTS) {
         this.HEIGHT = HEIGHT;
         this.LENGTH = LENGTH;
         this.WIDTH = WIDTH;
@@ -25,7 +25,7 @@ public class CarportBaseCalculator {
         calcPoles();
         calcRoofRafter();
         calcScrewsBeslag();
-        
+
         return PARTS;
     }
 
@@ -133,7 +133,7 @@ public class CarportBaseCalculator {
             PARTS.add(part);
         }
     }
-    
+
     private void calcScrewsBeslag() throws FogException {
         int rafterCount = 10;
         int beslag = 0;

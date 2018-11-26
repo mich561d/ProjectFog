@@ -1,0 +1,43 @@
+/* 
+    Created on : 26-11-2018, 08:52:19
+    Author     : Michael
+*/
+
+.imageContainer { 
+    position: relative; 
+    width: 100%; 
+}
+
+.indexImage { 
+    opacity: 1; 
+    display: block; 
+    width: 100%; 
+    height: auto;
+    transition: .5s ease; 
+    backface-visibility: hidden; 
+}
+
+.centerText { 
+    transition: .5s ease; 
+    opacity: 0;  
+    position: absolute;
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%); 
+    text-align: center; 
+}
+
+.imageContainer:hover .indexImage { 
+    opacity: 0.8; 
+}
+
+.imageContainer:hover .centerText { 
+    opacity: 1; 
+}
+
+.textContainer { 
+    color: blue;
+    font-size: 32px;
+    font-weight: bold;
+}
