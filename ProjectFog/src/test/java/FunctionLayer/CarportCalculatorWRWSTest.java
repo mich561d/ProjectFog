@@ -1,7 +1,7 @@
 package FunctionLayer;
 
-import FunctionLayer.Calculation.BasePoleCalculator;
-import FunctionLayer.Calculation.BaseRaftCalculator;
+import FunctionLayer.Calculation.Base.BasePoleCalculator;
+import FunctionLayer.Calculation.Base.BaseRaftCalculator;
 import FunctionLayer.Entities.Part;
 import java.util.ArrayList;
 import org.junit.Test;

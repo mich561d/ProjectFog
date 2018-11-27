@@ -1,6 +1,7 @@
-package FunctionLayer.Calculation;
+package FunctionLayer.Calculation.Base;
 
 import DatabaseLayer.DatabaseFacade;
+import FunctionLayer.Calculation.Rules;
 import FunctionLayer.Entities.Part;
 import FunctionLayer.FogException;
 import java.util.ArrayList;
@@ -22,9 +23,7 @@ public class BaseRaftCalculator {
         for (int w = width; w >= 0;) {
             int lengthOfRaft = getLengthOfRaft(w);
             for (int i = 0; i < 2; i++) {
-                String type = "Spær", material = "Ubh. Fyr", size = "47x200mm " + lengthOfRaft + "cm";
-                Part part = DatabaseFacade.getPart(type, material, size);
-                parts.add(part);
+                AddPartToList(lengthOfRaft, parts);
             }
             w -= lengthOfRaft;
         }
@@ -34,28 +33,17 @@ public class BaseRaftCalculator {
         for (int l = length; l >= 0;) {
             int lengthOfRaft = getLengthOfRaft(l);
             for (int i = 0; i < 2; i++) {
-                String type = "Spær", material = "Ubh. Fyr", size = "47x200mm " + lengthOfRaft + "cm";
-                Part part = DatabaseFacade.getPart(type, material, size);
-                parts.add(part);
+                AddPartToList(lengthOfRaft, parts);
             }
             l -= lengthOfRaft;
         }
     }
 
     private void calcRoofRafterMiddle(ArrayList<Part> parts, int length, int width) throws FogException {
-        int calcWidth = width;
-        int calcLength = length - 30;
-        double raftThickness = 4.7;
-        int distanceBetweenRafts = 70;
+        int calcLength = length - Rules.MAXDISTANCEBEWTEENPOLES;
         for (double distance = 0; distance < calcLength;) {
-            distance += raftThickness + distanceBetweenRafts;
-            String type = "Spær", material = "Ubh. Fyr", size = "47x200mm " + calcWidth + "cm";
-            Part part = DatabaseFacade.getPart(type, material, size);
-            while (part == null) {
-                size = "47x200mm " + ++calcWidth + "cm";
-                part = DatabaseFacade.getPart(type, material, size);
-            }
-            parts.add(part);
+            distance += Rules.RAFTTHICKNESS + Rules.DISTANCEBETWEENRAFTS;
+            AddPartToList(width, parts);
         }
     }
 
@@ -79,5 +67,20 @@ public class BaseRaftCalculator {
             lengthOfRaft = 300;
         }
         return lengthOfRaft;
+    }
+
+    private void AddPartToList(int lengthOfRaft, ArrayList<Part> parts) throws FogException {
+        Part part = GetCorrectPart(lengthOfRaft);
+        parts.add(part);
+    }
+
+    private Part GetCorrectPart(int lengthOfRaft) throws FogException {
+        String type = "Spær", material = "Ubh. Fyr", size = "47x200mm " + lengthOfRaft + "cm";
+        Part part = DatabaseFacade.getPart(type, material, size);
+        while (part == null) {
+            size = "47x200mm " + ++lengthOfRaft + "cm";
+            part = DatabaseFacade.getPart(type, material, size);
+        }
+        return part;
     }
 }

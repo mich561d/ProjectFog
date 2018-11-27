@@ -1,5 +1,6 @@
 package FunctionLayer.Calculation;
 
+import FunctionLayer.Calculation.Base.BaseCalculator;
 import DatabaseLayer.DatabaseFacade;
 import FunctionLayer.Entities.Part;
 import FunctionLayer.FogException;
@@ -13,17 +14,20 @@ import java.util.HashMap;
 public class CarportCalculator {
 
     // Data
-    private final int HEIGHT, LENGTH, WIDTH, ANGLE;
-    private final boolean ANGLEDROOF;
+    private final int LENGTH, WIDTH, HEIGHT, ANGLE, SHEDLENGTH, SHEDWIDTH;
+    private final boolean ANGLEDROOF, SHED;
     private ArrayList<Part> parts;
 
     // Constructor
     public CarportCalculator(int LENGTH, int WIDTH, int HEIGHT, int ANGLE, boolean ANGLEDROOF) {
-        this.HEIGHT = HEIGHT;
         this.LENGTH = LENGTH;
         this.WIDTH = WIDTH;
+        this.HEIGHT = HEIGHT;
         this.ANGLE = ANGLE;
+        this.SHEDLENGTH = 0; // TODO
+        this.SHEDWIDTH = 0; // TODO
         this.ANGLEDROOF = ANGLEDROOF;
+        this.SHED = false; // TODO
         this.parts = new ArrayList();
     }
 
@@ -65,22 +69,24 @@ public class CarportCalculator {
         CarportRoofCalculator crc = new CarportRoofCalculator(LENGTH, WIDTH, ANGLE, ANGLEDROOF, parts);
         parts = crc.calcRoof();
 
-        // TODO: CarportShedCalculator constructor
-        // TODO: CarportShedCalcualtor calcShed()
+        if (SHED) {
+            CarportShedCalculator csc = new CarportShedCalculator(LENGTH, WIDTH, HEIGHT, SHEDLENGTH, SHEDWIDTH, parts);
+            parts = csc.calcShed();
+        }
     }
 
     private void calcScrewsBeslag() throws FogException {
         int rafterCount = convertListToMap().get("Spær").size();
-        int beslag = 0;
+        int brackets = 0;
         for (int i = 0; i < rafterCount; i++) {
-            beslag += 4;
+            brackets += Rules.BRACKETSPERRAFT;
         }
-        for (int i = 0; i < beslag; i++) {
+        for (int i = 0; i < brackets; i++) {
             String type = "Basic beslag", material = "Stål", size = "190mm";
             Part part = DatabaseFacade.getPart(type, material, size);
             parts.add(part);
         }
-        int packsOfScrews = (int) Math.ceil(((double) beslag * 8.0) / 200.0);
+        int packsOfScrews = (int) Math.ceil(((double) brackets * (double) Rules.SCREWPERBRACKET) / (double) Rules.SCREWPERPACK);
         for (int i = 0; i < packsOfScrews; i++) {
             String type = "Basic skrue", material = "Stål", size = "4.5x60mm";
             Part part = DatabaseFacade.getPart(type, material, size);
