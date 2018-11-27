@@ -19,21 +19,42 @@ public class PartTest {
         // Assert:
         assertNotNull(part);
     }
-/*
+
     @Test//(expected = FogException.class)
-    public void GetPartFromDatabaseThatDoNotExist() {
+    public void GetPartFromDatabaseWrongData() {
         // Arrange & Act --> Assert: 
         //Part part = PartMapper.getPartByTypeMaterialSize("Stolpe", "Trykimp Fyr", "97x97mm 290cm");
-
         try {
             // Arrange & Act:
-            PartMapper.getPartByTypeMaterialSize("bla", "Trykimp Fyr", "97x97mm 290cm");
+            PartMapper.getPartByTypeMaterialSize("Stolpe", "Trykimp Fyr", "97x97mm 290cm");
             // Assert: fail
             fail("Expected a FogException to be thrown");
         } catch (FogException ex) {
             // Assert: pass
         }
-
     }
-*/
+
+    @Test
+    public void GetPartFromDatabaseEmptyData() {
+        try {
+            // Arrange & Act:
+            PartMapper.getPartByTypeMaterialSize("Stolpe", "Trykimp Fyr", "");
+            // Assert: fail
+            fail("Expected a FogException to be thrown");
+        } catch (FogException ex) {
+            // Assert: pass
+        }
+    }
+
+    @Test
+    public void GetPartFromDatabaseNullData() {
+        try {
+            // Arrange & Act:
+            PartMapper.getPartByTypeMaterialSize("Stolpe", "Trykimp Fyr", null);
+            // Assert: fail
+            fail("Expected a FogException to be thrown");
+        } catch (FogException ex) {
+            // Assert: pass
+        }
+    }
 }
