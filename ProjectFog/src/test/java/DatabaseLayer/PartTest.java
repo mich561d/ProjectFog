@@ -21,40 +21,29 @@ public class PartTest {
     }
 
     @Test//(expected = FogException.class)
-    public void GetPartFromDatabaseWrongData() {
+    public void GetPartFromDatabaseWrongData() throws FogException {
         // Arrange & Act --> Assert: 
         //Part part = PartMapper.getPartByTypeMaterialSize("Stolpe", "Trykimp Fyr", "97x97mm 290cm");
-        try {
-            // Arrange & Act:
-            PartMapper.getPartByTypeMaterialSize("Stolpe", "Trykimp Fyr", "97x97mm 290cm");
-            // Assert: fail
-            fail("Expected a FogException to be thrown");
-        } catch (FogException ex) {
-            // Assert: pass
-        }
+
+        // Arrange & Act:
+        Part part = PartMapper.getPartByTypeMaterialSize("Stolpe", "Trykimp Fyr", "97x97mm 290cm");
+        // Assert:
+        assertNull(part);
     }
 
     @Test
-    public void GetPartFromDatabaseEmptyData() {
-        try {
-            // Arrange & Act:
-            PartMapper.getPartByTypeMaterialSize("Stolpe", "Trykimp Fyr", "");
-            // Assert: fail
-            fail("Expected a FogException to be thrown");
-        } catch (FogException ex) {
-            // Assert: pass
-        }
+    public void GetPartFromDatabaseEmptyData() throws FogException {
+        // Arrange & Act:
+        Part part = PartMapper.getPartByTypeMaterialSize("Stolpe", "Trykimp Fyr", "97x97mm 290cm");
+        // Assert:
+        assertNull(part);
     }
 
     @Test
-    public void GetPartFromDatabaseNullData() {
-        try {
-            // Arrange & Act:
-            PartMapper.getPartByTypeMaterialSize("Stolpe", "Trykimp Fyr", null);
-            // Assert: fail
-            fail("Expected a FogException to be thrown");
-        } catch (FogException ex) {
-            // Assert: pass
-        }
+    public void GetPartFromDatabaseNullData() throws FogException {
+        // Arrange & Act:
+        Part part = PartMapper.getPartByTypeMaterialSize("Stolpe", "Trykimp Fyr", "97x97mm 290cm");
+        // Assert:
+        assertNull(part);
     }
 }
