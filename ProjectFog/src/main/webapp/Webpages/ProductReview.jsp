@@ -27,6 +27,7 @@
     </head>
     <body>
         <%@include file="/WEB-INF/Imports/NavBar.jsp" %>
+        <br>
         <div class="container-fluid">   
             <div class="row">
                 <div class="col-lg-6">

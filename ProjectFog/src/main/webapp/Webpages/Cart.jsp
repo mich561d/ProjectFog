@@ -19,6 +19,7 @@
     </head>
     <body>
         <%@include file="/WEB-INF/Imports/NavBar.jsp" %>
+        <br>
         <div class="container-fluid">        
             <div class="col-lg-6">
                 <div class="card">

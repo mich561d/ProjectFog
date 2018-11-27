@@ -13,6 +13,7 @@
     </head>
     <body>
         <%@include file="/WEB-INF/Imports/NavBar.jsp" %>
+        <br>
         <h1>Hello You!</h1>
         <h2>Look like you got yourself an error!</h2>
         <h3>Let's see what it says:</h3>

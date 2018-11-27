@@ -30,7 +30,7 @@
 }
 
 .imageContainer:hover .indexImage { 
-    opacity: 0.8; 
+    opacity: 0.5; 
 }
 
 .imageContainer:hover .centerText { 
@@ -38,7 +38,9 @@
 }
 
 .textContainer { 
-    color: blue;
+    color: #0c2069;
+    outline-style: ridge;
+    outline-color: #ffcc00;
     font-size: 32px;
     font-weight: bold;
 }
