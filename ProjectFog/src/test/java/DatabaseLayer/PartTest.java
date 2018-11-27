@@ -19,20 +19,21 @@ public class PartTest {
         // Assert:
         assertNotNull(part);
     }
-
-    @Test(expected = FogException.class)
+/*
+    @Test//(expected = FogException.class)
     public void GetPartFromDatabaseThatDoNotExist() {
-        // Arrange & Act: 
+        // Arrange & Act --> Assert: 
         //Part part = PartMapper.getPartByTypeMaterialSize("Stolpe", "Trykimp Fyr", "97x97mm 290cm");
 
-        
-        /*
         try {
-        method
-        fail
-        }catch{
-        assert
+            // Arrange & Act:
+            PartMapper.getPartByTypeMaterialSize("bla", "Trykimp Fyr", "97x97mm 290cm");
+            // Assert: fail
+            fail("Expected a FogException to be thrown");
+        } catch (FogException ex) {
+            // Assert: pass
         }
-        */
+
     }
+*/
 }
