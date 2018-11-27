@@ -2,6 +2,7 @@ package PresentationLayer;
 
 import PresentationLayer.Commands.CartCommand;
 import PresentationLayer.Commands.CustomCarportCommand;
+import PresentationLayer.Commands.IndexCommand;
 import PresentationLayer.Commands.ProductReviewCommand;
 import PresentationLayer.Commands.UnknownCommand;
 import java.util.HashMap;
@@ -20,6 +21,7 @@ public abstract class CommandController {
         commands.put("CustomCarport", new CustomCarportCommand());
         commands.put("ProductReview", new ProductReviewCommand());
         commands.put("Cart", new CartCommand());
+        commands.put("Index", new IndexCommand());
     }
 
     static Command from(HttpServletRequest request) {

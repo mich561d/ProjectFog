@@ -29,7 +29,11 @@ public class FrontController extends HttpServlet {
         try {
             Command action = CommandController.from(request);
             String view = action.execute(request, response);
-            request.getRequestDispatcher("/Webpages/" + view + ".jsp").forward(request, response);
+            if ("index".equals(view)) {
+                request.getRequestDispatcher(view + ".jsp").forward(request, response);
+            } else {
+                request.getRequestDispatcher("/Webpages/" + view + ".jsp").forward(request, response);
+            }
         } catch (FogException | IOException | ServletException ex) {
             request.getSession().setAttribute("error", ex.getMessage());
             request.getRequestDispatcher("/Webpages/Error.jsp").forward(request, response);

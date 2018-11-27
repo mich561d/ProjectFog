@@ -16,17 +16,7 @@
         <link href="Webpages/CSS/HoverEffect.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <div class="container">
-            <div class=row style="background-color: #0c2069">
-                <div>
-                    <img src="Assets/FOGLogo.jpg" alt="Umage betaler sig!" height="150" width="150"/>
-                </div>
-                <div class="col-lg-1">
-                    <h1 style="color: white" font="Ariel" align:right>UMAGE BETALER SIG</h1>
-                </div>
-            </div>
-        </div>
-        <br>
+        <%@include file="/WEB-INF/Imports/NavBar.jsp" %>
         <div class="container">
             <div class="row no-gutters">
                 <div class="col-lg-7 border border-primary">
