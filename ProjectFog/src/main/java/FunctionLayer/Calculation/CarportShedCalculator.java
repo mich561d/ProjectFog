@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Michael & Ryge
+ * @author Michael & Christian
  */
 public class CarportShedCalculator {
 
@@ -26,6 +26,7 @@ public class CarportShedCalculator {
     public ArrayList<Part> calcShed() throws FogException {
         calcPoles();
         calcCladding();
+        door();
         return PARTS;
     }
 
@@ -40,7 +41,7 @@ public class CarportShedCalculator {
         if (SHEDWIDTH < WIDTH) {
             // We need more poles
         }
-        int calcHeight = HEIGHT+90;
+        int calcHeight = HEIGHT + 90;
         for (int i = 0; i < extraPolesForShed; i++) {
             String type = "Stolpe", material = "Trykimp Fyr", size = "97x97mm " + calcHeight + "cm";
             Part part = DatabaseFacade.getPart(type, material, size);
@@ -55,6 +56,26 @@ public class CarportShedCalculator {
         // Calc our cladding with our rules.
     }
     //Et skur har 4 hjørner, de to hjørner er allerede sat fra carporten. Vi skal have mindst én ekstra stolpe til midten af forsiden.
-    //Et skur har en beklædning af bræder, 15mm overlap pr. brædt. så to til en pr. brædt. 
-    //Et skur har en dør. 
+    //Et skur har en beklædning af bræder, 25mm overlap pr. brædt. så to til en pr. brædt. 
+    //Et skur har én dør. 
+
+    private void door() {
+        //mål 90x200
+        // 4 screws pr. plank, 33cm between planks.
+        int planks = 13;
+        //4 screws for handle
+        int handle = 1;
+        //6 screws pr. hinge
+        int hinge = 2;
+        int screws = 0;
+        for (int i = 0; i < planks + handle + hinge; i++) {
+            if (i < planks) {
+                screws += Rules.SCREWSPERPLANK;
+            } else if (i < planks + handle) {
+                screws += Rules.SCREWSPERHANDLE;
+            } else {
+                screws += Rules.SCREWSPERHINGE;
+            }
+        }
+    }
 }

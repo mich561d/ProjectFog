@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Michael
+ * @author Michael & Christian
  */
 public class BaseCalculator {
 

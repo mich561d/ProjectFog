@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Michael
+ * @author Christian & Michael
  */
 public class BasePoleCalculator {
 

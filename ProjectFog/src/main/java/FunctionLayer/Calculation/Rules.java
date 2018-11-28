@@ -2,7 +2,7 @@ package FunctionLayer.Calculation;
 
 /**
  *
- * @author Michael
+ * @author Michael & Christian
  */
 public class Rules {
 
@@ -18,5 +18,8 @@ public class Rules {
     public static final int BRACKETSPERRAFT = 4;
     public static final int SCREWPERBRACKET = 8;
     public static final int SCREWPERPACK = 200;
+    public static final int SCREWSPERPLANK = 4;
+    public static final int SCREWSPERHINGE = 6;
+    public static final int SCREWSPERHANDLE = 4;
     
 }
