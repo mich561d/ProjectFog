@@ -78,6 +78,33 @@ public class CarportShedCalculator {
             PARTS.add(part);
         }
 
+        String type = "Regler", material = "Trykimp Fyr", size = getLengthOfLath(pcd) + "cm";
+        Part part = DatabaseFacade.getPart(type, material, size);
+        PARTS.add(part);
+
+        type = "Stalddørsgreb";
+        material = "Galvvaniseret Stål";
+        size = "19-50mm";
+        part = DatabaseFacade.getPart(type, material, size);
+        PARTS.add(part);
+
+        for (int i = 0; i < hinge; i++) {
+            type = "T-hængsel";
+            material = "Galvvaniseret Stål";
+            size = "390mm";
+            part = DatabaseFacade.getPart(type, material, size);
+            PARTS.add(part);
+
+        }
+
+        for (int i = 0; i < planks; i++) {
+            type = "Vandbrædt";
+            material = "Trykimp Fyr";
+            size = "19x100mm 210cm";
+            part = DatabaseFacade.getPart(type, material, size);
+            PARTS.add(part);
+        }
+
         int screws = 0;
         for (int i = 0; i < planks + handle + hinge; i++) {
             if (i < planks) {
@@ -88,32 +115,41 @@ public class CarportShedCalculator {
                 screws += Rules.SCREWSPERHINGE;
             }
         }
+        int packsOfScrews = (int)Math.ceil((double)screws / (double)Rules.SCREWPERPACK);
+        
+        for (int i = 0; i < packsOfScrews; i++) {
+            type = "Basic Skrue";
+            material = "Stål";
+            size = "4.5x60mm";
+            part = DatabaseFacade.getPart(type, material, size);
+            PARTS.add(part);
+        }
     }
 
     private int getLengthOfLath(double width) {
         int lengthOfLath;
-        if (width >= 540) {
-            lengthOfLath = 540;
-        } else if (width >= 510) {
-            lengthOfLath = 510;
-        } else if (width >= 480) {
-            lengthOfLath = 480;
-        } else if (width >= 450) {
-            lengthOfLath = 450;
-        } else if (width >= 420) {
-            lengthOfLath = 420;
-        } else if (width >= 390) {
-            lengthOfLath = 390;
-        } else if (width >= 360) {
-            lengthOfLath = 360;
-        } else if (width >= 330) {
-            lengthOfLath = 330;
-        } else if (width >= 300) {
-            lengthOfLath = 300;
-        } else if (width >= 270) {
-            lengthOfLath = 270;
-        } else {
+        if (width <= 240) {
             lengthOfLath = 240;
+        } else if (width <= 270) {
+            lengthOfLath = 270;
+        } else if (width <= 300) {
+            lengthOfLath = 300;
+        } else if (width <= 330) {
+            lengthOfLath = 330;
+        } else if (width <= 360) {
+            lengthOfLath = 360;
+        } else if (width <= 390) {
+            lengthOfLath = 390;
+        } else if (width <= 420) {
+            lengthOfLath = 420;
+        } else if (width <= 450) {
+            lengthOfLath = 450;
+        } else if (width <= 480) {
+            lengthOfLath = 480;
+        } else if (width <= 510) {
+            lengthOfLath = 510;
+        } else {
+            lengthOfLath = 540;
         }
         return lengthOfLath;
     }
