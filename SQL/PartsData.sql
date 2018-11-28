@@ -51,3 +51,19 @@ INSERT INTO `part` (`type`, `material`, `size`, `description`, `price`, `brand`)
 ('Sort højglas', 'Tegl', '100x100cm', 'Tagsten kvadratmeter', '222.58', 'Dantegl'),
 ('Tagpap', 'Krydsfiner med tagpap', '100x100cm', 'tagpap pr. kvadradtmeter', '98', 'Adeso'),
 ('Monterings skrue', 'Stål', '7.5x112mm', 'Elforzinkede kromaterede skruer til montage af træ. 100stk pr. pakke', '66.25', 'Spit Karmanker');
+
+INSERT INTO `part` (`type`, `material`, `size`, `description`, `price`, `brand`) VALUES
+('Regler', 'Trykimp Fyr', '47x100mm 240cm', 'Reglar til tømrer-konstruktion, inde', '43.08', 'FOG'),
+('Regler', 'Trykimp Fyr', '47x100mm 270cm', 'Reglar til tømrer-konstruktion, inde', '48.46', 'FOG'),
+('Regler', 'Trykimp Fyr', '47x100mm 300cm', 'Reglar til tømrer-konstruktion, inde', '50.85', 'FOG'),
+('Regler', 'Trykimp Fyr', '47x100mm 330cm', 'Reglar til tømrer-konstruktion, inde', '55.94', 'FOG'),
+('Regler', 'Trykimp Fyr', '47x100mm 360cm', 'Reglar til tømrer-konstruktion, inde', '61.03', 'FOG'),
+('Regler', 'Trykimp Fyr', '47x100mm 390cm', 'Reglar til tømrer-konstruktion, inde', '66.10', 'FOG'),
+('Regler', 'Trykimp Fyr', '47x100mm 420cm', 'Reglar til tømrer-konstruktion, inde', '71.19', 'FOG'),
+('Regler', 'Trykimp Fyr', '47x100mm 450cm', 'Reglar til tømrer-konstruktion, inde', '76.28', 'FOG'),
+('Regler', 'Trykimp Fyr', '47x100mm 480cm', 'Reglar til tømrer-konstruktion, inde', '81.36', 'FOG'),
+('Regler', 'Trykimp Fyr', '47x100mm 510cm', 'Reglar til tømrer-konstruktion, inde', '86.45', 'FOG'),
+('Regler', 'Trykimp Fyr', '47x100mm 540cm', 'Reglar til tømrer-konstruktion, inde', '91.53', 'FOG'),
+('Stalddørsgreb', 'Galvvaniseret Stål', '19-50mm', 'Stalddørsgreb i galvvaniseret stål til hængelås.', '189', 'FOG'),
+('T-hængsel', 'Galvvaniseret Stål', '390mm', 'Hængsel til stalddør, havelåger og lignende.', '109', 'FOG'),
+('Vinkelbeslag', 'Stål', '35mm', 'Vinkelbeslag til montering af løsholter.', '24.95', 'Paslode');
