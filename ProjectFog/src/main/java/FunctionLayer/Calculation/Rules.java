@@ -22,4 +22,7 @@ public class Rules {
     public static final int SCREWSPERHINGE = 6;
     public static final int SCREWSPERHANDLE = 4;
     
+    public static final int DOORHEIGHT = 200;
+    public static final int DOORWIDTH = 90;
+    
 }

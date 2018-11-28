@@ -25,8 +25,9 @@ public class CarportShedCalculator {
 
     public ArrayList<Part> calcShed() throws FogException {
         calcPoles();
-        calcCladding();
         door();
+        calcReglar();
+        calcCladding();
         return PARTS;
     }
 
@@ -52,14 +53,7 @@ public class CarportShedCalculator {
         }
     }
 
-    private void calcCladding() {
-        // Calc our cladding with our rules.
-    }
-    //Et skur har 4 hjørner, de to hjørner er allerede sat fra carporten. Vi skal have mindst én ekstra stolpe til midten af forsiden.
-    //Et skur har en beklædning af bræder, 25mm overlap pr. brædt. så to til en pr. brædt. 
-    //Et skur har én dør. 
-
-    private void door() {
+    private void door() throws FogException {
         //mål 90x200
         // 4 screws pr. plank, 33cm between planks.
         int planks = 13;
@@ -67,6 +61,23 @@ public class CarportShedCalculator {
         int handle = 1;
         //6 screws pr. hinge
         int hinge = 2;
+        double heightOfLath = 4.7;
+        //Krydsmål udregning på dør'
+        double pcd = Math.sqrt((Rules.DOORWIDTH * Rules.DOORWIDTH) + ((Rules.DOORHEIGHT - heightOfLath) * (Rules.DOORHEIGHT - heightOfLath)));
+        // lægter til opbygning af ramme på dør og z.
+        //top og bund 90cm, sider 190.6, krydsmål 210.78.
+        int lath = 0;
+        for (int i = 0; i < 2; i++) {
+            String type = "Regler", material = "Trykimp Fyr", size = getLengthOfLath(Rules.DOORWIDTH) + "cm";
+            Part part = DatabaseFacade.getPart(type, material, size);
+            PARTS.add(part);
+        }
+        for (int i = 0; i < 2; i++) {
+            String type = "Regler", material = "Trykimp Fyr", size = getLengthOfLath(Rules.DOORHEIGHT - heightOfLath) + "cm";
+            Part part = DatabaseFacade.getPart(type, material, size);
+            PARTS.add(part);
+        }
+
         int screws = 0;
         for (int i = 0; i < planks + handle + hinge; i++) {
             if (i < planks) {
@@ -78,4 +89,43 @@ public class CarportShedCalculator {
             }
         }
     }
+
+    private int getLengthOfLath(double width) {
+        int lengthOfLath;
+        if (width >= 540) {
+            lengthOfLath = 540;
+        } else if (width >= 510) {
+            lengthOfLath = 510;
+        } else if (width >= 480) {
+            lengthOfLath = 480;
+        } else if (width >= 450) {
+            lengthOfLath = 450;
+        } else if (width >= 420) {
+            lengthOfLath = 420;
+        } else if (width >= 390) {
+            lengthOfLath = 390;
+        } else if (width >= 360) {
+            lengthOfLath = 360;
+        } else if (width >= 330) {
+            lengthOfLath = 330;
+        } else if (width >= 300) {
+            lengthOfLath = 300;
+        } else if (width >= 270) {
+            lengthOfLath = 270;
+        } else {
+            lengthOfLath = 240;
+        }
+        return lengthOfLath;
+    }
+
+    private void calcReglar() {
+
+    }
+
+    private void calcCladding() {
+        // Calc our cladding with our rules.
+    }
+    //Et skur har 4 hjørner, de to hjørner er allerede sat fra carporten. Vi skal have mindst én ekstra stolpe til midten af forsiden.
+    //Et skur har en beklædning af bræder, 25mm overlap pr. brædt. så to til en pr. brædt. 
+    //Et skur har én dør. 
 }
