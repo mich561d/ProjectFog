@@ -11,10 +11,10 @@ import java.util.ArrayList;
  */
 public class LogicFacade {
 
-    private static CarportCalculator cc = new CarportCalculator(0, 0, 0, 0, false);
+    private static CarportCalculator cc = new CarportCalculator(0, 0, 0, 0, false, false, 0, 0);
 
-    public static void calculateCustomCarport(int length, int width, int height, int angle, boolean angledRoof) throws FogException {
-        cc = new CarportCalculator(length, width, height, angle, angledRoof);
+    public static void calculateCustomCarport(int length, int width, int height, int angle, boolean angledRoof, boolean shed, int shedLength, int shedWidth) throws FogException {
+        cc = new CarportCalculator(length, width, height, angle, angledRoof, shed, shedLength, shedWidth);
         cc.calcCarport();
     }
 

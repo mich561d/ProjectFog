@@ -14,16 +14,18 @@ public class ProductReviewCommand implements Command {
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws FogException {
+        // Base
         int length = Integer.parseInt(request.getParameter("carportLength"));
         request.getSession().setAttribute("CarportLength", length);
         int width = Integer.parseInt(request.getParameter("carportWidth"));
         request.getSession().setAttribute("CarportWidth", width);
         int height = Integer.parseInt(request.getParameter("carportHeight"));
         request.getSession().setAttribute("CarportHeight", height);
+        // Roof
         int angle = 0;
-        String onOrNot = request.getParameter("angledRoof");
+        String roofOnOrNot = request.getParameter("angledRoof");
         boolean angledRoof = false;
-        if ("on".equals(onOrNot)) {
+        if ("on".equals(roofOnOrNot)) {
             angledRoof = true;
         }
         request.getSession().setAttribute("AngledRoof", angledRoof);
@@ -31,7 +33,22 @@ public class ProductReviewCommand implements Command {
             angle = Integer.parseInt(request.getParameter("roofAngle"));
             request.getSession().setAttribute("RoofAngle", angle);
         }
-        LogicFacade.calculateCustomCarport(length, width, height, angle, angledRoof);
+        // Shed
+        int shedLength = 0, shedWidth = 0;
+        String shedOnOrNot = request.getParameter("shed");
+        boolean shed = false;
+        if ("on".equals(shedOnOrNot)) {
+            shed = true;
+        }
+        request.getSession().setAttribute("Shed", shed);
+        if (angledRoof == true) {
+            shedLength = Integer.parseInt(request.getParameter("shedLength"));
+            request.getSession().setAttribute("ShedLength", shedLength);
+            shedWidth = Integer.parseInt(request.getParameter("shedWidth"));
+            request.getSession().setAttribute("ShedWidth", shedWidth);
+        }
+
+        LogicFacade.calculateCustomCarport(length, width, height, angle, angledRoof, shed, shedLength, shedWidth);
         request.getSession().setAttribute("ProductPrice", LogicFacade.getPriceFromCarport());
         request.getSession().setAttribute("ProductList", LogicFacade.getProductsFromCarport());
         request.getSession().setAttribute("DrawingAbove", LogicFacade.getDrawingFromAbove(length, width));

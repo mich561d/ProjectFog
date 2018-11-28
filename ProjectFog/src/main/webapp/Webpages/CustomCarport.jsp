@@ -31,15 +31,15 @@
                                             <h3>Carport</h3>
                                             <label>
                                                 <p>Længde:</p>
-                                                <input type="number" class="form-control" name="carportLength" placeholder="Cm" min="240" max="780" required>
+                                                <input type="number" class="form-control" name="carportLength" placeholder="Cm" min="240" max="780" value="240" required>
                                             </label>
                                             <label>
                                                 <p>Bredde:</p>
-                                                <input type="number" class="form-control" name="carportWidth" placeholder="Cm" min="240" max="750" required>
+                                                <input type="number" class="form-control" name="carportWidth" placeholder="Cm" min="240" max="750" value="240" required>
                                             </label>
                                             <label>
                                                 <p>Højde:</p>
-                                                <input type="number" class="form-control" name="carportHeight" placeholder="Cm" min="200" max="250" required>
+                                                <input type="number" class="form-control" name="carportHeight" placeholder="Cm" min="200" max="250" value="200" required>
                                             </label>
                                         </label>
                                     </th>
@@ -54,7 +54,7 @@
                                             </label>
                                             <label>
                                                 <p>Rejsning:</p>
-                                                <input type="number" class="form-control" name="roofAngle" placeholder="Grader" min="0" max="75">
+                                                <input type="number" class="form-control" name="roofAngle" placeholder="Grader" min="0" max="75" value="0" required>
                                             </label>
                                             <p> *Hvis de ikke ønsker rejsning vil deres carport blive leveret med Trapezplade tag </p>
                                         </label>
@@ -68,11 +68,11 @@
                                             </label>
                                             <label>
                                                 <p>Længde:</p>
-                                                <input type="number" class="form-control" name="shedLength" placeholder="Cm" min="210" max="750">
+                                                <input type="number" class="form-control" name="shedLength" placeholder="Cm" min="0" max="750" value="0" required>
                                             </label>
                                             <label>
                                                 <p>Bredde:</p>
-                                                <input type="number" class="form-control" name="shedWidth" placeholder="Cm" min="210" max="720">
+                                                <input type="number" class="form-control" name="shedWidth" placeholder="Cm" min="0" max="720" value="0" required>
                                             </label>
                                             <p> *Hvis de ønsker et skur, vil det blive integreret i deres carport. De skal derfor øge længden af deres carport tilsvarende skurets længde.
                                         </label>

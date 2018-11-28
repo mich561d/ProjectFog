@@ -19,15 +19,15 @@ public class CarportCalculator {
     private ArrayList<Part> parts;
 
     // Constructor
-    public CarportCalculator(int LENGTH, int WIDTH, int HEIGHT, int ANGLE, boolean ANGLEDROOF) {
+    public CarportCalculator(int LENGTH, int WIDTH, int HEIGHT, int ANGLE, boolean ANGLEDROOF, boolean SHED, int SHEDLENGTH, int SHEDWIDTH) {
         this.LENGTH = LENGTH;
         this.WIDTH = WIDTH;
         this.HEIGHT = HEIGHT;
         this.ANGLE = ANGLE;
-        this.SHEDLENGTH = 0; // TODO
-        this.SHEDWIDTH = 0; // TODO
+        this.SHEDLENGTH = SHEDLENGTH;
+        this.SHEDWIDTH = SHEDWIDTH;
         this.ANGLEDROOF = ANGLEDROOF;
-        this.SHED = false; // TODO
+        this.SHED = SHED;
         this.parts = new ArrayList();
     }
 
