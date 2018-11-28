@@ -76,7 +76,7 @@
                                 </table>
                             </div>
                             <div class="card-footer">
-                                <input type="submit" class="btn btn-secondary" name="back" value="Tilbage">
+                                <input disabled="disabled" type="submit" class="btn btn-secondary" name="back" value="Tilbage">
                                 <input type="submit" class="btn btn-primary" name="Cart" value="Tilføj til kurv">
                             </div>
                         </form>

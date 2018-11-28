@@ -82,7 +82,7 @@
                             <div class="card-footer">
                                 <div class="row">
                                     <div class="col-lg-1 align-self-start">
-                                        <input type="submit" class="btn btn-secondary" name="back" value="Tilbage">
+                                        <input disabled="disabled" type="submit" class="btn btn-secondary" name="back" value="Tilbage">
                                     </div>
                                     <div class="col-lg-9"></div>
                                     <div class="col-lg-1 align-self-end">
