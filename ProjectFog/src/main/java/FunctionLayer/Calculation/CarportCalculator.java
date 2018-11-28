@@ -1,9 +1,11 @@
 package FunctionLayer.Calculation;
 
+import FunctionLayer.Calculation.Roof.RoofCalculator;
 import FunctionLayer.Calculation.Base.BaseCalculator;
 import DatabaseLayer.DatabaseFacade;
 import FunctionLayer.Entities.Part;
 import FunctionLayer.FogException;
+import FunctionLayer.ListToMap;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -44,29 +46,13 @@ public class CarportCalculator {
         return parts;
     }
 
-    private HashMap<String, ArrayList<Part>> convertListToMap() {
-        HashMap<String, ArrayList<Part>> list = new HashMap();
-        for (Part part : parts) {
-            String key = part.getType();
-            ArrayList<Part> al;
-            if (list.containsKey(key)) {
-                al = (ArrayList<Part>) list.get(key);
-            } else {
-                al = new ArrayList();
-            }
-            al.add(part);
-            list.put(key, al);
-        }
-        return list;
-    }
-
     // Calc  method:
     public void calcCarport() throws FogException {
         BaseCalculator cbc = new BaseCalculator(LENGTH, WIDTH, HEIGHT, parts);
         parts = cbc.calcBase();
         calcScrewsBeslag();
 
-        CarportRoofCalculator crc = new CarportRoofCalculator(LENGTH, WIDTH, ANGLE, ANGLEDROOF, parts);
+        RoofCalculator crc = new RoofCalculator(LENGTH, WIDTH, ANGLE, ANGLEDROOF, parts);
         parts = crc.calcRoof();
 
         if (SHED) {
@@ -76,7 +62,7 @@ public class CarportCalculator {
     }
 
     private void calcScrewsBeslag() throws FogException {
-        int rafterCount = convertListToMap().get("Spær").size();
+        int rafterCount = ListToMap.convertListToMap(parts).get("Spær").size();
         int brackets = 0;
         for (int i = 0; i < rafterCount; i++) {
             brackets += Rules.BRACKETSPERRAFT;
