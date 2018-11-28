@@ -4,7 +4,7 @@
     Author     : Michael
 --%>
 
-<div class="container" style="">
+<div class="container">
     <div class="row">
         <div class="col-lg">
             <div style="background-color: #0c2069; position: fixed; bottom:0; width:84%; left:8%;">

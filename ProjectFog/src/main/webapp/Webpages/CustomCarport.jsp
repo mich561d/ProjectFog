@@ -16,7 +16,7 @@
         <%@include file="/WEB-INF/Imports/NavBar.jsp" %>
         <br>
         <div class="container-fluid">        
-            <div class="col-lg-6">
+            <div class="col-lg-6" style="margin: auto;">
                 <div class="card">
                     <form name="Product" action="FrontController" method="POST">
                         <div class="card-header">
@@ -80,8 +80,15 @@
                                 </tr>
                             </table>
                             <div class="card-footer">
-                                <input type="submit" class="btn btn-secondary" name="update" value="Opdater">
-                                <input type="submit" class="btn btn-primary" name="next" value="Næste">
+                                <div class="row">
+                                    <div class="col-lg-1 align-self-start">
+                                        <input type="submit" class="btn btn-secondary" name="back" value="Tilbage">
+                                    </div>
+                                    <div class="col-lg-9"></div>
+                                    <div class="col-lg-1 align-self-end">
+                                        <input type="submit" class="btn btn-primary" name="next" value="Næste">
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </form>
