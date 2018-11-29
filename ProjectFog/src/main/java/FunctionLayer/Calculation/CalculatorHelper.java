@@ -20,7 +20,9 @@ public class CalculatorHelper {
 
     public static int getLengthOfRaft(int length) {
         int lengthOfRaft;
-        if (length >= 720) {
+        if (length >= 780) {
+            lengthOfRaft = 780;
+        } else if (length >= 720) {
             lengthOfRaft = 720;
         } else if (length >= 660) {
             lengthOfRaft = 660;
@@ -57,7 +59,7 @@ public class CalculatorHelper {
         }
         return lengthOfTrapez;
     }
-    
+
     public static int getLengthOfWaterBoard(double length) {
         int lengthOfWaterBoard;
         if (length >= 420) {

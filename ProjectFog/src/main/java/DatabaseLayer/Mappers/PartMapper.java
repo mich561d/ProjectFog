@@ -33,6 +33,8 @@ public class PartMapper {
                 String brand = ids.getString("brand");
                 double price = ids.getDouble("price");
                 part = new Part(id, type, material, size, description, brand, price);
+            } else {
+                throw new FogException("404 - Part not found!");
             }
         } catch (SQLException | ClassNotFoundException ex) {
             throw new FogException(ex.getMessage());

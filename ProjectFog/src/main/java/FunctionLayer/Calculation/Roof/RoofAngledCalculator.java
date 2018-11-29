@@ -67,7 +67,7 @@ public class RoofAngledCalculator {
     private void calcSideRoofPlanks(int l) throws FogException {
         for (int length = l; length >= 0;) {
             int lengthOfPlank = CalculatorHelper.getLengthOfWaterBoard(length);
-            addPartToList(2, "Vandbrædt", "Trykimp Fyr", "19x100m " + lengthOfPlank + "cm");
+            addPartToList(2, "Vandbrædt", "Trykimp Fyr", "19x100mm " + lengthOfPlank + "cm");
             length -= lengthOfPlank;
         }
     }
