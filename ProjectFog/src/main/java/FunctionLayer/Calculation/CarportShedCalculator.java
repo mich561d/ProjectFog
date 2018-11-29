@@ -57,7 +57,10 @@ public class CarportShedCalculator {
     private void door() throws FogException {
         //mål 90x200
         // 4 screws pr. plank, 33cm between planks.
-        int planks = 13;
+        double calcSpace = Rules.DOORWIDTH - (Rules.CLADDINGBOARDWIDTH * 2);
+        int backPlanks = (int) Math.ceil((calcSpace / 150) + 2);
+        int frontPlanks = (int) Math.floor((calcSpace / 150) + 2);
+        int planks = backPlanks + frontPlanks;
         //4 screws for handle
         int handle = 1;
         //6 screws pr. hinge
@@ -101,7 +104,7 @@ public class CarportShedCalculator {
         for (int i = 0; i < planks; i++) {
             type = "Vandbrædt";
             material = "Trykimp Fyr";
-            size = "19x100mm 210cm";
+            size = "19x100mm " + calcPlankHeight(Rules.DOORHEIGHT) + "cm";
             part = DatabaseFacade.getPart(type, material, size);
             PARTS.add(part);
         }
@@ -116,8 +119,8 @@ public class CarportShedCalculator {
                 screws += Rules.SCREWSPERHINGE;
             }
         }
-        int packsOfScrews = (int)Math.ceil((double)screws / (double)Rules.SCREWPERPACK);
-        
+        int packsOfScrews = (int) Math.ceil((double) screws / (double) Rules.SCREWPERPACK);
+
         for (int i = 0; i < packsOfScrews; i++) {
             type = "Basic Skrue";
             material = "Stål";
@@ -125,6 +128,26 @@ public class CarportShedCalculator {
             part = DatabaseFacade.getPart(type, material, size);
             PARTS.add(part);
         }
+    }
+
+    private int calcPlankHeight(double width) {
+        int plankHeight;
+        if (width >= 420) {
+            plankHeight = 420;
+        } else if (width >= 360) {
+            plankHeight = 360;
+        } else if (width >= 300) {
+            plankHeight = 300;
+        } else if (width >= 270) {
+            plankHeight = 270;
+        } else if (width >= 240) {
+            plankHeight = 240;
+        } else if (width >= 210) {
+            plankHeight = 210;
+        } else {
+            plankHeight = 180;
+        }
+        return plankHeight;
     }
 
     private int getLengthOfLath(double width) {
@@ -156,7 +179,7 @@ public class CarportShedCalculator {
     }
 
     private void calcReglar() {
-
+        //calc inter-ties with our rules, and add angle brackets.
     }
 
     private void calcCladding() {

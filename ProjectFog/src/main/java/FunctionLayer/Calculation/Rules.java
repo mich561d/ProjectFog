@@ -26,6 +26,8 @@ public class Rules {
     public static final int TRAPEZWIDTH = 109;
     public static final int WATERBOARDS = 4;
     public static final int DISTANCEBETWEENWATERBOARDSCREWS = 100;
+    public static final int CLADDINGBOARDWIDTH = 10;
+    public static final int SCREWSPERANGLEBRACKET = 8;
 
     public static final double RAFTTHICKNESS = 4.7;
     public static final double ROOFINGOVERLAP = 0.05;
