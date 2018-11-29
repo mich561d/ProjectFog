@@ -34,7 +34,7 @@ public class PartTest {
     @Test
     public void GetPartFromDatabaseEmptyData() throws FogException {
         // Arrange & Act:
-        Part part = PartMapper.getPartByTypeMaterialSize("Stolpe", "Trykimp Fyr", "97x97mm 290cm");
+        Part part = PartMapper.getPartByTypeMaterialSize("Stolpe", "Trykimp Fyr", "");
         // Assert:
         assertNull(part);
     }
@@ -42,7 +42,7 @@ public class PartTest {
     @Test
     public void GetPartFromDatabaseNullData() throws FogException {
         // Arrange & Act:
-        Part part = PartMapper.getPartByTypeMaterialSize("Stolpe", "Trykimp Fyr", "97x97mm 290cm");
+        Part part = PartMapper.getPartByTypeMaterialSize("Stolpe", "Trykimp Fyr", null);
         // Assert:
         assertNull(part);
     }

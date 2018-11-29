@@ -4,6 +4,7 @@ import DatabaseLayer.DatabaseFacade;
 import FunctionLayer.Entities.Part;
 import FunctionLayer.FogException;
 import java.util.ArrayList;
+import static FunctionLayer.Calculation.Rules.*;
 
 /**
  *
@@ -68,7 +69,7 @@ public class CarportShedCalculator {
         //top og bund 90cm, sider 190.6, krydsmål 210.78.
         int lath = 0;
         for (int i = 0; i < 2; i++) {
-            String type = "Regler", material = "Trykimp Fyr", size = getLengthOfLath(Rules.DOORWIDTH) + "cm";
+            String type = "Regler", material = "Trykimp Fyr", size = getLengthOfLath(DOORWIDTH) + "cm";
             Part part = DatabaseFacade.getPart(type, material, size);
             PARTS.add(part);
         }
