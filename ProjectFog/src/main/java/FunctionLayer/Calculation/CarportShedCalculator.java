@@ -179,7 +179,7 @@ public class CarportShedCalculator {
     }
 
     private void calcReglar() {
-
+        //calc inter-ties with our rules, and add angle brackets.
     }
 
     private void calcCladding() {
