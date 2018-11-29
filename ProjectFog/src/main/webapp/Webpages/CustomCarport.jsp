@@ -11,6 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Fog Carport</title>
         <%@include file="/WEB-INF/Imports/StyleImporter.jsp" %>
+        <link href="Webpages/CSS/FogStyling.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <%@include file="/WEB-INF/Imports/NavBar.jsp" %>

@@ -11,6 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Indkøbskurv</title>
         <%@include file="/WEB-INF/Imports/StyleImporter.jsp" %>
+        <link href="Webpages/CSS/FogStyling.css" rel="stylesheet" type="text/css"/>
         <%
             double totalPrice = (double) request.getSession().getAttribute("ProductPrice");
             double price = totalPrice / 100 * 75;

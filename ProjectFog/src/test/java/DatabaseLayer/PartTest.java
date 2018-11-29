@@ -3,6 +3,8 @@ package DatabaseLayer;
 import DatabaseLayer.Mappers.PartMapper;
 import FunctionLayer.Entities.Part;
 import FunctionLayer.FogException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -13,37 +15,48 @@ import static org.junit.Assert.*;
 public class PartTest {
 
     @Test
-    public void GetPartFromDatabase() throws FogException {
+    public void GetPartFromDatabase() {
         // Arrange & Act: 
-        Part part = PartMapper.getPartByTypeMaterialSize("Stolpe", "Trykimp Fyr", "97x97mm 300cm");
+        try {
+            PartMapper.getPartByTypeMaterialSize("Stolpe", "Trykimp Fyr", "97x97mm 300cm");
+        } catch (FogException ex) {
+            // Assert:
+            fail("Should not have thrown error!");
+        }
         // Assert:
-        assertNotNull(part);
-    }
 
-    @Test//(expected = FogException.class)
-    public void GetPartFromDatabaseWrongData() throws FogException {
-        // Arrange & Act --> Assert: 
-        //Part part = PartMapper.getPartByTypeMaterialSize("Stolpe", "Trykimp Fyr", "97x97mm 290cm");
-
-        // Arrange & Act:
-        Part part = PartMapper.getPartByTypeMaterialSize("Stolpe", "Trykimp Fyr", "97x97mm 290cm");
-        // Assert:
-        assertNull(part);
     }
 
     @Test
-    public void GetPartFromDatabaseEmptyData() throws FogException {
+    public void GetPartFromDatabaseWrongData() {
         // Arrange & Act:
-        Part part = PartMapper.getPartByTypeMaterialSize("Stolpe", "Trykimp Fyr", "");
-        // Assert:
-        assertNull(part);
+        try {
+            PartMapper.getPartByTypeMaterialSize("Stolpe", "Trykimp Fyr", "97x97mm 290cm");
+            // Assert:
+            fail("Should not have thrown error!");
+        } catch (FogException ex) {
+        }
     }
 
     @Test
-    public void GetPartFromDatabaseNullData() throws FogException {
+    public void GetPartFromDatabaseEmptyData() {
         // Arrange & Act:
-        Part part = PartMapper.getPartByTypeMaterialSize("Stolpe", "Trykimp Fyr", null);
-        // Assert:
-        assertNull(part);
+        try {
+            PartMapper.getPartByTypeMaterialSize("Stolpe", "Trykimp Fyr", "");
+            // Assert:
+            fail("Should not have thrown error!");
+        } catch (FogException ex) {
+        }
+    }
+
+    @Test
+    public void GetPartFromDatabaseNullData() {
+        // Arrange & Act:
+        try {
+            PartMapper.getPartByTypeMaterialSize("Stolpe", "Trykimp Fyr", null);
+            // Assert:
+            fail("Should not have thrown error!");
+        } catch (FogException ex) {
+        }
     }
 }

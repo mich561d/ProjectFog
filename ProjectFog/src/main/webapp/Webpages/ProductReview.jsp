@@ -16,6 +16,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Produkt Opsumering</title>
         <%@include file="/WEB-INF/Imports/StyleImporter.jsp" %>
+        <link href="Webpages/CSS/FogStyling.css" rel="stylesheet" type="text/css"/>
         <%
             DecimalFormat df = new DecimalFormat(".##");
             double totalPrice = (double) request.getSession().getAttribute("ProductPrice");
