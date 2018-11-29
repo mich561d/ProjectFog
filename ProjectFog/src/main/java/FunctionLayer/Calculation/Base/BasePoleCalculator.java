@@ -17,11 +17,11 @@ public class BasePoleCalculator {
         int poles = 0;
         poles += calcPolesSides(length);
         poles += calcPolesBack(width);
-        AddPartToList(height, poles, parts);
+        addPartToList(height, poles, parts);
         return parts;
     }
 
-    private void AddPartToList(int height, int poles, ArrayList<Part> parts) throws FogException {
+    private void addPartToList(int height, int poles, ArrayList<Part> parts) throws FogException {
         int calcHeight = height + POLELENGTHUNDERGROUND;
         for (int i = 0; i < poles; i++) {
             String type = "Stolpe", material = "Trykimp Fyr", size = "97x97mm " + CalculatorHelper.getLengthOfPole(calcHeight) + "cm";

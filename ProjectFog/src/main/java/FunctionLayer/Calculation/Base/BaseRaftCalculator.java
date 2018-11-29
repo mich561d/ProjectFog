@@ -24,7 +24,7 @@ public class BaseRaftCalculator {
         for (int w = width; w >= 0;) {
             int lengthOfRaft = CalculatorHelper.getLengthOfRaft(w);
             for (int i = 0; i < 2; i++) {
-                AddPartToList(lengthOfRaft, parts);
+                addPartToList(lengthOfRaft, parts);
             }
             w -= lengthOfRaft;
         }
@@ -34,7 +34,7 @@ public class BaseRaftCalculator {
         for (int l = length; l >= 0;) {
             int lengthOfRaft = CalculatorHelper.getLengthOfRaft(l);
             for (int i = 0; i < 2; i++) {
-                AddPartToList(lengthOfRaft, parts);
+                addPartToList(lengthOfRaft, parts);
             }
             l -= lengthOfRaft;
         }
@@ -44,18 +44,13 @@ public class BaseRaftCalculator {
         double calcLength = length - POLEOFFSET - RAFTTHICKNESS;
         for (double distance = 0; distance < calcLength;) {
             distance += RAFTTHICKNESS + DISTANCEBETWEENRAFTS;
-            AddPartToList(width, parts);
+            addPartToList(width, parts);
         }
     }
 
-    private void AddPartToList(int lengthOfRaft, ArrayList<Part> parts) throws FogException {
-        Part part = GetCorrectPart(lengthOfRaft);
+    private void addPartToList(int length, ArrayList<Part> parts) throws FogException {
+        int lengthOfRaft = CalculatorHelper.getLengthOfRaft(length);
+        Part part = DatabaseFacade.getPart("Spær", "Ubh. Fyr", "47x200mm " + lengthOfRaft + "cm");
         parts.add(part);
-    }
-
-    private Part GetCorrectPart(int lengthOfRaft) throws FogException {
-        String type = "Spær", material = "Ubh. Fyr", size = "47x200mm " + CalculatorHelper.getLengthOfRaft(lengthOfRaft) + "cm";
-        Part part = DatabaseFacade.getPart(type, material, size);
-        return part;
     }
 }

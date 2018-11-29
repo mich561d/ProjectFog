@@ -30,7 +30,7 @@ public class Rules {
     public static final int SCREWSPERANGLEBRACKET = 8;
 
     public static final double RAFTTHICKNESS = 4.7;
-    public static final double ROOFINGOVERLAP = 0.05;
+    public static final double ROOFINGFELTOVERLAP = 0.05;
     public static final double WATERBOARDTHICKNESS = 1.9;
     public static final double WATERBOARDDOUBLETHICKNESS = WATERBOARDTHICKNESS * 2;
 

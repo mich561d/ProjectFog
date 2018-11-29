@@ -1,6 +1,7 @@
 package FunctionLayer.Calculation.Roof;
 
 import DatabaseLayer.DatabaseFacade;
+import FunctionLayer.Calculation.CalculatorHelper;
 import FunctionLayer.Entities.Part;
 import FunctionLayer.FogException;
 import FunctionLayer.ListToMap;
@@ -13,9 +14,12 @@ import static FunctionLayer.Calculation.Rules.*;
  */
 public class RoofAngledCalculator {
 
+    private ArrayList<Part> partList;
+
     public ArrayList<Part> calcAngledRoof(ArrayList<Part> parts, int length, int width, int angle) throws FogException {
-        /* Calc triangle
-        små = sider, store = vinkler
+        partList = parts;
+        /* Triangle math
+        lowercase = sides, uppercase = angles
                 A
               c b c
             B a C a B
@@ -25,80 +29,60 @@ public class RoofAngledCalculator {
         double sinB = Math.sin(Math.toRadians(angleB)), sinA = Math.sin(Math.toRadians(angleA));
         double sideB = (sideA * sinB) / sinA;
         double sideC = Math.sqrt((sideA * sideA) + (sideB * sideB));
-        CalcSideRafts(parts, sideA); // Calc side rafts
-        calcAngledRoofRafter(parts, length, 1); // Long raft
-        CalcRoofRaft(sideC, parts, length); // Horizontal rafts
-        CalcRoofing(sideC, length, parts); // Roofing
-        return parts;
+        // Carport calculations
+        calcSideRafts(sideC);           // Calc side rafts
+        calcLongPlank(length);          // Long raft
+        calcRoofPlank(sideC, length);   // Horizontal planks
+        calcRoofing(sideC, length);     // Roofing
+        return partList;
     }
 
-    private void CalcSideRafts(ArrayList<Part> parts, double sideA) throws FogException {
-        int raftCount = ListToMap.convertListToMap(parts).get("Spær").size();
+    private void calcSideRafts(double length) throws FogException {
+        int raftCount = ListToMap.convertListToMap(partList).get("Spær").size();
         for (int i = 0; i < raftCount; i++) {
-            calcAngledRoofRafter(parts, (int) Math.ceil(sideA), 2);
+            calcAngledRoofRafter((int) Math.ceil(length), 2);
         }
     }
 
-    private void CalcRoofRaft(double sideC, ArrayList<Part> parts, int length) throws FogException {
-        int plankCount = (int) Math.ceil(sideC / (DISTANCEBETWEENPLANK + PLANKWIDTH));
-        for (int i = 0; i < plankCount; i++) {
-            calcAngledRoofPlanks(parts, length);
-        }
-    }
-
-    private void CalcRoofing(double sideC, int length, ArrayList<Part> parts) throws FogException {
-        Part roofing = DatabaseFacade.getPart("Tagpap", "Krydsfiner med tagpap", "100x100cm");
-        Double area = ((sideC * length) * 2) + (RAFTTHICKNESS * length);
-        area += area * ROOFINGOVERLAP;
-        int squareMetersCount = (int) Math.ceil(area / 10000); // Square Cm to Square m
-        for (int i = 0; i < squareMetersCount; i++) {
-            parts.add(roofing);
-        }
-    }
-
-    private int getLengthOfRaft(int width) {
-        int lengthOfRaft;
-        if (width >= 720) {
-            lengthOfRaft = 720;
-        } else if (width >= 660) {
-            lengthOfRaft = 660;
-        } else if (width >= 600) {
-            lengthOfRaft = 600;
-        } else if (width >= 540) {
-            lengthOfRaft = 540;
-        } else if (width >= 480) {
-            lengthOfRaft = 480;
-        } else if (width >= 420) {
-            lengthOfRaft = 420;
-        } else if (width >= 360) {
-            lengthOfRaft = 360;
-        } else {
-            lengthOfRaft = 300;
-        }
-        return lengthOfRaft;
-    }
-
-    private void calcAngledRoofRafter(ArrayList<Part> parts, int l, int times) throws FogException {
+    private void calcAngledRoofRafter(int l, int times) throws FogException {
         for (int length = l; length >= 0;) {
-            int lengthOfRaft = getLengthOfRaft(length);
-            for (int i = 0; i < times; i++) {
-                String type = "Spær", material = "Ubh. Fyr", size = "47x200mm " + lengthOfRaft + "cm";
-                Part part = DatabaseFacade.getPart(type, material, size);
-                parts.add(part);
-            }
+            int lengthOfRaft = CalculatorHelper.getLengthOfRaft(length);
+            addPartToList(times, "Spær", "Ubh. Fyr", "47x200mm " + lengthOfRaft + "cm");
             length -= lengthOfRaft;
         }
     }
 
-    private void calcAngledRoofPlanks(ArrayList<Part> parts, int l) throws FogException {
+    private void calcLongPlank(int length) throws FogException {
+        int lengthOfPlank = CalculatorHelper.getLengthOfRaft(length);
+        addPartToList(1, "Spær", "Ubh. Fyr", "47x200mm " + lengthOfPlank + "cm");
+    }
+
+    private void calcRoofPlank(double sideC, int length) throws FogException {
+        int plankCount = (int) Math.ceil(sideC / (DISTANCEBETWEENPLANK + PLANKWIDTH));
+        for (int i = 0; i < plankCount; i++) {
+            calcSideRoofPlanks(length);
+        }
+    }
+
+    private void calcSideRoofPlanks(int l) throws FogException {
         for (int length = l; length >= 0;) {
-            int lengthOfPlank = getLengthOfRaft(length);
-            for (int i = 0; i < 2; i++) {
-                String type = "Vandbrædt", material = "Trykimp Fyr", size = "19x100mm " + lengthOfPlank + "cm";
-                Part part = DatabaseFacade.getPart(type, material, size);
-                parts.add(part);
-            }
+            int lengthOfPlank = CalculatorHelper.getLengthOfWaterBoard(length);
+            addPartToList(2, "Vandbrædt", "Trykimp Fyr", "19x100m " + lengthOfPlank + "cm");
             length -= lengthOfPlank;
+        }
+    }
+
+    private void calcRoofing(double sideC, int length) throws FogException {
+        Double area = ((sideC * length) * 2) + (RAFTTHICKNESS * length);
+        area += area * ROOFINGFELTOVERLAP;
+        int squareMetersCount = (int) Math.ceil(area / 10000); // Square Cm to Square m
+        addPartToList(squareMetersCount, "Tagpap", "Krydsfiner med tagpap", "100x100cm");
+    }
+
+    private void addPartToList(int count, String type, String material, String size) throws FogException {
+        for (int i = 0; i < count; i++) {
+            Part part = DatabaseFacade.getPart(type, material, size);
+            partList.add(part);
         }
     }
 
