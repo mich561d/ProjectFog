@@ -1,6 +1,7 @@
 package FunctionLayer.Calculation.Base;
 
 import DatabaseLayer.DatabaseFacade;
+import FunctionLayer.Calculation.CalculatorHelper;
 import FunctionLayer.Entities.Part;
 import FunctionLayer.FogException;
 import java.util.ArrayList;
@@ -23,12 +24,8 @@ public class BasePoleCalculator {
     private void AddPartToList(int height, int poles, ArrayList<Part> parts) throws FogException {
         int calcHeight = height + POLELENGTHUNDERGROUND;
         for (int i = 0; i < poles; i++) {
-            String type = "Stolpe", material = "Trykimp Fyr", size = "97x97mm " + calcHeight + "cm";
+            String type = "Stolpe", material = "Trykimp Fyr", size = "97x97mm " + CalculatorHelper.getLengthOfPole(calcHeight) + "cm";
             Part part = DatabaseFacade.getPart(type, material, size);
-            while (part == null) {
-                size = "97x97mm " + ++calcHeight + "cm";
-                part = DatabaseFacade.getPart(type, material, size);
-            }
             parts.add(part);
         }
     }

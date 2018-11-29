@@ -1,6 +1,7 @@
 package FunctionLayer.Calculation.Base;
 
 import DatabaseLayer.DatabaseFacade;
+import FunctionLayer.Calculation.CalculatorHelper;
 import FunctionLayer.Entities.Part;
 import FunctionLayer.FogException;
 import java.util.ArrayList;
@@ -21,7 +22,7 @@ public class BaseRaftCalculator {
 
     private void calcRoofRafterWidth(ArrayList<Part> parts, int width) throws FogException {
         for (int w = width; w >= 0;) {
-            int lengthOfRaft = getLengthOfRaft(w);
+            int lengthOfRaft = CalculatorHelper.getLengthOfRaft(w);
             for (int i = 0; i < 2; i++) {
                 AddPartToList(lengthOfRaft, parts);
             }
@@ -31,7 +32,7 @@ public class BaseRaftCalculator {
 
     private void calcRoofRafterLength(ArrayList<Part> parts, int length) throws FogException {
         for (int l = length; l >= 0;) {
-            int lengthOfRaft = getLengthOfRaft(l);
+            int lengthOfRaft = CalculatorHelper.getLengthOfRaft(l);
             for (int i = 0; i < 2; i++) {
                 AddPartToList(lengthOfRaft, parts);
             }
@@ -40,33 +41,11 @@ public class BaseRaftCalculator {
     }
 
     private void calcRoofRafterMiddle(ArrayList<Part> parts, int length, int width) throws FogException {
-        int calcLength = length - MAXDISTANCEBEWTEENPOLES;
+        double calcLength = length - POLEOFFSET - RAFTTHICKNESS;
         for (double distance = 0; distance < calcLength;) {
             distance += RAFTTHICKNESS + DISTANCEBETWEENRAFTS;
             AddPartToList(width, parts);
         }
-    }
-
-    private int getLengthOfRaft(int width) {
-        int lengthOfRaft;
-        if (width >= 720) {
-            lengthOfRaft = 720;
-        } else if (width >= 660) {
-            lengthOfRaft = 660;
-        } else if (width >= 600) {
-            lengthOfRaft = 600;
-        } else if (width >= 540) {
-            lengthOfRaft = 540;
-        } else if (width >= 480) {
-            lengthOfRaft = 480;
-        } else if (width >= 420) {
-            lengthOfRaft = 420;
-        } else if (width >= 360) {
-            lengthOfRaft = 360;
-        } else {
-            lengthOfRaft = 300;
-        }
-        return lengthOfRaft;
     }
 
     private void AddPartToList(int lengthOfRaft, ArrayList<Part> parts) throws FogException {
@@ -75,12 +54,8 @@ public class BaseRaftCalculator {
     }
 
     private Part GetCorrectPart(int lengthOfRaft) throws FogException {
-        String type = "Spær", material = "Ubh. Fyr", size = "47x200mm " + lengthOfRaft + "cm";
+        String type = "Spær", material = "Ubh. Fyr", size = "47x200mm " + CalculatorHelper.getLengthOfRaft(lengthOfRaft) + "cm";
         Part part = DatabaseFacade.getPart(type, material, size);
-        while (part == null) {
-            size = "47x200mm " + ++lengthOfRaft + "cm";
-            part = DatabaseFacade.getPart(type, material, size);
-        }
         return part;
     }
 }

@@ -12,7 +12,7 @@ import static org.junit.Assert.*;
  * @author Michael
  */
 // NRNS = No Roof, No Shed
-public class CarportCalculatorNRNSTest {
+public class BaseCarportCalculatorTest {
 
     // Test with input under breakpoint
     @Test

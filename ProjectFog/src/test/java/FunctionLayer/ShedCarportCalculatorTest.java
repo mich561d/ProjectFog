@@ -11,8 +11,8 @@ import static org.junit.Assert.*;
  *
  * @author Michael
  */
-// WRWS = With Roof, With Shed
-public class CarportCalculatorWRWSTest {
+// NRWS = No Roof, With Shed
+public class ShedCarportCalculatorTest {
 
     // Test with input under breakpoint
     @Test
