@@ -4,6 +4,7 @@ import FunctionLayer.Calculation.CarportCalculator;
 import FunctionLayer.Util.UtilCarportDrawing;
 import FunctionLayer.Entities.Part;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  *
@@ -22,8 +23,12 @@ public class LogicFacade {
         return cc.getTotalPrice();
     }
 
-    public static ArrayList<Part> getProductsFromCarport() throws FogException {
+    public static ArrayList<Part> getProductListFromCarport() throws FogException {
         return cc.getProductList();
+    }
+    
+    public static HashMap<String, ArrayList<Part>> getProductMapFromCarport() {
+        return cc.getProductMap();
     }
 
     public static String getDrawingFromAbove(int length, int width) {

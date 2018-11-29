@@ -4,6 +4,8 @@
     Author     : Michael & Christian
 --%>
 
+<%@page import="java.util.Set"%>
+<%@page import="java.util.HashMap"%>
 <%@page import="java.text.DecimalFormat"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="FunctionLayer.Entities.Part"%>
@@ -22,7 +24,7 @@
             String formattedTotalPrice = df.format(totalPrice);
             String formattedPrice = df.format(price);
             String formattedTax = df.format(tax);
-            ArrayList<Part> products = (ArrayList<Part>) request.getSession().getAttribute("ProductList");
+            HashMap<String, ArrayList<Part>> products = (HashMap<String, ArrayList<Part>>) request.getSession().getAttribute("ProductList");
         %>
     </head>
     <body>
@@ -60,15 +62,35 @@
                                             <label>
                                                 <h3>Stykliste</h3>
                                                 <label>
-                                                    <% for (int i = 0; i < products.size(); i++) {
-                                                            Part part = products.get(i);
-                                                            if (part == null) {
-                                                                out.println(part + "<br>");
-                                                            } else {
-                                                                String line = part.getType() + " " + part.getMaterial() + " " + part.getSize();
-                                                                out.println(line + "<br>");
-                                                            }
-                                                        }%>
+                                                    <div class="container">
+                                                        <table class="table table-condensed">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Type</th>
+                                                                    <th>Materiale</th>
+                                                                    <th>Størrelse</th>
+                                                                    <th>Antal</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <%
+                                                                    Set set = products.keySet();
+                                                                    ArrayList<String> keys = new ArrayList<>();
+                                                                    keys.addAll(set);
+                                                                    for (int i = 0; i < keys.size(); i++) {
+                                                                        ArrayList<Part> parts = products.get(keys.get(i));
+                                                                        Part part = parts.get(0);
+                                                                %>
+                                                                <tr>
+                                                                    <td><%= part.getType()%></td>
+                                                                    <td><%= part.getMaterial()%></td>
+                                                                    <td><%= part.getSize()%></td>
+                                                                    <td><%= parts.size()%></td>
+                                                                </tr>
+                                                                <% }%>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
                                                 </label>
                                             </label>
                                         </th>

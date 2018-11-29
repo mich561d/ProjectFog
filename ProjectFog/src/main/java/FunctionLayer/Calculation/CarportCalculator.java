@@ -45,6 +45,10 @@ public class CarportCalculator {
     public ArrayList<Part> getProductList() {
         return parts;
     }
+    
+    public HashMap<String, ArrayList<Part>> getProductMap() {
+        return ListToMap.convertListToMap(parts);
+    }
 
     // Calc  method:
     public void calcCarport() throws FogException {
