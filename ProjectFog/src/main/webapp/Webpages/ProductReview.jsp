@@ -23,7 +23,6 @@
             double price = totalPrice / 100 * 75;
             double tax = totalPrice - price;
             String formattedTotalPrice = df.format(totalPrice);
-            String formattedPrice = df.format(price);
             String formattedTax = df.format(tax);
             HashMap<String, ArrayList<Part>> products = (HashMap<String, ArrayList<Part>>) request.getSession().getAttribute("ProductList");
         %>
@@ -32,88 +31,102 @@
         <%@include file="/WEB-INF/Imports/NavBar.jsp" %>
         <br>
         <div class="container-fluid">   
-            <div class="row">
-                <div class="col-lg-6">
+            <div class="row justify-content-md-center">
+                <div class="col-lg-8">
                     <div class="card">
                         <form name="Product" action="FrontController" method="POST">
                             <div class="card-header">
-                                <h3>Gennemgå din carport.</h3>
+                                <h3>Gennemgå din carport</h3>
                             </div>
                             <div class="card-body">
                                 <input type="hidden" name="command" value="Cart">
-                                <table border="1" cellpadding='20' width='100%'>
-                                    <tr>
-                                        <th width="35%" colspan="2" valign='top'>
+                                <label>
+                                    <h3 style="text-align: center">Stykliste</h3>
+
+                                    <div class="container">
+                                        <table class="table table-condensed">
+                                            <thead>
+                                                <tr>
+                                                    <th>Type</th>
+                                                    <th>Materiale</th>
+                                                    <th>Størrelse</th>
+                                                    <th>Detaljer</th>
+                                                    <th>Antal</th>
+                                                    <th>Stykpris</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <%
+                                                    Set set = products.keySet();
+                                                    ArrayList<String> keys = new ArrayList<>();
+                                                    keys.addAll(set);
+                                                    for (int i = 0; i < keys.size(); i++) {
+                                                        ArrayList<Part> parts = products.get(keys.get(i));
+                                                        Part part = parts.get(0);
+                                                %>
+                                                <tr>
+                                                    <td><%= part.getType()%></td>
+                                                    <td><%= part.getMaterial()%></td>
+                                                    <td><%= part.getSize()%></td>
+                                                    <td><%= part.getDescription()%></td>
+                                                    <td><%= parts.size()%></td>
+                                                    <td><%= part.getPrice()%> kr.</td>
+                                                </tr>
+                                                <% }%>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <label style="width: 100%">
+                                        <h3 style="text-align: center">Pris</h3>
+                                        <div style="text-align: right; margin-right: 5%">
                                             <label>
-                                                <h3>Pris</h3>
-                                                <label>
-                                                    <p>Pris: <%= formattedPrice%></p>
-                                                </label>
-                                                <br>
-                                                <label>
-                                                    <p>Moms: <%= formattedTax%></p>
-                                                </label>
-                                                <br>
-                                                <label>
-                                                    <p>Total: <%= formattedTotalPrice%></p>
-                                                </label>
+                                                <p>Total: <%= formattedTotalPrice%> kr.</p>
                                             </label>
-                                        </th>
-                                        <th width='65%' valign='top'>
+                                            <br>
                                             <label>
-                                                <h3>Stykliste</h3>
-                                                <label>
-                                                    <div class="container">
-                                                        <table class="table table-condensed">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th>Type</th>
-                                                                    <th>Materiale</th>
-                                                                    <th>Størrelse</th>
-                                                                    <th>Antal</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <%
-                                                                    Set set = products.keySet();
-                                                                    ArrayList<String> keys = new ArrayList<>();
-                                                                    keys.addAll(set);
-                                                                    for (int i = 0; i < keys.size(); i++) {
-                                                                        ArrayList<Part> parts = products.get(keys.get(i));
-                                                                        Part part = parts.get(0);
-                                                                %>
-                                                                <tr>
-                                                                    <td><%= part.getType()%></td>
-                                                                    <td><%= part.getMaterial()%></td>
-                                                                    <td><%= part.getSize()%></td>
-                                                                    <td><%= parts.size()%></td>
-                                                                </tr>
-                                                                <% }%>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                </label>
+                                                <p>Heraf moms: <%= formattedTax%> kr.</p>
                                             </label>
-                                        </th>
-                                    </tr>
-                                </table>
+                                        </div>
+                                    </label>
+                                </label>
                             </div>
                             <div class="card-footer">
-                                <input disabled="disabled" type="submit" class="btn btn-secondary" name="back" value="Tilbage">
-                                <input type="submit" class="btn btn-primary" name="Cart" value="Tilføj til kurv">
+                                <div class="row">
+                                    <div class="col-lg-1 align-self-start">
+                                        <input disabled="disabled" type="submit" class="btn btn-secondary" name="back" value="Tilbage">
+                                    </div>
+                                    <div class="col-lg-9"></div>
+                                    <div class="col-lg-1 align-self-end">
+                                        <input type="submit" class="btn btn-primary" name="Cart" value="Tilføj til kurv">
+                                    </div>
+                                </div>
                             </div>
                         </form>
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <h3>Plantegninger af carport:</h3>
-                    <h4>Oppe fra:</h4>
-                    <%= request.getSession().getAttribute("DrawingAbove")%>
-                    <h4>Fra siden:</h4>
-                    <%= request.getSession().getAttribute("DrawingAside")%>
-                    <h4>Forfra:</h4>
-                    <%= request.getSession().getAttribute("DrawingFront")%>
-                </div>
+            </div>
+            <br>
+            <hr>
+            <div style="text-align: center">  
+                <h3>Plantegninger af carport:</h3>
+                <table align="center" cellspacing="50px">
+                    <tr>
+                        <td rowspan="2">
+                            <h4>Oppe fra:</h4>
+                            <%= request.getSession().getAttribute("DrawingAbove")%>
+                        </td>
+                        <td>
+                            <h4>Forfra:</h4>
+                            <%= request.getSession().getAttribute("DrawingFront")%>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h4>Fra siden:</h4>
+                            <%= request.getSession().getAttribute("DrawingAside")%>
+                        </td>
+                    </tr>
+                </table>
             </div>
         </div>
     </body>
