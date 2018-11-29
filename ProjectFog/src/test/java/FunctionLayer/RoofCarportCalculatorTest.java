@@ -35,7 +35,7 @@ public class RoofCarportCalculatorTest {
         ArrayList<Part> list = testList("small");
         list = rac.calcAngledRoof(list, 240, 240, 20);
         // Assert:
-        assertEquals(46, list.size());
+        assertEquals(54, list.size());
     }
 
     // Test with input at breakpoint
@@ -58,7 +58,7 @@ public class RoofCarportCalculatorTest {
         ArrayList<Part> list = testList("medium");
         list = rac.calcAngledRoof(list, 300, 300, 20);
         // Assert:
-        assertEquals(74, list.size());
+        assertEquals(73, list.size());
     }
 
     // Test with input over breakpoint 
@@ -81,7 +81,7 @@ public class RoofCarportCalculatorTest {
         ArrayList<Part> list = testList("big");
         list = rac.calcAngledRoof(list, 600, 600, 20);
         // Assert:
-        assertEquals(135, list.size());
+        assertEquals(190, list.size());
     }
 
     private ArrayList<Part> testList(String level) throws FogException {
