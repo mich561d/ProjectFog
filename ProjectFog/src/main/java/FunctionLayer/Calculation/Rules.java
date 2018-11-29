@@ -21,7 +21,8 @@ public class Rules {
     public static final int SCREWSPERHANDLE = 4;
     public static final int DOORHEIGHT = 200;
     public static final int DOORWIDTH = 90;
-    public static final int TRAPEZOVERLAP = 10;
+    public static final int TRAPEZOVERLAPHORI = 10;
+    public static final int TRAPEZOVERLAPVERT = 15;
     public static final int TRAPEZWIDTH = 109;
     public static final int WATERBOARDS = 4;
     public static final int DISTANCEBETWEENWATERBOARDSCREWS = 100;
