@@ -4,6 +4,7 @@ import DatabaseLayer.DatabaseFacade;
 import FunctionLayer.Entities.Part;
 import FunctionLayer.FogException;
 import java.util.ArrayList;
+import static FunctionLayer.Calculation.Rules.*;
 
 /**
  *
@@ -14,17 +15,15 @@ public class RoofFlatCalculator {
     public ArrayList<Part> calcFlatRoof(ArrayList<Part> parts, int length, int width) throws FogException {
         calcRoofLength(parts, length, calcRoofWidth(width));
         calcWaterBoard(parts, length, width);
-        calcScrewsWaterBoard(parts);
+        calcScrewsWaterBoard(parts, length);
         return parts;
     }
 
     public int calcRoofWidth(int width) {
-        int widthOfOverlap = 10;
-        int widthOfTrapez = 109;
         int count = 0;
         for (int w = width; w >= 0;) {
             count++;
-            w -= widthOfTrapez - widthOfOverlap;
+            w -= TRAPEZWIDTH - TRAPEZOVERLAP;
         }
         return count;
     }
@@ -65,8 +64,7 @@ public class RoofFlatCalculator {
     }
 
     public void calcRoofWaterBoardWidth(ArrayList<Part> parts, int width) throws FogException {
-        double thincknessOfWaterBoard = 1.9 * 2;
-        for (double w = width + thincknessOfWaterBoard; w >= 0;) {
+        for (double w = width + WATERBOARDDOUBLETHICKNESS; w >= 0;) {
             int lengthOfWaterBoard = getLengthOfWaterBoard(w);
             for (int i = 0; i < 2; i++) {
                 String type = "Vandbrædt", material = "Trykimp Fyr", size = "19x100mm " + lengthOfWaterBoard + "cm";
@@ -78,8 +76,7 @@ public class RoofFlatCalculator {
     }
 
     public void calcRoofWaterBoardLength(ArrayList<Part> parts, int length) throws FogException {
-        double thincknessOfWaterBoard = 1.9 * 2;
-        for (double l = length + thincknessOfWaterBoard; l >= 0;) {
+        for (double l = length + WATERBOARDDOUBLETHICKNESS; l >= 0;) {
             int lengthOfWaterBoard = getLengthOfWaterBoard(l);
             for (int i = 0; i < 2; i++) {
                 String type = "Vandbrædt", material = "Trykimp Fyr", size = "19x100mm " + lengthOfWaterBoard + "cm";
@@ -110,13 +107,10 @@ public class RoofFlatCalculator {
         return lengthOfWaterBoard;
     }
 
-    private void calcScrewsWaterBoard(ArrayList<Part> parts) throws FogException {
-        int plankCount = 4;
+    private void calcScrewsWaterBoard(ArrayList<Part> parts, int length) throws FogException {
         int screws = 0;
-        for (int i = 0; i < plankCount; i++) {
-            int length = 600;
-            double number = length / 100;
-            screws += (int) Math.ceil(number * 4);
+        for (int i = 0; i < WATERBOARDS; i++) {
+            screws += (int) Math.ceil(((length + WATERBOARDDOUBLETHICKNESS) / DISTANCEBETWEENWATERBOARDSCREWS) * SCREWSPERPLANK);
         }
         int packs = (int) Math.ceil((double) screws / 200.0);
         for (int i = 0; i < packs; i++) {

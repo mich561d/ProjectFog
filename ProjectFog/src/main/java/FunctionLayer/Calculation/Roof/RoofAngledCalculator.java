@@ -1,11 +1,11 @@
 package FunctionLayer.Calculation.Roof;
 
 import DatabaseLayer.DatabaseFacade;
-import FunctionLayer.Calculation.Rules;
 import FunctionLayer.Entities.Part;
 import FunctionLayer.FogException;
 import FunctionLayer.ListToMap;
 import java.util.ArrayList;
+import static FunctionLayer.Calculation.Rules.*;
 
 /**
  *
@@ -20,24 +20,27 @@ public class RoofAngledCalculator {
               c b c
             B a C a B
          */
-        double sideA = (width / 2) - (Rules.RAFTTHICKNESS / 2);
+        double sideA = (width / 2) - (RAFTTHICKNESS / 2);
         double angleC = 90, angleB = angle, angleA = 180 - angleB - angleC;
         double sinB = Math.sin(Math.toRadians(angleB)), sinA = Math.sin(Math.toRadians(angleA));
         double sideB = (sideA * sinB) / sinA;
         double sideC = Math.sqrt((sideA * sideA) + (sideB * sideB));
-        // Calc planks
-        int raftCount = ListToMap.convertListToMap(parts).get("Spær").size();
-        for (int i = 0; i < raftCount; i++) {
-            calcAngledRoofRafter(parts, (int) Math.ceil(sideA), 2);
-        }
-        calcAngledRoofRafter(parts, length, 1); // Long Plank
-        CalcRoofRaft(sideC, parts, length); // Side Rafts
+        CalcSideRafts(parts, sideA); // Calc side rafts
+        calcAngledRoofRafter(parts, length, 1); // Long raft
+        CalcRoofRaft(sideC, parts, length); // Horizontal rafts
         CalcRoofing(sideC, length, parts); // Roofing
         return parts;
     }
 
+    private void CalcSideRafts(ArrayList<Part> parts, double sideA) throws FogException {
+        int raftCount = ListToMap.convertListToMap(parts).get("Spær").size();
+        for (int i = 0; i < raftCount; i++) {
+            calcAngledRoofRafter(parts, (int) Math.ceil(sideA), 2);
+        }
+    }
+
     private void CalcRoofRaft(double sideC, ArrayList<Part> parts, int length) throws FogException {
-        int plankCount = (int) Math.ceil(sideC / (Rules.DISTANCEBETWEENPLANK + Rules.PLANKWIDTH));
+        int plankCount = (int) Math.ceil(sideC / (DISTANCEBETWEENPLANK + PLANKWIDTH));
         for (int i = 0; i < plankCount; i++) {
             calcAngledRoofPlanks(parts, length);
         }
@@ -45,8 +48,8 @@ public class RoofAngledCalculator {
 
     private void CalcRoofing(double sideC, int length, ArrayList<Part> parts) throws FogException {
         Part roofing = DatabaseFacade.getPart("Tagpap", "Krydsfiner med tagpap", "100x100cm");
-        Double area = ((sideC * length) * 2) + (Rules.RAFTTHICKNESS * length);
-        area += area * Rules.TRAPEZOVERLAP;
+        Double area = ((sideC * length) * 2) + (RAFTTHICKNESS * length);
+        area += area * ROOFINGOVERLAP;
         int squareMetersCount = (int) Math.ceil(area / 10000); // Square Cm to Square m
         for (int i = 0; i < squareMetersCount; i++) {
             parts.add(roofing);

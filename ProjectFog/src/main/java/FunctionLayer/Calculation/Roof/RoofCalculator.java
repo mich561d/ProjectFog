@@ -1,6 +1,5 @@
 package FunctionLayer.Calculation.Roof;
 
-import DatabaseLayer.DatabaseFacade;
 import FunctionLayer.Entities.Part;
 import FunctionLayer.FogException;
 import java.util.ArrayList;

@@ -1,10 +1,10 @@
 package FunctionLayer.Calculation.Base;
 
 import DatabaseLayer.DatabaseFacade;
-import FunctionLayer.Calculation.Rules;
 import FunctionLayer.Entities.Part;
 import FunctionLayer.FogException;
 import java.util.ArrayList;
+import static FunctionLayer.Calculation.Rules.*;
 
 /**
  *
@@ -40,9 +40,9 @@ public class BaseRaftCalculator {
     }
 
     private void calcRoofRafterMiddle(ArrayList<Part> parts, int length, int width) throws FogException {
-        int calcLength = length - Rules.MAXDISTANCEBEWTEENPOLES;
+        int calcLength = length - MAXDISTANCEBEWTEENPOLES;
         for (double distance = 0; distance < calcLength;) {
-            distance += Rules.RAFTTHICKNESS + Rules.DISTANCEBETWEENRAFTS;
+            distance += RAFTTHICKNESS + DISTANCEBETWEENRAFTS;
             AddPartToList(width, parts);
         }
     }
