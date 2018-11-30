@@ -44,11 +44,10 @@
                                     <h3 style="text-align: center">Stykliste</h3>
 
                                     <div class="container">
-                                        <table class="table table-condensed">
+                                        <table class="table table-condensed table-striped">
                                             <thead>
                                                 <tr>
                                                     <th>Type</th>
-                                                    <th>Materiale</th>
                                                     <th>Størrelse</th>
                                                     <th>Detaljer</th>
                                                     <th>Antal</th>
@@ -66,7 +65,6 @@
                                                 %>
                                                 <tr>
                                                     <td><%= part.getType()%></td>
-                                                    <td><%= part.getMaterial()%></td>
                                                     <td><%= part.getSize()%></td>
                                                     <td><%= part.getDescription()%></td>
                                                     <td><%= parts.size()%></td>
