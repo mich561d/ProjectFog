@@ -37,12 +37,27 @@ public class CarportShedCalculator {
 
         // Hvad nu hvis length er 720 og shed length er 719???
         int extraPolesForShed = 0;
-        if (SHEDLENGTH < LENGTH) {
+        if (SHEDLENGTH < LENGTH - DOUBLEPOLEOFFSET) {
             // We need more poles
+            if (LENGTH - DOUBLEPOLEOFFSET <= 300) {
+                String type = "Stolpe", material = "Trykimp Fyr", size = "97x97mm " + CalculatorHelper.getLengthOfPole(HEIGHT) + "cm";
+                Part part = DatabaseFacade.getPart(type, material, size);
+                PARTS.add(part);
+            } else {
+                int numberOfPoles = ((LENGTH - DOUBLEPOLEOFFSET)/300);
+                
+            }
+
+        } else {
+            //cladding all around.
         }
-        if (SHEDWIDTH < WIDTH) {
+
+        if (SHEDWIDTH < WIDTH - DOUBLEPOLEOFFSET) {
             // We need more poles
+        } else {
+            //cladding all around.
         }
+
         int calcHeight = HEIGHT + 90;
         for (int i = 0; i < extraPolesForShed; i++) {
             String type = "Stolpe", material = "Trykimp Fyr", size = "97x97mm " + calcHeight + "cm";
