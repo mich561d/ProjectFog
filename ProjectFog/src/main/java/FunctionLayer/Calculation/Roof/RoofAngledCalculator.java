@@ -14,10 +14,10 @@ import static FunctionLayer.Calculation.Rules.*;
  */
 public class RoofAngledCalculator {
 
-    private ArrayList<Part> partList;
+    private ArrayList<Part> parts;
 
     public ArrayList<Part> calcAngledRoof(ArrayList<Part> parts, int length, int width, int angle) throws FogException {
-        partList = parts;
+        this.parts = parts;
         /* Triangle math
         lowercase = sides, uppercase = angles
                 A
@@ -34,11 +34,11 @@ public class RoofAngledCalculator {
         calcLongPlank(length);          // Long raft
         calcRoofPlank(sideC, length);   // Horizontal planks
         calcRoofing(sideC, length);     // Roofing
-        return partList;
+        return this.parts;
     }
 
     private void calcSideRafts(double length) throws FogException {
-        int raftCount = ListToMap.convertListToMap(partList).get("Spær").size();
+        int raftCount = ListToMap.convertListToMap(parts).get("Spær").size();
         for (int i = 0; i < raftCount; i++) {
             calcAngledRoofRafter((int) Math.ceil(length), 2);
         }
@@ -82,7 +82,7 @@ public class RoofAngledCalculator {
     private void addPartToList(int count, String type, String material, String size) throws FogException {
         for (int i = 0; i < count; i++) {
             Part part = DatabaseFacade.getPart(type, material, size);
-            partList.add(part);
+            parts.add(part);
         }
     }
 

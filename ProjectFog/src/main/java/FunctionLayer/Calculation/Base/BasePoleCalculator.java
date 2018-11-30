@@ -13,21 +13,23 @@ import static FunctionLayer.Calculation.Rules.*;
  */
 public class BasePoleCalculator {
 
+    private ArrayList<Part> parts;
+
     public ArrayList<Part> calcPoles(ArrayList<Part> parts, int length, int width, int height) throws FogException {
+        this.parts = parts;
         int poles = 0;
         poles += calcPolesSides(length);
         poles += calcPolesBack(width);
-        addPartToList(height, poles, parts);
-        return parts;
+        addPolesToList(height, poles);
+        calcBoltAndSquarePlates(poles);
+        return this.parts;
     }
 
-    private void addPartToList(int height, int poles, ArrayList<Part> parts) throws FogException {
+    private void addPolesToList(int height, int poles) throws FogException {
         int calcHeight = height + POLELENGTHUNDERGROUND;
-        for (int i = 0; i < poles; i++) {
-            String type = "Stolpe", material = "Trykimp Fyr", size = "97x97mm " + CalculatorHelper.getLengthOfPole(calcHeight) + "cm";
-            Part part = DatabaseFacade.getPart(type, material, size);
-            parts.add(part);
-        }
+        String type = "Stolpe", material = "Trykimp Fyr", size = "97x97mm " + CalculatorHelper.getLengthOfPole(calcHeight) + "cm";
+        addPartToList(poles, type, material, size);
+
     }
 
     private int calcPolesSides(int length) {
@@ -45,5 +47,18 @@ public class BasePoleCalculator {
             poles += Math.ceil(estPolesSides) - 1;
         }
         return poles;
+    }
+
+    private void calcBoltAndSquarePlates(int count) throws FogException {
+        int times = count + PLUSBOLTS;
+        addPartToList(times, "Bræddebolt", "Stål", "10x20mm");
+        addPartToList(times, "Firkant Skive", "Stål", "40x40x10mm");
+    }
+
+    private void addPartToList(int count, String type, String material, String size) throws FogException {
+        for (int i = 0; i < count; i++) {
+            Part part = DatabaseFacade.getPart(type, material, size);
+            parts.add(part);
+        }
     }
 }
