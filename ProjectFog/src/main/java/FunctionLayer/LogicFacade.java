@@ -26,13 +26,13 @@ public class LogicFacade {
     public static ArrayList<Part> getProductListFromCarport() throws FogException {
         return cc.getProductList();
     }
-    
+
     public static HashMap<String, ArrayList<Part>> getProductMapFromCarport() {
         return cc.getProductMap();
     }
 
-    public static String getDrawingFromAbove(int length, int width) {
-        return UtilCarportDrawing.drawSchematicViewFromAbove(length, width);
+    public static String getDrawingFromAbove(int length, int width, boolean angledRoof) {
+        return UtilCarportDrawing.drawSchematicViewFromAbove(length, width, angledRoof);
     }
 
     public static String getDrawingFromAside(int length, int height) {

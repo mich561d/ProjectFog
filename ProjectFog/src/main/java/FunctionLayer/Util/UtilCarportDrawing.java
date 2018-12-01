@@ -9,13 +9,15 @@ import static FunctionLayer.Calculation.Rules.*;
  */
 public class UtilCarportDrawing {
 
-    public static String drawSchematicViewFromAbove(int carportLength, int carportWidth) {
+    public static String drawSchematicViewFromAbove(int carportLength, int carportWidth, boolean angledRoof) {
         StringBuilder SB = new StringBuilder();
         SB.append(drawSVG(carportWidth, carportLength, DrawingFace.ABOVE)); // SVG
         SB.append(drawPolesFromAbove(carportWidth, carportLength)); // Poles
         SB.append(drawFramesFromAbove(carportLength, carportWidth)); // Frame (Ramme)
         SB.append(drawRaftsFromAbove(carportLength, carportWidth)); // Rafts
-        SB.append(drawRoofPlanksFromAbove(carportLength, carportWidth)); // Angled Roof
+        if (angledRoof) {
+            SB.append(drawRoofPlanksFromAbove(carportLength, carportWidth)); // Angled Roof
+        }
         return SB.toString();
     }
 
@@ -161,7 +163,7 @@ public class UtilCarportDrawing {
     private static String drawRoofPlanksFromAbove(int h, int w) {
         StringBuilder SB = new StringBuilder();
         // Middle
-        SB.append(drawPlankFromAbove((w/2) - (RAFTTHICKNESS / 2), 0, h, RAFTTHICKNESS));
+        SB.append(drawPlankFromAbove((w / 2) - (RAFTTHICKNESS / 2), 0, h, RAFTTHICKNESS));
         // Sides
         /* Triangle math...
         lowercase = sides, uppercase = angles
