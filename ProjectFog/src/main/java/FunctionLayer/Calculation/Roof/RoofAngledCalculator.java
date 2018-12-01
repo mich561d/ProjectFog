@@ -7,6 +7,7 @@ import FunctionLayer.FogException;
 import FunctionLayer.ListToMap;
 import java.util.ArrayList;
 import static FunctionLayer.Calculation.Rules.*;
+import FunctionLayer.Util.UtilMiddleMan;
 
 /**
  *
@@ -18,6 +19,7 @@ public class RoofAngledCalculator {
 
     public ArrayList<Part> calcAngledRoof(ArrayList<Part> parts, int length, int width, int angle) throws FogException {
         this.parts = parts;
+        UtilMiddleMan.setAngle(angle);
         /* Triangle math
         lowercase = sides, uppercase = angles
                 A
@@ -58,7 +60,8 @@ public class RoofAngledCalculator {
     }
 
     private void calcRoofPlank(double sideC, int length) throws FogException {
-        int plankCount = (int) Math.ceil(sideC / (DISTANCEBETWEENPLANK + PLANKWIDTH));
+        int plankCount = (int) Math.ceil(((sideC * 2) + RAFTTHICKNESS) / (DISTANCEBETWEENPLANK + PLANKWIDTH));
+        UtilMiddleMan.setAngledRoofPlankOnSides(plankCount);
         for (int i = 0; i < plankCount; i++) {
             calcSideRoofPlanks(length);
         }

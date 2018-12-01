@@ -51,8 +51,10 @@ public class BasePoleCalculator {
 
     private void calcBoltAndSquarePlates(int count) throws FogException {
         int times = count + PLUSBOLTS;
-        addPartToList(times, "Bræddebolt", "Stål", "10x20mm");
-        addPartToList(times, "Firkant Skive", "Stål", "40x40x10mm");
+        int packOfBolt = (int) Math.ceil((double) times / (double) BOLTSPERPACK);
+        int packOfSquares = (int) Math.ceil((double) times / (double) SQUAREPERPACK);
+        addPartToList(packOfBolt, "Bræddebolt", "Stål", "10x20mm");
+        addPartToList(packOfSquares, "Firkant Skive", "Stål", "40x40x10mm");
     }
 
     private void addPartToList(int count, String type, String material, String size) throws FogException {

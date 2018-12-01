@@ -20,6 +20,7 @@ public class RoofFlatCalculator {
         calcRoofLength(length, calcRoofWidth(width));
         calcWaterBoard(length, width);
         calcScrewsWaterBoard(length);
+        calcTrapezScrews();
         return this.parts;
     }
 
@@ -79,5 +80,9 @@ public class RoofFlatCalculator {
             Part part = DatabaseFacade.getPart(type, material, size);
             parts.add(part);
         }
+    }
+    
+    private void calcTrapezScrews() {
+        
     }
 }

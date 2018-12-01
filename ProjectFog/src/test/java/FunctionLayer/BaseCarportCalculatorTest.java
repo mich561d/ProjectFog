@@ -11,7 +11,6 @@ import static org.junit.Assert.*;
  *
  * @author Michael
  */
-// NRNS = No Roof, No Shed
 public class BaseCarportCalculatorTest {
 
     // Test with input under breakpoint
@@ -23,7 +22,7 @@ public class BaseCarportCalculatorTest {
         ArrayList<Part> list = new ArrayList();
         list = bpc.calcPoles(list, 240, 240, 200);
         // Assert:
-        assertEquals(4, list.size());
+        assertEquals(6, list.size());
     }
 
     @Test
@@ -46,7 +45,7 @@ public class BaseCarportCalculatorTest {
         ArrayList<Part> list = new ArrayList();
         list = bpc.calcPoles(list, 300, 300, 200);
         // Assert:
-        assertEquals(4, list.size());
+        assertEquals(6, list.size());
     }
 
     @Test
@@ -69,7 +68,7 @@ public class BaseCarportCalculatorTest {
         ArrayList<Part> list = new ArrayList();
         list = bpc.calcPoles(list, 600, 600, 200);
         // Assert:
-        assertEquals(7, list.size());
+        assertEquals(9, list.size());
     }
 
     @Test

@@ -29,6 +29,8 @@ public class Rules {
     public static final int CLADDINGBOARDWIDTH = 10;
     public static final int SCREWSPERANGLEBRACKET = 8;
     public static final int PLUSBOLTS = 4;
+    public static final int BOLTSPERPACK = 25;
+    public static final int SQUAREPERPACK = 50;
 
     public static final double RAFTTHICKNESS = 4.7;
     public static final double ROOFINGFELTOVERLAP = 0.05;

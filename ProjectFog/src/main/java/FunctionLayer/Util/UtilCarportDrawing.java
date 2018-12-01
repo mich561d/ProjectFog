@@ -1,6 +1,7 @@
 package FunctionLayer.Util;
 
 import FunctionLayer.DrawingFace;
+import static FunctionLayer.Calculation.Rules.*;
 
 /**
  *
@@ -153,6 +154,32 @@ public class UtilCarportDrawing {
             y += space;
         }
         SB.append(drawPlankFromAbove(x, h - plankWidth, plankWidth, w));
+        return SB.toString();
+    }
+
+    private static String drawRoofPlanksFromAbove(int h, int w) {
+        StringBuilder SB = new StringBuilder();
+        // Middle
+        SB.append(drawPlankFromAbove((w / 2) - (RAFTTHICKNESS / 2), 0, RAFTTHICKNESS, h));
+        // Sides
+        int planksPerSide = UtilMiddleMan.getAngledRoofPlankOnSides() / 2;
+        for (int i = 0; i < planksPerSide; i++) {
+            /* Triangle math...
+            lowercase = sides, uppercase = angles
+                  A
+                c b c
+              B a C a B
+             */
+//            double sideC = PLANKWIDTH;
+//            double angleC = 90, angleB = UtilMiddleMan.getAngle(), angleA = 180 - angleB - angleC;
+//            double sinB = Math.sin(Math.toRadians(angleB)), sinA = Math.sin(Math.toRadians(angleA));
+//            double sideB = (sideA * sinB) / sinA;
+//            double sideA = Math.sqrt((sideB * sideB) + (sideC * sideC) - 2 * sideB * sideC * Math.cos(Math.toRadians(angleA)));
+            // true code
+            double raftWidth = 0;
+            double x = i * (70 + raftWidth);
+            SB.append(drawPlankFromAbove(x, 0, RAFTTHICKNESS, h));
+        }
         return SB.toString();
     }
 

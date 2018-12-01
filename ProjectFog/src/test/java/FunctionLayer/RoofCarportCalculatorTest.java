@@ -12,7 +12,6 @@ import static org.junit.Assert.*;
  *
  * @author Michael
  */
-// WRNS = With Roof, No Shed
 public class RoofCarportCalculatorTest {
 
     // Test with input under breakpoint
@@ -35,7 +34,7 @@ public class RoofCarportCalculatorTest {
         ArrayList<Part> list = testList("small");
         list = rac.calcAngledRoof(list, 240, 240, 20);
         // Assert:
-        assertEquals(54, list.size());
+        assertEquals(66, list.size());
     }
 
     // Test with input at breakpoint
@@ -58,7 +57,7 @@ public class RoofCarportCalculatorTest {
         ArrayList<Part> list = testList("medium");
         list = rac.calcAngledRoof(list, 300, 300, 20);
         // Assert:
-        assertEquals(73, list.size());
+        assertEquals(89, list.size());
     }
 
     // Test with input over breakpoint 
@@ -81,7 +80,7 @@ public class RoofCarportCalculatorTest {
         ArrayList<Part> list = testList("big");
         list = rac.calcAngledRoof(list, 600, 600, 20);
         // Assert:
-        assertEquals(190, list.size());
+        assertEquals(238, list.size());
     }
 
     private ArrayList<Part> testList(String level) throws FogException {
