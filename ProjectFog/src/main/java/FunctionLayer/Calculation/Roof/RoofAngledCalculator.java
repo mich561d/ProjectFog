@@ -60,7 +60,7 @@ public class RoofAngledCalculator {
     }
 
     private void calcRoofPlank(double sideC, int length) throws FogException {
-        int plankCount = (int) Math.ceil(((sideC * 2) + RAFTTHICKNESS) / (DISTANCEBETWEENPLANK + PLANKWIDTH));
+        int plankCount = (int) (Math.ceil(sideC / (DISTANCEBETWEENPLANK + PLANKWIDTH)) * 2);
         UtilMiddleMan.setAngledRoofPlankOnSides(plankCount);
         for (int i = 0; i < plankCount; i++) {
             calcSideRoofPlanks(length);

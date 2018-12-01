@@ -14,7 +14,8 @@ public class UtilCarportDrawing {
         SB.append(drawSVG(carportWidth, carportLength, DrawingFace.ABOVE)); // SVG
         SB.append(drawPolesFromAbove(carportWidth, carportLength)); // Poles
         SB.append(drawFramesFromAbove(carportLength, carportWidth)); // Frame (Ramme)
-        SB.append(drawRaftsFromAbove(carportLength, carportWidth));
+        SB.append(drawRaftsFromAbove(carportLength, carportWidth)); // Rafts
+        SB.append(drawRoofPlanksFromAbove(carportLength, carportWidth)); // Angled Roof
         return SB.toString();
     }
 
@@ -145,7 +146,7 @@ public class UtilCarportDrawing {
 
     private static String drawRaftsFromAbove(int h, int w) {
         StringBuilder SB = new StringBuilder();
-        int countRaft = 10;
+        int countRaft = UtilMiddleMan.getRaftCount();
         double plankWidth = 4.7;
         double space = (h - plankWidth) / countRaft;
         int x = 0, y = 0;
@@ -160,25 +161,28 @@ public class UtilCarportDrawing {
     private static String drawRoofPlanksFromAbove(int h, int w) {
         StringBuilder SB = new StringBuilder();
         // Middle
-        SB.append(drawPlankFromAbove((w / 2) - (RAFTTHICKNESS / 2), 0, RAFTTHICKNESS, h));
+        SB.append(drawPlankFromAbove((w/2) - (RAFTTHICKNESS / 2), 0, h, RAFTTHICKNESS));
         // Sides
+        /* Triangle math...
+        lowercase = sides, uppercase = angles
+                A
+              c b c
+            B a C a B
+         */
+        double sideC = PLANKWIDTH;
+        double angleC = 90, angleB = UtilMiddleMan.getAngle(), angleA = 180 - angleB - angleC;
+        double sinC = Math.sin(Math.toRadians(angleC)), sinA = Math.sin(Math.toRadians(angleA));
+        double sideA = (sideC * sinA) / sinC;
+        // true code
+        double plankWidth = sideA;
         int planksPerSide = UtilMiddleMan.getAngledRoofPlankOnSides() / 2;
+        double distance = (((w / 2) - (RAFTTHICKNESS / 2)) - (planksPerSide * plankWidth)) / planksPerSide;
+        double x = 0;
         for (int i = 0; i < planksPerSide; i++) {
-            /* Triangle math...
-            lowercase = sides, uppercase = angles
-                  A
-                c b c
-              B a C a B
-             */
-//            double sideC = PLANKWIDTH;
-//            double angleC = 90, angleB = UtilMiddleMan.getAngle(), angleA = 180 - angleB - angleC;
-//            double sinB = Math.sin(Math.toRadians(angleB)), sinA = Math.sin(Math.toRadians(angleA));
-//            double sideB = (sideA * sinB) / sinA;
-//            double sideA = Math.sqrt((sideB * sideB) + (sideC * sideC) - 2 * sideB * sideC * Math.cos(Math.toRadians(angleA)));
-            // true code
-            double raftWidth = 0;
-            double x = i * (70 + raftWidth);
-            SB.append(drawPlankFromAbove(x, 0, RAFTTHICKNESS, h));
+            SB.append(drawPlankFromAbove(x, 0, h, sideA));
+            double reverseX = w - x - plankWidth;
+            SB.append(drawPlankFromAbove(reverseX, 0, h, sideA));
+            x += plankWidth + distance;
         }
         return SB.toString();
     }

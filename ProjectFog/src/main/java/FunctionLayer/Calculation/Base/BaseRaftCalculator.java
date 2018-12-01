@@ -6,6 +6,7 @@ import FunctionLayer.Entities.Part;
 import FunctionLayer.FogException;
 import java.util.ArrayList;
 import static FunctionLayer.Calculation.Rules.*;
+import FunctionLayer.Util.UtilMiddleMan;
 
 /**
  *
@@ -14,12 +15,15 @@ import static FunctionLayer.Calculation.Rules.*;
 public class BaseRaftCalculator {
 
     private ArrayList<Part> parts;
+    private int raftCount = 0;
 
     public ArrayList<Part> calcRafts(ArrayList<Part> parts, int length, int width) throws FogException {
         this.parts = parts;
+        raftCount = 0;
         calcRoofRafterLength(length);
         calcRoofRafterWidth(width);
         calcRoofRafterMiddle(length, width);
+        UtilMiddleMan.setRaftCount(raftCount);
         return this.parts;
     }
 
@@ -28,6 +32,7 @@ public class BaseRaftCalculator {
             int lengthOfRaft = CalculatorHelper.getLengthOfRaft(w);
             for (int i = 0; i < 2; i++) {
                 addPartToList(lengthOfRaft);
+                raftCount++;
             }
             w -= lengthOfRaft;
         }
@@ -48,6 +53,7 @@ public class BaseRaftCalculator {
         for (double distance = 0; distance < calcLength;) {
             distance += RAFTTHICKNESS + DISTANCEBETWEENRAFTS;
             addPartToList(width);
+            raftCount++;
         }
     }
 

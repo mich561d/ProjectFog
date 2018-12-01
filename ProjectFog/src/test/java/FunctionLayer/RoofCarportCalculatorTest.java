@@ -34,7 +34,7 @@ public class RoofCarportCalculatorTest {
         ArrayList<Part> list = testList("small");
         list = rac.calcAngledRoof(list, 240, 240, 20);
         // Assert:
-        assertEquals(66, list.size());
+        assertEquals(70, list.size());
     }
 
     // Test with input at breakpoint

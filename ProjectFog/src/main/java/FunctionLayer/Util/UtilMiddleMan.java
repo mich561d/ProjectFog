@@ -6,8 +6,17 @@ package FunctionLayer.Util;
  */
 public class UtilMiddleMan {
 
+    private static int raftCount;
     private static int angledRoofPlankOnSides;
     private static int angle;
+
+    public static int getRaftCount() {
+        return raftCount;
+    }
+
+    public static void setRaftCount(int raftCount) {
+        UtilMiddleMan.raftCount = raftCount;
+    }
 
     public static int getAngledRoofPlankOnSides() {
         return angledRoofPlankOnSides;
@@ -24,6 +33,5 @@ public class UtilMiddleMan {
     public static void setAngle(int angle) {
         UtilMiddleMan.angle = angle;
     }
-    
 
 }
