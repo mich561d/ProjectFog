@@ -58,8 +58,8 @@ public class BasePoleCalculator {
     }
 
     private void addPartToList(int count, String type, String material, String size) throws FogException {
+        Part part = DatabaseFacade.getPart(type, material, size);
         for (int i = 0; i < count; i++) {
-            Part part = DatabaseFacade.getPart(type, material, size);
             parts.add(part);
         }
     }

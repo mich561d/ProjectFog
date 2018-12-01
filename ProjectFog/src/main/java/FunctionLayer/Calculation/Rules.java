@@ -31,10 +31,13 @@ public class Rules {
     public static final int PLUSBOLTS = 4;
     public static final int BOLTSPERPACK = 25;
     public static final int SQUAREPERPACK = 50;
+    public static final int HANDLESPERDOOR = 1;
+    public static final int HINGESPERDOOR = 2;
 
     public static final double RAFTTHICKNESS = 4.7;
     public static final double ROOFINGFELTOVERLAP = 0.05;
     public static final double WATERBOARDTHICKNESS = 1.9;
     public static final double WATERBOARDDOUBLETHICKNESS = WATERBOARDTHICKNESS * 2;
+    public static final double HEIGHTOFLATH = 4.7; 
 
 }

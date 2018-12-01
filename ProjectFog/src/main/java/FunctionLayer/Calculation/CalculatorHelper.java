@@ -79,4 +79,32 @@ public class CalculatorHelper {
         }
         return lengthOfWaterBoard;
     }
+
+    public static int getLengthOfLath(double length) {
+        int lengthOfLath;
+        if (length <= 240) {
+            lengthOfLath = 240;
+        } else if (length <= 270) {
+            lengthOfLath = 270;
+        } else if (length <= 300) {
+            lengthOfLath = 300;
+        } else if (length <= 330) {
+            lengthOfLath = 330;
+        } else if (length <= 360) {
+            lengthOfLath = 360;
+        } else if (length <= 390) {
+            lengthOfLath = 390;
+        } else if (length <= 420) {
+            lengthOfLath = 420;
+        } else if (length <= 450) {
+            lengthOfLath = 450;
+        } else if (length <= 480) {
+            lengthOfLath = 480;
+        } else if (length <= 510) {
+            lengthOfLath = 510;
+        } else {
+            lengthOfLath = 540;
+        }
+        return lengthOfLath;
+    }
 }

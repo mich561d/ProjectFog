@@ -1,5 +1,6 @@
 package FunctionLayer.Calculation;
 
+import FunctionLayer.Calculation.Shed.CarportShedCalculator;
 import FunctionLayer.Calculation.Roof.RoofCalculator;
 import FunctionLayer.Calculation.Base.BaseCalculator;
 import DatabaseLayer.DatabaseFacade;
