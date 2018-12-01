@@ -35,24 +35,16 @@ INSERT INTO `part` (`type`, `material`, `size`, `description`, `price`, `brand`)
 ('Vandbrædt', 'Trykimp Fyr', '19x100mm 420cm', 'Tryk impreneret vandbræt', '41.79', 'Seksta'),
 ('Stolpe', 'Trykimp Fyr', '97x97mm 300cm', 'Tryk impreneret Stolpe af fyr', '113.85', 'FOG'),
 ('Stolpe', 'Trykimp Fyr', '97x97mm 360cm', 'Tryk impreneret Stolpe af fyr', '136.63', 'FOG'),
-('Stolpe', 'Trykimp Fyr', '97x97mm 420cm', 'Tryk impreneret Stolpe af fyr', '159.39', 'FOG');
-
-INSERT INTO `part` (`type`, `material`, `size`, `description`, `price`, `brand`) VALUES 
+('Stolpe', 'Trykimp Fyr', '97x97mm 420cm', 'Tryk impreneret Stolpe af fyr', '159.39', 'FOG'),
 ('Firkant Skive', 'Stål', '40x40x10mm', 'Firkant Skiver til montering på bræddebolt. 50stk pr. pakke.', '279.00', 'VFZ'),
 ('Bundskruer', 'Stål', '-', 'Bundskruer til montering af trapezplader. 200stk pr. pakke.', '399.00', 'Plastmo'),
 ('Basic skrue', 'Stål', '4.5x60mm', 'Basic skrue til udendørs brug. 200stk pr. pakke.', '73.95', 'NKT'),
-('Bræddebolt', 'Stål', '10x20mm', 'Bræddebolt til montering af spær. husk firkant skiver. 25stk pr. pakke.', '269.00', 'NKT');
-
-INSERT INTO `part` (`type`, `material`, `size`, `description`, `price`, `brand`) VALUES
-('Basic beslag', 'Stål', '190mm', 'Vinkel beslag, til montering af spær', '43.95', 'Paslode');
-
-INSERT INTO `part` (`type`, `material`, `size`, `description`, `price`, `brand`) VALUES
+('Bræddebolt', 'Stål', '10x20mm', 'Bræddebolt til montering af spær. husk firkant skiver. 25stk pr. pakke.', '269.00', 'NKT'),
+('Basic beslag', 'Stål', '190mm', 'Vinkel beslag, til montering af spær', '43.95', 'Paslode'),
 ('Vingetagsten', 'Tegl', '100x100cm', 'Tagsten kvadratmeter', '156.69', 'Dantegl'),
 ('Sort højglas', 'Tegl', '100x100cm', 'Tagsten kvadratmeter', '222.58', 'Dantegl'),
 ('Tagpap', 'Krydsfiner med tagpap', '100x100cm', 'tagpap pr. kvadradtmeter', '98', 'Adeso'),
-('Monterings skrue', 'Stål', '7.5x112mm', 'Elforzinkede kromaterede skruer til montage af træ. 100stk pr. pakke', '66.25', 'Spit Karmanker');
-
-INSERT INTO `part` (`type`, `material`, `size`, `description`, `price`, `brand`) VALUES
+('Monterings skrue', 'Stål', '7.5x112mm', 'Elforzinkede kromaterede skruer til montage af træ. 100stk pr. pakke', '66.25', 'Spit Karmanker'),
 ('Regler', 'Trykimp Fyr', '47x100mm 240cm', 'Reglar til tømrer-konstruktion, inde', '43.08', 'FOG'),
 ('Regler', 'Trykimp Fyr', '47x100mm 270cm', 'Reglar til tømrer-konstruktion, inde', '48.46', 'FOG'),
 ('Regler', 'Trykimp Fyr', '47x100mm 300cm', 'Reglar til tømrer-konstruktion, inde', '50.85', 'FOG'),
