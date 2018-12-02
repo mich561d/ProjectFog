@@ -1,6 +1,6 @@
 package PresentationLayer;
 
-import FunctionLayer.FogException;
+import FunctionLayer.Exceptions.FogException;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

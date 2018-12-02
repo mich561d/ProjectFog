@@ -1,5 +1,6 @@
 package FunctionLayer;
 
+import FunctionLayer.Exceptions.FogException;
 import FunctionLayer.Calculation.CarportCalculator;
 import FunctionLayer.Util.UtilCarportDrawing;
 import FunctionLayer.Entities.Part;

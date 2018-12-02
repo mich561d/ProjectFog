@@ -1,5 +1,6 @@
 package FunctionLayer;
 
+import FunctionLayer.Exceptions.FogException;
 import FunctionLayer.Calculation.Base.BasePoleCalculator;
 import FunctionLayer.Calculation.Base.BaseRaftCalculator;
 import FunctionLayer.Entities.Part;

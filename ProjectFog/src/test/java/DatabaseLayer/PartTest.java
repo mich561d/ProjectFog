@@ -2,7 +2,7 @@ package DatabaseLayer;
 
 import DatabaseLayer.Mappers.PartMapper;
 import FunctionLayer.Entities.Part;
-import FunctionLayer.FogException;
+import FunctionLayer.Exceptions.FogException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.junit.Test;

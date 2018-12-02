@@ -1,7 +1,7 @@
 package Integration;
 
 import FunctionLayer.Calculation.CarportCalculator;
-import FunctionLayer.FogException;
+import FunctionLayer.Exceptions.FogException;
 import org.junit.Test;
 import static org.junit.Assert.*;
 

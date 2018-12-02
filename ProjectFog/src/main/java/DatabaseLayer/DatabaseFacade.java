@@ -2,7 +2,7 @@ package DatabaseLayer;
 
 import DatabaseLayer.Mappers.PartMapper;
 import FunctionLayer.Entities.Part;
-import FunctionLayer.FogException;
+import FunctionLayer.Exceptions.FogException;
 
 /**
  *

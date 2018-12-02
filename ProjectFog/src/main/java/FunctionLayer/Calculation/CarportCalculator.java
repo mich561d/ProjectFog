@@ -5,7 +5,7 @@ import FunctionLayer.Calculation.Roof.RoofCalculator;
 import FunctionLayer.Calculation.Base.BaseCalculator;
 import DatabaseLayer.DatabaseFacade;
 import FunctionLayer.Entities.Part;
-import FunctionLayer.FogException;
+import FunctionLayer.Exceptions.FogException;
 import FunctionLayer.ListToMap;
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -3,7 +3,7 @@ package FunctionLayer.Calculation.Shed;
 import DatabaseLayer.DatabaseFacade;
 import FunctionLayer.Calculation.CalculatorHelper;
 import FunctionLayer.Entities.Part;
-import FunctionLayer.FogException;
+import FunctionLayer.Exceptions.FogException;
 import static FunctionLayer.Calculation.Rules.*;
 import java.util.ArrayList;
 

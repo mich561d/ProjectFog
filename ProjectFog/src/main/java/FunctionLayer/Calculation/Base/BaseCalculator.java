@@ -1,7 +1,7 @@
 package FunctionLayer.Calculation.Base;
 
 import FunctionLayer.Entities.Part;
-import FunctionLayer.FogException;
+import FunctionLayer.Exceptions.FogException;
 import java.util.ArrayList;
 
 /**

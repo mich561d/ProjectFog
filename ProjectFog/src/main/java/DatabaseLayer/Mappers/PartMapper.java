@@ -2,7 +2,7 @@ package DatabaseLayer.Mappers;
 
 import DatabaseLayer.DatabaseConnector;
 import FunctionLayer.Entities.Part;
-import FunctionLayer.FogException;
+import FunctionLayer.Exceptions.FogException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

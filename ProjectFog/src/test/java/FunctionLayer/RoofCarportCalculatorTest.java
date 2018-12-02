@@ -1,5 +1,6 @@
 package FunctionLayer;
 
+import FunctionLayer.Exceptions.FogException;
 import DatabaseLayer.DatabaseFacade;
 import FunctionLayer.Calculation.Roof.RoofAngledCalculator;
 import FunctionLayer.Calculation.Roof.RoofFlatCalculator;

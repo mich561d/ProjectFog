@@ -1,6 +1,6 @@
 package PresentationLayer.Commands;
 
-import FunctionLayer.FogException;
+import FunctionLayer.Exceptions.FogException;
 import FunctionLayer.LogicFacade;
 import PresentationLayer.Command;
 import javax.servlet.http.HttpServletRequest;
