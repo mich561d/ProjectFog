@@ -17,6 +17,8 @@
     </head>
     <body>
         <%@include file="/WEB-INF/Imports/NavBar.jsp" %>
+        <% if (request.getSession().getAttribute("UserID") == null) { %>
+        <% if (request.getSession().getAttribute("ErrorMsg") == null) { %>
         <div class="container">
             <div class="row">
                 <div class="col-lg">
@@ -27,6 +29,18 @@
                 </div>
             </div>
         </div>
+        <%} else {%>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg">
+                    <div class="alert alert-danger alert-dismissible fade show">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <strong>Error:</strong> <%= request.getSession().getAttribute("ErrorMsg")%>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% request.getSession().setAttribute("ErrorMsg", null);}}%>
         <br>
         <div class="container">
             <div class="row no-gutters">
@@ -47,6 +61,7 @@
                     <!--This is a placeholder for whitespace! Since i cannot figure out how to do this properly... this is a quick fix!-->
                 </div>
                 <div class="col-lg-4 border border-primary" style="background-color: #D1ECF1;">
+                    <% if (request.getSession().getAttribute("UserID") == null) { %>
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs">
                         <li class="nav-item">
@@ -86,9 +101,9 @@
                                 <br>
                                 <strong>Password:</strong>
                                 <br>
-                                <input type="password" name="loginPassword" placeholder="password" required>
+                                <input type="password" name="LoginPassword" placeholder="password" required>
                                 <br><br><br>
-                                <input disabled="disabled" type="submit" name="register" value="Log ind">
+                                <input type="submit" name="register" value="Log ind">
                             </form>
                         </div>
                         <div class="tab-pane container fade" id="menu2">
@@ -103,6 +118,13 @@
                             </form>
                         </div>
                     </div>
+                    <% } else { %>
+                    You are logged in!<br>
+                    <form name="Register" action="FrontController" method="POST">
+                        <input type="hidden" name="command" value="Logout">
+                        <input type="submit" name="register" value="Log ud!">
+                    </form>
+                    <% }%>
                 </div>
             </div>
         </div>

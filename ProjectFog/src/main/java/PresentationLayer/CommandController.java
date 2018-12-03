@@ -1,10 +1,6 @@
 package PresentationLayer;
 
-import PresentationLayer.Commands.CartCommand;
-import PresentationLayer.Commands.CustomCarportCommand;
-import PresentationLayer.Commands.IndexCommand;
-import PresentationLayer.Commands.ProductReviewCommand;
-import PresentationLayer.Commands.UnknownCommand;
+import PresentationLayer.Commands.*;
 import java.util.HashMap;
 import javax.servlet.http.HttpServletRequest;
 
@@ -22,6 +18,8 @@ public abstract class CommandController {
         commands.put("ProductReview", new ProductReviewCommand());
         commands.put("Cart", new CartCommand());
         commands.put("Index", new IndexCommand());
+        commands.put("Login", new LoginCommand());
+        commands.put("Logout", new LogoutCommand());
     }
 
     static Command from(HttpServletRequest request) {

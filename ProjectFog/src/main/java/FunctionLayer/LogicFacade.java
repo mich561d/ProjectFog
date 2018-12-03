@@ -1,9 +1,11 @@
 package FunctionLayer;
 
+import DatabaseLayer.DatabaseFacade;
 import FunctionLayer.Exceptions.FogException;
 import FunctionLayer.Calculation.CarportCalculator;
 import FunctionLayer.Util.UtilCarportDrawing;
 import FunctionLayer.Entities.Part;
+import FunctionLayer.Exceptions.LoginException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -43,4 +45,20 @@ public class LogicFacade {
     public static String getDrawingFromFront(int width, int height) {
         return UtilCarportDrawing.drawSchematicViewFromFront(width, height);
     }
+
+    public static String getRandomSaltString(int length) {
+        return Hashing.getRandomSaltString(length);
+    }
+
+    public static String hashPassword(String password, String salt) throws FogException {
+        String concat = password.concat(salt);
+        return Hashing.hashPassword(concat);
+    }
+    
+    public static int login(String email, String password) throws LoginException, FogException {
+        String salt = DatabaseFacade.getSaltValue(email);
+        String hashedPassword = hashPassword(password, salt);
+        return DatabaseFacade.login(email, hashedPassword);
+    }
+
 }

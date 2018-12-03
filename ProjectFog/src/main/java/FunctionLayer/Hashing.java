@@ -1,5 +1,6 @@
 package FunctionLayer;
 
+import FunctionLayer.Exceptions.FogException;
 import FunctionLayer.Exceptions.RegisterException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -13,7 +14,7 @@ import javax.xml.bind.DatatypeConverter;
  */
 public class Hashing {
 
-    public static String hashPassword(String password) throws RegisterException {
+    public static String hashPassword(String password) throws FogException {
         try {
             MessageDigest md = MessageDigest.getInstance("SHA-1");
             md.update(password.getBytes());
@@ -21,7 +22,7 @@ public class Hashing {
             String ans = DatatypeConverter.printHexBinary(toHash);
             return ans;
         } catch (NoSuchAlgorithmException ex) {
-            throw new RegisterException("An error occurred while trying to hash password!");
+            throw new FogException("An error occurred while trying to hash password!");
         }
     }
 

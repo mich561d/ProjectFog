@@ -3,57 +3,58 @@ package DatabaseLayer.Mappers;
 import DatabaseLayer.DatabaseConnector;
 import FunctionLayer.Entities.Customer;
 import FunctionLayer.Entities.User;
+import FunctionLayer.Exceptions.FogException;
 import FunctionLayer.Exceptions.LoginException;
 import FunctionLayer.Exceptions.RegisterException;
+import FunctionLayer.LogicFacade;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
 
 /**
  *
  * @author Michael
  */
 public class UserMapper {
-/*
-    public static void createCustomer(Customer customer) throws RegisterException {
+
+    public static String getSaltValue(String email) throws LoginException {
         try {
             Connection con = DatabaseConnector.connection();
-            String SQL = "INSERT INTO Users (email, password, role) VALUES (?, ?, ?)";
-            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
-            //ps.setString(1, user.getEmail());
-            ps.executeUpdate();
-            ResultSet ids = ps.getGeneratedKeys();
-            ids.next();
-            int id = ids.getInt(1);
-            user.setId(id);
-        } catch (SQLException | ClassNotFoundException ex) {
-            throw new RegisterException(ex.getMessage());
+            String SQL = "SELECT saltValue FROM user "
+                    + "WHERE BINARY email=?";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ps.setString(1, email);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                return rs.getString("saltValue");
+            } else {
+                throw new LoginException("Could not get salt value!", Level.INFO);
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            throw new LoginException(ex.getMessage(), Level.SEVERE);
         }
     }
 
-    public static User login(String email, String password) throws LoginSampleException {
+    public static int getLoginId(String email, String password) throws LoginException {
         try {
-            Connection con = Connector.connection();
-            String SQL = "SELECT id, role FROM Users "
-                    + "WHERE email=? AND password=?";
+            Connection con = DatabaseConnector.connection();
+            String SQL = "SELECT * FROM user "
+                    + "WHERE BINARY email=? AND BINARY password=?";
             PreparedStatement ps = con.prepareStatement(SQL);
             ps.setString(1, email);
             ps.setString(2, password);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                String role = rs.getString("role");
-                int id = rs.getInt("id");
-                User user = new User(email, password, role);
-                user.setId(id);
-                return user;
+                return rs.getInt("id");
             } else {
-                throw new LoginSampleException("Could not validate user");
+                throw new LoginException("Could not validate user", Level.INFO);
             }
         } catch (ClassNotFoundException | SQLException ex) {
-            throw new LoginException(ex.getMessage());
+            throw new LoginException(ex.getMessage(), Level.SEVERE);
         }
     }
-*/
+
 }

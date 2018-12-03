@@ -1,7 +1,11 @@
 package PresentationLayer;
 
 import FunctionLayer.Exceptions.FogException;
+import FunctionLayer.Exceptions.LoginException;
+import FunctionLayer.Exceptions.RegisterException;
+import FunctionLayer.Logging.Logging;
 import java.io.IOException;
+import java.util.logging.Level;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -34,9 +38,22 @@ public class FrontController extends HttpServlet {
             } else {
                 request.getRequestDispatcher("/Webpages/" + view + ".jsp").forward(request, response);
             }
-        } catch (FogException | IOException | ServletException ex) {
+        } catch (IOException | ServletException ex) {
+            new Logging().write(Level.WARNING, ex.getMessage());
             request.getSession().setAttribute("error", ex.getMessage());
             request.getRequestDispatcher("/Webpages/Error.jsp").forward(request, response);
+        } catch (FogException ex) {
+            new Logging().write(ex.LEVEL, ex.getMessage());
+            request.getSession().setAttribute("error", ex.getMessage());
+            request.getRequestDispatcher("/Webpages/Error.jsp").forward(request, response);
+        } catch (RegisterException ex) {
+            new Logging().write(ex.LEVEL, ex.getMessage());
+            request.getSession().setAttribute("ErrorMsg", ex.getMessage());
+            request.getRequestDispatcher("index.jsp").forward(request, response);
+        } catch (LoginException ex) {
+            new Logging().write(ex.LEVEL, ex.getMessage());
+            request.getSession().setAttribute("ErrorMsg", ex.getMessage());
+            request.getRequestDispatcher("index.jsp").forward(request, response);
         }
     }
 

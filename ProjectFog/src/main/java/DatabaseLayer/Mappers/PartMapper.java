@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
 
 /**
  *
@@ -34,10 +35,10 @@ public class PartMapper {
                 double price = ids.getDouble("price");
                 part = new Part(id, type, material, size, description, brand, price);
             } else {
-                throw new FogException("404 - Part not found!");
+                throw new FogException("404 - Part not found!", Level.WARNING);
             }
         } catch (SQLException | ClassNotFoundException ex) {
-            throw new FogException(ex.getMessage());
+            throw new FogException(ex.getMessage(), Level.SEVERE);
         }
         return part;
     }
