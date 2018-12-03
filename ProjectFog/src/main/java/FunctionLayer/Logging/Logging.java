@@ -20,6 +20,8 @@ import java.util.logging.SimpleFormatter;
 public class Logging {
 
     private static final Logger LOGGER = Logger.getLogger(Logger.class.getName());
+    private static final String LOGFILEPATH = "/logging/Fog.log";
+    private static final String DEVLOGFILEPATH = "FogDev.%u.%g.log";
 
     public void write(Level level, String message) throws IOException {
         addHandlers();
@@ -33,10 +35,10 @@ public class Logging {
 
     public void addHandlers() throws IOException {
 
-        String path = LogConfig.DEVLOGFILEPATH;
+        String path = DEVLOGFILEPATH;
 
-        if (new File(LogConfig.LOGFILEPATH).exists()) {
-            path = LogConfig.LOGFILEPATH;
+        if (new File(LOGFILEPATH).exists()) {
+            path = LOGFILEPATH;
         }
         FileHandler handler = new FileHandler(path, true);
 
