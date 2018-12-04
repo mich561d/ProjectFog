@@ -2,10 +2,12 @@ package DatabaseLayer.Mappers;
 
 import DatabaseLayer.DatabaseConnector;
 import FunctionLayer.Exceptions.LoginException;
+import FunctionLayer.Exceptions.RegisterException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.logging.Level;
 
 /**
@@ -48,6 +50,41 @@ public class UserMapper {
             }
         } catch (ClassNotFoundException | SQLException ex) {
             throw new LoginException(ex.getMessage(), Level.SEVERE);
+        }
+    }
+
+    public static boolean doEmailExist(String email) throws RegisterException {
+        try {
+            Connection con = DatabaseConnector.connection();
+            String SQL = "SELECT * FROM user "
+                    + "WHERE BINARY email=?";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ps.setString(1, email);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                throw new RegisterException("Email already exists!");
+            } else {
+                return false;
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            throw new RegisterException(ex.getMessage(), Level.SEVERE);
+        }
+    }
+
+    public static int createUser(String email, String hashedPassword, String salt) throws RegisterException {
+        try {
+            Connection con = DatabaseConnector.connection();
+            String SQL = "INSERT INTO user(email, password, saltValue) VALUES (?, ?, ?)";
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            ps.setString(1, email);
+            ps.setString(2, hashedPassword);
+            ps.setString(3, salt);
+            ps.executeUpdate();
+            ResultSet rs = ps.getGeneratedKeys();
+            rs.next();
+            return rs.getInt("id");
+        } catch (ClassNotFoundException | SQLException ex) {
+            throw new RegisterException(ex.getMessage(), Level.SEVERE);
         }
     }
 

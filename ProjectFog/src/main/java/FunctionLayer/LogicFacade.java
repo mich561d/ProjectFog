@@ -6,6 +6,7 @@ import FunctionLayer.Calculation.CarportCalculator;
 import FunctionLayer.Util.UtilCarportDrawing;
 import FunctionLayer.Entities.Part;
 import FunctionLayer.Exceptions.LoginException;
+import FunctionLayer.Exceptions.RegisterException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -54,11 +55,36 @@ public class LogicFacade {
         String concat = password.concat(salt);
         return Hashing.hashPassword(concat);
     }
-    
+
     public static int login(String email, String password) throws LoginException, FogException {
         String salt = DatabaseFacade.getSaltValue(email);
         String hashedPassword = hashPassword(password, salt);
         return DatabaseFacade.login(email, hashedPassword);
     }
 
+    public static boolean doEmailExist(String email) throws RegisterException {
+        return DatabaseFacade.doEmailExist(email);
+    }
+
+    public static boolean checkPasswords(String pass1, String pass2) throws RegisterException {
+        return PasswordComparator.checkPasswords(pass1, pass2);
+    }
+
+    public static int createAddress(String city, String zip, String street, String number) throws RegisterException {
+        return DatabaseFacade.createAddress(city, zip, street, number);
+    }
+
+    public static int createPaymentInformation(String cardNumber, String ExpireDate) throws RegisterException {
+        return DatabaseFacade.createPaymentInformation(cardNumber, ExpireDate);
+    }
+
+    public static int createUser(String email, String password) throws RegisterException, FogException {
+        String salt = Hashing.getRandomSaltString(0);
+        String hashedPassword = Hashing.hashPassword(password.concat(salt));
+        return DatabaseFacade.createUser(email, hashedPassword, salt);
+    }
+
+    public static int createCustomer(String firstName, String lastName, String phone, int paymentID, int addressID, int userID) throws RegisterException, FogException {
+        return DatabaseFacade.createCustomer(firstName, lastName, phone, paymentID, addressID, userID);
+    }
 }

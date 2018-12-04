@@ -8,3 +8,11 @@ dec. 04, 2018 10:35:40 AM FunctionLayer.Logging.Logging write
 INFO: User 'gg@gg.dk' do not exist!
 dec. 04, 2018 10:35:51 AM FunctionLayer.Logging.Logging write
 INFO: User 'test@test.dk' do not exist!
+dec. 04, 2018 11:27:23 AM FunctionLayer.Logging.Logging write
+INFO: User 'test@test.dk' do not exist!
+dec. 04, 2018 11:28:12 AM FunctionLayer.Logging.Logging write
+OFF: Email already exists!
+dec. 04, 2018 11:28:56 AM FunctionLayer.Logging.Logging write
+OFF: Email already exists!
+dec. 04, 2018 1:21:36 PM FunctionLayer.Logging.Logging write
+SEVERE: Column 'id' not found.

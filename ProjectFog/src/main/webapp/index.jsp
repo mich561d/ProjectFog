@@ -65,34 +65,34 @@
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs">
                         <li class="nav-item">
-                            <a class="nav-link active" data-toggle="tab" href="#home"><strong>Register</strong></a>
+                            <a class="nav-link active" data-toggle="tab" href="#registration"><strong>Register</strong></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#menu1"><strong>Log ind</strong></a>
+                            <a class="nav-link" data-toggle="tab" href="#login"><strong>Log ind</strong></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#menu2"><strong>Glemt password</strong></a>
+                            <a class="nav-link" data-toggle="tab" href="#forgotPassword"><strong>Glemt password</strong></a>
                         </li>
                     </ul>
                     <!-- Tab panes -->
                     <br>
                     <div class="tab-content">
-                        <div class="tab-pane container active" id="home">
+                        <div class="tab-pane container active" id="registration">
                             <form name="Register" action="FrontController" method="POST">
                                 <input type="hidden" name="command" value="Register">
                                 <strong>Email:</strong>
                                 <br>
-                                <input type="email" name="email" placeholder="example@gmail.com" required>
+                                <input type="email" name="email" placeholder="example@gmail.com" max="45" required>
                                 <br>
                                 <strong>Password:</strong>
                                 <br>
-                                <input type="password" name="password1" placeholder="password" required>
-                                <input type="password" name="password2" placeholder="gentag password" required>
+                                <input type="password" name="password1" placeholder="password" min="8" max="45" required>
+                                <input type="password" name="password2" placeholder="gentag password" min="8" max="45" required>
                                 <br><br>
-                                <input disabled="disabled" type="submit" name="register" value="Opret bruger">
+                                <input type="submit" name="register" value="Opret bruger">
                             </form>
                         </div>
-                        <div class="tab-pane container fade" id="menu1">   
+                        <div class="tab-pane container fade" id="login">   
                             <form name="Login" action="FrontController" method="POST">
                                 <input type="hidden" name="command" value="Login">
                                 <strong>Email:</strong>
@@ -106,7 +106,7 @@
                                 <input type="submit" name="register" value="Log ind">
                             </form>
                         </div>
-                        <div class="tab-pane container fade" id="menu2">
+                        <div class="tab-pane container fade" id="forgotPassword">
                             <form name="Login" action="FrontController" method="POST">
                                 <input type="hidden" name="command" value="Login">
                                 <strong>Email:</strong>
