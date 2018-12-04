@@ -1,17 +1,11 @@
 package DatabaseLayer.Mappers;
 
 import DatabaseLayer.DatabaseConnector;
-import FunctionLayer.Entities.Customer;
-import FunctionLayer.Entities.User;
-import FunctionLayer.Exceptions.FogException;
 import FunctionLayer.Exceptions.LoginException;
-import FunctionLayer.Exceptions.RegisterException;
-import FunctionLayer.LogicFacade;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.logging.Level;
 
 /**
@@ -31,7 +25,7 @@ public class UserMapper {
             if (rs.next()) {
                 return rs.getString("saltValue");
             } else {
-                throw new LoginException("Could not get salt value!", Level.INFO);
+                throw new LoginException("User '" + email + "' do not exist!", Level.INFO);
             }
         } catch (ClassNotFoundException | SQLException ex) {
             throw new LoginException(ex.getMessage(), Level.SEVERE);

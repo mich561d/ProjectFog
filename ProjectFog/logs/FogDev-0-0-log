@@ -1,0 +1,10 @@
+dec. 04, 2018 10:13:34 AM FunctionLayer.Logging.Logging write
+INFO: Could not get salt value!
+dec. 04, 2018 10:15:44 AM FunctionLayer.Logging.Logging write
+INFO: User: gg@gg.dk do not exist!
+dec. 04, 2018 10:16:14 AM FunctionLayer.Logging.Logging write
+INFO: User 'gg@gg.dk' do not exist!
+dec. 04, 2018 10:35:40 AM FunctionLayer.Logging.Logging write
+INFO: User 'gg@gg.dk' do not exist!
+dec. 04, 2018 10:35:51 AM FunctionLayer.Logging.Logging write
+INFO: User 'test@test.dk' do not exist!

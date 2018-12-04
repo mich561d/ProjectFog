@@ -20,8 +20,9 @@ import java.util.logging.SimpleFormatter;
 public class Logging {
 
     private static final Logger LOGGER = Logger.getLogger(Logger.class.getName());
-    private static final String LOGFILEPATH = "/logging/Fog.log";
-    private static final String DEVLOGFILEPATH = "FogDev.%u.%g.log";
+    private static final String PATH = "C:/Git/ProjectFog/ProjectFog/logs/";
+    private static final String LOGFILEPATH = PATH + "log";
+    private static final String DEVLOGFILEPATH = PATH + "FogDev-%u-%g-log";
 
     public void write(Level level, String message) throws IOException {
         addHandlers();
