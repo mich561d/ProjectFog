@@ -6,18 +6,15 @@ package FunctionLayer.Entities;
  */
 public class Address {
 
-    private int id, number, zip;
-    private String street, city;
+    private int id;
+    private String city, zip, street, number;
 
-    public Address(String street, int number, String city, int zip) {
+    public Address(int id, String city, String zip, String street, String number) {
+        this.id = id;
         this.street = street;
         this.number = number;
         this.city = city;
         this.zip = zip;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public int getId() {
@@ -28,7 +25,7 @@ public class Address {
         return street;
     }
 
-    public int getNumber() {
+    public String getNumber() {
         return number;
     }
 
@@ -36,7 +33,7 @@ public class Address {
         return city;
     }
 
-    public int getZip() {
+    public String getZip() {
         return zip;
     }
 

@@ -30,7 +30,7 @@ public class ShedDoorCalculator {
         CalcHandleAndHinges(hinge);
         addPartToList(planks, "Vandbrædt", "Trykimp Fyr", "19x100mm " + CalculatorHelper.getLengthOfWaterBoard(DOORHEIGHT) + "cm");
         CalcScrews(planks, handle, hinge);
-        
+
         return this.parts;
     }
 

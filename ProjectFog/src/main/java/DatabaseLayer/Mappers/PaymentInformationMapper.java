@@ -1,6 +1,8 @@
 package DatabaseLayer.Mappers;
 
 import DatabaseLayer.DatabaseConnector;
+import FunctionLayer.Entities.PaymentInformation;
+import FunctionLayer.Exceptions.FogException;
 import FunctionLayer.Exceptions.RegisterException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -49,6 +51,26 @@ public class PaymentInformationMapper {
             } catch (ClassNotFoundException | SQLException ex) {
                 throw new RegisterException(ex.getMessage(), Level.SEVERE);
             }
+        }
+    }
+
+    public static PaymentInformation getPaymentInformationByID(int id) throws FogException {
+        try {
+            Connection con = DatabaseConnector.connection();
+            String SQL = "SELECT * FROM paymentInformation WHERE id = ?";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                String cardNumber = rs.getString("cardNumber");
+                String expireDate = rs.getString("expireDate");
+                PaymentInformation payment = new PaymentInformation(id, cardNumber, expireDate);
+                return payment;
+            } else {
+                throw new FogException("kortet med id'et " + id + ", findes ikke!", Level.WARNING);
+            }
+        } catch (SQLException | ClassNotFoundException ex) {
+            throw new FogException(ex.getMessage(), Level.SEVERE);
         }
     }
 }

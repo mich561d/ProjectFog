@@ -13,7 +13,7 @@ public class FogException extends Exception {
     public FogException(String msg) {
         this(msg, Level.OFF);
     }
-    
+
     public FogException(String msg, Level level) {
         super(msg);
         this.LEVEL = level;

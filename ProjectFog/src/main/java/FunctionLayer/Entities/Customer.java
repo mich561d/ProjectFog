@@ -10,17 +10,14 @@ public class Customer {
     private String firstName, lastName, phone;
     private int paymentID, addressID, userID;
 
-    public Customer(String firstName, String lastName, String phone, int paymentID, int addressID, int userID) {
+    public Customer(int id, String firstName, String lastName, String phone, int paymentID, int addressID, int userID) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.phone = phone;
         this.paymentID = paymentID;
         this.addressID = addressID;
         this.userID = userID;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public int getId() {

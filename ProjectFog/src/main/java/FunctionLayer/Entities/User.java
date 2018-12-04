@@ -6,24 +6,23 @@ package FunctionLayer.Entities;
  */
 public class User {
 
-    private int id, hashedPassword;
-    private String email, salt;
+    private int id;
+    private String email, hashedPassword, salt;
 
     // Get created User
-    public User(int id, int hashedPassword, String salt) {
+    public User(int id, String email, String hashedPassword, String salt) {
         this.id = id;
+        this.email = email;
         this.hashedPassword = hashedPassword;
         this.salt = salt;
     }
 
-    // Create new User
-    public User(String email, String password) {
-        this.email = email;
-
-    }
-
     public int getId() {
         return id;
+    }
+
+    public String getEmail() {
+        return email;
     }
 
 }

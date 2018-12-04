@@ -1,6 +1,8 @@
 package DatabaseLayer.Mappers;
 
 import DatabaseLayer.DatabaseConnector;
+import FunctionLayer.Entities.User;
+import FunctionLayer.Exceptions.FogException;
 import FunctionLayer.Exceptions.LoginException;
 import FunctionLayer.Exceptions.RegisterException;
 import java.sql.Connection;
@@ -85,6 +87,27 @@ public class UserMapper {
             return rs.getInt(1);
         } catch (ClassNotFoundException | SQLException ex) {
             throw new RegisterException(ex.getMessage(), Level.SEVERE);
+        }
+    }
+
+    public static User getUserByID(int id) throws FogException {
+        try {
+            Connection con = DatabaseConnector.connection();
+            String SQL = "SELECT * FROM user WHERE id = ?";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                String email = rs.getString("email");
+                String hashedPassword = rs.getString("password");
+                String saltValue = rs.getString("saltValue");
+                User user = new User(id, email, hashedPassword, saltValue);
+                return user;
+            } else {
+                throw new FogException("webbrugeren med id'et " + id + ", findes ikke!", Level.WARNING);
+            }
+        } catch (SQLException | ClassNotFoundException ex) {
+            throw new FogException(ex.getMessage(), Level.SEVERE);
         }
     }
 

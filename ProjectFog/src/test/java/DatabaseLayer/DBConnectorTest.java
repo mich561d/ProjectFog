@@ -10,7 +10,7 @@ import static org.junit.Assert.*;
  * @author Michael
  */
 public class DBConnectorTest {
-    
+
     @Test
     public void TestConnection1() throws ClassNotFoundException, SQLException {
         // Arrange & Act:

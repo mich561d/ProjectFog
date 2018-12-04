@@ -15,5 +15,5 @@ public class CustomCarportCommand implements Command {
     public String execute(HttpServletRequest request, HttpServletResponse response) throws FogException {
         return "CustomCarport";
     }
-    
+
 }

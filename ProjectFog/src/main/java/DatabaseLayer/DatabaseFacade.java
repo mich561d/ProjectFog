@@ -1,8 +1,11 @@
 package DatabaseLayer;
 
 import DatabaseLayer.Mappers.*;
+import FunctionLayer.Entities.Address;
 import FunctionLayer.Entities.Customer;
 import FunctionLayer.Entities.Part;
+import FunctionLayer.Entities.PaymentInformation;
+import FunctionLayer.Entities.User;
 import FunctionLayer.Exceptions.FogException;
 import FunctionLayer.Exceptions.LoginException;
 import FunctionLayer.Exceptions.RegisterException;
@@ -44,8 +47,24 @@ public class DatabaseFacade {
     public static int createCustomer(String firstName, String lastName, String phone, int paymentID, int addressID, int userID) throws RegisterException, FogException {
         return CustomerMapper.createCustomer(firstName, lastName, phone, paymentID, addressID, userID);
     }
-    
+
     public static Customer getCustomerByUserID(int id) throws FogException {
         return CustomerMapper.getCustomerByUserID(id);
+    }
+
+    public static Customer getCustomerByID(int id) throws FogException {
+        return CustomerMapper.getCustomerByID(id);
+    }
+
+    public static Address getAddressByID(int id) throws FogException {
+        return AddressMapper.getAddressByID(id);
+    }
+
+    public static PaymentInformation getPaymentInformationByID(int id) throws FogException {
+        return PaymentInformationMapper.getPaymentInformationByID(id);
+    }
+
+    public static User getUserByID(int id) throws FogException {
+        return UserMapper.getUserByID(id);
     }
 }

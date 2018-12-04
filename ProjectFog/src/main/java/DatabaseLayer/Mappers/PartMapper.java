@@ -23,15 +23,15 @@ public class PartMapper {
             ps.setString(1, t); // t = type
             ps.setString(2, m); // m = material
             ps.setString(3, s); // s = size
-            ResultSet ids = ps.executeQuery();
-            if (ids.next()) {
-                int id = ids.getInt("id");
-                String type = ids.getString("type");
-                String material = ids.getString("material");
-                String size = ids.getString("size");
-                String description = ids.getString("description");
-                String brand = ids.getString("brand");
-                double price = ids.getDouble("price");
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                int id = rs.getInt("id");
+                String type = rs.getString("type");
+                String material = rs.getString("material");
+                String size = rs.getString("size");
+                String description = rs.getString("description");
+                String brand = rs.getString("brand");
+                double price = rs.getDouble("price");
                 return new Part(id, type, material, size, description, brand, price);
             } else {
                 throw new FogException("404 - Part not found!", Level.WARNING);

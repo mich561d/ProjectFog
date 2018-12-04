@@ -43,16 +43,39 @@ public class CustomerMapper {
             String SQL = "SELECT * FROM customer WHERE userID = ?";
             PreparedStatement ps = con.prepareStatement(SQL);
             ps.setInt(1, userID);
-            ResultSet ids = ps.executeQuery();
-            if (ids.next()) {
-                int id = ids.getInt("id");
-                String firstName = ids.getString("firstName");
-                String lastName = ids.getString("lastName");
-                String phone = ids.getString("phone");
-                int paymentID = ids.getInt("paymentID");
-                int addressID = ids.getInt("addressID");
-                Customer c = new Customer(firstName, lastName, phone, paymentID, addressID, userID);
-                c.setId(id);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                int id = rs.getInt("id");
+                String firstName = rs.getString("firstName");
+                String lastName = rs.getString("lastName");
+                String phone = rs.getString("phone");
+                int paymentID = rs.getInt("paymentID");
+                int addressID = rs.getInt("addressID");
+                Customer c = new Customer(id, firstName, lastName, phone, paymentID, addressID, userID);
+                return c;
+            } else {
+                throw new FogException("Customer is not in the system", Level.WARNING);
+            }
+        } catch (SQLException | ClassNotFoundException ex) {
+            throw new FogException(ex.getMessage(), Level.SEVERE);
+        }
+    }
+
+    public static Customer getCustomerByID(int id) throws FogException {
+        try {
+            Connection con = DatabaseConnector.connection();
+            String SQL = "SELECT * FROM customer WHERE id = ?";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                String firstName = rs.getString("firstName");
+                String lastName = rs.getString("lastName");
+                String phone = rs.getString("phone");
+                int paymentID = rs.getInt("paymentID");
+                int addressID = rs.getInt("addressID");
+                int userID = rs.getInt("userID");
+                Customer c = new Customer(id, firstName, lastName, phone, paymentID, addressID, userID);
                 return c;
             } else {
                 throw new FogException("Customer is not in the system", Level.WARNING);

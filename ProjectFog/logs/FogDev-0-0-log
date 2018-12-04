@@ -36,3 +36,304 @@ dec. 04, 2018 3:29:35 PM FunctionLayer.Logging.Logging write
 OFF: 404 - Page not found!
 dec. 04, 2018 4:32:21 PM FunctionLayer.Logging.Logging write
 WARNING: Customer is not in the system
+dec. 04, 2018 5:28:35 PM FunctionLayer.Logging.Logging write
+WARNING: Unable to compile class for JSP: 
+
+An error occurred at line: 43 in the jsp file: /Webpages/CustomerPage.jsp
+Set cannot be resolved to a type
+40:                                         </thead>
+41:                                         <tbody>
+42:                                             <%
+43:                                                 Set set = products.keySet();
+44:                                                 ArrayList<String> keys = new ArrayList<>();
+45:                                                 keys.addAll(set);
+46:                                                 for (int i = 0; i < keys.size(); i++) {
+
+
+An error occurred at line: 43 in the jsp file: /Webpages/CustomerPage.jsp
+products cannot be resolved
+40:                                         </thead>
+41:                                         <tbody>
+42:                                             <%
+43:                                                 Set set = products.keySet();
+44:                                                 ArrayList<String> keys = new ArrayList<>();
+45:                                                 keys.addAll(set);
+46:                                                 for (int i = 0; i < keys.size(); i++) {
+
+
+An error occurred at line: 44 in the jsp file: /Webpages/CustomerPage.jsp
+ArrayList cannot be resolved to a type
+41:                                         <tbody>
+42:                                             <%
+43:                                                 Set set = products.keySet();
+44:                                                 ArrayList<String> keys = new ArrayList<>();
+45:                                                 keys.addAll(set);
+46:                                                 for (int i = 0; i < keys.size(); i++) {
+47:                                                     ArrayList<Part> parts = products.get(keys.get(i));
+
+
+An error occurred at line: 44 in the jsp file: /Webpages/CustomerPage.jsp
+ArrayList cannot be resolved to a type
+41:                                         <tbody>
+42:                                             <%
+43:                                                 Set set = products.keySet();
+44:                                                 ArrayList<String> keys = new ArrayList<>();
+45:                                                 keys.addAll(set);
+46:                                                 for (int i = 0; i < keys.size(); i++) {
+47:                                                     ArrayList<Part> parts = products.get(keys.get(i));
+
+
+An error occurred at line: 47 in the jsp file: /Webpages/CustomerPage.jsp
+ArrayList cannot be resolved to a type
+44:                                                 ArrayList<String> keys = new ArrayList<>();
+45:                                                 keys.addAll(set);
+46:                                                 for (int i = 0; i < keys.size(); i++) {
+47:                                                     ArrayList<Part> parts = products.get(keys.get(i));
+48:                                                     Part part = parts.get(0);
+49:                                             %>
+50:                                             <tr>
+
+
+An error occurred at line: 47 in the jsp file: /Webpages/CustomerPage.jsp
+products cannot be resolved
+44:                                                 ArrayList<String> keys = new ArrayList<>();
+45:                                                 keys.addAll(set);
+46:                                                 for (int i = 0; i < keys.size(); i++) {
+47:                                                     ArrayList<Part> parts = products.get(keys.get(i));
+48:                                                     Part part = parts.get(0);
+49:                                             %>
+50:                                             <tr>
+
+
+An error occurred at line: 51 in the jsp file: /Webpages/CustomerPage.jsp
+The method getType() is undefined for the type Part
+48:                                                     Part part = parts.get(0);
+49:                                             %>
+50:                                             <tr>
+51:                                                 <td><%= part.getType()%></td>
+52:                                                 <td><%= part.getSize()%></td>
+53:                                                 <td><%= part.getDescription()%></td>
+54:                                                 <td><%= parts.size()%></td>
+
+
+An error occurred at line: 53 in the jsp file: /Webpages/CustomerPage.jsp
+The method getDescription() is undefined for the type Part
+50:                                             <tr>
+51:                                                 <td><%= part.getType()%></td>
+52:                                                 <td><%= part.getSize()%></td>
+53:                                                 <td><%= part.getDescription()%></td>
+54:                                                 <td><%= parts.size()%></td>
+55:                                                 <td><%= part.getPrice()%> kr.</td>
+56:                                             </tr>
+
+
+An error occurred at line: 55 in the jsp file: /Webpages/CustomerPage.jsp
+The method getPrice() is undefined for the type Part
+52:                                                 <td><%= part.getSize()%></td>
+53:                                                 <td><%= part.getDescription()%></td>
+54:                                                 <td><%= parts.size()%></td>
+55:                                                 <td><%= part.getPrice()%> kr.</td>
+56:                                             </tr>
+57:                                             <% }%>
+58:                                         </tbody>
+
+
+An error occurred at line: 65 in the jsp file: /Webpages/CustomerPage.jsp
+formattedTotalPrice cannot be resolved to a variable
+62:                                     <h3 style="text-align: center">Pris</h3>
+63:                                     <div style="text-align: right; margin-right: 5%">
+64:                                         <label>
+65:                                             <p>Total: <%= formattedTotalPrice%> kr.</p>
+66:                                         </label>
+67:                                         <br>
+68:                                         <label>
+
+
+An error occurred at line: 69 in the jsp file: /Webpages/CustomerPage.jsp
+formattedTax cannot be resolved to a variable
+66:                                         </label>
+67:                                         <br>
+68:                                         <label>
+69:                                             <p>Heraf moms: <%= formattedTax%> kr.</p>
+70:                                         </label>
+71:                                     </div>
+72:                                 </label>
+
+
+Stacktrace:
+dec. 04, 2018 5:29:56 PM FunctionLayer.Logging.Logging write
+WARNING: Unable to compile class for JSP: 
+
+An error occurred at line: 43 in the jsp file: /Webpages/CustomerPage.jsp
+Set cannot be resolved to a type
+40:                                         </thead>
+41:                                         <tbody>
+42:                                             <%
+43:                                                 Set set = products.keySet();
+44:                                                 ArrayList<String> keys = new ArrayList<>();
+45:                                                 keys.addAll(set);
+46:                                                 for (int i = 0; i < keys.size(); i++) {
+
+
+An error occurred at line: 43 in the jsp file: /Webpages/CustomerPage.jsp
+products cannot be resolved
+40:                                         </thead>
+41:                                         <tbody>
+42:                                             <%
+43:                                                 Set set = products.keySet();
+44:                                                 ArrayList<String> keys = new ArrayList<>();
+45:                                                 keys.addAll(set);
+46:                                                 for (int i = 0; i < keys.size(); i++) {
+
+
+An error occurred at line: 44 in the jsp file: /Webpages/CustomerPage.jsp
+ArrayList cannot be resolved to a type
+41:                                         <tbody>
+42:                                             <%
+43:                                                 Set set = products.keySet();
+44:                                                 ArrayList<String> keys = new ArrayList<>();
+45:                                                 keys.addAll(set);
+46:                                                 for (int i = 0; i < keys.size(); i++) {
+47:                                                     ArrayList<Part> parts = products.get(keys.get(i));
+
+
+An error occurred at line: 44 in the jsp file: /Webpages/CustomerPage.jsp
+ArrayList cannot be resolved to a type
+41:                                         <tbody>
+42:                                             <%
+43:                                                 Set set = products.keySet();
+44:                                                 ArrayList<String> keys = new ArrayList<>();
+45:                                                 keys.addAll(set);
+46:                                                 for (int i = 0; i < keys.size(); i++) {
+47:                                                     ArrayList<Part> parts = products.get(keys.get(i));
+
+
+An error occurred at line: 47 in the jsp file: /Webpages/CustomerPage.jsp
+ArrayList cannot be resolved to a type
+44:                                                 ArrayList<String> keys = new ArrayList<>();
+45:                                                 keys.addAll(set);
+46:                                                 for (int i = 0; i < keys.size(); i++) {
+47:                                                     ArrayList<Part> parts = products.get(keys.get(i));
+48:                                                     Part part = parts.get(0);
+49:                                             %>
+50:                                             <tr>
+
+
+An error occurred at line: 47 in the jsp file: /Webpages/CustomerPage.jsp
+products cannot be resolved
+44:                                                 ArrayList<String> keys = new ArrayList<>();
+45:                                                 keys.addAll(set);
+46:                                                 for (int i = 0; i < keys.size(); i++) {
+47:                                                     ArrayList<Part> parts = products.get(keys.get(i));
+48:                                                     Part part = parts.get(0);
+49:                                             %>
+50:                                             <tr>
+
+
+An error occurred at line: 51 in the jsp file: /Webpages/CustomerPage.jsp
+The method getType() is undefined for the type Part
+48:                                                     Part part = parts.get(0);
+49:                                             %>
+50:                                             <tr>
+51:                                                 <td><%= part.getType()%></td>
+52:                                                 <td><%= part.getSize()%></td>
+53:                                                 <td><%= part.getDescription()%></td>
+54:                                                 <td><%= parts.size()%></td>
+
+
+An error occurred at line: 53 in the jsp file: /Webpages/CustomerPage.jsp
+The method getDescription() is undefined for the type Part
+50:                                             <tr>
+51:                                                 <td><%= part.getType()%></td>
+52:                                                 <td><%= part.getSize()%></td>
+53:                                                 <td><%= part.getDescription()%></td>
+54:                                                 <td><%= parts.size()%></td>
+55:                                                 <td><%= part.getPrice()%> kr.</td>
+56:                                             </tr>
+
+
+An error occurred at line: 55 in the jsp file: /Webpages/CustomerPage.jsp
+The method getPrice() is undefined for the type Part
+52:                                                 <td><%= part.getSize()%></td>
+53:                                                 <td><%= part.getDescription()%></td>
+54:                                                 <td><%= parts.size()%></td>
+55:                                                 <td><%= part.getPrice()%> kr.</td>
+56:                                             </tr>
+57:                                             <% }%>
+58:                                         </tbody>
+
+
+An error occurred at line: 65 in the jsp file: /Webpages/CustomerPage.jsp
+formattedTotalPrice cannot be resolved to a variable
+62:                                     <h3 style="text-align: center">Pris</h3>
+63:                                     <div style="text-align: right; margin-right: 5%">
+64:                                         <label>
+65:                                             <p>Total: <%= formattedTotalPrice%> kr.</p>
+66:                                         </label>
+67:                                         <br>
+68:                                         <label>
+
+
+An error occurred at line: 69 in the jsp file: /Webpages/CustomerPage.jsp
+formattedTax cannot be resolved to a variable
+66:                                         </label>
+67:                                         <br>
+68:                                         <label>
+69:                                             <p>Heraf moms: <%= formattedTax%> kr.</p>
+70:                                         </label>
+71:                                     </div>
+72:                                 </label>
+
+
+Stacktrace:
+dec. 04, 2018 5:38:58 PM FunctionLayer.Logging.Logging write
+WARNING: Unable to compile class for JSP: 
+
+An error occurred at line: 54 in the jsp file: /Webpages/CustomerPage.jsp
+The method getEmail() is undefined for the type User
+51:                                                 <td><%=customer.getFirstName()%></td>
+52:                                                 <td><%=customer.getLastName()%></td>
+53:                                                 <td><%=customer.getPhone()%></td>
+54:                                                 <td><%=user.getEmail()%></td>
+55:                                             </tr>
+56:                                         </tbody>
+57:                                     </table>
+
+
+Stacktrace:
+dec. 04, 2018 5:41:03 PM FunctionLayer.Logging.Logging write
+WARNING: An exception occurred processing JSP page /Webpages/CustomerPage.jsp at line 21
+
+18:         <link href="Webpages/CSS/FogStyling.css" rel="stylesheet" type="text/css"/>
+19:         <%
+20:             Customer customer = (Customer) request.getSession().getAttribute("Customer");
+21:             Address address = (Address) request.getSession().getAttribute("Customer");
+22:             PaymentInformation payment = (PaymentInformation) request.getSession().getAttribute("Customer");
+23:             User user = (User) request.getSession().getAttribute("Customer");
+24:         %>
+
+
+Stacktrace:
+dec. 04, 2018 5:43:39 PM FunctionLayer.Logging.Logging write
+WARNING: An exception occurred processing JSP page /Webpages/CustomerPage.jsp at line 21
+
+18:         <link href="Webpages/CSS/FogStyling.css" rel="stylesheet" type="text/css"/>
+19:         <%
+20:             Customer customer = (Customer) request.getSession().getAttribute("Customer");
+21:             Address address = (Address) request.getSession().getAttribute("Customer");
+22:             PaymentInformation payment = (PaymentInformation) request.getSession().getAttribute("Customer");
+23:             User user = (User) request.getSession().getAttribute("Customer");
+24:         %>
+
+
+Stacktrace:
+dec. 04, 2018 6:12:22 PM FunctionLayer.Logging.Logging write
+SEVERE: Column 'cardNumber' not found.
+dec. 04, 2018 7:27:36 PM FunctionLayer.Logging.Logging write
+INFO: Der skete en fejl!.. Prøv at logge ind igen!
+dec. 04, 2018 7:27:47 PM FunctionLayer.Logging.Logging write
+SEVERE: Unknown column 'cardNumber' in 'field list'
+dec. 04, 2018 7:28:47 PM FunctionLayer.Logging.Logging write
+SEVERE: Unknown column 'cardNumber' in 'field list'
+dec. 04, 2018 9:08:39 PM FunctionLayer.Logging.Logging write
+INFO: Der skete en fejl!.. Prøv at logge ind igen!

@@ -3,9 +3,12 @@ package FunctionLayer;
 import DatabaseLayer.DatabaseFacade;
 import FunctionLayer.Exceptions.FogException;
 import FunctionLayer.Calculation.CarportCalculator;
+import FunctionLayer.Entities.Address;
 import FunctionLayer.Entities.Customer;
 import FunctionLayer.Util.UtilCarportDrawing;
 import FunctionLayer.Entities.Part;
+import FunctionLayer.Entities.PaymentInformation;
+import FunctionLayer.Entities.User;
 import FunctionLayer.Exceptions.LoginException;
 import FunctionLayer.Exceptions.RegisterException;
 import java.util.ArrayList;
@@ -88,8 +91,24 @@ public class LogicFacade {
     public static int createCustomer(String firstName, String lastName, String phone, int paymentID, int addressID, int userID) throws RegisterException, FogException {
         return DatabaseFacade.createCustomer(firstName, lastName, phone, paymentID, addressID, userID);
     }
-    
+
     public static Customer getCustomerByUserID(int id) throws FogException {
         return DatabaseFacade.getCustomerByUserID(id);
+    }
+
+    public static Customer getCustomerByID(int id) throws FogException {
+        return DatabaseFacade.getCustomerByID(id);
+    }
+
+    public static Address getAddressByID(int id) throws FogException {
+        return DatabaseFacade.getAddressByID(id);
+    }
+
+    public static PaymentInformation getPaymentInformationByID(int id) throws FogException {
+        return DatabaseFacade.getPaymentInformationByID(id);
+    }
+
+    public static User getUserByID(int id) throws FogException {
+        return DatabaseFacade.getUserByID(id);
     }
 }

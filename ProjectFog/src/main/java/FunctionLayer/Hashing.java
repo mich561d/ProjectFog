@@ -13,7 +13,7 @@ import javax.xml.bind.DatatypeConverter;
  * @author Michael
  */
 public class Hashing {
-    
+
     private static final int SALTLENGTH = 25;
 
     public static String hashPassword(String password) throws FogException {
