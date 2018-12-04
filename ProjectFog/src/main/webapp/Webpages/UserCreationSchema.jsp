@@ -28,6 +28,8 @@
                 <div class="card">
                     <form name="CustomerCreation" action="FrontController" method="POST">
                         <input type="hidden" name="command" value="CreateCustomer">
+                        <input type="hidden" name="email" value="<%=request.getSession().getAttribute("RegisterEmail")%>">
+                        <input type="hidden" name="password" value="<%=password%>">
                         <div class="card-header">
                             <h3>Udfyld skemaet for at oprette dig i systemet</h3>
                             <p><strong>*Udfyld skemaet som vist ved hjælp at 'pladsholderende'</strong></p>

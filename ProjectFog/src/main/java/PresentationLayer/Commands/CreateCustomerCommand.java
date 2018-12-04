@@ -19,14 +19,14 @@ public class CreateCustomerCommand implements Command {
         // Get data
         String firstName = request.getParameter("firstName");
         String lastName = request.getParameter("lastName");
-        String phone = request.getParameter("phone").trim();
+        String phone = request.getParameter("phone").replaceAll(" ", "");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         String city = request.getParameter("city");
         String zip = request.getParameter("zip");
         String street = request.getParameter("street");
         String number = request.getParameter("number");
-        String cardNumber = request.getParameter("cardNumber").trim();
+        String cardNumber = request.getParameter("cardNumber").replaceAll(" ", "");
         String cardExpireDate = request.getParameter("cardExpireDate");
         // Upload data to database
         // Create Address

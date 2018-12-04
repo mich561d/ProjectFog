@@ -74,7 +74,7 @@ ENGINE = InnoDB;
 -- Table `ProjectFogDatabase`.`paymentInformation`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `ProjectFogDatabase`.`paymentInformation` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `cardNumber` VARCHAR(45) NOT NULL,
   `expireDate` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`))
@@ -86,10 +86,10 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `ProjectFogDatabase`.`address` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `street` VARCHAR(45) NOT NULL,
-  `number` INT NOT NULL,
   `city` VARCHAR(45) NOT NULL,
-  `zip` INT NOT NULL,
+  `zip` VARCHAR(45) NOT NULL,
+  `street` VARCHAR(45) NOT NULL,
+  `number` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -99,9 +99,11 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `ProjectFogDatabase`.`user` (
   `id` INT NOT NULL AUTO_INCREMENT,
+  `email` VARCHAR(45) NOT NULL,
   `password` VARCHAR(45) NOT NULL,
   `saltValue` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`id`))
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `email_UNIQUE` (`email` ASC))
 ENGINE = InnoDB;
 
 
@@ -112,7 +114,6 @@ CREATE TABLE IF NOT EXISTS `ProjectFogDatabase`.`customer` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `firstName` VARCHAR(45) NOT NULL,
   `lastName` VARCHAR(45) NOT NULL,
-  `email` VARCHAR(45) NOT NULL,
   `phone` VARCHAR(45) NOT NULL,
   `paymentID` INT NOT NULL,
   `addressID` INT NOT NULL,

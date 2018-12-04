@@ -16,3 +16,15 @@ dec. 04, 2018 11:28:56 AM FunctionLayer.Logging.Logging write
 OFF: Email already exists!
 dec. 04, 2018 1:21:36 PM FunctionLayer.Logging.Logging write
 SEVERE: Column 'id' not found.
+dec. 04, 2018 2:21:27 PM FunctionLayer.Logging.Logging write
+SEVERE: Column 'id' not found.
+dec. 04, 2018 2:28:33 PM FunctionLayer.Logging.Logging write
+OFF: Passwords not equal!
+dec. 04, 2018 2:30:45 PM FunctionLayer.Logging.Logging write
+SEVERE: Column 'id' not found.
+dec. 04, 2018 2:34:17 PM FunctionLayer.Logging.Logging write
+SEVERE: Field 'id' doesn't have a default value
+dec. 04, 2018 2:36:15 PM FunctionLayer.Logging.Logging write
+SEVERE: Field 'id' doesn't have a default value
+dec. 04, 2018 2:44:31 PM FunctionLayer.Logging.Logging write
+SEVERE: Duplicate entry '' for key 'email_UNIQUE'

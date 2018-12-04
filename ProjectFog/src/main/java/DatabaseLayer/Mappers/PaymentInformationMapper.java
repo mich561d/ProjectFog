@@ -21,9 +21,9 @@ public class PaymentInformationMapper {
             String SQL = "SELECT * FROM paymentInformation WHERE cardNumber = ?";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, cardNumber);
-            ResultSet ids = ps.executeQuery();
-            if (ids.next()) {
-                return ids.getInt("id");
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                return rs.getInt(1);
             } else {
                 throw new RegisterException("PaymentInformation is not stored!");
             }
@@ -45,7 +45,7 @@ public class PaymentInformationMapper {
                 ps.executeUpdate();
                 ResultSet rs = ps.getGeneratedKeys();
                 rs.next();
-                return rs.getInt("id");
+                return rs.getInt(1);
             } catch (ClassNotFoundException | SQLException ex) {
                 throw new RegisterException(ex.getMessage(), Level.SEVERE);
             }

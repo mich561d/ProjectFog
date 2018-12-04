@@ -27,7 +27,7 @@ public class AddressMapper {
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
             rs.next();
-            return rs.getInt("id");
+            return rs.getInt(1);
         } catch (ClassNotFoundException | SQLException ex) {
             throw new RegisterException(ex.getMessage(), Level.SEVERE);
         }
