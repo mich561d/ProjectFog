@@ -17,7 +17,7 @@
     </head>
     <body>
         <%@include file="/WEB-INF/Imports/NavBar.jsp" %>
-        <% if (request.getSession().getAttribute("UserID") == null) { %>
+        <% if (request.getSession().getAttribute("CustomerID") == null) { %>
         <% if (request.getSession().getAttribute("ErrorMsg") == null) { %>
         <div class="container">
             <div class="row">
@@ -63,7 +63,7 @@
                     <!--This is a placeholder for whitespace! Since i cannot figure out how to do this properly... this is a quick fix!-->
                 </div>
                 <div class="col-lg-4 border border-primary" style="background-color: #D1ECF1;">
-                    <% if (request.getSession().getAttribute("UserID") == null) { %>
+                    <% if (request.getSession().getAttribute("CustomerID") == null) { %>
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs">
                         <li class="nav-item">
@@ -122,13 +122,13 @@
                     </div>
                     <% } else {%>
                     <div style="padding: 5%; text-align: center">
-                        <p>Hej <%=request.getSession().getAttribute("CustomerName")%> !</p>
-                        Du er allerede logget ind!<br>
+                        <p><Strong>Hej <%=request.getSession().getAttribute("CustomerName")%>!</Strong></p>
+                        Du er allerede logget ind.<br>
                         Hvis du vil logge ud,<br>
-                        skal du klikke på knappen!<br><br>
+                        skal du klikke på knappen.<br><br>
                         <form name="Register" action="FrontController" method="POST">
                             <input type="hidden" name="command" value="Logout">
-                            <input type="submit" name="register" value="Log ud">
+                            <button type="submit" class="btn btn-primary">Log ud</button>
                         </form>
                     </div>
                     <% }%>

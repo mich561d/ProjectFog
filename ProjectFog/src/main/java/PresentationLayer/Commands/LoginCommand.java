@@ -19,8 +19,8 @@ public class LoginCommand implements Command {
         String email = request.getParameter("LoginEmail");
         String password = request.getParameter("LoginPassword");
         int id = LogicFacade.login(email, password);
-        request.getSession().setAttribute("UserID", id);
         Customer customer = LogicFacade.getCustomerByUserID(id);
+        request.getSession().setAttribute("CustomerID", customer.getId());
         request.getSession().setAttribute("CustomerName", customer.getFullName());
         return "index";
     }
