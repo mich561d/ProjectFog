@@ -40,7 +40,9 @@
                 </div>
             </div>
         </div>
-        <% request.getSession().setAttribute("ErrorMsg", null);}}%>
+        <% request.getSession().setAttribute("ErrorMsg", null);
+                }
+            }%>
         <br>
         <div class="container">
             <div class="row no-gutters">
@@ -118,12 +120,17 @@
                             </form>
                         </div>
                     </div>
-                    <% } else { %>
-                    You are logged in!<br>
-                    <form name="Register" action="FrontController" method="POST">
-                        <input type="hidden" name="command" value="Logout">
-                        <input type="submit" name="register" value="Log ud!">
-                    </form>
+                    <% } else {%>
+                    <div style="padding: 5%; text-align: center">
+                        <p>Hej <%=request.getSession().getAttribute("CustomerName")%> !</p>
+                        Du er allerede logget ind!<br>
+                        Hvis du vil logge ud,<br>
+                        skal du klikke på knappen!<br><br>
+                        <form name="Register" action="FrontController" method="POST">
+                            <input type="hidden" name="command" value="Logout">
+                            <input type="submit" name="register" value="Log ud">
+                        </form>
+                    </div>
                     <% }%>
                 </div>
             </div>

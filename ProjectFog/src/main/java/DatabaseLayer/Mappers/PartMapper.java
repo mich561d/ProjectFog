@@ -16,7 +16,6 @@ import java.util.logging.Level;
 public class PartMapper {
 
     public static Part getPartByTypeMaterialSize(String t, String m, String s) throws FogException {
-        Part part = null;
         try {
             Connection con = DatabaseConnector.connection();
             String SQL = "SELECT * FROM part WHERE type = ? AND material = ? AND size = ?";
@@ -33,14 +32,13 @@ public class PartMapper {
                 String description = ids.getString("description");
                 String brand = ids.getString("brand");
                 double price = ids.getDouble("price");
-                part = new Part(id, type, material, size, description, brand, price);
+                return new Part(id, type, material, size, description, brand, price);
             } else {
                 throw new FogException("404 - Part not found!", Level.WARNING);
             }
         } catch (SQLException | ClassNotFoundException ex) {
             throw new FogException(ex.getMessage(), Level.SEVERE);
         }
-        return part;
     }
 
 }

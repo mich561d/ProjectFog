@@ -1,6 +1,7 @@
 package DatabaseLayer;
 
 import DatabaseLayer.Mappers.*;
+import FunctionLayer.Entities.Customer;
 import FunctionLayer.Entities.Part;
 import FunctionLayer.Exceptions.FogException;
 import FunctionLayer.Exceptions.LoginException;
@@ -42,5 +43,9 @@ public class DatabaseFacade {
 
     public static int createCustomer(String firstName, String lastName, String phone, int paymentID, int addressID, int userID) throws RegisterException, FogException {
         return CustomerMapper.createCustomer(firstName, lastName, phone, paymentID, addressID, userID);
+    }
+    
+    public static Customer getCustomerByUserID(int id) throws FogException {
+        return CustomerMapper.getCustomerByUserID(id);
     }
 }

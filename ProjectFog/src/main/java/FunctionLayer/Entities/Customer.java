@@ -10,17 +10,48 @@ public class Customer {
     private String firstName, lastName, phone;
     private int paymentID, addressID, userID;
 
-    public Customer(String firstName, String lastName, String phone, PaymentInformation payment, Address address, User user) {
+    public Customer(String firstName, String lastName, String phone, int paymentID, int addressID, int userID) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phone = phone;
-        this.paymentID = payment.getId();
-        this.addressID = address.getId();
-        this.userID = user.getId();
+        this.paymentID = paymentID;
+        this.addressID = addressID;
+        this.userID = userID;
     }
 
     public void setId(int id) {
         this.id = id;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getFullName() {
+        return firstName + " " + lastName;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public int getPaymentID() {
+        return paymentID;
+    }
+
+    public int getAddressID() {
+        return addressID;
+    }
+
+    public int getUserID() {
+        return userID;
+    }
 }

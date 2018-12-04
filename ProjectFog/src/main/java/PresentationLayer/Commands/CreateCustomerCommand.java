@@ -29,13 +29,9 @@ public class CreateCustomerCommand implements Command {
         String cardNumber = request.getParameter("cardNumber").replaceAll(" ", "");
         String cardExpireDate = request.getParameter("cardExpireDate");
         // Upload data to database
-        // Create Address
         int addressID = LogicFacade.createAddress(city, zip, street, number);
-        // Create PaymentInformation
         int paymentID = LogicFacade.createPaymentInformation(cardNumber, cardExpireDate);
-        // Create User
         int userID = LogicFacade.createUser(email, password);
-        // Create Customer
         LogicFacade.createCustomer(firstName, lastName, phone, paymentID, addressID, userID);
         return "index";
     }

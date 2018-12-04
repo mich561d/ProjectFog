@@ -28,3 +28,11 @@ dec. 04, 2018 2:36:15 PM FunctionLayer.Logging.Logging write
 SEVERE: Field 'id' doesn't have a default value
 dec. 04, 2018 2:44:31 PM FunctionLayer.Logging.Logging write
 SEVERE: Duplicate entry '' for key 'email_UNIQUE'
+dec. 04, 2018 3:09:26 PM FunctionLayer.Logging.Logging write
+INFO: User 'admin@fog.dk' do not exist!
+dec. 04, 2018 3:09:43 PM FunctionLayer.Logging.Logging write
+INFO: Could not validate user
+dec. 04, 2018 3:29:35 PM FunctionLayer.Logging.Logging write
+OFF: 404 - Page not found!
+dec. 04, 2018 4:32:21 PM FunctionLayer.Logging.Logging write
+WARNING: Customer is not in the system

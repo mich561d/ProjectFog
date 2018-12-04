@@ -3,6 +3,7 @@ package FunctionLayer;
 import DatabaseLayer.DatabaseFacade;
 import FunctionLayer.Exceptions.FogException;
 import FunctionLayer.Calculation.CarportCalculator;
+import FunctionLayer.Entities.Customer;
 import FunctionLayer.Util.UtilCarportDrawing;
 import FunctionLayer.Entities.Part;
 import FunctionLayer.Exceptions.LoginException;
@@ -86,5 +87,9 @@ public class LogicFacade {
 
     public static int createCustomer(String firstName, String lastName, String phone, int paymentID, int addressID, int userID) throws RegisterException, FogException {
         return DatabaseFacade.createCustomer(firstName, lastName, phone, paymentID, addressID, userID);
+    }
+    
+    public static Customer getCustomerByUserID(int id) throws FogException {
+        return DatabaseFacade.getCustomerByUserID(id);
     }
 }
