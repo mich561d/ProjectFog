@@ -19,8 +19,8 @@ public class ShedDoorCalculator {
         this.parts = parts;
 
         double calcSpace = DOORWIDTH - (CLADDINGBOARDWIDTH * 2);
-        int backPlanks = (int) Math.ceil((calcSpace / 150) + 2);
-        int frontPlanks = (int) Math.floor((calcSpace / 150) + 2);
+        int backPlanks = (int) Math.ceil((calcSpace / CLADDINGSPACING) + 2);
+        int frontPlanks = (int) Math.floor((calcSpace / CLADDINGSPACING) + 2);
         int planks = backPlanks + frontPlanks;
         int handle = HANDLESPERDOOR, hinge = HINGESPERDOOR;
         double heightOfLath = HEIGHTOFLATH;
