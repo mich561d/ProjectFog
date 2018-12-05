@@ -3,6 +3,7 @@ package FunctionLayer;
 import FunctionLayer.Exceptions.FogException;
 import FunctionLayer.Calculation.Base.BasePoleCalculator;
 import FunctionLayer.Calculation.Base.BaseRaftCalculator;
+import FunctionLayer.Calculation.CarportCalculator;
 import FunctionLayer.Entities.Part;
 import java.util.ArrayList;
 import org.junit.Test;
@@ -14,48 +15,55 @@ import static org.junit.Assert.*;
  */
 public class FullCarportCalculatorTest {
 
-    // Test with input under breakpoint
+    //IntegrationTest
     @Test
-    public void CalcPolesWithSmallCarport() throws FogException {
+    public void TestIntegrationOfCarportProductListSize() throws FogException {
         // Arrange:
-        // Act: 
+        CarportCalculator cc = new CarportCalculator(240, 240, 200, 0, false, false, 0, 0, "Tagpap");
+        // Act:
+        cc.calcCarport();
         // Assert:
+        assertEquals(60, cc.getProductList().size());
     }
 
     @Test
-    public void CalcRaftsWithSmallCarport() throws FogException {
+    public void TestIntegrationOfCarportTotalPrice() throws FogException {
         // Arrange:
-        // Act: 
+        CarportCalculator cc = new CarportCalculator(240, 240, 200, 0, false, false, 0, 0, "Tagpap");
+        // Act:
+        cc.calcCarport();
         // Assert:
+        assertEquals(4173.56, cc.getTotalPrice(), 0.005);
     }
 
-    // Test with input at breakpoint
+    // Full calculations
     @Test
-    public void CalcPolesWithMediumCarport() throws FogException {
+    public void CalcFullCarportProductListSize() throws FogException {
         // Arrange:
-        // Act: 
+        CarportCalculator cc = new CarportCalculator(240, 240, 200, 20, true, true, 100, 210, "Tagpap");
+        // Act:
+        cc.calcCarport();
         // Assert:
-    }
-
-    @Test
-    public void CalcRaftsWithMediumCarport() throws FogException {
-        // Arrange:
-        // Act: 
-        // Assert:
-    }
-
-    // Test with input over breakpoint 
-    @Test
-    public void CalcPolesWithBigCarport() throws FogException {
-        // Arrange:
-        // Act: 
-        // Assert:
+        assertEquals(177, cc.getProductList().size());
     }
 
     @Test
-    public void CalcRaftsWithBigCarport() throws FogException {
+    public void CalcFullCarportTotalPrice() throws FogException {
         // Arrange:
-        // Act: 
+        CarportCalculator cc = new CarportCalculator(240, 240, 200, 20, true, true, 100, 210, "Tagpap");
+        // Act:
+        cc.calcCarport();
         // Assert:
+        assertEquals(9644.22, cc.getTotalPrice(), 0.005);
+    }
+    
+        @Test
+    public void CalcFullCarportListToMap() throws FogException {
+        // Arrange:
+        CarportCalculator cc = new CarportCalculator(240, 240, 200, 20, true, true, 100, 210, "Tagpap");
+        // Act:
+        cc.calcCarport();
+        // Assert:
+        assertEquals(12, cc.getProductMap().size());
     }
 }

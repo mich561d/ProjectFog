@@ -84,6 +84,32 @@ public class RoofCarportCalculatorTest {
         assertEquals(241, list.size());
     }
 
+    // Different type of roofing
+    @Test
+    public void CalcBlackRoofing() throws FogException {
+        // Arrange:
+        RoofAngledCalculator rac = new RoofAngledCalculator();
+        // Act: 
+        ArrayList<Part> list = testList("small");
+        list = rac.calcAngledRoof(list, 240, 240, 20, "Sort højglas");
+        // Assert:
+        assertEquals(71, list.size());
+    }
+
+    @Test
+    public void CalcErrorRoofing() throws FogException {
+        // Arrange:
+        RoofAngledCalculator rac = new RoofAngledCalculator();
+        // Act: 
+        ArrayList<Part> list = testList("small");
+        try {
+            rac.calcAngledRoof(list, 240, 240, 20, "ThisRoofingDosn'tExist!");
+            fail("Should have thrown exception!");
+        } catch (FogException ex) {
+            // Assert succed!
+        }
+    }
+
     private ArrayList<Part> testList(String level) throws FogException {
         ArrayList<Part> list = new ArrayList();
         int times;

@@ -1,8 +1,9 @@
 package FunctionLayer;
 
 import FunctionLayer.Exceptions.FogException;
-import FunctionLayer.Calculation.Base.BasePoleCalculator;
-import FunctionLayer.Calculation.Base.BaseRaftCalculator;
+import FunctionLayer.Calculation.Shed.ShedCladdingCalculator;
+import FunctionLayer.Calculation.Shed.ShedDoorCalculator;
+import FunctionLayer.Calculation.Shed.ShedPolesCalculator;
 import FunctionLayer.Entities.Part;
 import java.util.ArrayList;
 import org.junit.Test;
@@ -14,48 +15,69 @@ import static org.junit.Assert.*;
  */
 public class ShedCarportCalculatorTest {
 
-    // Test with input under breakpoint
     @Test
-    public void CalcPolesWithSmallCarport() throws FogException {
+    public void CalcDoor() throws FogException {
         // Arrange:
+        ShedDoorCalculator sdc = new ShedDoorCalculator();
         // Act: 
+        ArrayList<Part> list = new ArrayList();
+        list = sdc.calcDoor(list);
         // Assert:
+        assertEquals(14, list.size());
     }
 
     @Test
-    public void CalcRaftsWithSmallCarport() throws FogException {
+    public void CalcShedPolesWithLowerLengthAndWidthThanCarport() throws FogException {
         // Arrange:
+        ShedPolesCalculator spc = new ShedPolesCalculator();
         // Act: 
+        ArrayList<Part> list = new ArrayList();
+        list = spc.calcPoles(240, 240, 200, 100, 100, list);
         // Assert:
-    }
-
-    // Test with input at breakpoint
-    @Test
-    public void CalcPolesWithMediumCarport() throws FogException {
-        // Arrange:
-        // Act: 
-        // Assert:
+        assertEquals(4, list.size());
     }
 
     @Test
-    public void CalcRaftsWithMediumCarport() throws FogException {
+    public void CalcShedPolesWithLowerLengthAndEqualWidthThanCarport() throws FogException {
         // Arrange:
+        ShedPolesCalculator spc = new ShedPolesCalculator();
         // Act: 
+        ArrayList<Part> list = new ArrayList();
+        list = spc.calcPoles(240, 240, 200, 100, 210, list);
         // Assert:
-    }
-
-    // Test with input over breakpoint 
-    @Test
-    public void CalcPolesWithBigCarport() throws FogException {
-        // Arrange:
-        // Act: 
-        // Assert:
+        assertEquals(3, list.size());
     }
 
     @Test
-    public void CalcRaftsWithBigCarport() throws FogException {
+    public void CalcShedPolesWithEqualLengthAndLowerWidthThanCarport() throws FogException {
         // Arrange:
+        ShedPolesCalculator spc = new ShedPolesCalculator();
         // Act: 
+        ArrayList<Part> list = new ArrayList();
+        list = spc.calcPoles(240, 240, 200, 210, 100, list);
         // Assert:
+        assertEquals(3, list.size());
+    }
+
+    @Test
+    public void CalcShedPolesWithEqualLengthAndWidthThanCarport() throws FogException {
+        // Arrange:
+        ShedPolesCalculator spc = new ShedPolesCalculator();
+        // Act: 
+        ArrayList<Part> list = new ArrayList();
+        list = spc.calcPoles(240, 240, 200, 210, 210, list);
+        // Assert:
+        assertEquals(1, list.size());
+    }
+
+    @Test
+    public void CalcShedCladding() throws FogException {
+        // Arrange:
+        ShedCladdingCalculator scc = new ShedCladdingCalculator();
+        // Act: 
+        ArrayList<Part> list = new ArrayList();
+        list = scc.calcCladdingAndInterTies(100, 100, list);
+        // Assert:
+        assertEquals(58, list.size());
     }
 }
