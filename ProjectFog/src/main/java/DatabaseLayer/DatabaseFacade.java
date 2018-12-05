@@ -9,6 +9,7 @@ import FunctionLayer.Entities.User;
 import FunctionLayer.Exceptions.FogException;
 import FunctionLayer.Exceptions.LoginException;
 import FunctionLayer.Exceptions.RegisterException;
+import java.util.ArrayList;
 
 /**
  *
@@ -66,5 +67,9 @@ public class DatabaseFacade {
 
     public static User getUserByID(int id) throws FogException {
         return UserMapper.getUserByID(id);
+    }
+    
+    public static ArrayList<Part> getAllRoofBricksAsList() throws FogException {
+        return PartMapper.getAllRoofBricksAsList();
     }
 }

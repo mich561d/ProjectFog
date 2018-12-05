@@ -337,3 +337,31 @@ dec. 04, 2018 7:28:47 PM FunctionLayer.Logging.Logging write
 SEVERE: Unknown column 'cardNumber' in 'field list'
 dec. 04, 2018 9:08:39 PM FunctionLayer.Logging.Logging write
 INFO: Der skete en fejl!.. Prøv at logge ind igen!
+dec. 05, 2018 11:06:28 AM FunctionLayer.Logging.Logging write
+WARNING: Unable to compile class for JSP: 
+
+An error occurred at line: 64 in the jsp file: /Webpages/CustomCarport.jsp
+The method getType() is undefined for the type Part
+61:                                                 <select name="cars" class="form-control">
+62:                                                     <option value="tagpap">Tagpap</option>
+63:                                                     <% for (int i = 0; i < roofBrickList.size(); i++) {%>
+64:                                                     <option value="<%= roofBrickList.get(i).getType()%>"><%= roofBrickList.get(i).getType()%></option>
+65:                                                     <% }%>
+66: 
+67:                                                     }
+
+
+An error occurred at line: 64 in the jsp file: /Webpages/CustomCarport.jsp
+The method getType() is undefined for the type Part
+61:                                                 <select name="cars" class="form-control">
+62:                                                     <option value="tagpap">Tagpap</option>
+63:                                                     <% for (int i = 0; i < roofBrickList.size(); i++) {%>
+64:                                                     <option value="<%= roofBrickList.get(i).getType()%>"><%= roofBrickList.get(i).getType()%></option>
+65:                                                     <% }%>
+66: 
+67:                                                     }
+
+
+Stacktrace:
+dec. 05, 2018 11:39:11 AM FunctionLayer.Logging.Logging write
+SEVERE: Unknown column 'Tegl' in 'where clause'

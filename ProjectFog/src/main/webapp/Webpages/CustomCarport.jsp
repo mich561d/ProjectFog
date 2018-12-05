@@ -4,6 +4,8 @@
     Author     : Michael & Christian
 --%>
 
+<%@page import="java.util.ArrayList"%>
+<%@page import="FunctionLayer.Entities.Part"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,6 +14,8 @@
         <title>Fog Carport</title>
         <%@include file="/WEB-INF/Imports/StyleImporter.jsp" %>
         <link href="Webpages/CSS/FogStyling.css" rel="stylesheet" type="text/css"/>
+        <% ArrayList<Part> roofBrickList = (ArrayList<Part>) request.getSession().getAttribute("RoofBricksList");
+        %>
     </head>
     <body>
         <%@include file="/WEB-INF/Imports/NavBar.jsp" %>
@@ -52,6 +56,15 @@
                                             <label class="form-control">
                                                 <p>Tag med Rejsning:</p>
                                                 <input type="checkbox" name="angledRoof">
+                                            </label>
+                                            <label>
+                                                <p>Belægning:</p>
+                                                <select name="cars" class="form-control">
+                                                    <option value="tagpap">Tagpap</option>
+                                                    <% for (int i = 0; i < roofBrickList.size(); i++) {%>
+                                                    <option value="<%= roofBrickList.get(i).getType()%>"><%= roofBrickList.get(i).getType()%></option>
+                                                    <% }%>
+                                                </select>
                                             </label>
                                             <label>
                                                 <p>Rejsning:</p>

@@ -18,7 +18,7 @@ public class IntegrationTest {
         // Act:
         cc.calcCarport();
         // Assert:
-        assertEquals(4025.66, cc.getTotalPrice(), 0.005);
-        assertEquals(58, cc.getProductList().size());
+        assertEquals(4173.56, cc.getTotalPrice(), 0.005);
+        assertEquals(60, cc.getProductList().size());
     }
 }

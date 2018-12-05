@@ -111,4 +111,8 @@ public class LogicFacade {
     public static User getUserByID(int id) throws FogException {
         return DatabaseFacade.getUserByID(id);
     }
+
+    public static ArrayList<Part> getAllRoofBricksAsList() throws FogException {
+        return DatabaseFacade.getAllRoofBricksAsList();
+    }
 }

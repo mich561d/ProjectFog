@@ -21,10 +21,10 @@ public class RoofCarportCalculatorTest {
         // Arrange:
         RoofFlatCalculator rfc = new RoofFlatCalculator();
         // Act: 
-        ArrayList<Part> list = new ArrayList();
+        ArrayList<Part> list = testList("small");
         list = rfc.calcFlatRoof(list, 240, 240);
         // Assert:
-        assertEquals(15, list.size());
+        assertEquals(27, list.size());
     }
 
     @Test
@@ -35,7 +35,7 @@ public class RoofCarportCalculatorTest {
         ArrayList<Part> list = testList("small");
         list = rac.calcAngledRoof(list, 240, 240, 20);
         // Assert:
-        assertEquals(70, list.size());
+        assertEquals(71, list.size());
     }
 
     // Test with input at breakpoint
@@ -44,10 +44,10 @@ public class RoofCarportCalculatorTest {
         // Arrange:
         RoofFlatCalculator rfc = new RoofFlatCalculator();
         // Act: 
-        ArrayList<Part> list = new ArrayList();
+        ArrayList<Part> list = testList("medium");
         list = rfc.calcFlatRoof(list, 300, 300);
         // Assert:
-        assertEquals(17, list.size());
+        assertEquals(35, list.size());
     }
 
     @Test
@@ -58,7 +58,7 @@ public class RoofCarportCalculatorTest {
         ArrayList<Part> list = testList("medium");
         list = rac.calcAngledRoof(list, 300, 300, 20);
         // Assert:
-        assertEquals(89, list.size());
+        assertEquals(91, list.size());
     }
 
     // Test with input over breakpoint 
@@ -67,10 +67,10 @@ public class RoofCarportCalculatorTest {
         // Arrange:
         RoofFlatCalculator rfc = new RoofFlatCalculator();
         // Act: 
-        ArrayList<Part> list = new ArrayList();
+        ArrayList<Part> list = testList("big");
         list = rfc.calcFlatRoof(list, 600, 600);
         // Assert:
-        assertEquals(27, list.size());
+        assertEquals(55, list.size());
     }
 
     @Test
@@ -81,7 +81,7 @@ public class RoofCarportCalculatorTest {
         ArrayList<Part> list = testList("big");
         list = rac.calcAngledRoof(list, 600, 600, 20);
         // Assert:
-        assertEquals(238, list.size());
+        assertEquals(241, list.size());
     }
 
     private ArrayList<Part> testList(String level) throws FogException {

@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 
 /**
@@ -34,8 +35,35 @@ public class PartMapper {
                 double price = rs.getDouble("price");
                 return new Part(id, type, material, size, description, brand, price);
             } else {
-                throw new FogException("404 - Part not found!", Level.WARNING);
+                throw new FogException("Der er fejl i databasen, da vi ikke kan finde delen!", Level.WARNING);
             }
+        } catch (SQLException | ClassNotFoundException ex) {
+            throw new FogException(ex.getMessage(), Level.SEVERE);
+        }
+    }
+
+    public static ArrayList<Part> getAllRoofBricksAsList() throws FogException {
+        try {
+            Connection con = DatabaseConnector.connection();
+            String SQL = "SELECT * FROM part WHERE material = Tegl";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ResultSet rs = ps.executeQuery();
+            ArrayList<Part> roofBricks = new ArrayList();
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String type = rs.getString("type");
+                String material = rs.getString("material");
+                String size = rs.getString("size");
+                String description = rs.getString("description");
+                String brand = rs.getString("brand");
+                double price = rs.getDouble("price");
+                Part part = new Part(id, type, material, size, description, brand, price);
+                roofBricks.add(part);
+            }
+            if (roofBricks.isEmpty()) {
+                throw new FogException("Der er fejl i databasen, da vi ikke kan finde tagstenene!", Level.WARNING);
+            }
+            return roofBricks;
         } catch (SQLException | ClassNotFoundException ex) {
             throw new FogException(ex.getMessage(), Level.SEVERE);
         }
