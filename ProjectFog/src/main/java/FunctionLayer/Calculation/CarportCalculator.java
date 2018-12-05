@@ -19,10 +19,11 @@ public class CarportCalculator {
     // Data
     private final int LENGTH, WIDTH, HEIGHT, ANGLE, SHEDLENGTH, SHEDWIDTH;
     private final boolean ANGLEDROOF, SHED;
+    private final String ROOFING;
     private ArrayList<Part> parts;
 
     // Constructor
-    public CarportCalculator(int LENGTH, int WIDTH, int HEIGHT, int ANGLE, boolean ANGLEDROOF, boolean SHED, int SHEDLENGTH, int SHEDWIDTH) {
+    public CarportCalculator(int LENGTH, int WIDTH, int HEIGHT, int ANGLE, boolean ANGLEDROOF, boolean SHED, int SHEDLENGTH, int SHEDWIDTH, String ROOFING) {
         this.LENGTH = LENGTH;
         this.WIDTH = WIDTH;
         this.HEIGHT = HEIGHT;
@@ -31,6 +32,7 @@ public class CarportCalculator {
         this.SHEDWIDTH = SHEDWIDTH;
         this.ANGLEDROOF = ANGLEDROOF;
         this.SHED = SHED;
+        this.ROOFING = ROOFING;
         this.parts = new ArrayList();
     }
 
@@ -57,7 +59,7 @@ public class CarportCalculator {
         parts = cbc.calcBase();
         calcScrewsBeslag();
 
-        RoofCalculator crc = new RoofCalculator(LENGTH, WIDTH, ANGLE, ANGLEDROOF, parts);
+        RoofCalculator crc = new RoofCalculator(LENGTH, WIDTH, ANGLE, ANGLEDROOF, ROOFING, parts);
         parts = crc.calcRoof();
 
         if (SHED) {

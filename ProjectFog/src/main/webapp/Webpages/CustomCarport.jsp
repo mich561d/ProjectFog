@@ -59,8 +59,8 @@
                                             </label>
                                             <label>
                                                 <p>Belægning:</p>
-                                                <select name="cars" class="form-control">
-                                                    <option value="tagpap">Tagpap</option>
+                                                <select name="roofing" class="form-control">
+                                                    <option value="Tagpap">Tagpap</option>
                                                     <% for (int i = 0; i < roofBrickList.size(); i++) {%>
                                                     <option value="<%= roofBrickList.get(i).getType()%>"><%= roofBrickList.get(i).getType()%></option>
                                                     <% }%>

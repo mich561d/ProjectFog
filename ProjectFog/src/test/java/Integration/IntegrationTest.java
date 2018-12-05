@@ -14,7 +14,7 @@ public class IntegrationTest {
     @Test
     public void CalcCarport() throws FogException {
         // Arrange:
-        CarportCalculator cc = new CarportCalculator(240, 240, 200, 0, false, false, 0, 0);
+        CarportCalculator cc = new CarportCalculator(240, 240, 200, 0, false, false, 0, 0, "Tagpap");
         // Act:
         cc.calcCarport();
         // Assert:

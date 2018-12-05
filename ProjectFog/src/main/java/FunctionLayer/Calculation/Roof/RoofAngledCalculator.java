@@ -17,7 +17,7 @@ public class RoofAngledCalculator {
 
     private ArrayList<Part> parts;
 
-    public ArrayList<Part> calcAngledRoof(ArrayList<Part> parts, int length, int width, int angle) throws FogException {
+    public ArrayList<Part> calcAngledRoof(ArrayList<Part> parts, int length, int width, int angle, String roofingmm) throws FogException {
         this.parts = parts;
         UtilMiddleMan.setAngle(angle);
         /* Triangle math

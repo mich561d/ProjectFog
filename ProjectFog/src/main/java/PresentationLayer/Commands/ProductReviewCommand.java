@@ -22,16 +22,19 @@ public class ProductReviewCommand implements Command {
         int height = Integer.parseInt(request.getParameter("carportHeight"));
         request.getSession().setAttribute("CarportHeight", height);
         // Roof
-        int angle = 0;
         String roofOnOrNot = request.getParameter("angledRoof");
         boolean angledRoof = false;
         if ("on".equals(roofOnOrNot)) {
             angledRoof = true;
         }
+        int angle = 0;
+        String roofing = "tagpap";
         request.getSession().setAttribute("AngledRoof", angledRoof);
         if (angledRoof == true) {
             angle = Integer.parseInt(request.getParameter("roofAngle"));
             request.getSession().setAttribute("RoofAngle", angle);
+            roofing = request.getParameter("roofing");
+            request.getSession().setAttribute("Roofing", roofing);
         }
         // Shed
         int shedLength = 0, shedWidth = 0;
@@ -48,7 +51,7 @@ public class ProductReviewCommand implements Command {
             request.getSession().setAttribute("ShedWidth", shedWidth);
         }
 
-        LogicFacade.calculateCustomCarport(length, width, height, angle, angledRoof, shed, shedLength, shedWidth);
+        LogicFacade.calculateCustomCarport(length, width, height, angle, angledRoof, shed, shedLength, shedWidth, roofing);
         request.getSession().setAttribute("ProductPrice", LogicFacade.getPriceFromCarport());
         request.getSession().setAttribute("ProductList", LogicFacade.getProductMapFromCarport());
         request.getSession().setAttribute("DrawingAbove", LogicFacade.getDrawingFromAbove(length, width, angledRoof));

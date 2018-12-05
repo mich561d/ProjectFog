@@ -20,10 +20,10 @@ import java.util.HashMap;
  */
 public class LogicFacade {
 
-    private static CarportCalculator cc = new CarportCalculator(0, 0, 0, 0, false, false, 0, 0);
+    private static CarportCalculator cc = new CarportCalculator(0, 0, 0, 0, false, false, 0, 0, "Tagpap");
 
-    public static void calculateCustomCarport(int length, int width, int height, int angle, boolean angledRoof, boolean shed, int shedLength, int shedWidth) throws FogException {
-        cc = new CarportCalculator(length, width, height, angle, angledRoof, shed, shedLength, shedWidth);
+    public static void calculateCustomCarport(int length, int width, int height, int angle, boolean angledRoof, boolean shed, int shedLength, int shedWidth, String roofing) throws FogException {
+        cc = new CarportCalculator(length, width, height, angle, angledRoof, shed, shedLength, shedWidth, roofing);
         cc.calcCarport();
     }
 

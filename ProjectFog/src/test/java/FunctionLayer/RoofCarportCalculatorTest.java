@@ -33,7 +33,7 @@ public class RoofCarportCalculatorTest {
         RoofAngledCalculator rac = new RoofAngledCalculator();
         // Act: 
         ArrayList<Part> list = testList("small");
-        list = rac.calcAngledRoof(list, 240, 240, 20);
+        list = rac.calcAngledRoof(list, 240, 240, 20, "Tagpap");
         // Assert:
         assertEquals(71, list.size());
     }
@@ -56,7 +56,7 @@ public class RoofCarportCalculatorTest {
         RoofAngledCalculator rac = new RoofAngledCalculator();
         // Act: 
         ArrayList<Part> list = testList("medium");
-        list = rac.calcAngledRoof(list, 300, 300, 20);
+        list = rac.calcAngledRoof(list, 300, 300, 20, "Tagpap");
         // Assert:
         assertEquals(91, list.size());
     }
@@ -79,7 +79,7 @@ public class RoofCarportCalculatorTest {
         RoofAngledCalculator rac = new RoofAngledCalculator();
         // Act: 
         ArrayList<Part> list = testList("big");
-        list = rac.calcAngledRoof(list, 600, 600, 20);
+        list = rac.calcAngledRoof(list, 600, 600, 20, "Tagpap");
         // Assert:
         assertEquals(241, list.size());
     }
