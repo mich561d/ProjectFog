@@ -1,5 +1,8 @@
 package FunctionLayer.Calculation;
 
+import FunctionLayer.Exceptions.FogException;
+import java.util.logging.Level;
+
 /**
  *
  * @author Michael & Christian
@@ -134,5 +137,18 @@ public class CalculatorHelper {
             lengthOfInterTies = 540;
         }
         return lengthOfInterTies;
+    }
+
+    public static String getCorrectRoofing(String roofing) throws FogException {
+        switch (roofing.split(" ")[0]) {
+            case "Tagpap":
+                return "Krydsfiner med tagpap";
+            case "Vingetagsten":
+                return "Tegl";
+            case "Sort":
+                return "Tegl";
+            default:
+                throw new FogException("Det valgte tag kan ikke findes!", Level.SEVERE);
+        }
     }
 }

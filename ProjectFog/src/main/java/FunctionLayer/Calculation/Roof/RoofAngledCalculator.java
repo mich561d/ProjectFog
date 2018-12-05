@@ -17,7 +17,7 @@ public class RoofAngledCalculator {
 
     private ArrayList<Part> parts;
 
-    public ArrayList<Part> calcAngledRoof(ArrayList<Part> parts, int length, int width, int angle, String roofingmm) throws FogException {
+    public ArrayList<Part> calcAngledRoof(ArrayList<Part> parts, int length, int width, int angle, String roofing) throws FogException {
         this.parts = parts;
         UtilMiddleMan.setAngle(angle);
         /* Triangle math
@@ -32,10 +32,10 @@ public class RoofAngledCalculator {
         double sideB = (sideA * sinB) / sinA;
         double sideC = Math.sqrt((sideA * sideA) + (sideB * sideB));
         // Carport calculations
-        calcSideRafts(sideC);           // Calc side rafts
-        calcLongPlank(length);          // Long raft
-        calcRoofPlank(sideC, length);   // Horizontal planks
-        calcRoofing(sideC, length);     // Roofing
+        calcSideRafts(sideC);
+        calcLongPlank(length);
+        calcRoofPlank(sideC, length);
+        calcRoofing(sideC, length, roofing);
         calcScrewsForFelt(((sideC * 2) + RAFT_THICKNESS), length);
         return this.parts;
     }
@@ -76,11 +76,15 @@ public class RoofAngledCalculator {
         }
     }
 
-    private void calcRoofing(double sideC, int length) throws FogException {
+    private void calcRoofing(double sideC, int length, String roofing) throws FogException {
         Double area = ((sideC * length) * 2) + (RAFT_THICKNESS * length);
         area += area * ROOFING_FELT_OVERLAP;
         int squareMetersCount = (int) Math.ceil(area / 10000); // Square Cm to Square m
-        addPartToList(squareMetersCount, "Tagpap", "Krydsfiner med tagpap", "100x100cm");
+        String type = roofing;
+        if ("Sort".equals(roofing.split(" ")[0])) {
+            type = "Sort højglas";
+        }
+        addPartToList(squareMetersCount, type, CalculatorHelper.getCorrectRoofing(roofing), "100x100cm");
     }
 
     private void addPartToList(int count, String type, String material, String size) throws FogException {
