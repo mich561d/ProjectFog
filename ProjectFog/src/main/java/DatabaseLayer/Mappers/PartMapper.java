@@ -45,8 +45,9 @@ public class PartMapper {
     public static ArrayList<Part> getAllRoofBricksAsList() throws FogException {
         try {
             Connection con = DatabaseConnector.connection();
-            String SQL = "SELECT * FROM part WHERE material = Tegl";
+            String SQL = "SELECT * FROM part WHERE material = ?";
             PreparedStatement ps = con.prepareStatement(SQL);
+            ps.setString(1, "Tegl"); // m = material
             ResultSet rs = ps.executeQuery();
             ArrayList<Part> roofBricks = new ArrayList();
             while (rs.next()) {
