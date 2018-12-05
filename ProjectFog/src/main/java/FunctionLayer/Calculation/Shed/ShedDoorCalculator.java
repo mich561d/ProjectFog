@@ -56,7 +56,7 @@ public class ShedDoorCalculator {
                 screws += SCREWSPERHINGE;
             }
         }
-        int packsOfScrews = (int) Math.ceil((double) screws / (double) SCREWPERPACK);
+        int packsOfScrews = (int) Math.ceil((double) screws / (double) SCREWSPERPACK);
         addPartToList(packsOfScrews, "Basic Skrue", "Stål", "4.5x60mm");
     }
 

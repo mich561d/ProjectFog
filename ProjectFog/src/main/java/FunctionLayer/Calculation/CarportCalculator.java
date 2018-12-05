@@ -77,7 +77,7 @@ public class CarportCalculator {
             Part part = DatabaseFacade.getPart(type, material, size);
             parts.add(part);
         }
-        int packsOfScrews = (int) Math.ceil(((double) brackets * (double) Rules.SCREWPERBRACKET) / (double) Rules.SCREWPERPACK);
+        int packsOfScrews = (int) Math.ceil(((double) brackets * (double) Rules.SCREWPERBRACKET) / (double) Rules.SCREWSPERPACK);
         for (int i = 0; i < packsOfScrews; i++) {
             String type = "Basic skrue", material = "Stål", size = "4.5x60mm";
             Part part = DatabaseFacade.getPart(type, material, size);

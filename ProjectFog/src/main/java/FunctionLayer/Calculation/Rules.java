@@ -15,7 +15,7 @@ public class Rules {
     public static final int PLANKWIDTH = 10;
     public static final int BRACKETSPERRAFT = 4;
     public static final int SCREWPERBRACKET = 8;
-    public static final int SCREWPERPACK = 200;
+    public static final int SCREWSPERPACK = 200;
     public static final int SCREWSPERPLANK = 4;
     public static final int SCREWSPERHINGE = 6;
     public static final int SCREWSPERHANDLE = 4;
@@ -36,7 +36,10 @@ public class Rules {
     public static final int DOORSPERSHED = 1;
     public static final int POLESPERDOOR = 2;
     public static final int SCREWPERTRAPEZWIDTH = 12;
-
+    public static final int SCREWPERFELT = 10;
+    public static final int FELTLENGTH = 100;
+    public static final int FELTWIDTH = 100;
+    
     public static final double POLETHICKNESS = 9.7;
     public static final double POLEHALFTHICKNESS = POLETHICKNESS / 2;
     public static final double RAFTTHICKNESS = 4.7;

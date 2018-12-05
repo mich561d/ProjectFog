@@ -36,6 +36,7 @@ public class RoofAngledCalculator {
         calcLongPlank(length);          // Long raft
         calcRoofPlank(sideC, length);   // Horizontal planks
         calcRoofing(sideC, length);     // Roofing
+        calcScrewsForFelt(((sideC * 2) + RAFTTHICKNESS), length);
         return this.parts;
     }
 
@@ -87,6 +88,13 @@ public class RoofAngledCalculator {
         for (int i = 0; i < count; i++) {
             parts.add(part);
         }
+    }
+
+    private void calcScrewsForFelt(double length, int width) throws FogException {
+        double screwsPerFelt = (Math.ceil((double) FELTLENGTH / (double) SCREWPERFELT) * 2.0) + (Math.ceil((double) FELTWIDTH / (double) SCREWPERFELT) * 2.0);
+        double screws = (screwsPerFelt * (length / (double) FELTLENGTH)) + (screwsPerFelt * ((double) width / (double) FELTWIDTH));
+        int packOfScrews = (int) Math.ceil(screws / (double) SCREWSPERPACK);
+        addPartToList(packOfScrews, "Basic skrue", "Stål", "4.5x60mm");
     }
 
 }

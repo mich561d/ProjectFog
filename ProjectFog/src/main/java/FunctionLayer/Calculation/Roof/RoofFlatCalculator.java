@@ -87,6 +87,7 @@ public class RoofFlatCalculator {
         double timesOnWidth = (double) SCREWPERTRAPEZWIDTH * (Math.ceil((double) width / (double) TRAPEZWIDTH));
         int screwsPer = ListToMap.convertListToMap(parts).get("Spær").size();
         double screwsForTrapezRoof = Math.ceil(timesOnWidth * (double) screwsPer);
-        addPartToList((int) screwsForTrapezRoof, "Basic skrue", "Stål", "4.5x60mm");
+        int packOfScrews = (int) Math.ceil(screwsForTrapezRoof / (double) SCREWSPERPACK);
+        addPartToList(packOfScrews, "Basic skrue", "Stål", "4.5x60mm");
     }
 }
