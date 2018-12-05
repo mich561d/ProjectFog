@@ -40,6 +40,7 @@ public class Rules {
     public static final int FELTLENGTH = 100;
     public static final int FELTWIDTH = 100;
     public static final int ANGLEBRACKETSPERINTERTIE = 2;
+    public static final int INTERTIESPERSIDE = 3;
     
     public static final double POLETHICKNESS = 9.7;
     public static final double POLEDOUBLETHICKNESS = POLETHICKNESS * 2;

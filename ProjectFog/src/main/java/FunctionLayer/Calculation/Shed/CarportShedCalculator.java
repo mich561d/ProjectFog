@@ -29,7 +29,7 @@ public class CarportShedCalculator {
     public ArrayList<Part> calcShed() throws FogException {
         calcPoles();
         new ShedDoorCalculator().calcDoor(PARTS);
-        calcReglar(SHEDWIDTH);
+        calcAllInterTies(SHEDLENGTH, SHEDWIDTH);
         calcCladding();
         return PARTS;
     }
@@ -66,17 +66,39 @@ public class CarportShedCalculator {
         }
     }
 
-    private void calcReglar(int width) {
-        //calc inter-ties with our rules, and add angle brackets.
-        //Front & Back
-        double lengthOfInterTies = width - POLEDOUBLETHICKNESS;
-        
+    private void calcAllInterTies(int length, int width) throws FogException {
+        calcInterTies(length, false); // back
+        calcInterTies(width, false); // left
+        calcInterTies(width, false); // right
+        calcInterTies(length, true); // front (with door)
+    }
+
+    private void calcInterTies(int width, boolean door) throws FogException {
+        if (!door) {
+            double lengthOfInterTies = width - POLEDOUBLETHICKNESS;
+            int brackets = ANGLEBRACKETSPERINTERTIE * INTERTIESPERSIDE;
+            int packsOfScrews = (int) Math.ceil((brackets * SCREWSPERANGLEBRACKET) / SCREWSPERPACK);
+            for (int i = 0; i < INTERTIESPERSIDE; i++) {
+                String type = "Regler", material = "Trykimp Fyr", size = "47x100mm " + CalculatorHelper.getLengthOfInterTies(lengthOfInterTies) + "cm";
+                Part part = DatabaseFacade.getPart(type, material, size);
+                PARTS.add(part);
+            }
+            for (int j = 0; j < ANGLEBRACKETSPERINTERTIE; j++) {
+                String type = "Regler", material = "Trykimp Fyr", size = "47x100mm " + CalculatorHelper.getLengthOfInterTies(lengthOfInterTies) + "cm";
+                Part part = DatabaseFacade.getPart(type, material, size);
+                PARTS.add(part);
+            }
+            for (int i = 0; i < packsOfScrews; i++) {
+                String type = "Basic Skrue", material = "Stål", size = "4.5x60mm";
+                Part part = DatabaseFacade.getPart(type, material, size);
+                PARTS.add(part);
+            }
+        } else {
+            
+        }
     }
 
     private void calcCladding() {
         // Calc our cladding with our rules.
     }
-    //Et skur har 4 hjørner, de to hjørner er allerede sat fra carporten. Vi skal have mindst én ekstra stolpe til midten af forsiden.
-    //Et skur har en beklædning af bræder, 25mm overlap pr. brædt. så to til en pr. brædt. 
-    //Et skur har én dør. 
 }
