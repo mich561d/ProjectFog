@@ -39,8 +39,10 @@ public class Rules {
     public static final int SCREWPERFELT = 10;
     public static final int FELTLENGTH = 100;
     public static final int FELTWIDTH = 100;
+    public static final int ANGLEBRACKETSPERINTERTIE = 2;
     
     public static final double POLETHICKNESS = 9.7;
+    public static final double POLEDOUBLETHICKNESS = POLETHICKNESS * 2;
     public static final double POLEHALFTHICKNESS = POLETHICKNESS / 2;
     public static final double RAFTTHICKNESS = 4.7;
     public static final double ROOFINGFELTOVERLAP = 0.05;

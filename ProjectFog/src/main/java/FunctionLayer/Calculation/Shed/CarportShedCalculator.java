@@ -29,7 +29,7 @@ public class CarportShedCalculator {
     public ArrayList<Part> calcShed() throws FogException {
         calcPoles();
         new ShedDoorCalculator().calcDoor(PARTS);
-        calcReglar();
+        calcReglar(SHEDWIDTH);
         calcCladding();
         return PARTS;
     }
@@ -66,10 +66,11 @@ public class CarportShedCalculator {
         }
     }
 
-    private void calcReglar() {
+    private void calcReglar(int width) {
         //calc inter-ties with our rules, and add angle brackets.
         //Front & Back
-        double lengthOfInterTies = SHEDWIDTH - (POLETHICKNESS * 2);
+        double lengthOfInterTies = width - POLEDOUBLETHICKNESS;
+        
     }
 
     private void calcCladding() {
