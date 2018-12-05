@@ -163,7 +163,7 @@ public class UtilCarportDrawing {
     private static String drawRoofPlanksFromAbove(int h, int w) {
         StringBuilder SB = new StringBuilder();
         // Middle
-        SB.append(drawPlankFromAbove((w / 2) - (RAFTTHICKNESS / 2), 0, h, RAFTTHICKNESS));
+        SB.append(drawPlankFromAbove((w / 2) - (RAFT_THICKNESS / 2), 0, h, RAFT_THICKNESS));
         // Sides
         /* Triangle math...
         lowercase = sides, uppercase = angles
@@ -171,14 +171,14 @@ public class UtilCarportDrawing {
               c b c
             B a C a B
          */
-        double sideC = PLANKWIDTH;
+        double sideC = PLANK_WIDTH;
         double angleC = 90, angleB = UtilMiddleMan.getAngle(), angleA = 180 - angleB - angleC;
         double sinC = Math.sin(Math.toRadians(angleC)), sinA = Math.sin(Math.toRadians(angleA));
         double sideA = (sideC * sinA) / sinC;
         // true code
         double plankWidth = sideA;
         int planksPerSide = UtilMiddleMan.getAngledRoofPlankOnSides() / 2;
-        double distance = (((w / 2) - (RAFTTHICKNESS / 2)) - (planksPerSide * plankWidth)) / planksPerSide;
+        double distance = (((w / 2) - (RAFT_THICKNESS / 2)) - (planksPerSide * plankWidth)) / planksPerSide;
         double x = 0;
         for (int i = 0; i < planksPerSide; i++) {
             SB.append(drawPlankFromAbove(x, 0, h, sideA));

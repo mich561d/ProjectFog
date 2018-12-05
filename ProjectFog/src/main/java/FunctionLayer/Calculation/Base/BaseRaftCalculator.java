@@ -49,9 +49,9 @@ public class BaseRaftCalculator {
     }
 
     private void calcRoofRafterMiddle(int length, int width) throws FogException {
-        double calcLength = length - POLEOFFSET - RAFTTHICKNESS;
+        double calcLength = length - POLE_OFFSET - RAFT_THICKNESS;
         for (double distance = 0; distance < calcLength;) {
-            distance += RAFTTHICKNESS + DISTANCEBETWEENRAFTS;
+            distance += RAFT_THICKNESS + DISTANCE_BETWEEN_RAFTS;
             addPartToList(width);
             raftCount++;
         }

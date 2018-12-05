@@ -18,17 +18,17 @@ public class ShedDoorCalculator {
     public ArrayList<Part> calcDoor(ArrayList<Part> parts) throws FogException {
         this.parts = parts;
 
-        double calcSpace = DOORWIDTH - (CLADDINGBOARDWIDTH * 2);
-        int backPlanks = (int) Math.ceil((calcSpace / CLADDINGSPACING) + 2);
-        int frontPlanks = (int) Math.floor((calcSpace / CLADDINGSPACING) + 2);
+        double calcSpace = DOOR_WIDTH - (CLADDING_BOARD_WIDTH * 2);
+        int backPlanks = (int) Math.ceil((calcSpace / CLADDING_SPACING) + 2);
+        int frontPlanks = (int) Math.floor((calcSpace / CLADDING_SPACING) + 2);
         int planks = backPlanks + frontPlanks;
-        int handle = HANDLESPERDOOR, hinge = HINGESPERDOOR;
-        double heightOfLath = HEIGHTOFLATH;
-        double pcd = Math.sqrt((DOORWIDTH * DOORWIDTH) + ((DOORHEIGHT - heightOfLath) * (DOORHEIGHT - heightOfLath)));
+        int handle = HANDLES_PER_DOOR, hinge = HINGES_PER_DOOR;
+        double heightOfLath = HEIGHT_OF_LATH;
+        double pcd = Math.sqrt((DOOR_WIDTH * DOOR_WIDTH) + ((DOOR_HEIGHT - heightOfLath) * (DOOR_HEIGHT - heightOfLath)));
 
         CalcLaths(heightOfLath, pcd);
         CalcHandleAndHinges(hinge);
-        addPartToList(planks, "Vandbrædt", "Trykimp Fyr", "19x100mm " + CalculatorHelper.getLengthOfWaterBoard(DOORHEIGHT) + "cm");
+        addPartToList(planks, "Vandbrædt", "Trykimp Fyr", "19x100mm " + CalculatorHelper.getLengthOfWaterBoard(DOOR_HEIGHT) + "cm");
         CalcScrews(planks, handle, hinge);
 
         return this.parts;
@@ -40,8 +40,8 @@ public class ShedDoorCalculator {
     }
 
     private void CalcLaths(double heightOfLath, double pcd) throws FogException {
-        addPartToList(2, "Regler", "Trykimp Fyr", "47x100mm " + CalculatorHelper.getLengthOfLath(DOORWIDTH) + "cm");
-        addPartToList(2, "Regler", "Trykimp Fyr", "47x100mm " + CalculatorHelper.getLengthOfLath(DOORHEIGHT - heightOfLath) + "cm");
+        addPartToList(2, "Regler", "Trykimp Fyr", "47x100mm " + CalculatorHelper.getLengthOfLath(DOOR_WIDTH) + "cm");
+        addPartToList(2, "Regler", "Trykimp Fyr", "47x100mm " + CalculatorHelper.getLengthOfLath(DOOR_HEIGHT - heightOfLath) + "cm");
         addPartToList(1, "Regler", "Trykimp Fyr", "47x100mm " + CalculatorHelper.getLengthOfLath(pcd) + "cm");
     }
 
@@ -49,14 +49,14 @@ public class ShedDoorCalculator {
         int screws = 0;
         for (int i = 0; i < planks + handle + hinge; i++) {
             if (i < planks) {
-                screws += SCREWSPERPLANK;
+                screws += SCREWS_PER_PLANK;
             } else if (i < planks + handle) {
-                screws += SCREWSPERHANDLE;
+                screws += SCREWS_PER_HANDLE;
             } else {
-                screws += SCREWSPERHINGE;
+                screws += SCREWS_PER_HINGE;
             }
         }
-        int packsOfScrews = (int) Math.ceil((double) screws / (double) SCREWSPERPACK);
+        int packsOfScrews = (int) Math.ceil((double) screws / (double) SCREWS_PER_PACK);
         addPartToList(packsOfScrews, "Basic Skrue", "Stål", "4.5x60mm");
     }
 

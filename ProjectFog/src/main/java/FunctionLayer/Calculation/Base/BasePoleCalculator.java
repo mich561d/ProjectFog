@@ -26,7 +26,7 @@ public class BasePoleCalculator {
     }
 
     private void addPolesToList(int height, int poles) throws FogException {
-        int calcHeight = height + POLELENGTHUNDERGROUND;
+        int calcHeight = height + POLE_LENGTH_UNDER_GROUND;
         String type = "Stolpe", material = "Trykimp Fyr", size = "97x97mm " + CalculatorHelper.getLengthOfPole(calcHeight) + "cm";
         addPartToList(poles, type, material, size);
 
@@ -34,7 +34,7 @@ public class BasePoleCalculator {
 
     private int calcPolesSides(int length) {
         int poles = 0;
-        double estPolesSides = ((double) length - 30) / (double) MAXDISTANCEBEWTEENPOLES;
+        double estPolesSides = ((double) length - 30) / (double) MAX_DISTANCE_BEWTEEN_POLES;
         poles += Math.ceil(estPolesSides) + 1;
         poles *= 2; // For both sides
         return poles;
@@ -42,17 +42,17 @@ public class BasePoleCalculator {
 
     private int calcPolesBack(int width) {
         int poles = 0;
-        if (width >= MAXDISTANCEBEWTEENPOLES) {
-            double estPolesSides = ((double) width - 30) / (double) MAXDISTANCEBEWTEENPOLES;
+        if (width >= MAX_DISTANCE_BEWTEEN_POLES) {
+            double estPolesSides = ((double) width - 30) / (double) MAX_DISTANCE_BEWTEEN_POLES;
             poles += Math.ceil(estPolesSides) - 1;
         }
         return poles;
     }
 
     private void calcBoltAndSquarePlates(int count) throws FogException {
-        int times = count + PLUSBOLTS;
-        int packOfBolt = (int) Math.ceil((double) times / (double) BOLTSPERPACK);
-        int packOfSquares = (int) Math.ceil((double) times / (double) SQUAREPERPACK);
+        int times = count + PLUS_BOLTS;
+        int packOfBolt = (int) Math.ceil((double) times / (double) BOLTS_PER_PACK);
+        int packOfSquares = (int) Math.ceil((double) times / (double) SQUARE_PER_PACK);
         addPartToList(packOfBolt, "Bræddebolt", "Stål", "10x20mm");
         addPartToList(packOfSquares, "Firkant Skive", "Stål", "40x40x10mm");
     }

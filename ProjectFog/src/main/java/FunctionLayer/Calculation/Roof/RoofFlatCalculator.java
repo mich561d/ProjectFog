@@ -29,7 +29,7 @@ public class RoofFlatCalculator {
         int count = 0;
         for (int w = width; w >= 0;) {
             count++;
-            w -= TRAPEZWIDTH - TRAPEZOVERLAPHORI;
+            w -= TRAPEZ_WIDTH - TRAPEZ_OVERLAP_HORI;
         }
         return count;
     }
@@ -41,7 +41,7 @@ public class RoofFlatCalculator {
             if (l == lengthOfTrapez) {
                 l -= lengthOfTrapez;
             } else {
-                l -= lengthOfTrapez - TRAPEZOVERLAPVERT;
+                l -= lengthOfTrapez - TRAPEZ_OVERLAP_VERT;
             }
         }
     }
@@ -52,7 +52,7 @@ public class RoofFlatCalculator {
     }
 
     public void calcRoofWaterBoardWidth(int width) throws FogException {
-        for (double w = width + WATERBOARDDOUBLETHICKNESS; w >= 0;) {
+        for (double w = width + WATERBOARD_DOUBLE_THICKNESS; w >= 0;) {
             int lengthOfWaterboard = CalculatorHelper.getLengthOfWaterBoard(w);
             addPartToList(2, "Vandbrædt", "Trykimp Fyr", "19x100mm " + lengthOfWaterboard + "cm");
             w -= lengthOfWaterboard;
@@ -60,7 +60,7 @@ public class RoofFlatCalculator {
     }
 
     public void calcRoofWaterBoardLength(int length) throws FogException {
-        for (double l = length + WATERBOARDDOUBLETHICKNESS; l >= 0;) {
+        for (double l = length + WATERBOARD_DOUBLE_THICKNESS; l >= 0;) {
             int lengthOfWaterBoard = CalculatorHelper.getLengthOfWaterBoard(l);
             addPartToList(2, "Vandbrædt", "Trykimp Fyr", "19x100mm " + lengthOfWaterBoard + "cm");
             l -= lengthOfWaterBoard;
@@ -70,7 +70,7 @@ public class RoofFlatCalculator {
     private void calcScrewsWaterBoard(int length) throws FogException {
         int screws = 0;
         for (int i = 0; i < WATERBOARDS; i++) {
-            screws += (int) Math.ceil(((length + WATERBOARDDOUBLETHICKNESS) / DISTANCEBETWEENWATERBOARDSCREWS) * SCREWSPERPLANK);
+            screws += (int) Math.ceil(((length + WATERBOARD_DOUBLE_THICKNESS) / DISTANCE_BETWEEN_WATERBOARD_SCREWS) * SCREWS_PER_PLANK);
         }
         int packs = (int) Math.ceil((double) screws / 200.0);
         addPartToList(packs, "Basic skrue", "Stål", "4.5x60mm");
@@ -84,10 +84,10 @@ public class RoofFlatCalculator {
     }
 
     private void calcTrapezScrews(int width) throws FogException {
-        double timesOnWidth = (double) SCREWPERTRAPEZWIDTH * (Math.ceil((double) width / (double) TRAPEZWIDTH));
+        double timesOnWidth = (double) SCREWS_PER_TRAPEZ_WIDTH * (Math.ceil((double) width / (double) TRAPEZ_WIDTH));
         int screwsPer = ListToMap.convertListToMap(parts).get("Spær").size();
         double screwsForTrapezRoof = Math.ceil(timesOnWidth * (double) screwsPer);
-        int packOfScrews = (int) Math.ceil(screwsForTrapezRoof / (double) SCREWSPERPACK);
+        int packOfScrews = (int) Math.ceil(screwsForTrapezRoof / (double) SCREWS_PER_PACK);
         addPartToList(packOfScrews, "Basic skrue", "Stål", "4.5x60mm");
     }
 }

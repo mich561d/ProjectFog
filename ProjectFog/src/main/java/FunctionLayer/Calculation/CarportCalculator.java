@@ -72,14 +72,14 @@ public class CarportCalculator {
         int rafterCount = ListToMap.convertListToMap(parts).get("Spær").size();
         int brackets = 0;
         for (int i = 0; i < rafterCount; i++) {
-            brackets += Rules.BRACKETSPERRAFT;
+            brackets += Rules.BRACKETS_PER_RAFT;
         }
         for (int i = 0; i < brackets; i++) {
             String type = "Basic beslag", material = "Stål", size = "190mm";
             Part part = DatabaseFacade.getPart(type, material, size);
             parts.add(part);
         }
-        int packsOfScrews = (int) Math.ceil(((double) brackets * (double) Rules.SCREWPERBRACKET) / (double) Rules.SCREWSPERPACK);
+        int packsOfScrews = (int) Math.ceil(((double) brackets * (double) Rules.SCREWS_PER_BRACKET) / (double) Rules.SCREWS_PER_PACK);
         for (int i = 0; i < packsOfScrews; i++) {
             String type = "Basic skrue", material = "Stål", size = "4.5x60mm";
             Part part = DatabaseFacade.getPart(type, material, size);

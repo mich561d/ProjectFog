@@ -26,7 +26,7 @@ public class RoofAngledCalculator {
               c b c
             B a C a B
          */
-        double sideA = (width / 2) - (RAFTTHICKNESS / 2);
+        double sideA = (width / 2) - (RAFT_THICKNESS / 2);
         double angleC = 90, angleB = angle, angleA = 180 - angleB - angleC;
         double sinB = Math.sin(Math.toRadians(angleB)), sinA = Math.sin(Math.toRadians(angleA));
         double sideB = (sideA * sinB) / sinA;
@@ -36,7 +36,7 @@ public class RoofAngledCalculator {
         calcLongPlank(length);          // Long raft
         calcRoofPlank(sideC, length);   // Horizontal planks
         calcRoofing(sideC, length);     // Roofing
-        calcScrewsForFelt(((sideC * 2) + RAFTTHICKNESS), length);
+        calcScrewsForFelt(((sideC * 2) + RAFT_THICKNESS), length);
         return this.parts;
     }
 
@@ -61,7 +61,7 @@ public class RoofAngledCalculator {
     }
 
     private void calcRoofPlank(double sideC, int length) throws FogException {
-        int plankCount = (int) (Math.ceil(sideC / (DISTANCEBETWEENPLANK + PLANKWIDTH)) * 2);
+        int plankCount = (int) (Math.ceil(sideC / (DISTANCE_BETWEEN_PLANKS + PLANK_WIDTH)) * 2);
         UtilMiddleMan.setAngledRoofPlankOnSides(plankCount);
         for (int i = 0; i < plankCount; i++) {
             calcSideRoofPlanks(length);
@@ -77,8 +77,8 @@ public class RoofAngledCalculator {
     }
 
     private void calcRoofing(double sideC, int length) throws FogException {
-        Double area = ((sideC * length) * 2) + (RAFTTHICKNESS * length);
-        area += area * ROOFINGFELTOVERLAP;
+        Double area = ((sideC * length) * 2) + (RAFT_THICKNESS * length);
+        area += area * ROOFING_FELT_OVERLAP;
         int squareMetersCount = (int) Math.ceil(area / 10000); // Square Cm to Square m
         addPartToList(squareMetersCount, "Tagpap", "Krydsfiner med tagpap", "100x100cm");
     }
@@ -91,9 +91,9 @@ public class RoofAngledCalculator {
     }
 
     private void calcScrewsForFelt(double length, int width) throws FogException {
-        double screwsPerFelt = (Math.ceil((double) FELTLENGTH / (double) SCREWPERFELT) * 2.0) + (Math.ceil((double) FELTWIDTH / (double) SCREWPERFELT) * 2.0);
-        double screws = (screwsPerFelt * (length / (double) FELTLENGTH)) + (screwsPerFelt * ((double) width / (double) FELTWIDTH));
-        int packOfScrews = (int) Math.ceil(screws / (double) SCREWSPERPACK);
+        double screwsPerFelt = (Math.ceil((double) FELT_LENGTH / (double) SCREWS_PER_FELT) * 2.0) + (Math.ceil((double) FELT_WIDTH / (double) SCREWS_PER_FELT) * 2.0);
+        double screws = (screwsPerFelt * (length / (double) FELT_LENGTH)) + (screwsPerFelt * ((double) width / (double) FELT_WIDTH));
+        int packOfScrews = (int) Math.ceil(screws / (double) SCREWS_PER_PACK);
         addPartToList(packOfScrews, "Basic skrue", "Stål", "4.5x60mm");
     }
 

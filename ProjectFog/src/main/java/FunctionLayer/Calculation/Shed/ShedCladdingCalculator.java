@@ -30,13 +30,13 @@ public class ShedCladdingCalculator {
     }
 
     private void calcInterTies(int width, boolean door) throws FogException {
-        double lengthOfInterTies = width - POLEDOUBLETHICKNESS;
+        double lengthOfInterTies = width - POLE_DOUBLE_THICKNESS;
         if (door) {
-            lengthOfInterTies -= DOORWIDTH + POLETHICKNESS;
+            lengthOfInterTies -= DOOR_WIDTH + POLE_THICKNESS;
         }
-        int brackets = ANGLEBRACKETSPERINTERTIE * INTERTIESPERSIDE;
-        int packsOfScrews = (int) Math.ceil((brackets * SCREWSPERANGLEBRACKET) / SCREWSPERPACK);
-        addPartToList(INTERTIESPERSIDE, "Regler", "Trykimp Fyr", "47x100mm " + CalculatorHelper.getLengthOfInterTies(lengthOfInterTies) + "cm");
+        int brackets = ANGLE_BRACKETS_PER_INTER_TIE * INTER_TIES_PER_SIDE;
+        int packsOfScrews = (int) Math.ceil((brackets * SCREWS_PER_ANGLE_BRACKET) / SCREWS_PER_PACK);
+        addPartToList(INTER_TIES_PER_SIDE, "Regler", "Trykimp Fyr", "47x100mm " + CalculatorHelper.getLengthOfInterTies(lengthOfInterTies) + "cm");
         addPartToList(brackets, "Vinkelbeslag", "Stål", "35mm");
         addPartToList(packsOfScrews, "Basic Skrue", "Stål", "4.5x60mm");
     }
@@ -49,20 +49,20 @@ public class ShedCladdingCalculator {
     }
 
     private void calcCladding(int length, boolean door) throws FogException {
-        double calcSpace = length - (CLADDINGBOARDWIDTH * 2);
+        double calcSpace = length - (CLADDING_BOARD_WIDTH * 2);
         if (door) {
-            calcSpace -= DOORWIDTH + POLETHICKNESS;
+            calcSpace -= DOOR_WIDTH + POLE_THICKNESS;
         }
-        int backPlanks = (int) Math.ceil((calcSpace / CLADDINGSPACING) + 2);
-        int frontPlanks = (int) Math.floor((calcSpace / CLADDINGSPACING) + 2);
+        int backPlanks = (int) Math.ceil((calcSpace / CLADDING_SPACING) + 2);
+        int frontPlanks = (int) Math.floor((calcSpace / CLADDING_SPACING) + 2);
         int planks = backPlanks + frontPlanks;
-        addPartToList(planks, "Vandbrædt", "Trykimp Fyr", "19x100mm " + CalculatorHelper.getLengthOfWaterBoard(DOORHEIGHT) + "cm");
+        addPartToList(planks, "Vandbrædt", "Trykimp Fyr", "19x100mm " + CalculatorHelper.getLengthOfWaterBoard(DOOR_HEIGHT) + "cm");
         calcCladdingScrews(frontPlanks);
     }
 
     private void calcCladdingScrews(int frontPlanks) throws FogException {
-        int screws = frontPlanks * INTERTIESPERSIDE * SCREWSPERCLADDINGPERINTERTIE;
-        int packsOfScrews = (int) Math.ceil((double) screws / (double) SCREWSPERPACK);
+        int screws = frontPlanks * INTER_TIES_PER_SIDE * SCREWS_PER_CLADDING_PER_INTER_TIE;
+        int packsOfScrews = (int) Math.ceil((double) screws / (double) SCREWS_PER_PACK);
         addPartToList(packsOfScrews, "Basic Skrue", "Stål", "4.5x60mm");
     }
 
