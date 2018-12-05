@@ -36,31 +36,18 @@ public class CarportShedCalculator {
 
     private void calcPoles() throws FogException {
         int extraPolesForShed = POLESPERDOOR * DOORSPERSHED;
-        // From left back corner to left front corner
         if (SHEDLENGTH - POLEHALFTHICKNESS < LENGTH - DOUBLEPOLEOFFSET) {
             extraPolesForShed++;
-            // From left back corner to right back corner and last pole
             if (SHEDWIDTH - POLEHALFTHICKNESS < WIDTH - DOUBLEPOLEOFFSET) {
                 extraPolesForShed += 2;
             } else {
                 extraPolesForShed++;
             }
         } else if (SHEDWIDTH - POLEHALFTHICKNESS < WIDTH - DOUBLEPOLEOFFSET) {
-            // From left back corner to right back corner
             extraPolesForShed += 2;
         }
-
-
-        /*String type = "Stolpe", material = "Trykimp Fyr", size = "97x97mm " + CalculatorHelper.getLengthOfPole(HEIGHT) + "cm";
-                Part part = DatabaseFacade.getPart(type, material, size);
-                PARTS.add(part);
-         */
         int calcHeight = HEIGHT + 90;
-        for (int i = 0; i < extraPolesForShed; i++) {
-            String type = "Stolpe", material = "Trykimp Fyr", size = "97x97mm " + calcHeight + "cm";
-            Part part = DatabaseFacade.getPart(type, material, size);
-            PARTS.add(part);
-        }
+        addPartToList(extraPolesForShed, "Stolpe", "Trykimp Fyr", "97x97mm " + CalculatorHelper.getLengthOfPole(calcHeight) + "cm");
     }
 
     private void calcAllInterTies(int length, int width) throws FogException {
@@ -77,21 +64,9 @@ public class CarportShedCalculator {
         }
         int brackets = ANGLEBRACKETSPERINTERTIE * INTERTIESPERSIDE;
         int packsOfScrews = (int) Math.ceil((brackets * SCREWSPERANGLEBRACKET) / SCREWSPERPACK);
-        for (int i = 0; i < INTERTIESPERSIDE; i++) {
-            String type = "Regler", material = "Trykimp Fyr", size = "47x100mm " + CalculatorHelper.getLengthOfInterTies(lengthOfInterTies) + "cm";
-            Part part = DatabaseFacade.getPart(type, material, size);
-            PARTS.add(part);
-        }
-        for (int i = 0; i < ANGLEBRACKETSPERINTERTIE; i++) {
-            String type = "Regler", material = "Trykimp Fyr", size = "47x100mm " + CalculatorHelper.getLengthOfInterTies(lengthOfInterTies) + "cm";
-            Part part = DatabaseFacade.getPart(type, material, size);
-            PARTS.add(part);
-        }
-        for (int i = 0; i < packsOfScrews; i++) {
-            String type = "Basic Skrue", material = "Stål", size = "4.5x60mm";
-            Part part = DatabaseFacade.getPart(type, material, size);
-            PARTS.add(part);
-        }
+        addPartToList(INTERTIESPERSIDE, "Regler", "Trykimp Fyr", "47x100mm " + CalculatorHelper.getLengthOfInterTies(lengthOfInterTies) + "cm");
+        addPartToList(brackets, "Vinkelbeslag", "Stål", "35mm");
+        addPartToList(packsOfScrews, "Basic Skrue", "Stål", "4.5x60mm");
     }
 
     private void calcAllCladding(int length, int width) throws FogException {
@@ -102,7 +77,6 @@ public class CarportShedCalculator {
     }
 
     private void calcCladding(int length, boolean door) throws FogException {
-        // Calc our cladding with our rules.
         double calcSpace = length - (CLADDINGBOARDWIDTH * 2);
         if (door) {
             calcSpace -= DOORWIDTH + POLETHICKNESS;
@@ -110,21 +84,19 @@ public class CarportShedCalculator {
         int backPlanks = (int) Math.ceil((calcSpace / 150) + 2);
         int frontPlanks = (int) Math.floor((calcSpace / 150) + 2);
         int planks = backPlanks + frontPlanks;
-        for (int i = 0; i < planks; i++) {
-            String type = "Vandbrædt", material = "Trykimp Fyr", size = "19x100mm " + CalculatorHelper.getLengthOfWaterBoard(DOORHEIGHT) + "cm";
-            Part part = DatabaseFacade.getPart(type, material, size);
-            PARTS.add(part);
-        }
-        // Screws
+        addPartToList(planks, "Vandbrædt", "Trykimp Fyr", "19x100mm " + CalculatorHelper.getLengthOfWaterBoard(DOORHEIGHT) + "cm");
         calcCladdingScrews(frontPlanks);
     }
 
     private void calcCladdingScrews(int frontPlanks) throws FogException {
         int screws = frontPlanks * INTERTIESPERSIDE * SCREWSPERCLADDINGPERINTERTIE;
         int packsOfScrews = (int) Math.ceil((double) screws / (double) SCREWSPERPACK);
-        for (int i = 0; i < packsOfScrews; i++) {
-            String type = "Basic Skrue", material = "Stål", size = "4.5x60mm";
-            Part part = DatabaseFacade.getPart(type, material, size);
+        addPartToList(packsOfScrews, "Basic Skrue", "Stål", "4.5x60mm");
+    }
+
+    private void addPartToList(int count, String type, String material, String size) throws FogException {
+        Part part = DatabaseFacade.getPart(type, material, size);
+        for (int i = 0; i < count; i++) {
             PARTS.add(part);
         }
     }

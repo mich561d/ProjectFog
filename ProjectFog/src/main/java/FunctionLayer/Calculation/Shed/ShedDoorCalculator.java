@@ -40,9 +40,9 @@ public class ShedDoorCalculator {
     }
 
     private void CalcLaths(double heightOfLath, double pcd) throws FogException {
-        addPartToList(2, "Regler", "Trykimp Fyr", CalculatorHelper.getLengthOfLath(DOORWIDTH) + "cm");
-        addPartToList(2, "Regler", "Trykimp Fyr", CalculatorHelper.getLengthOfLath(DOORHEIGHT - heightOfLath) + "cm");
-        addPartToList(1, "Regler", "Trykimp Fyr", CalculatorHelper.getLengthOfLath(pcd) + "cm");
+        addPartToList(2, "Regler", "Trykimp Fyr", "47x100mm " + CalculatorHelper.getLengthOfLath(DOORWIDTH) + "cm");
+        addPartToList(2, "Regler", "Trykimp Fyr", "47x100mm " + CalculatorHelper.getLengthOfLath(DOORHEIGHT - heightOfLath) + "cm");
+        addPartToList(1, "Regler", "Trykimp Fyr", "47x100mm " + CalculatorHelper.getLengthOfLath(pcd) + "cm");
     }
 
     private void CalcScrews(int planks, int handle, int hinge) throws FogException {

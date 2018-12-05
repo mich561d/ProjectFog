@@ -365,3 +365,7 @@ The method getType() is undefined for the type Part
 Stacktrace:
 dec. 05, 2018 11:39:11 AM FunctionLayer.Logging.Logging write
 SEVERE: Unknown column 'Tegl' in 'where clause'
+dec. 05, 2018 5:14:05 PM FunctionLayer.Logging.Logging write
+WARNING: Der er fejl i databasen, da vi ikke kan finde delen!
+dec. 05, 2018 5:16:34 PM FunctionLayer.Logging.Logging write
+WARNING: Der er fejl i databasen, da vi ikke kan finde delen!
