@@ -1,7 +1,9 @@
 package DatabaseLayer;
 
 import DatabaseLayer.Mappers.PartMapper;
+import FunctionLayer.Entities.Part;
 import FunctionLayer.Exceptions.FogException;
+import java.util.ArrayList;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -20,8 +22,6 @@ public class PartTest {
             // Assert:
             fail("Should not have thrown error!");
         }
-        // Assert:
-
     }
 
     @Test
@@ -55,5 +55,15 @@ public class PartTest {
             fail("Should not have thrown error!");
         } catch (FogException ex) {
         }
+    }
+
+    @Test
+    public void GetListOfRoofing() throws FogException {
+        // Arrange:
+        ArrayList<Part> list;
+        // Act: 
+        list = PartMapper.getAllRoofBricksAsList();
+        // Assert:
+        assertEquals(2, list.size());
     }
 }

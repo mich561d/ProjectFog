@@ -16,9 +16,6 @@ public class PasswordComparator {
         if (pass1 == null || pass2 == null) {
             throw new RegisterException("Password was null!");
         }
-        if (!pass1.equals(pass2)) {
-            throw new RegisterException("Passwords not equal!");
-        }
         if (pass1.length() < 8) {
             throw new RegisterException("Passwords too small!");
         }
@@ -29,6 +26,9 @@ public class PasswordComparator {
             if (pass1.contains("" + BADCHARS[i])) {
                 throw new RegisterException("Password contains illegal characters!");
             }
+        }
+        if (!pass1.equals(pass2)) {
+            throw new RegisterException("Passwords not equal!");
         }
         return true;
     }
