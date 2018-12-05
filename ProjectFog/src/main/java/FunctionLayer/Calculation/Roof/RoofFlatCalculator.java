@@ -6,6 +6,7 @@ import FunctionLayer.Entities.Part;
 import FunctionLayer.Exceptions.FogException;
 import java.util.ArrayList;
 import static FunctionLayer.Calculation.Rules.*;
+import FunctionLayer.ListToMap;
 
 /**
  *
@@ -20,7 +21,7 @@ public class RoofFlatCalculator {
         calcRoofLength(length, calcRoofWidth(width));
         calcWaterBoard(length, width);
         calcScrewsWaterBoard(length);
-        calcTrapezScrews();
+        calcTrapezScrews(width);
         return this.parts;
     }
 
@@ -82,7 +83,10 @@ public class RoofFlatCalculator {
         }
     }
 
-    private void calcTrapezScrews() {
-
+    private void calcTrapezScrews(int width) throws FogException {
+        double timesOnWidth = (double) SCREWPERTRAPEZWIDTH * (Math.ceil((double) width / (double) TRAPEZWIDTH));
+        int screwsPer = ListToMap.convertListToMap(parts).get("Spær").size();
+        double screwsForTrapezRoof = Math.ceil(timesOnWidth * (double) screwsPer);
+        addPartToList((int) screwsForTrapezRoof, "Basic skrue", "Stål", "4.5x60mm");
     }
 }

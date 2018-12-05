@@ -35,6 +35,7 @@ public class Rules {
     public static final int HINGESPERDOOR = 2;
     public static final int DOORSPERSHED = 1;
     public static final int POLESPERDOOR = 2;
+    public static final int SCREWPERTRAPEZWIDTH = 12;
 
     public static final double POLETHICKNESS = 9.7;
     public static final double POLEHALFTHICKNESS = POLETHICKNESS / 2;
