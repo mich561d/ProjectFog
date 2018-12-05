@@ -2,7 +2,7 @@ package FunctionLayer.Calculation;
 
 /**
  *
- * @author Michael
+ * @author Michael & Christian
  */
 public class CalculatorHelper {
 
@@ -106,5 +106,33 @@ public class CalculatorHelper {
             lengthOfLath = 540;
         }
         return lengthOfLath;
+    }
+
+    public static int getLengthOfInterTies(double length) {
+        int lengthOfInterTies;
+        if (length <= 240) {
+            lengthOfInterTies = 240;
+        } else if (length <= 270) {
+            lengthOfInterTies = 270;
+        } else if (length <= 300) {
+            lengthOfInterTies = 300;
+        } else if (length <= 330) {
+            lengthOfInterTies = 330;
+        } else if (length <= 360) {
+            lengthOfInterTies = 360;
+        } else if (length <= 390) {
+            lengthOfInterTies = 390;
+        } else if (length <= 420) {
+            lengthOfInterTies = 420;
+        } else if (length <= 450) {
+            lengthOfInterTies = 450;
+        } else if (length <= 480) {
+            lengthOfInterTies = 480;
+        } else if (length <= 510) {
+            lengthOfInterTies = 510;
+        } else {
+            lengthOfInterTies = 540;
+        }
+        return lengthOfInterTies;
     }
 }

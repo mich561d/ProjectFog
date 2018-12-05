@@ -68,6 +68,8 @@ public class CarportShedCalculator {
 
     private void calcReglar() {
         //calc inter-ties with our rules, and add angle brackets.
+        //Front & Back
+        double lengthOfInterTies = SHEDWIDTH - (POLETHICKNESS * 2);
     }
 
     private void calcCladding() {
