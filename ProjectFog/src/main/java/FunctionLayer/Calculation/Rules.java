@@ -34,13 +34,14 @@ public class Rules {
     public static final int HANDLESPERDOOR = 1;
     public static final int HINGESPERDOOR = 2;
     public static final int DOORSPERSHED = 1;
-    public static final int POLESPERDOOR = 2;
+    public static final int POLESPERDOOR = 1;
     public static final int SCREWPERTRAPEZWIDTH = 12;
     public static final int SCREWPERFELT = 10;
     public static final int FELTLENGTH = 100;
     public static final int FELTWIDTH = 100;
     public static final int ANGLEBRACKETSPERINTERTIE = 2;
     public static final int INTERTIESPERSIDE = 3;
+    public static final int SCREWSPERCLADDINGPERINTERTIE = 2;
     
     public static final double POLETHICKNESS = 9.7;
     public static final double POLEDOUBLETHICKNESS = POLETHICKNESS * 2;
