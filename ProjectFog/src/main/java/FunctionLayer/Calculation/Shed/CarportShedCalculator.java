@@ -2,6 +2,7 @@ package FunctionLayer.Calculation.Shed;
 
 import DatabaseLayer.DatabaseFacade;
 import FunctionLayer.Calculation.CalculatorHelper;
+import FunctionLayer.Calculation.Rules;
 import FunctionLayer.Entities.Part;
 import FunctionLayer.Exceptions.FogException;
 import java.util.ArrayList;
@@ -34,31 +35,26 @@ public class CarportShedCalculator {
     }
 
     private void calcPoles() throws FogException {
-        // Check to see if we need more poles than we allready have place via basecalculations
+        int extraPolesForShed = POLESPERDOOR * DOORSPERSHED;
+        // From left back corner to left front corner
+        if (SHEDLENGTH - POLEHALFTHICKNESS < LENGTH - DOUBLEPOLEOFFSET) {
+            extraPolesForShed++;
+            // From left back corner to right back corner and last pole
+            if (SHEDWIDTH - POLEHALFTHICKNESS < WIDTH - DOUBLEPOLEOFFSET) {
+                extraPolesForShed += 2;
+            } else {
+                extraPolesForShed++;
+            }
+        } else if (SHEDWIDTH - POLEHALFTHICKNESS < WIDTH - DOUBLEPOLEOFFSET) {
+            // From left back corner to right back corner
+            extraPolesForShed += 2;
+        }
 
-        // Hvad nu hvis length er 720 og shed length er 719???
-        int extraPolesForShed = 0;
-        if (SHEDLENGTH < LENGTH - DOUBLEPOLEOFFSET) {
-            // We need more poles
-            if (LENGTH - DOUBLEPOLEOFFSET <= 300) {
-                String type = "Stolpe", material = "Trykimp Fyr", size = "97x97mm " + CalculatorHelper.getLengthOfPole(HEIGHT) + "cm";
+
+        /*String type = "Stolpe", material = "Trykimp Fyr", size = "97x97mm " + CalculatorHelper.getLengthOfPole(HEIGHT) + "cm";
                 Part part = DatabaseFacade.getPart(type, material, size);
                 PARTS.add(part);
-            } else {
-                int numberOfPoles = ((LENGTH - DOUBLEPOLEOFFSET) / 300);
-
-            }
-
-        } else {
-            //cladding all around.
-        }
-
-        if (SHEDWIDTH < WIDTH - DOUBLEPOLEOFFSET) {
-            // We need more poles
-        } else {
-            //cladding all around.
-        }
-
+         */
         int calcHeight = HEIGHT + 90;
         for (int i = 0; i < extraPolesForShed; i++) {
             String type = "Stolpe", material = "Trykimp Fyr", size = "97x97mm " + calcHeight + "cm";
