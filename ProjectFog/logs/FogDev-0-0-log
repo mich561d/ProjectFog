@@ -411,3 +411,7 @@ dec. 06, 2018 9:38:40 AM FunctionLayer.Logging.Logging write
 INFO: Dit valgte skur er for lille til at der kan placeres en dør!
 dec. 06, 2018 9:38:56 AM FunctionLayer.Logging.Logging write
 INFO: Dit valgte skur er for lille til at der kan placeres en dør!
+dec. 06, 2018 11:04:39 AM FunctionLayer.Logging.Logging write
+SEVERE: Cannot add or update a child row: a foreign key constraint fails (`ProjectFogDatabase`.`address`, CONSTRAINT `Employee_Has_Address` FOREIGN KEY (`employeeID`) REFERENCES `employee` (`id`) ON DELETE CASCADE ON UPDATE CASCADE)
+dec. 06, 2018 11:58:50 AM FunctionLayer.Logging.Logging write
+WARNING: webbrugeren med id'et 4, findes ikke!

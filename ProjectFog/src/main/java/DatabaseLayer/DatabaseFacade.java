@@ -62,7 +62,7 @@ public class DatabaseFacade {
     }
 
     public static User getUserByID(int id) throws FogException {
-        return UserMapper.getUserByID(id);
+        return UserMapper.getUserByCustomerID(id);
     }
 
     public static ArrayList<Part> getAllRoofBricksAsList() throws FogException {

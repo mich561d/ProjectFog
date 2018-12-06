@@ -103,23 +103,23 @@ public class UserMapper {
         }
     }
 
-    public static User getUserByID(int id) throws FogException {
+    public static User getUserByCustomerID(int customerID) throws FogException {
         try {
             Connection con = DatabaseConnector.connection();
-            String SQL = "SELECT * FROM user WHERE id = ?";
+            String SQL = "SELECT * FROM user WHERE customerID = ?";
             PreparedStatement ps = con.prepareStatement(SQL);
-            ps.setInt(1, id);
+            ps.setInt(1, customerID);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
+                int id = rs.getInt("id");
                 String email = rs.getString("email");
                 String hashedPassword = rs.getString("password");
                 String saltValue = rs.getString("saltValue");
-                int customerID = rs.getInt("customerID");
                 int employeeID = rs.getInt("employeeID");
                 User user = new User(id, email, hashedPassword, saltValue, customerID, employeeID);
                 return user;
             } else {
-                throw new FogException("webbrugeren med id'et " + id + ", findes ikke!", Level.WARNING);
+                throw new FogException("webbrugeren med id'et " + customerID + ", findes ikke!", Level.WARNING);
             }
         } catch (SQLException | ClassNotFoundException ex) {
             throw new FogException(ex.getMessage(), Level.SEVERE);
