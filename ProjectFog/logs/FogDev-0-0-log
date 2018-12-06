@@ -330,13 +330,13 @@ Stacktrace:
 dec. 04, 2018 6:12:22 PM FunctionLayer.Logging.Logging write
 SEVERE: Column 'cardNumber' not found.
 dec. 04, 2018 7:27:36 PM FunctionLayer.Logging.Logging write
-INFO: Der skete en fejl!.. Prøv at logge ind igen!
+INFO: Der skete en fejl!.. Prï¿½v at logge ind igen!
 dec. 04, 2018 7:27:47 PM FunctionLayer.Logging.Logging write
 SEVERE: Unknown column 'cardNumber' in 'field list'
 dec. 04, 2018 7:28:47 PM FunctionLayer.Logging.Logging write
 SEVERE: Unknown column 'cardNumber' in 'field list'
 dec. 04, 2018 9:08:39 PM FunctionLayer.Logging.Logging write
-INFO: Der skete en fejl!.. Prøv at logge ind igen!
+INFO: Der skete en fejl!.. Prï¿½v at logge ind igen!
 dec. 05, 2018 11:06:28 AM FunctionLayer.Logging.Logging write
 WARNING: Unable to compile class for JSP: 
 
@@ -404,14 +404,24 @@ OFF: 404 - Page not found!
 dec. 06, 2018 9:22:04 AM FunctionLayer.Logging.Logging write
 OFF: 404 - Page not found!
 dec. 06, 2018 9:27:04 AM FunctionLayer.Logging.Logging write
-INFO: Dit valgte skur er for lille til at der kan placeres en dør!
+INFO: Dit valgte skur er for lille til at der kan placeres en dï¿½r!
 dec. 06, 2018 9:28:46 AM FunctionLayer.Logging.Logging write
-INFO: Dit valgte skur er for lille til at der kan placeres en dør!
+INFO: Dit valgte skur er for lille til at der kan placeres en dï¿½r!
 dec. 06, 2018 9:38:40 AM FunctionLayer.Logging.Logging write
-INFO: Dit valgte skur er for lille til at der kan placeres en dør!
+INFO: Dit valgte skur er for lille til at der kan placeres en dï¿½r!
 dec. 06, 2018 9:38:56 AM FunctionLayer.Logging.Logging write
-INFO: Dit valgte skur er for lille til at der kan placeres en dør!
-dec. 06, 2018 11:04:39 AM FunctionLayer.Logging.Logging write
-SEVERE: Cannot add or update a child row: a foreign key constraint fails (`ProjectFogDatabase`.`address`, CONSTRAINT `Employee_Has_Address` FOREIGN KEY (`employeeID`) REFERENCES `employee` (`id`) ON DELETE CASCADE ON UPDATE CASCADE)
-dec. 06, 2018 11:58:50 AM FunctionLayer.Logging.Logging write
-WARNING: webbrugeren med id'et 4, findes ikke!
+INFO: Dit valgte skur er for lille til at der kan placeres en dï¿½r!
+dec. 06, 2018 9:51:57 AM FunctionLayer.Logging.Logging write
+INFO: Dit valgte skur er for lille til at der kan placeres en dï¿½r!
+dec. 06, 2018 9:58:25 AM FunctionLayer.Logging.Logging write
+INFO: Dit valgte skur er lï¿½ngere end de valgte carport mï¿½l!
+dec. 06, 2018 9:58:57 AM FunctionLayer.Logging.Logging write
+INFO: Dit valgte skur er lï¿½ngere end de valgte carport mï¿½l!
+dec. 06, 2018 9:59:24 AM FunctionLayer.Logging.Logging write
+INFO: Dit valgte skur er for lille til at der kan placeres en dï¿½r!
+dec. 06, 2018 9:59:38 AM FunctionLayer.Logging.Logging write
+INFO: Dit valgte skur er lï¿½ngere end de valgte carport mï¿½l!
+dec. 06, 2018 9:59:49 AM FunctionLayer.Logging.Logging write
+INFO: Dit valgte skur er lï¿½ngere end de valgte carport mï¿½l!
+dec. 06, 2018 11:02:13 AM FunctionLayer.Logging.Logging write
+INFO: Dit valgte skur er lï¿½ngere end de valgte carport mï¿½l!
