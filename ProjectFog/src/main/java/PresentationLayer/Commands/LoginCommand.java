@@ -1,6 +1,7 @@
 package PresentationLayer.Commands;
 
 import FunctionLayer.Entities.Customer;
+import FunctionLayer.Entities.Employee;
 import FunctionLayer.Exceptions.FogException;
 import FunctionLayer.Exceptions.LoginException;
 import FunctionLayer.LogicFacade;
@@ -19,9 +20,15 @@ public class LoginCommand implements Command {
         String email = request.getParameter("LoginEmail");
         String password = request.getParameter("LoginPassword");
         int id = LogicFacade.login(email, password);
-        Customer customer = LogicFacade.getCustomerByID(id);
-        request.getSession().setAttribute("CustomerID", customer.getId());
-        request.getSession().setAttribute("CustomerName", customer.getFullName());
+        try {
+            Customer customer = LogicFacade.getCustomerByID(id);
+            request.getSession().setAttribute("CustomerID", customer.getId());
+            request.getSession().setAttribute("CustomerName", customer.getFullName());
+        } catch (FogException e) {
+            Employee employee = LogicFacade.getEmployeeByID(id);
+            request.getSession().setAttribute("EmployeeID", employee.getId());
+            request.getSession().setAttribute("EmployeeName", employee.getFullName());
+        }
         return "index";
     }
 

@@ -3,6 +3,7 @@ package DatabaseLayer;
 import DatabaseLayer.Mappers.*;
 import FunctionLayer.Entities.Address;
 import FunctionLayer.Entities.Customer;
+import FunctionLayer.Entities.Employee;
 import FunctionLayer.Entities.Part;
 import FunctionLayer.Entities.PaymentInformation;
 import FunctionLayer.Entities.User;
@@ -67,5 +68,9 @@ public class DatabaseFacade {
 
     public static ArrayList<Part> getAllRoofBricksAsList() throws FogException {
         return PartMapper.getAllRoofBricksAsList();
+    }
+
+    public static Employee getEmployeeByID(int id) throws FogException {
+        return EmployeeMapper.getEmployeeByID(id);
     }
 }

@@ -5,6 +5,7 @@ import FunctionLayer.Exceptions.FogException;
 import FunctionLayer.Calculation.CarportCalculator;
 import FunctionLayer.Entities.Address;
 import FunctionLayer.Entities.Customer;
+import FunctionLayer.Entities.Employee;
 import FunctionLayer.Util.UtilCarportDrawing;
 import FunctionLayer.Entities.Part;
 import FunctionLayer.Entities.PaymentInformation;
@@ -110,5 +111,9 @@ public class LogicFacade {
 
     public static ArrayList<Part> getAllRoofBricksAsList() throws FogException {
         return DatabaseFacade.getAllRoofBricksAsList();
+    }
+
+    public static Employee getEmployeeByID(int id) throws FogException {
+        return DatabaseFacade.getEmployeeByID(id);
     }
 }
