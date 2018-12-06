@@ -19,6 +19,20 @@
     </head>
     <body>
         <%@include file="/WEB-INF/Imports/NavBar.jsp" %>
+        <% if (request.getSession().getAttribute("ErrorMsg") != null) {%>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg">
+                    <div class="alert alert-danger alert-dismissible fade show">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <strong>Error:</strong> <%= request.getSession().getAttribute("ErrorMsg")%>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% request.getSession().setAttribute("ErrorMsg", null);
+            }
+        %>
         <br>
         <div class="container-fluid">        
             <div class="col-lg-6" style="margin: auto;">
@@ -61,7 +75,9 @@
                                                 <p>Belægning:</p>
                                                 <select name="roofing" class="form-control">
                                                     <option value="Tagpap">Tagpap</option>
-                                                    <% for (int i = 0; i < roofBrickList.size(); i++) {%>
+                                                    <% for (int i = 0;
+                                                                i < roofBrickList.size();
+                                                                i++) {%>
                                                     <option value="<%= roofBrickList.get(i).getType()%>"><%= roofBrickList.get(i).getType()%></option>
                                                     <% }%>
                                                 </select>

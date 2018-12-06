@@ -23,14 +23,14 @@ public class ShedPolesCalculator {
 
     private void calcMorePoles(int shedLength, int length, int shedWidth, int width, int height) throws FogException {
         int extraPolesForShed = POLES_PER_DOOR * DOORS_PER_SHED;
-        if (shedLength < length - DOUBLE_POLE_OFFSET) {
+        if (shedLength < length - POLE_DOUBLE_OFFSET) {
             extraPolesForShed++;
-            if (shedWidth < width - DOUBLE_POLE_OFFSET) {
+            if (shedWidth < width - POLE_DOUBLE_OFFSET) {
                 extraPolesForShed += 2;
             } else {
                 extraPolesForShed++;
             }
-        } else if (shedWidth < width - DOUBLE_POLE_OFFSET) {
+        } else if (shedWidth < width - POLE_DOUBLE_OFFSET) {
             extraPolesForShed += 2;
         }
         int calcHeight = height + POLE_LENGTH_UNDER_GROUND;

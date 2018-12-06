@@ -1,8 +1,11 @@
 package PresentationLayer.Commands;
 
+import static FunctionLayer.Calculation.Rules.*;
+import FunctionLayer.Exceptions.CarportCreationException;
 import FunctionLayer.Exceptions.FogException;
 import FunctionLayer.LogicFacade;
 import PresentationLayer.Command;
+import java.util.logging.Level;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -13,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 public class ProductReviewCommand implements Command {
 
     @Override
-    public String execute(HttpServletRequest request, HttpServletResponse response) throws FogException {
+    public String execute(HttpServletRequest request, HttpServletResponse response) throws FogException, CarportCreationException {
         // Base
         int length = Integer.parseInt(request.getParameter("carportLength"));
         request.getSession().setAttribute("CarportLength", length);
@@ -49,6 +52,9 @@ public class ProductReviewCommand implements Command {
             request.getSession().setAttribute("ShedLength", shedLength);
             shedWidth = Integer.parseInt(request.getParameter("shedWidth"));
             request.getSession().setAttribute("ShedWidth", shedWidth);
+        }
+        if (shedLength > length - POLE_DOUBLE_OFFSET || shedWidth > width - POLE_DOUBLE_OFFSET) {
+            throw new CarportCreationException("Dit valgte skur er længere end de valgte carport mål!", Level.INFO);
         }
 
         LogicFacade.calculateCustomCarport(length, width, height, angle, angledRoof, shed, shedLength, shedWidth, roofing);

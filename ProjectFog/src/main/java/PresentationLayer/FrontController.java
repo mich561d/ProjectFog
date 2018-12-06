@@ -1,5 +1,6 @@
 package PresentationLayer;
 
+import FunctionLayer.Exceptions.CarportCreationException;
 import FunctionLayer.Exceptions.FogException;
 import FunctionLayer.Exceptions.LoginException;
 import FunctionLayer.Exceptions.RegisterException;
@@ -54,6 +55,10 @@ public class FrontController extends HttpServlet {
             new Logging().write(ex.LEVEL, ex.getMessage());
             request.getSession().setAttribute("ErrorMsg", ex.getMessage());
             request.getRequestDispatcher("index.jsp").forward(request, response);
+        } catch (CarportCreationException ex) {
+            new Logging().write(ex.LEVEL, ex.getMessage());
+            request.getSession().setAttribute("ErrorMsg", ex.getMessage());
+            request.getRequestDispatcher("CustomCarport.jsp").forward(request, response);
         }
     }
 

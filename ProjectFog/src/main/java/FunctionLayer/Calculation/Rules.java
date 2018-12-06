@@ -9,7 +9,7 @@ public class Rules {
     public static final int POLE_LENGTH_UNDER_GROUND = 90;
     public static final int MAX_DISTANCE_BEWTEEN_POLES = 300;
     public static final int POLE_OFFSET = 15;
-    public static final int DOUBLE_POLE_OFFSET = POLE_OFFSET * 2;
+    public static final int POLE_DOUBLE_OFFSET = POLE_OFFSET * 2;
     public static final int DISTANCE_BETWEEN_RAFTS = 70;
     public static final int DISTANCE_BETWEEN_PLANKS = 30;
     public static final int PLANK_WIDTH = 10;
