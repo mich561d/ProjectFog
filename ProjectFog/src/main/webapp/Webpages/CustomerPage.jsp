@@ -102,59 +102,26 @@
                         <div class="card-body border border-warning">
                             <label>
                                 <div class="container">
-                                    <h3>Person oplysninger:</h3>
-                                    <table class="table table-primary table-condensed table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th>Fornavn</th>
-                                                <th>Efternavn</th>
-                                                <th>Tlf.</th>
-                                                <th>Email</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td><%=customer.getFirstName()%></td>
-                                                <td><%=customer.getLastName()%></td>
-                                                <td><%=customer.getPhone()%></td>
-                                                <td><%=user.getEmail()%></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <h3>Adresse oplysninger:</h3>
-                                    <table class="table table-primary table-condensed table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th>By</th>
-                                                <th>Postnummer</th>
-                                                <th>Vej</th>
-                                                <th>Nummer</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td><%=address.getCity()%></td>
-                                                <td><%=address.getZip()%></td>
-                                                <td><%=address.getStreet()%></td>
-                                                <td><%=address.getNumber()%></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <h3>Kort oplysninger:</h3>
-                                    <table class="table table-primary table-condensed table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th>Kort nummer</th>
-                                                <th>udløbsdato</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td><%=payment.getCardNumber()%></td>
-                                                <td><%=payment.getExpireDate()%></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                    <h3>Nye oplysninger:</h3>
+                                    <form name="CustomerInformationChange" action="FrontController" method="POST">
+                                        <input type="hidden" name="command" value="UpdateCustomerInformation">
+                                        <input type="String" class="form-control" name="changeFirstName" placeholder="Fornavn">
+                                        <input type="String" class="form-control" name="changeLastName" placeholder="Efternavn">
+                                        <input type="String" class="form-control" name="changePhone" placeholder="Telefon nummer">
+                                        <input type="String" class="form-control" name="changeEmail" placeholder="Email">
+                                        <input type="String" class="form-control" name="changeCity" placeholder="By">
+                                        <input type="String" class="form-control" name="changeZip" placeholder="Postnummer">
+                                        <input type="String" class="form-control" name="changeStreet" placeholder="Vej">
+                                        <input type="String" class="form-control" name="changeNumber" placeholder="Nummer">
+                                        <input type="String" class="form-control" name="changeCardNumber" placeholder="Kort nummer">
+                                        <input type="String" class="form-control" name="changeCardExpireDate" placeholder="Kort udløbsdato">
+                                        <br>
+                                        <div class="row">
+                                            <div class="col-lg-1 align-self-end">
+                                                <input type="submit" class="btn btn-primary" name="next" value="Gem ændringer">
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
                             </label>
                         </div>
