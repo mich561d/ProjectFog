@@ -33,7 +33,7 @@ public class ProductReviewCommand implements Command {
         int angle = 0;
         String roofing = "tagpap";
         request.getSession().setAttribute("AngledRoof", angledRoof);
-        if (angledRoof == true) {
+        if (angledRoof) {
             angle = Integer.parseInt(request.getParameter("roofAngle"));
             request.getSession().setAttribute("RoofAngle", angle);
             roofing = request.getParameter("roofing");
@@ -47,14 +47,18 @@ public class ProductReviewCommand implements Command {
             shed = true;
         }
         request.getSession().setAttribute("Shed", shed);
-        if (angledRoof == true) {
+        if (shed) {
             shedLength = Integer.parseInt(request.getParameter("shedLength"));
             request.getSession().setAttribute("ShedLength", shedLength);
             shedWidth = Integer.parseInt(request.getParameter("shedWidth"));
             request.getSession().setAttribute("ShedWidth", shedWidth);
-        }
-        if (shedLength > length - POLE_DOUBLE_OFFSET || shedWidth > width - POLE_DOUBLE_OFFSET) {
-            throw new CarportCreationException("Dit valgte skur er længere end de valgte carport mål!", Level.INFO);
+
+            if (shedLength > length - POLE_DOUBLE_OFFSET || shedWidth > width - POLE_DOUBLE_OFFSET) {
+                throw new CarportCreationException("Dit valgte skur er længere end de valgte carport mål!", Level.INFO);
+            }
+            if (shedLength < DOOR_WIDTH && shedWidth < DOOR_WIDTH) {
+                throw new CarportCreationException("Dit valgte skur er for lille til at der kan placeres en dør!", Level.INFO);
+            }
         }
 
         LogicFacade.calculateCustomCarport(length, width, height, angle, angledRoof, shed, shedLength, shedWidth, roofing);

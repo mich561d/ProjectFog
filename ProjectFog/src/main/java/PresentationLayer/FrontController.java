@@ -58,7 +58,7 @@ public class FrontController extends HttpServlet {
         } catch (CarportCreationException ex) {
             new Logging().write(ex.LEVEL, ex.getMessage());
             request.getSession().setAttribute("ErrorMsg", ex.getMessage());
-            request.getRequestDispatcher("CustomCarport.jsp").forward(request, response);
+            request.getRequestDispatcher("/Webpages/CustomCarport.jsp").forward(request, response);
         }
     }
 
