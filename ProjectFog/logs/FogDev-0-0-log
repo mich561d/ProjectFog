@@ -425,3 +425,18 @@ dec. 06, 2018 9:59:49 AM FunctionLayer.Logging.Logging write
 INFO: Dit valgte skur er l�ngere end de valgte carport m�l!
 dec. 06, 2018 11:02:13 AM FunctionLayer.Logging.Logging write
 INFO: Dit valgte skur er l�ngere end de valgte carport m�l!
+dec. 06, 2018 12:28:36 PM FunctionLayer.Logging.Logging write
+WARNING: Unable to compile class for JSP: 
+
+An error occurred at line: 44 in the jsp file: /Webpages/ProductReview.jsp
+The method setAttribute(String, Object) in the type HttpSession is not applicable for the arguments (String)
+41:                             <div class="card-body">
+42:                                 <input type="hidden" name="command" value="Cart">
+43:                                 <h3>Mål:</h3>
+44:                                 <h6>Carport: <%= request.getSession().getAttribute("CarportLength"), request.getSession().setAttribute("CarportWidth")%></h6>
+45:                                 <h6>Skur:</h6>
+46:                                 <h6>Gulv:</h6>
+47:                                 <h6>Tag:</h6>
+
+
+Stacktrace:

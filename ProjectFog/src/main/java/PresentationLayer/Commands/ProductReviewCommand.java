@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Michael
+ * @author Michael & Christian
  */
 public class ProductReviewCommand implements Command {
 
