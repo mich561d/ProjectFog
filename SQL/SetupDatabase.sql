@@ -71,43 +71,6 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `ProjectFogDatabase`.`paymentInformation`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `ProjectFogDatabase`.`paymentInformation` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `cardNumber` VARCHAR(45) NOT NULL,
-  `expireDate` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `ProjectFogDatabase`.`address`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `ProjectFogDatabase`.`address` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `city` VARCHAR(45) NOT NULL,
-  `zip` VARCHAR(45) NOT NULL,
-  `street` VARCHAR(45) NOT NULL,
-  `number` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `ProjectFogDatabase`.`user`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `ProjectFogDatabase`.`user` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `email` VARCHAR(45) NOT NULL,
-  `password` VARCHAR(45) NOT NULL,
-  `saltValue` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE INDEX `email_UNIQUE` (`email` ASC))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
 -- Table `ProjectFogDatabase`.`customer`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `ProjectFogDatabase`.`customer` (
@@ -115,28 +78,7 @@ CREATE TABLE IF NOT EXISTS `ProjectFogDatabase`.`customer` (
   `firstName` VARCHAR(45) NOT NULL,
   `lastName` VARCHAR(45) NOT NULL,
   `phone` VARCHAR(45) NOT NULL,
-  `paymentID` INT NOT NULL,
-  `addressID` INT NOT NULL,
-  `userID` INT NOT NULL,
-  PRIMARY KEY (`id`),
-  INDEX `customerPaymentInfo_idx` (`paymentID` ASC),
-  INDEX `customerAddressInfo_idx` (`addressID` ASC),
-  INDEX `customerUserInfo_idx` (`userID` ASC),
-  CONSTRAINT `customerPaymentInfo`
-    FOREIGN KEY (`paymentID`)
-    REFERENCES `ProjectFogDatabase`.`paymentInformation` (`id`)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE,
-  CONSTRAINT `customerAddressInfo`
-    FOREIGN KEY (`addressID`)
-    REFERENCES `ProjectFogDatabase`.`address` (`id`)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE,
-  CONSTRAINT `customerUserInfo`
-    FOREIGN KEY (`userID`)
-    REFERENCES `ProjectFogDatabase`.`user` (`id`)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE)
+  PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
 
@@ -176,19 +118,77 @@ CREATE TABLE IF NOT EXISTS `ProjectFogDatabase`.`employee` (
   `phone` VARCHAR(45) NOT NULL,
   `workPhone` VARCHAR(45) NULL,
   `role` VARCHAR(45) NOT NULL,
-  `addressID` INT NOT NULL,
-  `userID` INT NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `ProjectFogDatabase`.`address`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `ProjectFogDatabase`.`address` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `street` VARCHAR(45) NOT NULL,
+  `number` VARCHAR(45) NOT NULL,
+  `city` VARCHAR(45) NOT NULL,
+  `zip` VARCHAR(45) NOT NULL,
+  `customerID` INT NULL,
+  `employeeID` INT NULL,
   PRIMARY KEY (`id`),
-  INDEX `employeeAddressInfo_idx` (`addressID` ASC),
-  INDEX `employeeUserInfo_idx` (`userID` ASC),
-  CONSTRAINT `employeeAddressInfo`
-    FOREIGN KEY (`addressID`)
-    REFERENCES `ProjectFogDatabase`.`address` (`id`)
+  INDEX `Customer_Has_Address_idx` (`customerID` ASC),
+  INDEX `Employee_Has_Address_idx` (`employeeID` ASC),
+  CONSTRAINT `Customer_Has_Address`
+    FOREIGN KEY (`customerID`)
+    REFERENCES `ProjectFogDatabase`.`customer` (`id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE,
-  CONSTRAINT `employeeUserInfo`
-    FOREIGN KEY (`userID`)
-    REFERENCES `ProjectFogDatabase`.`user` (`id`)
+  CONSTRAINT `Employee_Has_Address`
+    FOREIGN KEY (`employeeID`)
+    REFERENCES `ProjectFogDatabase`.`employee` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `ProjectFogDatabase`.`paymentInformation`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `ProjectFogDatabase`.`paymentInformation` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `cardNumber` VARCHAR(45) NOT NULL,
+  `expireDate` VARCHAR(45) NOT NULL,
+  `customerID` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `Customer_Has_PaymentInformation_idx` (`customerID` ASC),
+  CONSTRAINT `Customer_Has_PaymentInformation`
+    FOREIGN KEY (`customerID`)
+    REFERENCES `ProjectFogDatabase`.`customer` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `ProjectFogDatabase`.`user`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `ProjectFogDatabase`.`user` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `email` VARCHAR(45) NOT NULL,
+  `password` VARCHAR(45) NOT NULL,
+  `saltValue` VARCHAR(45) NOT NULL,
+  `customerID` INT NULL,
+  `employeeID` INT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `email_UNIQUE` (`email` ASC),
+  INDEX `Customer_Has_User_idx` (`customerID` ASC),
+  INDEX `Employee_Has_User_idx` (`employeeID` ASC),
+  CONSTRAINT `Customer_Has_User`
+    FOREIGN KEY (`customerID`)
+    REFERENCES `ProjectFogDatabase`.`customer` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `Employee_Has_User`
+    FOREIGN KEY (`employeeID`)
+    REFERENCES `ProjectFogDatabase`.`employee` (`id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB;

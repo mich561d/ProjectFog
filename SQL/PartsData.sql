@@ -59,5 +59,5 @@ INSERT INTO `part` (`type`, `material`, `size`, `description`, `price`, `brand`)
 ('Stalddørsgreb', 'Galvvaniseret Stål', '19-50mm', 'Stalddørsgreb i galvvaniseret stål til hængelås.', '189', 'FOG'),
 ('T-hængsel', 'Galvvaniseret Stål', '390mm', 'Hængsel til stalddør, havelåger og lignende.', '109', 'FOG'),
 ('Vinkelbeslag', 'Stål', '35mm', 'Vinkelbeslag til montering af løsholter.', '24.95', 'Paslode'),
-('Sort gummiflise', 'gummi', '500x500x30mm', 'Gummifliser til gulv i redskebsskur. Rød', '135', 'Rias'),
-('Rød gummiflise', 'gummi', '500x500x30mm', 'Gummifliser til gulv i redskebsskur. Sort', '135', 'Rias');
+('Sort gummiflise', 'Gummi', '500x500x30mm', 'Gummifliser til gulv i redskebsskur. Rød', '135', 'Rias'),
+('Rød gummiflise', 'Gummi', '500x500x30mm', 'Gummifliser til gulv i redskebsskur. Sort', '135', 'Rias');
