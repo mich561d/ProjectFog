@@ -15,13 +15,13 @@ public class ShedFloorCalculator {
 
     public ArrayList<Part> calcFloor(int shedLength, int shedWidth, ArrayList<Part> parts) throws FogException {
         this.parts = parts;
-        calcShedFloor(shedLength, shedWidth);
+        calcShedFloor(shedLength, shedWidth, "Sort");
         return parts;
     }
 
-    private void calcShedFloor(int shedLength, int shedWidth) throws FogException {
+    private void calcShedFloor(int shedLength, int shedWidth, String color) throws FogException {
         int shedFloorArea = (int) Math.ceil((shedLength * shedWidth) / 10000);
-        addPartToList(shedFloorArea, "Sort gummiflise", "Gummi", "500x500x30mm");
+        addPartToList(shedFloorArea, color + "gummiflise", "Gummi", "500x500x30mm");
 
     }
 
