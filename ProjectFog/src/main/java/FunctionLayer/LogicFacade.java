@@ -74,26 +74,22 @@ public class LogicFacade {
         return PasswordComparator.checkPasswords(pass1, pass2);
     }
 
-    public static int createAddress(String city, String zip, String street, String number) throws RegisterException {
-        return DatabaseFacade.createAddress(city, zip, street, number);
+    public static int createAddress(String city, String zip, String street, String number, int id, boolean customer) throws RegisterException {
+        return DatabaseFacade.createAddress(city, zip, street, number, id, customer);
     }
 
-    public static int createPaymentInformation(String cardNumber, String ExpireDate) throws RegisterException {
-        return DatabaseFacade.createPaymentInformation(cardNumber, ExpireDate);
+    public static int createPaymentInformation(String cardNumber, String ExpireDate, int customerID) throws RegisterException {
+        return DatabaseFacade.createPaymentInformation(cardNumber, ExpireDate, customerID);
     }
 
-    public static int createUser(String email, String password) throws RegisterException, FogException {
+    public static int createUser(String email, String password, int id, boolean customer) throws RegisterException, FogException {
         String salt = Hashing.getRandomSaltString(0);
         String hashedPassword = Hashing.hashPassword(password.concat(salt));
-        return DatabaseFacade.createUser(email, hashedPassword, salt);
+        return DatabaseFacade.createUser(email, hashedPassword, salt, id, customer);
     }
 
-    public static int createCustomer(String firstName, String lastName, String phone, int paymentID, int addressID, int userID) throws RegisterException, FogException {
-        return DatabaseFacade.createCustomer(firstName, lastName, phone, paymentID, addressID, userID);
-    }
-
-    public static Customer getCustomerByUserID(int id) throws FogException {
-        return DatabaseFacade.getCustomerByUserID(id);
+    public static int createCustomer(String firstName, String lastName, String phone) throws RegisterException, FogException {
+        return DatabaseFacade.createCustomer(firstName, lastName, phone);
     }
 
     public static Customer getCustomerByID(int id) throws FogException {

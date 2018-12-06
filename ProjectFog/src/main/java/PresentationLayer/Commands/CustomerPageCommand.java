@@ -28,9 +28,9 @@ public class CustomerPageCommand implements Command {
             throw new FogException("Der skete en fejl!.. Prøv at logge ind igen!", Level.INFO);
         }
         Customer customer = LogicFacade.getCustomerByID((int) request.getSession().getAttribute("CustomerID"));
-        Address address = LogicFacade.getAddressByID(customer.getAddressID());
-        PaymentInformation payment = LogicFacade.getPaymentInformationByID(customer.getPaymentID());
-        User user = LogicFacade.getUserByID(customer.getUserID());
+        Address address = LogicFacade.getAddressByID(customer.getId());
+        PaymentInformation payment = LogicFacade.getPaymentInformationByID(customer.getId());
+        User user = LogicFacade.getUserByID(customer.getId());
         request.getSession().setAttribute("Customer", customer);
         request.getSession().setAttribute("Address", address);
         request.getSession().setAttribute("Payment", payment);

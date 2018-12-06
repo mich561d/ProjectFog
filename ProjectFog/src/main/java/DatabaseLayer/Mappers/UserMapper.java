@@ -46,7 +46,13 @@ public class UserMapper {
             ps.setString(2, password);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                return rs.getInt("id");
+                int customerID = rs.getInt("customerID");
+                int employeeID = rs.getInt("employeeID");
+                if (customerID > 0) {
+                    return customerID;
+                } else {
+                    return employeeID;
+                }
             } else {
                 throw new LoginException("Could not validate user", Level.INFO);
             }
@@ -73,14 +79,21 @@ public class UserMapper {
         }
     }
 
-    public static int createUser(String email, String hashedPassword, String salt) throws RegisterException {
+    public static int createUser(String email, String hashedPassword, String salt, int id, boolean customer) throws RegisterException {
         try {
             Connection con = DatabaseConnector.connection();
-            String SQL = "INSERT INTO user(email, password, saltValue) VALUES (?, ?, ?)";
+            String SQL = "INSERT INTO user(email, password, saltValue, customerID, employeeID) VALUES (?, ?, ?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, email);
             ps.setString(2, hashedPassword);
             ps.setString(3, salt);
+            if (customer) {
+                ps.setInt(4, id);
+                ps.setInt(5, 0);
+            } else {
+                ps.setInt(4, 0);
+                ps.setInt(5, id);
+            }
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
             rs.next();
@@ -101,7 +114,9 @@ public class UserMapper {
                 String email = rs.getString("email");
                 String hashedPassword = rs.getString("password");
                 String saltValue = rs.getString("saltValue");
-                User user = new User(id, email, hashedPassword, saltValue);
+                int customerID = rs.getInt("customerID");
+                int employeeID = rs.getInt("employeeID");
+                User user = new User(id, email, hashedPassword, saltValue, customerID, employeeID);
                 return user;
             } else {
                 throw new FogException("webbrugeren med id'et " + id + ", findes ikke!", Level.WARNING);

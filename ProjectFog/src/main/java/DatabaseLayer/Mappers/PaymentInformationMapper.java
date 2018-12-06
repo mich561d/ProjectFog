@@ -17,57 +17,38 @@ import java.util.logging.Level;
  */
 public class PaymentInformationMapper {
 
-    public static int getPaymentInformation(String cardNumber) throws RegisterException {
+    public static int createPaymentInformation(String cardNumber, String expireDate, int customerID) throws RegisterException {
         try {
             Connection con = DatabaseConnector.connection();
-            String SQL = "SELECT * FROM paymentInformation WHERE cardNumber = ?";
+            String SQL = "INSERT INTO paymentInformation(cardNumber, expireDate, customerID) VALUES (?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, cardNumber);
-            ResultSet rs = ps.executeQuery();
-            if (rs.next()) {
-                return rs.getInt(1);
-            } else {
-                throw new RegisterException("PaymentInformation is not stored!");
-            }
+            ps.setString(2, expireDate);
+            ps.setInt(3, customerID);
+            ps.executeUpdate();
+            ResultSet rs = ps.getGeneratedKeys();
+            rs.next();
+            return rs.getInt(1);
         } catch (ClassNotFoundException | SQLException ex) {
             throw new RegisterException(ex.getMessage(), Level.SEVERE);
         }
     }
 
-    public static int createPaymentInformation(String cardNumber, String expireDate) throws RegisterException {
-        try {
-            return getPaymentInformation(cardNumber);
-        } catch (RegisterException e) {
-            try {
-                Connection con = DatabaseConnector.connection();
-                String SQL = "INSERT INTO paymentInformation(cardNumber, expireDate) VALUES (?, ?)";
-                PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
-                ps.setString(1, cardNumber);
-                ps.setString(2, expireDate);
-                ps.executeUpdate();
-                ResultSet rs = ps.getGeneratedKeys();
-                rs.next();
-                return rs.getInt(1);
-            } catch (ClassNotFoundException | SQLException ex) {
-                throw new RegisterException(ex.getMessage(), Level.SEVERE);
-            }
-        }
-    }
-
-    public static PaymentInformation getPaymentInformationByID(int id) throws FogException {
+    public static PaymentInformation getPaymentInformationByID(int customerID) throws FogException {
         try {
             Connection con = DatabaseConnector.connection();
-            String SQL = "SELECT * FROM paymentInformation WHERE id = ?";
+            String SQL = "SELECT * FROM paymentInformation WHERE customerID = ?";
             PreparedStatement ps = con.prepareStatement(SQL);
-            ps.setInt(1, id);
+            ps.setInt(1, customerID);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
+                int id = rs.getInt("id");
                 String cardNumber = rs.getString("cardNumber");
                 String expireDate = rs.getString("expireDate");
-                PaymentInformation payment = new PaymentInformation(id, cardNumber, expireDate);
+                PaymentInformation payment = new PaymentInformation(id, cardNumber, expireDate, customerID);
                 return payment;
             } else {
-                throw new FogException("kortet med id'et " + id + ", findes ikke!", Level.WARNING);
+                throw new FogException("kortet med kunde id'et " + customerID + ", findes ikke!", Level.WARNING);
             }
         } catch (SQLException | ClassNotFoundException ex) {
             throw new FogException(ex.getMessage(), Level.SEVERE);

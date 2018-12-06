@@ -33,24 +33,20 @@ public class DatabaseFacade {
         return UserMapper.doEmailExist(email);
     }
 
-    public static int createAddress(String city, String zip, String street, String number) throws RegisterException {
-        return AddressMapper.createAddress(city, zip, street, number);
+    public static int createAddress(String city, String zip, String street, String number, int id, boolean customer) throws RegisterException {
+        return AddressMapper.createAddress(city, zip, street, number, id, customer);
     }
 
-    public static int createPaymentInformation(String cardNumber, String expireDate) throws RegisterException {
-        return PaymentInformationMapper.createPaymentInformation(cardNumber, expireDate);
+    public static int createPaymentInformation(String cardNumber, String expireDate, int customerID) throws RegisterException {
+        return PaymentInformationMapper.createPaymentInformation(cardNumber, expireDate, customerID);
     }
 
-    public static int createUser(String email, String hashedPassword, String salt) throws RegisterException {
-        return UserMapper.createUser(email, hashedPassword, salt);
+    public static int createUser(String email, String hashedPassword, String salt, int id, boolean customer) throws RegisterException {
+        return UserMapper.createUser(email, hashedPassword, salt, id, customer);
     }
 
-    public static int createCustomer(String firstName, String lastName, String phone, int paymentID, int addressID, int userID) throws RegisterException, FogException {
-        return CustomerMapper.createCustomer(firstName, lastName, phone, paymentID, addressID, userID);
-    }
-
-    public static Customer getCustomerByUserID(int id) throws FogException {
-        return CustomerMapper.getCustomerByUserID(id);
+    public static int createCustomer(String firstName, String lastName, String phone) throws RegisterException, FogException {
+        return CustomerMapper.createCustomer(firstName, lastName, phone);
     }
 
     public static Customer getCustomerByID(int id) throws FogException {
@@ -58,7 +54,7 @@ public class DatabaseFacade {
     }
 
     public static Address getAddressByID(int id) throws FogException {
-        return AddressMapper.getAddressByID(id);
+        return AddressMapper.getAddressByCustomerID(id);
     }
 
     public static PaymentInformation getPaymentInformationByID(int id) throws FogException {
@@ -68,7 +64,7 @@ public class DatabaseFacade {
     public static User getUserByID(int id) throws FogException {
         return UserMapper.getUserByID(id);
     }
-    
+
     public static ArrayList<Part> getAllRoofBricksAsList() throws FogException {
         return PartMapper.getAllRoofBricksAsList();
     }
