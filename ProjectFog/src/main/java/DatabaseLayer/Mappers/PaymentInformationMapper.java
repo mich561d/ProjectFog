@@ -55,33 +55,27 @@ public class PaymentInformationMapper {
         }
     }
 
-    public static int updateCardNumber(int customerID, String cardNumber) throws RegisterException {
+    public static void updateCardNumber(int customerID, String cardNumber) throws RegisterException {
         try {
             Connection con = DatabaseConnector.connection();
             String SQL = "UPDATE `paymentInformation` SET `cardNumber` = ? WHERE `customerID` = ?";
-            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement ps = con.prepareStatement(SQL);
             ps.setString(1, cardNumber);
             ps.setInt(2, customerID);
             ps.executeUpdate();
-            ResultSet rs = ps.getGeneratedKeys();
-            rs.next();
-            return rs.getInt(1);
         } catch (ClassNotFoundException | SQLException ex) {
             throw new RegisterException(ex.getMessage(), Level.SEVERE);
         }
     }
 
-    public static int updateExpireDate(int customerID, String expireDate) throws RegisterException {
+    public static void updateExpireDate(int customerID, String expireDate) throws RegisterException {
         try {
             Connection con = DatabaseConnector.connection();
             String SQL = "UPDATE `paymentInformation` SET `cardExpireDate` = ? WHERE `customerID` = ?";
-            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement ps = con.prepareStatement(SQL);
             ps.setString(1, expireDate);
             ps.setInt(2, customerID);
             ps.executeUpdate();
-            ResultSet rs = ps.getGeneratedKeys();
-            rs.next();
-            return rs.getInt(1);
         } catch (ClassNotFoundException | SQLException ex) {
             throw new RegisterException(ex.getMessage(), Level.SEVERE);
         }

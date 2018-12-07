@@ -117,39 +117,39 @@ public class LogicFacade {
         return DatabaseFacade.getEmployeeByID(id);
     }
 
-    public static int updateCardNumber(int id, String cardNumber) throws RegisterException {
-        return DatabaseFacade.updateCardNumber(id, cardNumber);
+    public static void updateCardNumber(int id, String cardNumber) throws RegisterException {
+        DatabaseFacade.updateCardNumber(id, cardNumber);
     }
 
-    public static int updateExpireDate(int id, String expireDate) throws RegisterException {
-        return DatabaseFacade.updateExpireDate(id, expireDate);
+    public static void updateExpireDate(int id, String expireDate) throws RegisterException {
+        DatabaseFacade.updateExpireDate(id, expireDate);
     }
 
-    public static int updateCity(int customerID, String city) throws RegisterException {
-        return DatabaseFacade.updateCity(customerID, city);
+    public static void updateCity(int customerID, String city) throws RegisterException {
+        DatabaseFacade.updateCity(customerID, city);
     }
 
-    public static int updateZip(int customerID, String zip) throws RegisterException {
-        return DatabaseFacade.updateZip(customerID, zip);
+    public static void updateZip(int customerID, String zip) throws RegisterException {
+        DatabaseFacade.updateZip(customerID, zip);
     }
 
-    public static int updateStreet(int customerID, String street) throws RegisterException {
-        return DatabaseFacade.updateStreet(customerID, street);
+    public static void updateStreet(int customerID, String street) throws RegisterException {
+        DatabaseFacade.updateStreet(customerID, street);
     }
 
-    public static int updateNumber(int customerID, String number) throws RegisterException {
-        return DatabaseFacade.updateNumber(customerID, number);
+    public static void updateNumber(int customerID, String number) throws RegisterException {
+        DatabaseFacade.updateNumber(customerID, number);
     }
 
-    public static int updateFirstName(int id, String firstName) throws RegisterException {
-        return DatabaseFacade.updateFirstName(id, firstName);
+    public static void updateFirstName(int id, String firstName) throws RegisterException {
+        DatabaseFacade.updateFirstName(id, firstName);
     }
 
-    public static int updateLastName(int id, String lastName) throws RegisterException {
-        return DatabaseFacade.updateLastName(id, lastName);
+    public static void updateLastName(int id, String lastName) throws RegisterException {
+        DatabaseFacade.updateLastName(id, lastName);
     }
 
-    public static int updatePhone(int id, String phone) throws RegisterException {
-        return DatabaseFacade.updatePhone(id, phone);
+    public static void updatePhone(int id, String phone) throws RegisterException {
+        DatabaseFacade.updatePhone(id, phone);
     }
 }

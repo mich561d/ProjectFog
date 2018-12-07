@@ -615,3 +615,15 @@ Syntax error, insert "}" to complete ClassBody
 Stacktrace:
 dec. 07, 2018 11:01:10 AM FunctionLayer.Logging.Logging write
 INFO: Der skete en fejl!.. Prøv at logge ind igen!
+dec. 07, 2018 11:47:41 AM FunctionLayer.Logging.Logging write
+OFF: 404 - Page not found!
+dec. 07, 2018 11:49:28 AM FunctionLayer.Logging.Logging write
+OFF: 404 - Page not found!
+dec. 07, 2018 11:51:39 AM FunctionLayer.Logging.Logging write
+SEVERE: Illegal operation on empty result set.
+dec. 07, 2018 11:52:16 AM FunctionLayer.Logging.Logging write
+SEVERE: Illegal operation on empty result set.
+dec. 07, 2018 12:03:31 PM FunctionLayer.Logging.Logging write
+SEVERE: Illegal operation on empty result set.
+dec. 07, 2018 12:06:28 PM FunctionLayer.Logging.Logging write
+SEVERE: Illegal operation on empty result set.
