@@ -4,7 +4,7 @@ import FunctionLayer.Exceptions.FogException;
 
 /**
  *
- * @author Michael
+ * @author Michael & Christian
  */
 public class SaltAndHashGenerator {
 

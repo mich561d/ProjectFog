@@ -613,3 +613,5 @@ An error occurred at line: [422] in the generated java file: [C:\Users\ryger\App
 Syntax error, insert "}" to complete ClassBody
 
 Stacktrace:
+dec. 07, 2018 11:01:10 AM FunctionLayer.Logging.Logging write
+INFO: Der skete en fejl!.. Prøv at logge ind igen!

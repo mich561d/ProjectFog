@@ -5,7 +5,7 @@ import static FunctionLayer.Calculation.Rules.*;
 
 /**
  *
- * @author Michael
+ * @author Michael & Christian
  */
 public class UtilCarportDrawing {
 

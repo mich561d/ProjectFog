@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 
 /**
  *
- * @author Michael
+ * @author Michael & Christian
  */
 public abstract class CommandController {
 

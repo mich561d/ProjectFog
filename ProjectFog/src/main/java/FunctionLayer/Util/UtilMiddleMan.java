@@ -2,7 +2,7 @@ package FunctionLayer.Util;
 
 /**
  *
- * @author Michael
+ * @author Michael & Christian
  */
 public class UtilMiddleMan {
 

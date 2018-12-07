@@ -19,7 +19,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Michael
+ * @author Michael & Christian
  */
 public class CustomerTest {
 /*

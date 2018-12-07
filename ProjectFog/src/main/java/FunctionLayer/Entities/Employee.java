@@ -2,7 +2,7 @@ package FunctionLayer.Entities;
 
 /**
  *
- * @author Michael
+ * @author Michael & Christian
  */
 public class Employee {
 

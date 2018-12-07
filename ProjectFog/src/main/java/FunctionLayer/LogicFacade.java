@@ -17,7 +17,7 @@ import java.util.HashMap;
 
 /**
  *
- * @author Michael
+ * @author Michael & Christian
  */
 public class LogicFacade {
 

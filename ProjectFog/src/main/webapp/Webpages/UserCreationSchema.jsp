@@ -1,7 +1,7 @@
 <%-- 
     Document   : UserCreationSchema
     Created on : 04-12-2018, 11:19:41
-    Author     : Michael
+    Author     : Michael & Christian
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

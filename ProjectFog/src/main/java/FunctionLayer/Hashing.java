@@ -10,7 +10,7 @@ import javax.xml.bind.DatatypeConverter;
 
 /**
  *
- * @author Michael
+ * @author Michael & Christian
  */
 public class Hashing {
 

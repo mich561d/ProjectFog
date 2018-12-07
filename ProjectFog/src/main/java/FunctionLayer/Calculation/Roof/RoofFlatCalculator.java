@@ -10,7 +10,7 @@ import FunctionLayer.ListToMap;
 
 /**
  *
- * @author Michael
+ * @author Michael & Christian
  */
 public class RoofFlatCalculator {
 

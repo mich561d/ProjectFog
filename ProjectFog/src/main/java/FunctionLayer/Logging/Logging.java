@@ -15,7 +15,7 @@ import java.util.logging.SimpleFormatter;
 
 /**
  *
- * @author adamlass
+ * @author Michael  & Christian
  */
 public class Logging {
 

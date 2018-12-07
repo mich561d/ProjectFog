@@ -1,7 +1,7 @@
 <%-- 
     Document   : Footer
     Created on : 27-11-2018, 22:26:05
-    Author     : Michael
+    Author     : Michael & Christian
 --%>
 
 <div class="container">

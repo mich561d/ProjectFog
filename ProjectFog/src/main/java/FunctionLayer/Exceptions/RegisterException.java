@@ -4,7 +4,7 @@ import java.util.logging.Level;
 
 /**
  *
- * @author Michael
+ * @author Michael & Christian
  */
 public class RegisterException extends Exception {
 

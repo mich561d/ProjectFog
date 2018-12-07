@@ -1,7 +1,7 @@
 <%-- 
     Document   : NavBar
     Created on : 27-11-2018, 09:22:50
-    Author     : Michael
+    Author     : Michael & Christian
 --%>
 
 <div class="container">

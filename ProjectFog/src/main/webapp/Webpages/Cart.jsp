@@ -1,7 +1,7 @@
 <%-- 
     Document   : Cart
     Created on : 16-11-2018, 10:17:23
-    Author     : Christian
+    Author     : Christian & Michael
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

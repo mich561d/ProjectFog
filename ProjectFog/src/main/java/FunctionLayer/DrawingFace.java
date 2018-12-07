@@ -2,7 +2,7 @@ package FunctionLayer;
 
 /**
  *
- * @author Michael
+ * @author Michael & Christian
  */
 public enum DrawingFace {
     ABOVE, ASIDE, FRONT

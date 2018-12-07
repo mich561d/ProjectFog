@@ -11,7 +11,7 @@ import FunctionLayer.Util.UtilMiddleMan;
 
 /**
  *
- * @author Michael
+ * @author Michael & Christian
  */
 public class RoofAngledCalculator {
 

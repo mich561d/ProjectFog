@@ -1,17 +1,13 @@
 package FunctionLayer;
 
 import FunctionLayer.Exceptions.FogException;
-import FunctionLayer.Calculation.Base.BasePoleCalculator;
-import FunctionLayer.Calculation.Base.BaseRaftCalculator;
 import FunctionLayer.Calculation.CarportCalculator;
-import FunctionLayer.Entities.Part;
-import java.util.ArrayList;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
  *
- * @author Michael
+ * @author Michael & Christian
  */
 public class FullCarportCalculatorTest {
 

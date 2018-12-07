@@ -2,7 +2,7 @@ package DatabaseLayer.Mappers;
 
 /**
  *
- * @author Michael
+ * @author Michael & Christian
  */
 public class OrderMapper {
 

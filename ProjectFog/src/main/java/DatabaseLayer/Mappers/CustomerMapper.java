@@ -13,7 +13,7 @@ import java.util.logging.Level;
 
 /**
  *
- * @author Michael
+ * @author Michael & Christian
  */
 public class CustomerMapper {
 

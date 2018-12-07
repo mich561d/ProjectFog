@@ -4,7 +4,7 @@ import FunctionLayer.Exceptions.RegisterException;
 
 /**
  *
- * @author Michael
+ * @author Michael & Christian
  */
 public class PasswordComparator {
 

@@ -13,7 +13,7 @@ import java.util.logging.Level;
 
 /**
  *
- * @author Michael
+ * @author Michael & Christian
  */
 public class PaymentInformationMapper {
 
@@ -52,6 +52,23 @@ public class PaymentInformationMapper {
             }
         } catch (SQLException | ClassNotFoundException ex) {
             throw new FogException(ex.getMessage(), Level.SEVERE);
+        }
+    }
+
+    public static int updatePaymentInformationByID(int customerID, String cardNumber, String expireDate) throws FogException, RegisterException {
+        try {
+            Connection con = DatabaseConnector.connection();
+            String SQL = "UPDATE `paymentInformation` SET `cardNumber` = ?, `cardExpireDate` = ? WHERE `customerID` = ?";
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            ps.setString(1, cardNumber);
+            ps.setString(2, expireDate);
+            ps.setInt(3, customerID);
+            ps.executeUpdate();
+            ResultSet rs = ps.getGeneratedKeys();
+            rs.next();
+            return rs.getInt(1);
+        } catch (ClassNotFoundException | SQLException ex) {
+            throw new RegisterException(ex.getMessage(), Level.SEVERE);
         }
     }
 }

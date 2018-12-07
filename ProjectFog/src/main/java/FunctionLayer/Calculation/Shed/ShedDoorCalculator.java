@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Christian
+ * @author Christian & Michael
  */
 public class ShedDoorCalculator {
 
