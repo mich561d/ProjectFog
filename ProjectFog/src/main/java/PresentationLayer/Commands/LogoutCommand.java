@@ -12,7 +12,8 @@ public class LogoutCommand implements Command {
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
-        request.getSession().setAttribute("UserID", null);
+        request.getSession().setAttribute("CustomerID", null);
+        request.getSession().setAttribute("EmployeeID", null);
         return "index";
     }
 
