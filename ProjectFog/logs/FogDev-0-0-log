@@ -627,3 +627,18 @@ dec. 07, 2018 12:03:31 PM FunctionLayer.Logging.Logging write
 SEVERE: Illegal operation on empty result set.
 dec. 07, 2018 12:06:28 PM FunctionLayer.Logging.Logging write
 SEVERE: Illegal operation on empty result set.
+dec. 07, 2018 12:13:26 PM FunctionLayer.Logging.Logging write
+SEVERE: Unknown column 'cardExpireDate' in 'field list'
+dec. 07, 2018 12:19:38 PM FunctionLayer.Logging.Logging write
+WARNING: An exception occurred processing JSP page /Webpages/CustomerPage.jsp at line 66
+
+63:                                         </thead>
+64:                                         <tbody>
+65:                                             <tr>
+66:                                                 <td><%=customer.getFirstName()%></td>
+67:                                                 <td><%=customer.getLastName()%></td>
+68:                                                 <td><%=customer.getPhone()%></td>
+69:                                                 <td><%=user.getEmail()%></td>
+
+
+Stacktrace:

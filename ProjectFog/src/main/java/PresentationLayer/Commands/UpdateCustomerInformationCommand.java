@@ -29,44 +29,55 @@ public class UpdateCustomerInformationCommand implements Command {
         // Change data in database
         Customer customer = LogicFacade.getCustomerByID(Integer.parseInt(request.getSession().getAttribute("CustomerID").toString()));
         int id = customer.getId();
-        boolean updated = false;
+        boolean updatedCustomer = false;
         if (needsChange(firstName)) {
             LogicFacade.updateFirstName(id, firstName);
-            updated = true;
+            updatedCustomer = true;
         }
         if (needsChange(lastName)) {
             LogicFacade.updateLastName(id, lastName);
-            updated = true;
+            updatedCustomer = true;
         }
         if (needsChange(phone)) {
             LogicFacade.updatePhone(id, phone);
-            updated = true;
+            updatedCustomer = true;
         }
+        boolean updatedAddress = false;
         if (needsChange(city)) {
             LogicFacade.updateCity(id, city);
-            updated = true;
+            updatedAddress = true;
         }
         if (needsChange(zip)) {
             LogicFacade.updateZip(id, zip);
-            updated = true;
+            updatedAddress = true;
         }
         if (needsChange(street)) {
             LogicFacade.updateStreet(id, street);
-            updated = true;
+            updatedAddress = true;
         }
         if (needsChange(number)) {
             LogicFacade.updateNumber(id, number);
-            updated = true;
+            updatedAddress = true;
         }
+        boolean updatedPaymentInformation = false;
         if (needsChange(cardNumber)) {
             LogicFacade.updateCardNumber(id, cardNumber);
-            updated = true;
+            updatedPaymentInformation = true;
         }
         if (needsChange(cardExpireDate)) {
             LogicFacade.updateExpireDate(id, cardExpireDate);
-            updated = true;
+            updatedPaymentInformation = true;
         }
-        if (updated) {
+        if (updatedCustomer) {
+            request.getSession().setAttribute("Customer", LogicFacade.getCustomerByID(id));
+        }
+        if (updatedAddress) {
+            request.getSession().setAttribute("Address", LogicFacade.getAddressByID(id));
+        }
+        if (updatedPaymentInformation) {
+            request.getSession().setAttribute("Payment", LogicFacade.getPaymentInformationByID(id));
+        }
+        if (updatedCustomer || updatedAddress || updatedPaymentInformation) {
             request.getSession().setAttribute("Updated", true);
         }
         return "CustomerPage";
