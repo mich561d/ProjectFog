@@ -440,3 +440,176 @@ The method setAttribute(String, Object) in the type HttpSession is not applicabl
 
 
 Stacktrace:
+dec. 07, 2018 9:48:48 AM FunctionLayer.Logging.Logging write
+WARNING: An exception occurred processing JSP page /Webpages/ProductReview.jsp at line 48
+
+45:                                 <%if ((boolean)request.getSession().getAttribute("Shed")) { %>
+46:                                 <h6>Skur:</h6>
+47:                                 <%}%>
+48:                                 <%if ((boolean)request.getSession().getAttribute("Floor")) { %>
+49:                                 <h6>Gulv:</h6>
+50:                                 <%}%>
+51:                                 <h6>Tag: <%= request.getParameter("angledRoof")%></h6>
+
+
+Stacktrace:
+dec. 07, 2018 10:06:23 AM FunctionLayer.Logging.Logging write
+WARNING: Unable to compile class for JSP: 
+
+An error occurred at line: 46 in the jsp file: /Webpages/ProductReview.jsp
+Syntax error, insert ";" to complete Statement
+43:                                 <h3>Dine valgte mål:</h3>
+44:                                 <h6>Carport: <%= request.getSession().getAttribute("CarportLength")%>x<%= request.getSession().getAttribute("CarportWidth")%>x<%= request.getSession().getAttribute("CarportHeight")%>mm</h6>
+45:                                 <%if ((boolean) request.getSession().getAttribute("Shed")) { %>
+46:                                 <h6>Skur: <%= request.getSession().getAttribute("ShedLength")%>x<%request.getSession().getAttribute("ShedWidth")%></h6>
+47:                                 <%}%>
+48:                                 <%if (request.getSession().getAttribute("Floor") != null) {
+49:                                         if ((boolean) request.getSession().getAttribute("Floor")) { %>
+
+
+Stacktrace:
+dec. 07, 2018 10:08:54 AM FunctionLayer.Logging.Logging write
+WARNING: Unable to compile class for JSP: 
+
+An error occurred at line: 54 in the jsp file: /Webpages/ProductReview.jsp
+The method getParameter(String) is undefined for the type HttpSession
+51:                                 <%}
+52:                                     }%>
+53:                                 <%if (request.getParameter("angledRoof") != null) {%>
+54:                                 <h6>Tag: Tag med rejsning - <%= request.getSession().getParameter("RoofAngle")%></h6>
+55:                                 <h6>Tagmateriale: <%= request.getSession().getAttribute("Roofing")%></h6>
+56:                                 <%} else {%>
+57:                                 <h6>Tag: Fladt tag</h6>
+
+
+Stacktrace:
+dec. 07, 2018 10:16:53 AM FunctionLayer.Logging.Logging write
+WARNING: Unable to compile class for JSP: 
+
+An error occurred at line: 55 in the jsp file: /Webpages/ProductReview.jsp
+customer cannot be resolved
+52:                                         </thead>
+53:                                         <tbody>
+54:                                             <tr>
+55:                                                 <td><%=customer.getFirstName()%></td>
+56:                                                 <td><%=customer.getLastName()%></td>
+57:                                                 <td><%=customer.getPhone()%></td>
+58:                                                 <td><%=user.getEmail()%></td>
+
+
+An error occurred at line: 56 in the jsp file: /Webpages/ProductReview.jsp
+customer cannot be resolved
+53:                                         <tbody>
+54:                                             <tr>
+55:                                                 <td><%=customer.getFirstName()%></td>
+56:                                                 <td><%=customer.getLastName()%></td>
+57:                                                 <td><%=customer.getPhone()%></td>
+58:                                                 <td><%=user.getEmail()%></td>
+59:                                             </tr>
+
+
+An error occurred at line: 57 in the jsp file: /Webpages/ProductReview.jsp
+customer cannot be resolved
+54:                                             <tr>
+55:                                                 <td><%=customer.getFirstName()%></td>
+56:                                                 <td><%=customer.getLastName()%></td>
+57:                                                 <td><%=customer.getPhone()%></td>
+58:                                                 <td><%=user.getEmail()%></td>
+59:                                             </tr>
+60:                                         </tbody>
+
+
+An error occurred at line: 58 in the jsp file: /Webpages/ProductReview.jsp
+user cannot be resolved
+55:                                                 <td><%=customer.getFirstName()%></td>
+56:                                                 <td><%=customer.getLastName()%></td>
+57:                                                 <td><%=customer.getPhone()%></td>
+58:                                                 <td><%=user.getEmail()%></td>
+59:                                             </tr>
+60:                                         </tbody>
+61:                                     </table>
+
+
+An error occurred at line: 74 in the jsp file: /Webpages/ProductReview.jsp
+address cannot be resolved
+71:                                         </thead>
+72:                                         <tbody>
+73:                                             <tr>
+74:                                                 <td><%=address.getCity()%></td>
+75:                                                 <td><%=address.getZip()%></td>
+76:                                                 <td><%=address.getStreet()%></td>
+77:                                                 <td><%=address.getNumber()%></td>
+
+
+An error occurred at line: 75 in the jsp file: /Webpages/ProductReview.jsp
+address cannot be resolved
+72:                                         <tbody>
+73:                                             <tr>
+74:                                                 <td><%=address.getCity()%></td>
+75:                                                 <td><%=address.getZip()%></td>
+76:                                                 <td><%=address.getStreet()%></td>
+77:                                                 <td><%=address.getNumber()%></td>
+78:                                             </tr>
+
+
+An error occurred at line: 76 in the jsp file: /Webpages/ProductReview.jsp
+address cannot be resolved
+73:                                             <tr>
+74:                                                 <td><%=address.getCity()%></td>
+75:                                                 <td><%=address.getZip()%></td>
+76:                                                 <td><%=address.getStreet()%></td>
+77:                                                 <td><%=address.getNumber()%></td>
+78:                                             </tr>
+79:                                         </tbody>
+
+
+An error occurred at line: 77 in the jsp file: /Webpages/ProductReview.jsp
+address cannot be resolved
+74:                                                 <td><%=address.getCity()%></td>
+75:                                                 <td><%=address.getZip()%></td>
+76:                                                 <td><%=address.getStreet()%></td>
+77:                                                 <td><%=address.getNumber()%></td>
+78:                                             </tr>
+79:                                         </tbody>
+80:                                     </table>
+
+
+An error occurred at line: 91 in the jsp file: /Webpages/ProductReview.jsp
+payment cannot be resolved
+88:                                         </thead>
+89:                                         <tbody>
+90:                                             <tr>
+91:                                                 <td><%=payment.getCardNumber()%></td>
+92:                                                 <td><%=payment.getExpireDate()%></td>
+93:                                             </tr>
+94:                                         </tbody>
+
+
+An error occurred at line: 92 in the jsp file: /Webpages/ProductReview.jsp
+payment cannot be resolved
+89:                                         <tbody>
+90:                                             <tr>
+91:                                                 <td><%=payment.getCardNumber()%></td>
+92:                                                 <td><%=payment.getExpireDate()%></td>
+93:                                             </tr>
+94:                                         </tbody>
+95:                                     </table>
+
+
+Stacktrace:
+dec. 07, 2018 10:43:54 AM FunctionLayer.Logging.Logging write
+WARNING: Unable to compile class for JSP: 
+
+An error occurred at line: [404] in the generated java file: [C:\Users\ryger\AppData\Roaming\NetBeans\8.2\apache-tomcat-8.0.27.0_base\work\Catalina\localhost\ProjectFog\org\apache\jsp\Webpages\ProductReview_jsp.java]
+Syntax error, insert "else Statement" to complete IfStatement
+
+An error occurred at line: [404] in the generated java file: [C:\Users\ryger\AppData\Roaming\NetBeans\8.2\apache-tomcat-8.0.27.0_base\work\Catalina\localhost\ProjectFog\org\apache\jsp\Webpages\ProductReview_jsp.java]
+Syntax error, insert "}" to complete Block
+
+An error occurred at line: [421] in the generated java file: [C:\Users\ryger\AppData\Roaming\NetBeans\8.2\apache-tomcat-8.0.27.0_base\work\Catalina\localhost\ProjectFog\org\apache\jsp\Webpages\ProductReview_jsp.java]
+Syntax error on token "}", delete this token
+
+An error occurred at line: [422] in the generated java file: [C:\Users\ryger\AppData\Roaming\NetBeans\8.2\apache-tomcat-8.0.27.0_base\work\Catalina\localhost\ProjectFog\org\apache\jsp\Webpages\ProductReview_jsp.java]
+Syntax error, insert "}" to complete ClassBody
+
+Stacktrace:
