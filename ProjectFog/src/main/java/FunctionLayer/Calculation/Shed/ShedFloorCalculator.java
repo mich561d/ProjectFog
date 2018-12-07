@@ -4,6 +4,7 @@ import DatabaseLayer.DatabaseFacade;
 import FunctionLayer.Entities.Part;
 import FunctionLayer.Exceptions.FogException;
 import java.util.ArrayList;
+import static FunctionLayer.Calculation.Rules.*;
 
 /**
  *
@@ -21,7 +22,8 @@ public class ShedFloorCalculator {
 
     private void calcShedFloor(int shedLength, int shedWidth, String color) throws FogException {
         int shedFloorArea = (int) Math.ceil((shedLength * shedWidth) / 10000);
-        addPartToList(shedFloorArea, color + "gummiflise", "Gummi", "500x500x30mm");
+        addPartToList(shedFloorArea * RUBBER_TILE_PER_SQUARE_METRE, color + " gummiflise", "Gummi", "500x500x30mm");
+       
 
     }
 

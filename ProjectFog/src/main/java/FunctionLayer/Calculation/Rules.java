@@ -43,6 +43,7 @@ public class Rules {
     public static final int INTER_TIES_PER_SIDE = 3;
     public static final int SCREWS_PER_CLADDING_PER_INTER_TIE = 2;
     public static final int CLADDING_SPACING = 150;
+    public static final int RUBBER_TILE_PER_SQUARE_METRE = 4;
     
     public static final double POLE_THICKNESS = 9.7;
     public static final double POLE_DOUBLE_THICKNESS = POLE_THICKNESS * 2;

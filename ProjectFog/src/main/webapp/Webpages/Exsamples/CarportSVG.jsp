@@ -35,6 +35,14 @@
         <!--Endespær-->
         <rect x="25" y="45" height="4.7" width="650" stroke="black" style="fill:white"/>
         <rect x="25" y="750" height="4.7" width="650" stroke="black" style="fill:white"/>
+        <!--Stolper til skur-->
+        <rect x="430" y="249.9" height="9.7" width="9.7" stroke="black" style="fill:white"/>
+        <rect x="430" y="159.9" height="9.7" width="9.7" stroke="black" style="fill:white"/>
+        <!--Skur beklædning-->
+        <line x1="40" y1="40" x2="40" Y2="259.6" stroke-dasharray="10, 10" style="stroke:rgb(0,0,0);stroke-width:2"/>
+        <line x1="40" y1="259.6" x2="439.7" Y2="259.6" stroke-dasharray="10, 10" style="stroke:rgb(0,0,0);stroke-width:2"/>
+        <line x1="40" y1="40" x2="439.7" Y2="40" stroke-dasharray="10, 10" style="stroke:rgb(0,0,0);stroke-width:2"/>
+        <line x1="439.7" y1="40" x2="439.7" Y2="179.9" stroke-dasharray="10, 10" style="stroke:rgb(0,0,0);stroke-width:2"/>
         <!--Midter spær-->
         <rect x="25" y="114.6" height="4.7" width="650" stroke="black" style="fill:white"/>
         <rect x="25" y="184.2" height="4.7" width="650" stroke="black" style="fill:white"/>
