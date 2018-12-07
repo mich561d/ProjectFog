@@ -2,6 +2,7 @@ package PresentationLayer.Commands;
 
 import FunctionLayer.Entities.Customer;
 import FunctionLayer.Exceptions.FogException;
+import FunctionLayer.Exceptions.RegisterException;
 import FunctionLayer.LogicFacade;
 import PresentationLayer.Command;
 import javax.servlet.http.HttpServletRequest;
@@ -14,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 public class UpdateCustomerInformationCommand implements Command {
 
     @Override
-    public String execute(HttpServletRequest request, HttpServletResponse response) throws FogException {
+    public String execute(HttpServletRequest request, HttpServletResponse response) throws FogException, RegisterException {
         // Get Input
         String firstName = request.getParameter("changeFirstName");
         String lastName = request.getParameter("changeLastName");
@@ -26,25 +27,48 @@ public class UpdateCustomerInformationCommand implements Command {
         String cardNumber = request.getParameter("changeCardNumber");
         String cardExpireDate = request.getParameter("changeExpireDate");
         // Change data in database
-        Customer customer = null;
-        if (needsChange(firstName) || needsChange(lastName) || needsChange(phone)) {
-            customer = LogicFacade.getCustomerByID(Integer.parseInt(request.getSession().getAttribute("CustomerID").toString()));
-            // Change customer
+        Customer customer = LogicFacade.getCustomerByID(Integer.parseInt(request.getSession().getAttribute("CustomerID").toString()));
+        int id = customer.getId();
+        boolean updated = false;
+        if (needsChange(firstName)) {
+            LogicFacade.updateFirstName(id, firstName);
+            updated = true;
         }
-        if (needsChange(city) || needsChange(zip) || needsChange(street) || needsChange(number)) {
-            if (customer == null) {
-                customer = LogicFacade.getCustomerByID(Integer.parseInt(request.getSession().getAttribute("CustomerID").toString()));
-            }
-            // Change address
+        if (needsChange(lastName)) {
+            LogicFacade.updateLastName(id, lastName);
+            updated = true;
         }
-        if (needsChange(cardNumber) || needsChange(cardExpireDate)) {
-            if (customer == null) {
-                customer = LogicFacade.getCustomerByID(Integer.parseInt(request.getSession().getAttribute("CustomerID").toString()));
-            }
-            // Change paymentInformation
+        if (needsChange(phone)) {
+            LogicFacade.updatePhone(id, phone);
+            updated = true;
         }
-        // Go on
-        request.getSession().setAttribute("Updated", true);
+        if (needsChange(city)) {
+            LogicFacade.updateCity(id, city);
+            updated = true;
+        }
+        if (needsChange(zip)) {
+            LogicFacade.updateZip(id, zip);
+            updated = true;
+        }
+        if (needsChange(street)) {
+            LogicFacade.updateStreet(id, street);
+            updated = true;
+        }
+        if (needsChange(number)) {
+            LogicFacade.updateNumber(id, number);
+            updated = true;
+        }
+        if (needsChange(cardNumber)) {
+            LogicFacade.updateCardNumber(id, cardNumber);
+            updated = true;
+        }
+        if (needsChange(cardExpireDate)) {
+            LogicFacade.updateExpireDate(id, cardExpireDate);
+            updated = true;
+        }
+        if (updated) {
+            request.getSession().setAttribute("Updated", true);
+        }
         return "CustomerPage";
     }
 

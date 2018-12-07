@@ -54,4 +54,52 @@ public class CustomerMapper {
             throw new FogException(ex.getMessage(), Level.SEVERE);
         }
     }
+
+    public static int updateFirstName(int id, String firstName) throws RegisterException {
+        try {
+            Connection con = DatabaseConnector.connection();
+            String SQL = "UPDATE `customer` SET `firstName` = ? WHERE `id` = ?";
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            ps.setString(1, firstName);
+            ps.setInt(2, id);
+            ps.executeUpdate();
+            ResultSet rs = ps.getGeneratedKeys();
+            rs.next();
+            return rs.getInt(1);
+        } catch (ClassNotFoundException | SQLException ex) {
+            throw new RegisterException(ex.getMessage(), Level.SEVERE);
+        }
+    }
+
+    public static int updateLastName(int id, String lastName) throws RegisterException {
+        try {
+            Connection con = DatabaseConnector.connection();
+            String SQL = "UPDATE `customer` SET `lastName` = ? WHERE `id` = ?";
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            ps.setString(1, lastName);
+            ps.setInt(2, id);
+            ps.executeUpdate();
+            ResultSet rs = ps.getGeneratedKeys();
+            rs.next();
+            return rs.getInt(1);
+        } catch (ClassNotFoundException | SQLException ex) {
+            throw new RegisterException(ex.getMessage(), Level.SEVERE);
+        }
+    }
+
+    public static int updatePhone(int id, String phone) throws RegisterException {
+        try {
+            Connection con = DatabaseConnector.connection();
+            String SQL = "UPDATE `customer` SET `phone` = ? WHERE `id` = ?";
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            ps.setString(1, phone);
+            ps.setInt(2, id);
+            ps.executeUpdate();
+            ResultSet rs = ps.getGeneratedKeys();
+            rs.next();
+            return rs.getInt(1);
+        } catch (ClassNotFoundException | SQLException ex) {
+            throw new RegisterException(ex.getMessage(), Level.SEVERE);
+        }
+    }
 }

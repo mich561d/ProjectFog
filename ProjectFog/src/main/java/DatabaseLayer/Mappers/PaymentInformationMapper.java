@@ -55,14 +55,29 @@ public class PaymentInformationMapper {
         }
     }
 
-    public static int updatePaymentInformationByID(int customerID, String cardNumber, String expireDate) throws FogException, RegisterException {
+    public static int updateCardNumber(int customerID, String cardNumber) throws RegisterException {
         try {
             Connection con = DatabaseConnector.connection();
-            String SQL = "UPDATE `paymentInformation` SET `cardNumber` = ?, `cardExpireDate` = ? WHERE `customerID` = ?";
+            String SQL = "UPDATE `paymentInformation` SET `cardNumber` = ? WHERE `customerID` = ?";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, cardNumber);
-            ps.setString(2, expireDate);
-            ps.setInt(3, customerID);
+            ps.setInt(2, customerID);
+            ps.executeUpdate();
+            ResultSet rs = ps.getGeneratedKeys();
+            rs.next();
+            return rs.getInt(1);
+        } catch (ClassNotFoundException | SQLException ex) {
+            throw new RegisterException(ex.getMessage(), Level.SEVERE);
+        }
+    }
+
+    public static int updateExpireDate(int customerID, String expireDate) throws RegisterException {
+        try {
+            Connection con = DatabaseConnector.connection();
+            String SQL = "UPDATE `paymentInformation` SET `cardExpireDate` = ? WHERE `customerID` = ?";
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            ps.setString(1, expireDate);
+            ps.setInt(2, customerID);
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
             rs.next();

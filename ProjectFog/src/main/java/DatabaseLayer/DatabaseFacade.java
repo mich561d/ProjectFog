@@ -73,4 +73,40 @@ public class DatabaseFacade {
     public static Employee getEmployeeByID(int id) throws FogException {
         return EmployeeMapper.getEmployeeByID(id);
     }
+
+    public static int updateCardNumber(int id, String cardNumber) throws RegisterException {
+        return PaymentInformationMapper.updateCardNumber(id, cardNumber);
+    }
+
+    public static int updateExpireDate(int id, String expireDate) throws RegisterException {
+        return PaymentInformationMapper.updateExpireDate(id, expireDate);
+    }
+
+    public static int updateCity(int customerID, String city) throws RegisterException {
+        return AddressMapper.updateCity(customerID, city);
+    }
+
+    public static int updateZip(int customerID, String zip) throws RegisterException {
+        return AddressMapper.updateZip(customerID, zip);
+    }
+
+    public static int updateStreet(int customerID, String street) throws RegisterException {
+        return AddressMapper.updateStreet(customerID, street);
+    }
+
+    public static int updateNumber(int customerID, String number) throws RegisterException {
+        return AddressMapper.updateNumber(customerID, number);
+    }
+    
+    public static int updateFirstName(int id, String firstName) throws RegisterException {
+        return CustomerMapper.updateFirstName(id, firstName);
+    }
+
+    public static int updateLastName(int id, String lastName) throws RegisterException {
+        return CustomerMapper.updateLastName(id, lastName);
+    }
+
+    public static int updatePhone(int id, String phone) throws RegisterException {
+        return CustomerMapper.updatePhone(id, phone);
+    }
 }

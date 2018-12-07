@@ -87,4 +87,68 @@ public class AddressMapper {
             throw new FogException(ex.getMessage(), Level.SEVERE);
         }
     }
+
+    public static int updateCity(int customerID, String city) throws RegisterException {
+        try {
+            Connection con = DatabaseConnector.connection();
+            String SQL = "UPDATE `address` SET `city` = ? WHERE `customerID` = ?";
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            ps.setString(1, city);
+            ps.setInt(2, customerID);
+            ps.executeUpdate();
+            ResultSet rs = ps.getGeneratedKeys();
+            rs.next();
+            return rs.getInt(1);
+        } catch (ClassNotFoundException | SQLException ex) {
+            throw new RegisterException(ex.getMessage(), Level.SEVERE);
+        }
+    }
+
+    public static int updateZip(int customerID, String zip) throws RegisterException {
+        try {
+            Connection con = DatabaseConnector.connection();
+            String SQL = "UPDATE `address` SET `zip` = ? WHERE `customerID` = ?";
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            ps.setString(1, zip);
+            ps.setInt(2, customerID);
+            ps.executeUpdate();
+            ResultSet rs = ps.getGeneratedKeys();
+            rs.next();
+            return rs.getInt(1);
+        } catch (ClassNotFoundException | SQLException ex) {
+            throw new RegisterException(ex.getMessage(), Level.SEVERE);
+        }
+    }
+
+    public static int updateStreet(int customerID, String street) throws RegisterException {
+        try {
+            Connection con = DatabaseConnector.connection();
+            String SQL = "UPDATE `address` SET `street` = ? WHERE `customerID` = ?";
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            ps.setString(1, street);
+            ps.setInt(2, customerID);
+            ps.executeUpdate();
+            ResultSet rs = ps.getGeneratedKeys();
+            rs.next();
+            return rs.getInt(1);
+        } catch (ClassNotFoundException | SQLException ex) {
+            throw new RegisterException(ex.getMessage(), Level.SEVERE);
+        }
+    }
+
+    public static int updateNumber(int customerID, String number) throws RegisterException {
+        try {
+            Connection con = DatabaseConnector.connection();
+            String SQL = "UPDATE `address` SET `number` = ? WHERE `customerID` = ?";
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            ps.setString(1, number);
+            ps.setInt(2, customerID);
+            ps.executeUpdate();
+            ResultSet rs = ps.getGeneratedKeys();
+            rs.next();
+            return rs.getInt(1);
+        } catch (ClassNotFoundException | SQLException ex) {
+            throw new RegisterException(ex.getMessage(), Level.SEVERE);
+        }
+    }
 }
