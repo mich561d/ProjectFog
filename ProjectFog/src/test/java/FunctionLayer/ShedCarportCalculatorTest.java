@@ -3,6 +3,7 @@ package FunctionLayer;
 import FunctionLayer.Exceptions.FogException;
 import FunctionLayer.Calculation.Shed.ShedCladdingCalculator;
 import FunctionLayer.Calculation.Shed.ShedDoorCalculator;
+import FunctionLayer.Calculation.Shed.ShedFloorCalculator;
 import FunctionLayer.Calculation.Shed.ShedPolesCalculator;
 import FunctionLayer.Entities.Part;
 import java.util.ArrayList;
@@ -79,5 +80,16 @@ public class ShedCarportCalculatorTest {
         list = scc.calcCladdingAndInterTies(100, 100, list);
         // Assert:
         assertEquals(58, list.size());
+    }
+    
+    @Test
+    public void CalcShedFloor() throws FogException {
+            // Arrange:
+            ShedFloorCalculator sfc = new ShedFloorCalculator();
+            // Act:
+            ArrayList<Part> list = new ArrayList();
+            list = sfc.calcFloor(200, 200, list);
+            // Assert:
+            assertEquals(16, list.size());
     }
 }
