@@ -642,3 +642,17 @@ WARNING: An exception occurred processing JSP page /Webpages/CustomerPage.jsp at
 
 
 Stacktrace:
+dec. 08, 2018 2:57:07 PM FunctionLayer.Logging.Logging write
+OFF: 404 - Page not found!
+dec. 08, 2018 3:03:26 PM FunctionLayer.Logging.Logging write
+OFF: 404 - Siden du ledte efter kunne ikke findes!
+dec. 08, 2018 3:05:11 PM FunctionLayer.Logging.Logging write
+OFF: 404 - Siden du ledte efter kunne ikke findes!
+dec. 08, 2018 3:06:13 PM FunctionLayer.Logging.Logging write
+OFF: 404 - Siden du ledte efter kunne ikke findes!
+dec. 08, 2018 3:07:49 PM FunctionLayer.Logging.Logging write
+OFF: 404 - Siden du ledte efter kunne ikke findes!
+dec. 08, 2018 3:08:26 PM FunctionLayer.Logging.Logging write
+OFF: 404 - Siden du ledte efter kunne ikke findes!
+dec. 08, 2018 3:08:31 PM FunctionLayer.Logging.Logging write
+OFF: 404 - Siden du ledte efter kunne ikke findes!

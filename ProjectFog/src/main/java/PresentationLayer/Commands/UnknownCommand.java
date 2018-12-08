@@ -13,6 +13,6 @@ public class UnknownCommand implements Command {
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws FogException {
-        throw new FogException("404 - Page not found!");
+        throw new FogException("404 - Siden du ledte efter kunne ikke findes!");
     }
 }

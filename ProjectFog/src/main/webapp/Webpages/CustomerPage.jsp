@@ -181,7 +181,7 @@
                                     <form name="CustomerPasswordChange" action="FrontController" method="POST">
                                         <input type="hidden" name="command" value="UpdateCustomerPassword">
                                         <input type="password" class="form-control" name="changePass1" placeholder="Password">
-                                        <input type="password" class="form-control" name="changePass2" placeholder="Password">
+                                        <input type="password" class="form-control" name="changePass2" placeholder="Gentag password">
                                         <br>
                                         <div class="row">
                                             <div class="col-lg-1 align-self-end">
