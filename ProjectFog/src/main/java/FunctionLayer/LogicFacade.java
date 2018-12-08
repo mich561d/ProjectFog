@@ -4,8 +4,10 @@ import DatabaseLayer.DatabaseFacade;
 import FunctionLayer.Exceptions.FogException;
 import FunctionLayer.Calculation.CarportCalculator;
 import FunctionLayer.Entities.Address;
+import FunctionLayer.Entities.Carport;
 import FunctionLayer.Entities.Customer;
 import FunctionLayer.Entities.Employee;
+import FunctionLayer.Entities.Order;
 import FunctionLayer.Util.UtilCarportDrawing;
 import FunctionLayer.Entities.Part;
 import FunctionLayer.Entities.PaymentInformation;
@@ -163,5 +165,13 @@ public class LogicFacade {
 
     public static void updatePassword(int customerID, String password) throws RegisterException {
         DatabaseFacade.updatePassword(customerID, password);
+    }
+
+    public static ArrayList<Order> getAllOrdersByCustomerID(int id) {
+        return DatabaseFacade.getAllOrdersByCustomerID(id);
+    }
+
+    public static Carport getProductFromOrderByID(int id) {
+        return DatabaseFacade.getProductFromOrderByID(id);
     }
 }

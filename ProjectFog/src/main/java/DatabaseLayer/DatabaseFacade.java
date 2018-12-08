@@ -2,8 +2,10 @@ package DatabaseLayer;
 
 import DatabaseLayer.Mappers.*;
 import FunctionLayer.Entities.Address;
+import FunctionLayer.Entities.Carport;
 import FunctionLayer.Entities.Customer;
 import FunctionLayer.Entities.Employee;
+import FunctionLayer.Entities.Order;
 import FunctionLayer.Entities.Part;
 import FunctionLayer.Entities.PaymentInformation;
 import FunctionLayer.Entities.User;
@@ -116,5 +118,13 @@ public class DatabaseFacade {
 
     public static void updatePassword(int customerID, String password) throws RegisterException {
         UserMapper.updatePassword(customerID, password);
+    }
+
+    public static ArrayList<Order> getAllOrdersByCustomerID(int id) {
+        return OrderMapper.getAllOrdersByCustomerID(id);
+    }
+
+    public static Carport getProductFromOrderByID(int id) {
+        return ProductMapper.getProductFromOrderByID(id);
     }
 }

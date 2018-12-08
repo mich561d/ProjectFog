@@ -1,6 +1,6 @@
 package FunctionLayer.Util;
 
-import FunctionLayer.DrawingFace;
+import FunctionLayer.Enums.DrawingFace;
 import static FunctionLayer.Calculation.Rules.*;
 
 /**

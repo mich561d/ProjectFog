@@ -658,3 +658,117 @@ dec. 08, 2018 3:08:31 PM FunctionLayer.Logging.Logging write
 OFF: 404 - Siden du ledte efter kunne ikke findes!
 dec. 08, 2018 3:20:25 PM FunctionLayer.Logging.Logging write
 OFF: Passwords not equal!
+dec. 08, 2018 3:26:10 PM FunctionLayer.Logging.Logging write
+WARNING: Unable to compile class for JSP: 
+
+An error occurred at line: 41 in the jsp file: /Webpages/CustomerOrders.jsp
+customer cannot be resolved
+38:                                         </thead>
+39:                                         <tbody>
+40:                                             <tr>
+41:                                                 <td><%=customer.getFirstName()%></td>
+42:                                                 <td><%=customer.getLastName()%></td>
+43:                                                 <td><%=customer.getPhone()%></td>
+44:                                                 <td><%=user.getEmail()%></td>
+
+
+An error occurred at line: 42 in the jsp file: /Webpages/CustomerOrders.jsp
+customer cannot be resolved
+39:                                         <tbody>
+40:                                             <tr>
+41:                                                 <td><%=customer.getFirstName()%></td>
+42:                                                 <td><%=customer.getLastName()%></td>
+43:                                                 <td><%=customer.getPhone()%></td>
+44:                                                 <td><%=user.getEmail()%></td>
+45:                                             </tr>
+
+
+An error occurred at line: 43 in the jsp file: /Webpages/CustomerOrders.jsp
+customer cannot be resolved
+40:                                             <tr>
+41:                                                 <td><%=customer.getFirstName()%></td>
+42:                                                 <td><%=customer.getLastName()%></td>
+43:                                                 <td><%=customer.getPhone()%></td>
+44:                                                 <td><%=user.getEmail()%></td>
+45:                                             </tr>
+46:                                         </tbody>
+
+
+An error occurred at line: 44 in the jsp file: /Webpages/CustomerOrders.jsp
+user cannot be resolved
+41:                                                 <td><%=customer.getFirstName()%></td>
+42:                                                 <td><%=customer.getLastName()%></td>
+43:                                                 <td><%=customer.getPhone()%></td>
+44:                                                 <td><%=user.getEmail()%></td>
+45:                                             </tr>
+46:                                         </tbody>
+47:                                     </table>
+
+
+An error occurred at line: 60 in the jsp file: /Webpages/CustomerOrders.jsp
+address cannot be resolved
+57:                                         </thead>
+58:                                         <tbody>
+59:                                             <tr>
+60:                                                 <td><%=address.getCity()%></td>
+61:                                                 <td><%=address.getZip()%></td>
+62:                                                 <td><%=address.getStreet()%></td>
+63:                                                 <td><%=address.getNumber()%></td>
+
+
+An error occurred at line: 61 in the jsp file: /Webpages/CustomerOrders.jsp
+address cannot be resolved
+58:                                         <tbody>
+59:                                             <tr>
+60:                                                 <td><%=address.getCity()%></td>
+61:                                                 <td><%=address.getZip()%></td>
+62:                                                 <td><%=address.getStreet()%></td>
+63:                                                 <td><%=address.getNumber()%></td>
+64:                                             </tr>
+
+
+An error occurred at line: 62 in the jsp file: /Webpages/CustomerOrders.jsp
+address cannot be resolved
+59:                                             <tr>
+60:                                                 <td><%=address.getCity()%></td>
+61:                                                 <td><%=address.getZip()%></td>
+62:                                                 <td><%=address.getStreet()%></td>
+63:                                                 <td><%=address.getNumber()%></td>
+64:                                             </tr>
+65:                                         </tbody>
+
+
+An error occurred at line: 63 in the jsp file: /Webpages/CustomerOrders.jsp
+address cannot be resolved
+60:                                                 <td><%=address.getCity()%></td>
+61:                                                 <td><%=address.getZip()%></td>
+62:                                                 <td><%=address.getStreet()%></td>
+63:                                                 <td><%=address.getNumber()%></td>
+64:                                             </tr>
+65:                                         </tbody>
+66:                                     </table>
+
+
+An error occurred at line: 77 in the jsp file: /Webpages/CustomerOrders.jsp
+payment cannot be resolved
+74:                                         </thead>
+75:                                         <tbody>
+76:                                             <tr>
+77:                                                 <td><%=payment.getCardNumber()%></td>
+78:                                                 <td><%=payment.getExpireDate()%></td>
+79:                                             </tr>
+80:                                         </tbody>
+
+
+An error occurred at line: 78 in the jsp file: /Webpages/CustomerOrders.jsp
+payment cannot be resolved
+75:                                         <tbody>
+76:                                             <tr>
+77:                                                 <td><%=payment.getCardNumber()%></td>
+78:                                                 <td><%=payment.getExpireDate()%></td>
+79:                                             </tr>
+80:                                         </tbody>
+81:                                     </table>
+
+
+Stacktrace:
