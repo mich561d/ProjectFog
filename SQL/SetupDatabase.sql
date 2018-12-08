@@ -39,9 +39,11 @@ CREATE TABLE IF NOT EXISTS `ProjectFogDatabase`.`carport` (
   `height` INT NOT NULL,
   `roof` TINYINT NOT NULL,
   `angle` INT NOT NULL,
+  `roofing` VARCHAR(45) NOT NULL,
   `shed` TINYINT NOT NULL,
   `shedLength` INT NOT NULL,
   `shedWidth` INT NOT NULL,
+  `flooring` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -87,7 +89,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `ProjectFogDatabase`.`order` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `orderStatus` ENUM('Ordered', 'Sent', 'Delievered', 'Cancelled', 'Blocked') NOT NULL,
+  `orderStatus` ENUM('Ordered', 'Sent', 'Cancelled') NOT NULL,
   `boughtDate` DATETIME NOT NULL,
   `delieveredDate` DATETIME NULL,
   `productID` INT NOT NULL,
