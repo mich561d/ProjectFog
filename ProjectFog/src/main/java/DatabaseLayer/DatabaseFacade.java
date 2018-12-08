@@ -109,4 +109,12 @@ public class DatabaseFacade {
     public static void updatePhone(int id, String phone) throws RegisterException {
         CustomerMapper.updatePhone(id, phone);
     }
+
+    public static void updateEmail(int customerID, String email) throws RegisterException {
+        UserMapper.updateEmail(customerID, email);
+    }
+
+    public static void updatePassword(int customerID, String password) throws RegisterException {
+        UserMapper.updatePassword(customerID, password);
+    }
 }

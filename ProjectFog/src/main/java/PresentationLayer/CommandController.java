@@ -25,6 +25,8 @@ public abstract class CommandController {
         commands.put("CustomerPage", new CustomerPageCommand());
         commands.put("CustomerOrders", new CustomerOrdersCommand());
         commands.put("UpdateCustomerInformation", new UpdateCustomerInformationCommand());
+        commands.put("UpdateCustomerEmail", new UpdateCustomerEmailCommand());
+        commands.put("UpdateCustomerPassword", new UpdateCustomerPasswordCommand());
     }
 
     static Command from(HttpServletRequest request) {

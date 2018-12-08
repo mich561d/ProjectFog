@@ -125,5 +125,31 @@ public class UserMapper {
             throw new FogException(ex.getMessage(), Level.SEVERE);
         }
     }
+    
+    public static void updateEmail(int customerID, String email) throws RegisterException {
+        try {
+            Connection con = DatabaseConnector.connection();
+            String SQL = "UPDATE `user` SET `email` = ? WHERE `customerID` = ?";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ps.setString(1, email);
+            ps.setInt(2, customerID);
+            ps.executeUpdate();
+        } catch (ClassNotFoundException | SQLException ex) {
+            throw new RegisterException(ex.getMessage(), Level.SEVERE);
+        }
+    }
+    
+        public static void updatePassword(int customerID, String password) throws RegisterException {
+        try {
+            Connection con = DatabaseConnector.connection();
+            String SQL = "UPDATE `user` SET `password` = ? WHERE `customerID` = ?";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ps.setString(1, password);
+            ps.setInt(2, customerID);
+            ps.executeUpdate();
+        } catch (ClassNotFoundException | SQLException ex) {
+            throw new RegisterException(ex.getMessage(), Level.SEVERE);
+        }
+    }
 
 }

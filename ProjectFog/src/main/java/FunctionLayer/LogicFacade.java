@@ -55,6 +55,10 @@ public class LogicFacade {
     public static String getRandomSaltString(int length) {
         return Hashing.getRandomSaltString(length);
     }
+    
+    public static String getSaltString(String email) throws LoginException {
+        return DatabaseFacade.getSaltValue(email);
+    } 
 
     public static String hashPassword(String password, String salt) throws FogException {
         String concat = password.concat(salt);
@@ -151,5 +155,13 @@ public class LogicFacade {
 
     public static void updatePhone(int id, String phone) throws RegisterException {
         DatabaseFacade.updatePhone(id, phone);
+    }
+
+    public static void updateEmail(int customerID, String email) throws RegisterException {
+        DatabaseFacade.updateEmail(customerID, email);
+    }
+
+    public static void updatePassword(int customerID, String password) throws RegisterException {
+        DatabaseFacade.updatePassword(customerID, password);
     }
 }

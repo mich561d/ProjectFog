@@ -153,9 +153,9 @@
                             <label>
                                 <div class="container">
                                     <h3>Indtast ny email:</h3>
-                                    <form name="CustomerInformationChange" action="FrontController" method="POST">
-                                        <input type="hidden" name="command" value="UpdateCustomerInformation">
-                                        <input type="String" class="form-control" name="changeEmail" placeholder="Indtast ny email">
+                                    <form name="CustomerEmailChange" action="FrontController" method="POST">
+                                        <input type="hidden" name="command" value="UpdateCustomerEmail">
+                                        <input type="email" class="form-control" name="changeEmail" placeholder="Indtast ny email">
                                         <p><strong>*Der vil blive sendt et nyt aktiverings link til den nye mail!</strong></p>
                                         <br>
                                         <div class="row">
@@ -178,10 +178,10 @@
                             <label>
                                 <div class="container">
                                     <h3>Lav et nyt password:</h3>
-                                    <form name="CustomerInformationChange" action="FrontController" method="POST">
-                                        <input type="hidden" name="command" value="UpdateCustomerInformation">
-                                        <input type="String" class="form-control" name="changePass1" placeholder="Password">
-                                        <input type="String" class="form-control" name="changePass2" placeholder="Gentag password">
+                                    <form name="CustomerPasswordChange" action="FrontController" method="POST">
+                                        <input type="hidden" name="command" value="UpdateCustomerPassword">
+                                        <input type="password" class="form-control" name="changePass1" placeholder="Password">
+                                        <input type="password" class="form-control" name="changePass2" placeholder="Password">
                                         <br>
                                         <div class="row">
                                             <div class="col-lg-1 align-self-end">
