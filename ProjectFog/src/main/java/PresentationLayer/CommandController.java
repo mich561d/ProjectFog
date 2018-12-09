@@ -16,7 +16,7 @@ public abstract class CommandController {
         commands = new HashMap<>();
         commands.put("CustomCarport", new CustomCarportCommand());
         commands.put("ProductReview", new ProductReviewCommand());
-        commands.put("Cart", new CartCommand());
+        commands.put("Payment", new PaymentCommand());
         commands.put("Index", new IndexCommand());
         commands.put("Login", new LoginCommand());
         commands.put("Logout", new LogoutCommand());

@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.logging.Level;
 
 /**
@@ -40,6 +41,39 @@ public class ProductMapper {
             }
         } catch (SQLException | ClassNotFoundException ex) {
             throw new FogException(ex.getMessage(), Level.SEVERE);
+        }
+    }
+
+    public static int createProduct(Carport carport) throws FogException {
+        try {
+            Connection con = DatabaseConnector.connection();
+            String SQL = "INSERT INTO carport(length, width, height, roof, angle, roofing, shed, shedLength, shedWidth, flooring) VALUES"
+                    + " (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            ps.setInt(1, carport.getCarportLength());
+            ps.setInt(2, carport.getCarportWidth());
+            ps.setInt(3, carport.getCarportHeight());
+            ps.setByte(4, booleanToByte(carport.isAngledRoof()));
+            ps.setInt(5, carport.getAngle());
+            ps.setString(6, carport.getRoofing());
+            ps.setByte(7, booleanToByte(carport.isShed()));
+            ps.setInt(8, carport.getShedLength());
+            ps.setInt(9, carport.getShedWidth());
+            ps.setString(10, carport.getFlooring());
+            ps.executeUpdate();
+            ResultSet rs = ps.getGeneratedKeys();
+            rs.next();
+            return rs.getInt(1);
+        } catch (ClassNotFoundException | SQLException ex) {
+            throw new FogException(ex.getMessage(), Level.SEVERE);
+        }
+    }
+
+    private static byte booleanToByte(boolean b) {
+        if (b) {
+            return 1;
+        } else {
+            return 0;
         }
     }
 

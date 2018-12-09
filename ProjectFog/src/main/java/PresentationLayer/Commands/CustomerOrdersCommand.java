@@ -7,6 +7,7 @@ package PresentationLayer.Commands;
 
 import FunctionLayer.Entities.Carport;
 import FunctionLayer.Entities.Order;
+import FunctionLayer.Exceptions.FogException;
 import FunctionLayer.LogicFacade;
 import PresentationLayer.Command;
 import java.util.ArrayList;
@@ -20,7 +21,7 @@ import javax.servlet.http.HttpServletResponse;
 public class CustomerOrdersCommand implements Command {
 
     @Override
-    public String execute(HttpServletRequest request, HttpServletResponse response) {
+    public String execute(HttpServletRequest request, HttpServletResponse response) throws FogException {
         int id = (int)request.getSession().getAttribute("CustomerID");
         ArrayList<Order> orders = LogicFacade.getAllOrdersByCustomerID(id);
         ArrayList<Carport> products = new ArrayList();

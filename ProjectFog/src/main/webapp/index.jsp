@@ -24,7 +24,7 @@
                 <div class="col-lg">
                     <div class="alert alert-info alert-dismissible fade show">
                         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                        <strong>Info:</strong> Husk at logge ind før, at du går videre, for at springe udfyldningsformularen over.
+                        <strong>Info:</strong> Husk at logge ind før, at du går videre.
                     </div>
                 </div>
             </div>

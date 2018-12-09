@@ -1,6 +1,7 @@
 package PresentationLayer.Commands;
 
 import static FunctionLayer.Calculation.Rules.*;
+import FunctionLayer.Entities.Carport;
 import FunctionLayer.Exceptions.CarportCreationException;
 import FunctionLayer.Exceptions.FogException;
 import FunctionLayer.LogicFacade;
@@ -62,6 +63,8 @@ public class ProductReviewCommand implements Command {
         }
 
         LogicFacade.calculateCustomCarport(length, width, height, angle, angledRoof, shed, shedLength, shedWidth, roofing);
+        Carport carport = new Carport(0, length, width, height, angledRoof, angle, roofing, shed, shedLength, shedWidth, "Sort gummiflise");
+        request.getSession().setAttribute("Product", carport);
         request.getSession().setAttribute("ProductPrice", LogicFacade.getPriceFromCarport());
         request.getSession().setAttribute("ProductList", LogicFacade.getProductMapFromCarport());
         request.getSession().setAttribute("DrawingAbove", LogicFacade.getDrawingFromAbove(length, width, angledRoof));

@@ -120,11 +120,19 @@ public class DatabaseFacade {
         UserMapper.updatePassword(customerID, password);
     }
 
-    public static ArrayList<Order> getAllOrdersByCustomerID(int id) {
+    public static ArrayList<Order> getAllOrdersByCustomerID(int id) throws FogException {
         return OrderMapper.getAllOrdersByCustomerID(id);
     }
 
-    public static Carport getProductFromOrderByID(int id) {
+    public static Carport getProductFromOrderByID(int id) throws FogException {
         return ProductMapper.getProductFromOrderByID(id);
+    }
+
+    public static int createProduct(Carport carport) throws FogException {
+        return ProductMapper.createProduct(carport);
+    }
+
+    public static void createOrder(int customerID, int productID) throws FogException {
+        OrderMapper.createOrder(customerID, productID);
     }
 }

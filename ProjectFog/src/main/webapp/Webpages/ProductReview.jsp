@@ -25,7 +25,6 @@
             String formattedPrice = df.format(price);
             String formattedTotalPrice = df.format(totalPrice);
             String formattedTax = df.format(tax);
-            HashMap<String, ArrayList<Part>> products = (HashMap<String, ArrayList<Part>>) request.getSession().getAttribute("ProductList");
         %>
     </head>
     <body>
@@ -33,9 +32,9 @@
         <br>
         <div class="container-fluid">   
             <div class="row justify-content-md-center">
-                <div class="col-lg-8">
+                <div class="col-lg-10">
                     <form name="Product" action="FrontController" method="POST">
-                        <input type="hidden" name="command" value="Cart">
+                        <input type="hidden" name="command" value="Payment">
                         <div class="card border border-warning">
                             <div class="card-header border border-warning">
                                 <h3>Dine valgte mål:</h3>
@@ -145,7 +144,7 @@
                                 </div>
                                 <div class="col-lg-9"></div>
                                 <div class="col-lg-1 align-self-end">
-                                    <input type="submit" class="btn btn-primary" name="Cart" value="Tilføj til kurv">
+                                    <input type="submit" class="btn btn-primary" name="buy" value="Køb">
                                 </div>
                             </div>
                         </div>

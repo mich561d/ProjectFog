@@ -772,3 +772,253 @@ payment cannot be resolved
 
 
 Stacktrace:
+dec. 09, 2018 4:42:17 PM FunctionLayer.Logging.Logging write
+WARNING: Unable to compile class for JSP: 
+
+An error occurred at line: 16 in the jsp file: /Webpages/Cart.jsp
+DecimalFormat cannot be resolved to a type
+13:         <%@include file="/WEB-INF/Imports/StyleImporter.jsp" %>
+14:         <link href="Webpages/CSS/FogStyling.css" rel="stylesheet" type="text/css"/>
+15:         <%
+16:             DecimalFormat df = new DecimalFormat(".##");
+17:             double totalPrice = (double) request.getSession().getAttribute("ProductPrice");
+18:             double price = totalPrice / 100 * 75;
+19:             double tax = totalPrice - price;
+
+
+An error occurred at line: 16 in the jsp file: /Webpages/Cart.jsp
+DecimalFormat cannot be resolved to a type
+13:         <%@include file="/WEB-INF/Imports/StyleImporter.jsp" %>
+14:         <link href="Webpages/CSS/FogStyling.css" rel="stylesheet" type="text/css"/>
+15:         <%
+16:             DecimalFormat df = new DecimalFormat(".##");
+17:             double totalPrice = (double) request.getSession().getAttribute("ProductPrice");
+18:             double price = totalPrice / 100 * 75;
+19:             double tax = totalPrice - price;
+
+
+Stacktrace:
+dec. 09, 2018 4:44:34 PM FunctionLayer.Logging.Logging write
+OFF: 404 - Siden du ledte efter kunne ikke findes!
+dec. 09, 2018 4:53:06 PM FunctionLayer.Logging.Logging write
+WARNING: Unable to compile class for JSP: 
+
+An error occurred at line: 54 in the jsp file: /Webpages/Payment.jsp
+Set cannot be resolved to a type
+51:                                             </thead>
+52:                                             <tbody>
+53:                                                 <%
+54:                                                     Set set = products.keySet();
+55:                                                     ArrayList<String> keys = new ArrayList<>();
+56:                                                     keys.addAll(set);
+57:                                                     for (int i = 0; i < keys.size(); i++) {
+
+
+An error occurred at line: 54 in the jsp file: /Webpages/Payment.jsp
+products cannot be resolved
+51:                                             </thead>
+52:                                             <tbody>
+53:                                                 <%
+54:                                                     Set set = products.keySet();
+55:                                                     ArrayList<String> keys = new ArrayList<>();
+56:                                                     keys.addAll(set);
+57:                                                     for (int i = 0; i < keys.size(); i++) {
+
+
+An error occurred at line: 55 in the jsp file: /Webpages/Payment.jsp
+ArrayList cannot be resolved to a type
+52:                                             <tbody>
+53:                                                 <%
+54:                                                     Set set = products.keySet();
+55:                                                     ArrayList<String> keys = new ArrayList<>();
+56:                                                     keys.addAll(set);
+57:                                                     for (int i = 0; i < keys.size(); i++) {
+58:                                                         ArrayList<Part> parts = products.get(keys.get(i));
+
+
+An error occurred at line: 55 in the jsp file: /Webpages/Payment.jsp
+ArrayList cannot be resolved to a type
+52:                                             <tbody>
+53:                                                 <%
+54:                                                     Set set = products.keySet();
+55:                                                     ArrayList<String> keys = new ArrayList<>();
+56:                                                     keys.addAll(set);
+57:                                                     for (int i = 0; i < keys.size(); i++) {
+58:                                                         ArrayList<Part> parts = products.get(keys.get(i));
+
+
+An error occurred at line: 58 in the jsp file: /Webpages/Payment.jsp
+ArrayList cannot be resolved to a type
+55:                                                     ArrayList<String> keys = new ArrayList<>();
+56:                                                     keys.addAll(set);
+57:                                                     for (int i = 0; i < keys.size(); i++) {
+58:                                                         ArrayList<Part> parts = products.get(keys.get(i));
+59:                                                         Part part = parts.get(0);
+60:                                                 %>
+61:                                                 <tr>
+
+
+An error occurred at line: 58 in the jsp file: /Webpages/Payment.jsp
+products cannot be resolved
+55:                                                     ArrayList<String> keys = new ArrayList<>();
+56:                                                     keys.addAll(set);
+57:                                                     for (int i = 0; i < keys.size(); i++) {
+58:                                                         ArrayList<Part> parts = products.get(keys.get(i));
+59:                                                         Part part = parts.get(0);
+60:                                                 %>
+61:                                                 <tr>
+
+
+An error occurred at line: 62 in the jsp file: /Webpages/Payment.jsp
+The method getType() is undefined for the type Part
+59:                                                         Part part = parts.get(0);
+60:                                                 %>
+61:                                                 <tr>
+62:                                                     <td><%= part.getType()%></td>
+63:                                                     <td><%= part.getSize()%></td>
+64:                                                     <td><%= part.getDescription()%></td>
+65:                                                     <td><%= parts.size()%></td>
+
+
+An error occurred at line: 64 in the jsp file: /Webpages/Payment.jsp
+The method getDescription() is undefined for the type Part
+61:                                                 <tr>
+62:                                                     <td><%= part.getType()%></td>
+63:                                                     <td><%= part.getSize()%></td>
+64:                                                     <td><%= part.getDescription()%></td>
+65:                                                     <td><%= parts.size()%></td>
+66:                                                     <td><%= part.getPrice()%> kr.</td>
+67:                                                 </tr>
+
+
+An error occurred at line: 66 in the jsp file: /Webpages/Payment.jsp
+The method getPrice() is undefined for the type Part
+63:                                                     <td><%= part.getSize()%></td>
+64:                                                     <td><%= part.getDescription()%></td>
+65:                                                     <td><%= parts.size()%></td>
+66:                                                     <td><%= part.getPrice()%> kr.</td>
+67:                                                 </tr>
+68:                                                 <% }%>
+69:                                             </tbody>
+
+
+Stacktrace:
+dec. 09, 2018 4:53:59 PM FunctionLayer.Logging.Logging write
+WARNING: Unable to compile class for JSP: 
+
+An error occurred at line: 67 in the jsp file: /Webpages/Payment.jsp
+The method getType() is undefined for the type Part
+64:                                                         Part part = parts.get(0);
+65:                                                 %>
+66:                                                 <tr>
+67:                                                     <td><%= part.getType()%></td>
+68:                                                     <td><%= part.getSize()%></td>
+69:                                                     <td><%= part.getDescription()%></td>
+70:                                                     <td><%= parts.size()%></td>
+
+
+An error occurred at line: 69 in the jsp file: /Webpages/Payment.jsp
+The method getDescription() is undefined for the type Part
+66:                                                 <tr>
+67:                                                     <td><%= part.getType()%></td>
+68:                                                     <td><%= part.getSize()%></td>
+69:                                                     <td><%= part.getDescription()%></td>
+70:                                                     <td><%= parts.size()%></td>
+71:                                                     <td><%= part.getPrice()%> kr.</td>
+72:                                                 </tr>
+
+
+An error occurred at line: 71 in the jsp file: /Webpages/Payment.jsp
+The method getPrice() is undefined for the type Part
+68:                                                     <td><%= part.getSize()%></td>
+69:                                                     <td><%= part.getDescription()%></td>
+70:                                                     <td><%= parts.size()%></td>
+71:                                                     <td><%= part.getPrice()%> kr.</td>
+72:                                                 </tr>
+73:                                                 <% }%>
+74:                                             </tbody>
+
+
+Stacktrace:
+dec. 09, 2018 4:55:23 PM FunctionLayer.Logging.Logging write
+WARNING: Unable to compile class for JSP: 
+
+An error occurred at line: 67 in the jsp file: /Webpages/Payment.jsp
+The method getType() is undefined for the type Part
+64:                                                         Part part = parts.get(0);
+65:                                                 %>
+66:                                                 <tr>
+67:                                                     <td><%= part.getType()%></td>
+68:                                                     <td><%= part.getSize()%></td>
+69:                                                     <td><%= part.getDescription()%></td>
+70:                                                     <td><%= parts.size()%></td>
+
+
+An error occurred at line: 69 in the jsp file: /Webpages/Payment.jsp
+The method getDescription() is undefined for the type Part
+66:                                                 <tr>
+67:                                                     <td><%= part.getType()%></td>
+68:                                                     <td><%= part.getSize()%></td>
+69:                                                     <td><%= part.getDescription()%></td>
+70:                                                     <td><%= parts.size()%></td>
+71:                                                     <td><%= part.getPrice()%> kr.</td>
+72:                                                 </tr>
+
+
+An error occurred at line: 71 in the jsp file: /Webpages/Payment.jsp
+The method getPrice() is undefined for the type Part
+68:                                                     <td><%= part.getSize()%></td>
+69:                                                     <td><%= part.getDescription()%></td>
+70:                                                     <td><%= parts.size()%></td>
+71:                                                     <td><%= part.getPrice()%> kr.</td>
+72:                                                 </tr>
+73:                                                 <% }%>
+74:                                             </tbody>
+
+
+Stacktrace:
+dec. 09, 2018 4:55:54 PM FunctionLayer.Logging.Logging write
+WARNING: Unable to compile class for JSP: 
+
+An error occurred at line: 67 in the jsp file: /Webpages/Payment.jsp
+The method getType() is undefined for the type Part
+64:                                                         Part part = parts.get(0);
+65:                                                 %>
+66:                                                 <tr>
+67:                                                     <td><%= part.getType()%></td>
+68:                                                     <td><%= part.getSize()%></td>
+69:                                                     <td><%= part.getDescription()%></td>
+70:                                                     <td><%= parts.size()%></td>
+
+
+An error occurred at line: 69 in the jsp file: /Webpages/Payment.jsp
+The method getDescription() is undefined for the type Part
+66:                                                 <tr>
+67:                                                     <td><%= part.getType()%></td>
+68:                                                     <td><%= part.getSize()%></td>
+69:                                                     <td><%= part.getDescription()%></td>
+70:                                                     <td><%= parts.size()%></td>
+71:                                                     <td><%= part.getPrice()%> kr.</td>
+72:                                                 </tr>
+
+
+An error occurred at line: 71 in the jsp file: /Webpages/Payment.jsp
+The method getPrice() is undefined for the type Part
+68:                                                     <td><%= part.getSize()%></td>
+69:                                                     <td><%= part.getDescription()%></td>
+70:                                                     <td><%= parts.size()%></td>
+71:                                                     <td><%= part.getPrice()%> kr.</td>
+72:                                                 </tr>
+73:                                                 <% }%>
+74:                                             </tbody>
+
+
+Stacktrace:
+dec. 09, 2018 5:55:26 PM FunctionLayer.Logging.Logging write
+INFO: Du skal logge ind før du kan gå videre!
+dec. 09, 2018 5:55:27 PM FunctionLayer.Logging.Logging write
+INFO: Du skal logge ind før du kan gå videre!
+dec. 09, 2018 5:57:59 PM FunctionLayer.Logging.Logging write
+SEVERE: Cannot add or update a child row: a foreign key constraint fails (`ProjectFogDatabase`.`address`, CONSTRAINT `Employee_Has_Address` FOREIGN KEY (`employeeID`) REFERENCES `employee` (`id`) ON DELETE CASCADE ON UPDATE CASCADE)
+dec. 09, 2018 7:37:50 PM FunctionLayer.Logging.Logging write
+SEVERE: Cannot add or update a child row: a foreign key constraint fails (`ProjectFogDatabase`.`address`, CONSTRAINT `Employee_Has_Address` FOREIGN KEY (`employeeID`) REFERENCES `employee` (`id`) ON DELETE CASCADE ON UPDATE CASCADE)

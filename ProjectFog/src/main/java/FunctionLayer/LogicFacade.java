@@ -167,11 +167,19 @@ public class LogicFacade {
         DatabaseFacade.updatePassword(customerID, password);
     }
 
-    public static ArrayList<Order> getAllOrdersByCustomerID(int id) {
+    public static ArrayList<Order> getAllOrdersByCustomerID(int id) throws FogException {
         return DatabaseFacade.getAllOrdersByCustomerID(id);
     }
 
-    public static Carport getProductFromOrderByID(int id) {
+    public static Carport getProductFromOrderByID(int id) throws FogException {
         return DatabaseFacade.getProductFromOrderByID(id);
+    }
+
+    public static int createProduct(Carport carport) throws FogException {
+        return DatabaseFacade.createProduct(carport);
+    }
+
+    public static void createOrder(int customerID, int productID) throws FogException {
+        DatabaseFacade.createOrder(customerID, productID);
     }
 }
