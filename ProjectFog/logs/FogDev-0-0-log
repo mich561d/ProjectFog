@@ -1022,3 +1022,19 @@ dec. 09, 2018 5:57:59 PM FunctionLayer.Logging.Logging write
 SEVERE: Cannot add or update a child row: a foreign key constraint fails (`ProjectFogDatabase`.`address`, CONSTRAINT `Employee_Has_Address` FOREIGN KEY (`employeeID`) REFERENCES `employee` (`id`) ON DELETE CASCADE ON UPDATE CASCADE)
 dec. 09, 2018 7:37:50 PM FunctionLayer.Logging.Logging write
 SEVERE: Cannot add or update a child row: a foreign key constraint fails (`ProjectFogDatabase`.`address`, CONSTRAINT `Employee_Has_Address` FOREIGN KEY (`employeeID`) REFERENCES `employee` (`id`) ON DELETE CASCADE ON UPDATE CASCADE)
+dec. 10, 2018 6:24:34 PM FunctionLayer.Logging.Logging write
+SEVERE: Cannot add or update a child row: a foreign key constraint fails (`ProjectFogDatabase`.`address`, CONSTRAINT `Employee_Has_Address` FOREIGN KEY (`employeeID`) REFERENCES `employee` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION)
+dec. 10, 2018 6:31:41 PM FunctionLayer.Logging.Logging write
+SEVERE: Cannot add or update a child row: a foreign key constraint fails (`ProjectFogDatabase`.`address`, CONSTRAINT `Employee_Has_Address` FOREIGN KEY (`employeeID`) REFERENCES `employee` (`id`) ON DELETE CASCADE ON UPDATE CASCADE)
+dec. 10, 2018 6:33:01 PM FunctionLayer.Logging.Logging write
+INFO: User 'rygerlunger@gmail.com' do not exist!
+dec. 10, 2018 6:44:09 PM FunctionLayer.Logging.Logging write
+INFO: User 'rygerlunger@gmail.com' do not exist!
+dec. 10, 2018 6:45:20 PM FunctionLayer.Logging.Logging write
+SEVERE: Cannot add or update a child row: a foreign key constraint fails (`ProjectFogDatabase`.`address`, CONSTRAINT `Employee_Has_Address` FOREIGN KEY (`employeeID`) REFERENCES `employee` (`id`) ON DELETE CASCADE ON UPDATE CASCADE)
+dec. 10, 2018 6:52:54 PM FunctionLayer.Logging.Logging write
+OFF: Passwords too small!
+dec. 10, 2018 6:53:53 PM FunctionLayer.Logging.Logging write
+SEVERE: Unknown column 'employeeID' in 'field list'
+dec. 10, 2018 6:56:35 PM FunctionLayer.Logging.Logging write
+OFF: 404 - Page not found!

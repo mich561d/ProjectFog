@@ -20,7 +20,7 @@ public class AddressMapper {
     public static int createAddress(String city, String zip, String street, String number, int id, boolean customer) throws RegisterException {
         try {
             Connection con = DatabaseConnector.connection();
-            String SQL = "INSERT INTO address(city, zip, street, number, customerID, employeeID) VALUES (?, ?, ?, ?, ?, ?)";
+            String SQL = "INSERT INTO `address`(city, zip, street, number, customerID, employeeID) VALUES (?, ?, ?, ?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, city);
             ps.setString(2, zip);
@@ -45,7 +45,7 @@ public class AddressMapper {
     public static Address getAddressByCustomerID(int customerID) throws FogException {
         try {
             Connection con = DatabaseConnector.connection();
-            String SQL = "SELECT * FROM address WHERE customerID = ?";
+            String SQL = "SELECT * FROM `address` WHERE `customerID` = ?";
             PreparedStatement ps = con.prepareStatement(SQL);
             ps.setInt(1, customerID);
             ResultSet rs = ps.executeQuery();
@@ -68,7 +68,7 @@ public class AddressMapper {
     public static Address getAddressByEmployeeID(int employeeID) throws FogException {
         try {
             Connection con = DatabaseConnector.connection();
-            String SQL = "SELECT * FROM address WHERE employeeID = ?";
+            String SQL = "SELECT * FROM `address` WHERE `employeeID` = ?";
             PreparedStatement ps = con.prepareStatement(SQL);
             ps.setInt(1, employeeID);
             ResultSet rs = ps.executeQuery();

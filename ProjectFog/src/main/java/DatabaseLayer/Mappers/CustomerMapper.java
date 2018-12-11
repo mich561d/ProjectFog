@@ -20,7 +20,7 @@ public class CustomerMapper {
     public static int createCustomer(String firstName, String lastName, String phone) throws RegisterException {
         try {
             Connection con = DatabaseConnector.connection();
-            String SQL = "INSERT INTO customer(firstName, lastName, phone) VALUES (?, ?, ?)";
+            String SQL = "INSERT INTO `customer`(`firstName`, `lastName`, `phone`) VALUES (?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, firstName);
             ps.setString(2, lastName);
@@ -37,7 +37,7 @@ public class CustomerMapper {
     public static Customer getCustomerByID(int id) throws FogException {
         try {
             Connection con = DatabaseConnector.connection();
-            String SQL = "SELECT * FROM customer WHERE id = ?";
+            String SQL = "SELECT * FROM `customer` WHERE id = ?";
             PreparedStatement ps = con.prepareStatement(SQL);
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
