@@ -20,7 +20,7 @@ public class AddressMapper {
     public static int createAddress(String city, String zip, String street, String number, int customerID) throws RegisterException {
         try {
             Connection con = DatabaseConnector.connection();
-            String SQL = "INSERT INTO address(city, zip, street, number, customerID) VALUES (?, ?, ?, ?, ?)";
+            String SQL = "INSERT INTO `address`(city, zip, street, number, customerID) VALUES (?, ?, ?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, city);
             ps.setString(2, zip);
@@ -62,7 +62,7 @@ public class AddressMapper {
     public static void updateCity(int customerID, String city) throws RegisterException {
         try {
             Connection con = DatabaseConnector.connection();
-            String SQL = "UPDATE address SET city = ? WHERE customerID = ?";
+            String SQL = "UPDATE `address` SET `city` = ? WHERE `customerID` = ?";
             PreparedStatement ps = con.prepareStatement(SQL);
             ps.setString(1, city);
             ps.setInt(2, customerID);
@@ -75,7 +75,7 @@ public class AddressMapper {
     public static void updateZip(int customerID, String zip) throws RegisterException {
         try {
             Connection con = DatabaseConnector.connection();
-            String SQL = "UPDATE address SET zip = ? WHERE customerID = ?";
+            String SQL = "UPDATE `address` SET `zip` = ? WHERE `customerID` = ?";
             PreparedStatement ps = con.prepareStatement(SQL);
             ps.setString(1, zip);
             ps.setInt(2, customerID);
@@ -88,7 +88,7 @@ public class AddressMapper {
     public static void updateStreet(int customerID, String street) throws RegisterException {
         try {
             Connection con = DatabaseConnector.connection();
-            String SQL = "UPDATE address SET street = ? WHERE customerID = ?";
+            String SQL = "UPDATE `address` SET `street` = ? WHERE `customerID` = ?";
             PreparedStatement ps = con.prepareStatement(SQL);
             ps.setString(1, street);
             ps.setInt(2, customerID);
@@ -101,7 +101,7 @@ public class AddressMapper {
     public static void updateNumber(int customerID, String number) throws RegisterException {
         try {
             Connection con = DatabaseConnector.connection();
-            String SQL = "UPDATE address SET number = ? WHERE customerID = ?";
+            String SQL = "UPDATE `address` SET `number` = ? WHERE `customerID` = ?";
             PreparedStatement ps = con.prepareStatement(SQL);
             ps.setString(1, number);
             ps.setInt(2, customerID);

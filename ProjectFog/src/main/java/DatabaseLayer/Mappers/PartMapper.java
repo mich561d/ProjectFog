@@ -19,7 +19,7 @@ public class PartMapper {
     public static Part getPartByTypeMaterialSize(String t, String m, String s) throws FogException {
         try {
             Connection con = DatabaseConnector.connection();
-            String SQL = "SELECT * FROM part WHERE type = ? AND material = ? AND size = ?";
+            String SQL = "SELECT * FROM `part` WHERE `type` = ? AND `material` = ? AND `size` = ?";
             PreparedStatement ps = con.prepareStatement(SQL);
             ps.setString(1, t); // t = type
             ps.setString(2, m); // m = material
@@ -45,7 +45,7 @@ public class PartMapper {
     public static ArrayList<Part> getAllRoofBricksAsList() throws FogException {
         try {
             Connection con = DatabaseConnector.connection();
-            String SQL = "SELECT * FROM part WHERE material = ?";
+            String SQL = "SELECT * FROM `part` WHERE `material` = ?";
             PreparedStatement ps = con.prepareStatement(SQL);
             ps.setString(1, "Tegl"); // m = material
             ResultSet rs = ps.executeQuery();

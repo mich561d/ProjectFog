@@ -19,7 +19,7 @@ public class ProductMapper {
     public static Carport getProductFromOrderByID(int id) throws FogException {
         try {
             Connection con = DatabaseConnector.connection();
-            String SQL = "SELECT * FROM carport WHERE id = ?";
+            String SQL = "SELECT * FROM `carport` WHERE `id` = ?";
             PreparedStatement ps = con.prepareStatement(SQL);
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
@@ -47,8 +47,7 @@ public class ProductMapper {
     public static int createProduct(Carport carport) throws FogException {
         try {
             Connection con = DatabaseConnector.connection();
-            String SQL = "INSERT INTO carport(length, width, height, roof, angle, roofing, shed, shedLength, shedWidth, flooring) VALUES"
-                    + " (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            String SQL = "INSERT INTO `carport`(length, width, height, roof, angle, roofing, shed, shedLength, shedWidth, flooring) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
             ps.setInt(1, carport.getCarportLength());
             ps.setInt(2, carport.getCarportWidth());

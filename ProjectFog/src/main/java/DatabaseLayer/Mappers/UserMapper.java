@@ -21,8 +21,7 @@ public class UserMapper {
     public static String getSaltValue(String email) throws LoginException {
         try {
             Connection con = DatabaseConnector.connection();
-            String SQL = "SELECT saltValue FROM user "
-                    + "WHERE BINARY email=?";
+            String SQL = "SELECT `saltValue` FROM `user` WHERE BINARY `email` = ?";
             PreparedStatement ps = con.prepareStatement(SQL);
             ps.setString(1, email);
             ResultSet rs = ps.executeQuery();
@@ -39,8 +38,7 @@ public class UserMapper {
     public static int getLoginId(String email, String password) throws LoginException {
         try {
             Connection con = DatabaseConnector.connection();
-            String SQL = "SELECT * FROM user "
-                    + "WHERE BINARY email=? AND BINARY password=?";
+            String SQL = "SELECT * FROM `user` WHERE BINARY `email` = ? AND BINARY `password` = ?";
             PreparedStatement ps = con.prepareStatement(SQL);
             ps.setString(1, email);
             ps.setString(2, password);
@@ -58,8 +56,7 @@ public class UserMapper {
     public static boolean doEmailExist(String email) throws RegisterException {
         try {
             Connection con = DatabaseConnector.connection();
-            String SQL = "SELECT * FROM user "
-                    + "WHERE BINARY email=?";
+            String SQL = "SELECT * FROM `user` WHERE BINARY `email` = ?";
             PreparedStatement ps = con.prepareStatement(SQL);
             ps.setString(1, email);
             ResultSet rs = ps.executeQuery();
@@ -76,7 +73,7 @@ public class UserMapper {
     public static int createUser(String email, String hashedPassword, String salt) throws RegisterException {
         try {
             Connection con = DatabaseConnector.connection();
-            String SQL = "INSERT INTO user(email, password, saltValue) VALUES (?, ?, ?)";
+            String SQL = "INSERT INTO `user`(email, password, saltValue) VALUES (?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, email);
             ps.setString(2, hashedPassword);
@@ -93,7 +90,7 @@ public class UserMapper {
     public static User getUserByID(int id) throws FogException {
         try {
             Connection con = DatabaseConnector.connection();
-            String SQL = "SELECT * FROM user WHERE id = ?";
+            String SQL = "SELECT * FROM `user` WHERE `id` = ?";
             PreparedStatement ps = con.prepareStatement(SQL);
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();

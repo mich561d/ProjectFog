@@ -19,7 +19,7 @@ public class EmployeeMapper {
     public static Employee getEmployeeByID(int id) throws FogException {
         try {
             Connection con = DatabaseConnector.connection();
-            String SQL = "SELECT * FROM employee WHERE id = ?";
+            String SQL = "SELECT * FROM `employee` WHERE `id` = ?";
             PreparedStatement ps = con.prepareStatement(SQL);
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
