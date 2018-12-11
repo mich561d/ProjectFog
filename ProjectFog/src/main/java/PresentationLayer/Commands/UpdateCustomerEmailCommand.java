@@ -18,7 +18,7 @@ public class UpdateCustomerEmailCommand implements Command {
     public String execute(HttpServletRequest request, HttpServletResponse response) throws RegisterException, FogException {
         String email = request.getParameter("changeEmail");
         if (needsChange(email)) {
-            Customer customer = LogicFacade.getCustomerByID(Integer.parseInt(request.getSession().getAttribute("CustomerID").toString()));
+            Customer customer = LogicFacade.getCustomerByUserID(Integer.parseInt(request.getSession().getAttribute("CustomerID").toString()));
             int id = customer.getId();
             
             LogicFacade.doEmailExist(email);

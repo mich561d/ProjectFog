@@ -7,7 +7,6 @@ package DatabaseLayer;
 
 import DatabaseLayer.Mappers.AddressMapper;
 import DatabaseLayer.Mappers.CustomerMapper;
-import DatabaseLayer.Mappers.PaymentInformationMapper;
 import DatabaseLayer.Mappers.UserMapper;
 import FunctionLayer.Entities.Customer;
 import FunctionLayer.Exceptions.FogException;

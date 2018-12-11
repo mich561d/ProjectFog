@@ -1,13 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package PresentationLayer.Commands;
 
 import FunctionLayer.Entities.Address;
 import FunctionLayer.Entities.Customer;
-import FunctionLayer.Entities.PaymentInformation;
 import FunctionLayer.Entities.User;
 import FunctionLayer.Exceptions.FogException;
 import FunctionLayer.LogicFacade;
@@ -29,11 +23,9 @@ public class CustomerPageCommand implements Command {
         }
         Customer customer = LogicFacade.getCustomerByID((int) request.getSession().getAttribute("CustomerID"));
         Address address = LogicFacade.getAddressByID(customer.getId());
-        PaymentInformation payment = LogicFacade.getPaymentInformationByID(customer.getId());
         User user = LogicFacade.getUserByID(customer.getId());
         request.getSession().setAttribute("Customer", customer);
         request.getSession().setAttribute("Address", address);
-        request.getSession().setAttribute("Payment", payment);
         request.getSession().setAttribute("User", user);
         return "CustomerPage";
     }

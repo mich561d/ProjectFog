@@ -95,20 +95,6 @@
                                         </label>
                                     </label>
                                 </div>
-                                <div class="col-lg-6">
-                                    <label>
-                                        <h3>Kort Oplysninger:</h3>
-                                        <label>
-                                            <p>Kortnummer:</p>
-                                            <input type="text" class="form-control" name="cardNumber" placeholder="4830 9657 2189 9352" required>
-                                        </label>
-                                        <br>
-                                        <label>
-                                            <p>Udløbsdato:</p>
-                                            <input type="text" class="form-control" name="cardExpireDate" placeholder="01/19" required>
-                                        </label>
-                                    </label>
-                                </div>
                             </div>
                         </div>
                         </table>
@@ -123,8 +109,8 @@
                                 </div>
                             </div>
                         </div>
+                    </form>
                 </div>
-                </form>
             </div>
         </div>
     </div>

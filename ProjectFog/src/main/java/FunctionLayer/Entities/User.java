@@ -6,16 +6,14 @@ package FunctionLayer.Entities;
  */
 public class User {
 
-    private int id, customerID, employeeID;
+    private int id;
     private String email, hashedPassword, salt;
 
-    public User(int id, String email, String hashedPassword, String salt, int customerID, int employeeID) {
+    public User(int id, String email, String hashedPassword, String salt) {
         this.id = id;
         this.email = email;
         this.hashedPassword = hashedPassword;
         this.salt = salt;
-        this.customerID = customerID;
-        this.employeeID = employeeID;
     }
 
     public int getId() {
@@ -24,14 +22,6 @@ public class User {
 
     public String getEmail() {
         return email;
-    }
-
-    public int getCustomerID() {
-        return customerID;
-    }
-
-    public int getEmployeeID() {
-        return employeeID;
     }
 
 }

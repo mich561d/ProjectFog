@@ -9,7 +9,6 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.logging.Level;
@@ -23,7 +22,7 @@ public class OrderMapper {
     public static ArrayList<Order> getAllOrdersByCustomerID(int customerID) throws FogException {
         try {
             Connection con = DatabaseConnector.connection();
-            String SQL = "SELECT * FROM order WHERE customerID = ?";
+            String SQL = "SELECT * FROM `order` WHERE customerID = ?";
             PreparedStatement ps = con.prepareStatement(SQL);
             ps.setInt(1, customerID);
             ResultSet rs = ps.executeQuery();
@@ -46,7 +45,7 @@ public class OrderMapper {
     public static void createOrder(int customerID, int productID) throws FogException {
         try {
             Connection con = DatabaseConnector.connection();
-            String SQL = "INSERT INTO order(orderStatus, boughtDate, delieveredDate, productID, customerID) VALUES"
+            String SQL = "INSERT INTO `order`(orderStatus, boughtDate, delieveredDate, productID, customerID) VALUES"
                     + " (?, ?, ?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(SQL);
             ps.setString(1, OrderStatus.ORDERED.name());

@@ -614,7 +614,7 @@ Syntax error, insert "}" to complete ClassBody
 
 Stacktrace:
 dec. 07, 2018 11:01:10 AM FunctionLayer.Logging.Logging write
-INFO: Der skete en fejl!.. Prøv at logge ind igen!
+INFO: Der skete en fejl!.. Prï¿½v at logge ind igen!
 dec. 07, 2018 11:47:41 AM FunctionLayer.Logging.Logging write
 OFF: 404 - Page not found!
 dec. 07, 2018 11:49:28 AM FunctionLayer.Logging.Logging write
@@ -1015,26 +1015,35 @@ The method getPrice() is undefined for the type Part
 
 Stacktrace:
 dec. 09, 2018 5:55:26 PM FunctionLayer.Logging.Logging write
-INFO: Du skal logge ind før du kan gå videre!
+INFO: Du skal logge ind fï¿½r du kan gï¿½ videre!
 dec. 09, 2018 5:55:27 PM FunctionLayer.Logging.Logging write
-INFO: Du skal logge ind før du kan gå videre!
+INFO: Du skal logge ind fï¿½r du kan gï¿½ videre!
 dec. 09, 2018 5:57:59 PM FunctionLayer.Logging.Logging write
 SEVERE: Cannot add or update a child row: a foreign key constraint fails (`ProjectFogDatabase`.`address`, CONSTRAINT `Employee_Has_Address` FOREIGN KEY (`employeeID`) REFERENCES `employee` (`id`) ON DELETE CASCADE ON UPDATE CASCADE)
 dec. 09, 2018 7:37:50 PM FunctionLayer.Logging.Logging write
 SEVERE: Cannot add or update a child row: a foreign key constraint fails (`ProjectFogDatabase`.`address`, CONSTRAINT `Employee_Has_Address` FOREIGN KEY (`employeeID`) REFERENCES `employee` (`id`) ON DELETE CASCADE ON UPDATE CASCADE)
-dec. 10, 2018 6:24:34 PM FunctionLayer.Logging.Logging write
+dec. 10, 2018 9:56:43 AM FunctionLayer.Logging.Logging write
 SEVERE: Cannot add or update a child row: a foreign key constraint fails (`ProjectFogDatabase`.`address`, CONSTRAINT `Employee_Has_Address` FOREIGN KEY (`employeeID`) REFERENCES `employee` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION)
-dec. 10, 2018 6:31:41 PM FunctionLayer.Logging.Logging write
-SEVERE: Cannot add or update a child row: a foreign key constraint fails (`ProjectFogDatabase`.`address`, CONSTRAINT `Employee_Has_Address` FOREIGN KEY (`employeeID`) REFERENCES `employee` (`id`) ON DELETE CASCADE ON UPDATE CASCADE)
-dec. 10, 2018 6:33:01 PM FunctionLayer.Logging.Logging write
-INFO: User 'rygerlunger@gmail.com' do not exist!
-dec. 10, 2018 6:44:09 PM FunctionLayer.Logging.Logging write
-INFO: User 'rygerlunger@gmail.com' do not exist!
-dec. 10, 2018 6:45:20 PM FunctionLayer.Logging.Logging write
-SEVERE: Cannot add or update a child row: a foreign key constraint fails (`ProjectFogDatabase`.`address`, CONSTRAINT `Employee_Has_Address` FOREIGN KEY (`employeeID`) REFERENCES `employee` (`id`) ON DELETE CASCADE ON UPDATE CASCADE)
-dec. 10, 2018 6:52:54 PM FunctionLayer.Logging.Logging write
-OFF: Passwords too small!
-dec. 10, 2018 6:53:53 PM FunctionLayer.Logging.Logging write
-SEVERE: Unknown column 'employeeID' in 'field list'
-dec. 10, 2018 6:56:35 PM FunctionLayer.Logging.Logging write
-OFF: 404 - Page not found!
+dec. 11, 2018 12:23:04 PM FunctionLayer.Logging.Logging write
+SEVERE: Column 'customerID' not found.
+dec. 11, 2018 12:23:34 PM FunctionLayer.Logging.Logging write
+SEVERE: Column 'customerID' not found.
+dec. 11, 2018 12:38:31 PM FunctionLayer.Logging.Logging write
+INFO: User 'test-bruger@gmail.com' do not exist!
+dec. 11, 2018 12:38:54 PM FunctionLayer.Logging.Logging write
+SEVERE: Column 'customerID' not found.
+dec. 11, 2018 12:40:36 PM FunctionLayer.Logging.Logging write
+SEVERE: Unknown column 'customerID' in 'where clause'
+dec. 11, 2018 12:48:07 PM FunctionLayer.Logging.Logging write
+SEVERE: Unknown column 'customerID' in 'where clause'
+dec. 11, 2018 12:52:26 PM FunctionLayer.Logging.Logging write
+SEVERE: Unknown column 'customerID' in 'where clause'
+dec. 11, 2018 12:55:34 PM FunctionLayer.Logging.Logging write
+WARNING: Unable to compile class for JSP: 
+
+An error occurred at line: [15] in the generated java file: [C:\Users\Michael\AppData\Roaming\NetBeans\8.2\apache-tomcat-8.0.27.0_base\work\Catalina\localhost\ProjectFog\org\apache\jsp\Webpages\CustomerPage_jsp.java]
+Only a type can be imported. FunctionLayer.Entities.PaymentInformation resolves to a package
+
+Stacktrace:
+dec. 11, 2018 12:59:15 PM FunctionLayer.Logging.Logging write
+SEVERE: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'order WHERE customerID = 1' at line 1

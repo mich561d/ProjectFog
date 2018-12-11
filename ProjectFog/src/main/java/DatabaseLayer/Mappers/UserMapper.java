@@ -46,13 +46,7 @@ public class UserMapper {
             ps.setString(2, password);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                int customerID = rs.getInt("customerID");
-                int employeeID = rs.getInt("employeeID");
-                if (customerID > 0) {
-                    return customerID;
-                } else {
-                    return employeeID;
-                }
+                return rs.getInt("id");
             } else {
                 throw new LoginException("Could not validate user", Level.INFO);
             }
@@ -79,21 +73,14 @@ public class UserMapper {
         }
     }
 
-    public static int createUser(String email, String hashedPassword, String salt, int id, boolean customer) throws RegisterException {
+    public static int createUser(String email, String hashedPassword, String salt) throws RegisterException {
         try {
             Connection con = DatabaseConnector.connection();
-            String SQL = "INSERT INTO user(email, password, saltValue, customerID, employeeID) VALUES (?, ?, ?, ?, ?)";
+            String SQL = "INSERT INTO user(email, password, saltValue) VALUES (?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, email);
             ps.setString(2, hashedPassword);
             ps.setString(3, salt);
-            if (customer) {
-                ps.setInt(4, id);
-                ps.setInt(5, 0);
-            } else {
-                ps.setInt(4, 0);
-                ps.setInt(5, id);
-            }
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
             rs.next();
@@ -103,29 +90,27 @@ public class UserMapper {
         }
     }
 
-    public static User getUserByCustomerID(int customerID) throws FogException {
+    public static User getUserByID(int id) throws FogException {
         try {
             Connection con = DatabaseConnector.connection();
-            String SQL = "SELECT * FROM user WHERE customerID = ?";
+            String SQL = "SELECT * FROM user WHERE id = ?";
             PreparedStatement ps = con.prepareStatement(SQL);
-            ps.setInt(1, customerID);
+            ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                int id = rs.getInt("id");
                 String email = rs.getString("email");
                 String hashedPassword = rs.getString("password");
                 String saltValue = rs.getString("saltValue");
-                int employeeID = rs.getInt("employeeID");
-                User user = new User(id, email, hashedPassword, saltValue, customerID, employeeID);
+                User user = new User(id, email, hashedPassword, saltValue);
                 return user;
             } else {
-                throw new FogException("webbrugeren med id'et " + customerID + ", findes ikke!", Level.WARNING);
+                throw new FogException("webbrugeren med id'et " + id + ", findes ikke!", Level.WARNING);
             }
         } catch (SQLException | ClassNotFoundException ex) {
             throw new FogException(ex.getMessage(), Level.SEVERE);
         }
     }
-    
+
     public static void updateEmail(int customerID, String email) throws RegisterException {
         try {
             Connection con = DatabaseConnector.connection();
@@ -138,8 +123,8 @@ public class UserMapper {
             throw new RegisterException(ex.getMessage(), Level.SEVERE);
         }
     }
-    
-        public static void updatePassword(int customerID, String password) throws RegisterException {
+
+    public static void updatePassword(int customerID, String password) throws RegisterException {
         try {
             Connection con = DatabaseConnector.connection();
             String SQL = "UPDATE `user` SET `password` = ? WHERE `customerID` = ?";

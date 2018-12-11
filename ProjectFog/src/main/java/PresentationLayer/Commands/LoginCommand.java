@@ -19,13 +19,13 @@ public class LoginCommand implements Command {
     public String execute(HttpServletRequest request, HttpServletResponse response) throws FogException, LoginException {
         String email = request.getParameter("LoginEmail");
         String password = request.getParameter("LoginPassword");
-        int id = LogicFacade.login(email, password);
+        int userID = LogicFacade.login(email, password);
         try {
-            Customer customer = LogicFacade.getCustomerByID(id);
+            Customer customer = LogicFacade.getCustomerByUserID(userID);
             request.getSession().setAttribute("CustomerID", customer.getId());
             request.getSession().setAttribute("CustomerName", customer.getFullName());
         } catch (FogException e) {
-            Employee employee = LogicFacade.getEmployeeByID(id);
+            Employee employee = LogicFacade.getEmployeeByID(userID);
             request.getSession().setAttribute("EmployeeID", employee.getId());
             request.getSession().setAttribute("EmployeeName", employee.getFullName());
         }

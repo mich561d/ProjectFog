@@ -6,14 +6,15 @@ package FunctionLayer.Entities;
  */
 public class Customer {
 
-    private int id;
+    private int id, userID;
     private String firstName, lastName, phone;
 
-    public Customer(int id, String firstName, String lastName, String phone) {
+    public Customer(int id, String firstName, String lastName, String phone, int userID) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.phone = phone;
+        this.userID = userID;
     }
 
     public int getId() {
@@ -34,5 +35,9 @@ public class Customer {
 
     public String getPhone() {
         return phone;
+    }
+    
+    public int getUserID() {
+        return userID;
     }
 }

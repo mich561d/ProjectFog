@@ -24,10 +24,8 @@ public class UpdateCustomerInformationCommand implements Command {
         String zip = request.getParameter("changeZip");
         String street = request.getParameter("changeStreet");
         String number = request.getParameter("changeNumber");
-        String cardNumber = request.getParameter("changeCardNumber");
-        String cardExpireDate = request.getParameter("changeExpireDate");
         // Change data in database
-        Customer customer = LogicFacade.getCustomerByID(Integer.parseInt(request.getSession().getAttribute("CustomerID").toString()));
+        Customer customer = LogicFacade.getCustomerByUserID(Integer.parseInt(request.getSession().getAttribute("CustomerID").toString()));
         int id = customer.getId();
         boolean updatedCustomer = false;
         if (needsChange(firstName)) {
@@ -59,25 +57,13 @@ public class UpdateCustomerInformationCommand implements Command {
             LogicFacade.updateNumber(id, number);
             updatedAddress = true;
         }
-        boolean updatedPaymentInformation = false;
-        if (needsChange(cardNumber)) {
-            LogicFacade.updateCardNumber(id, cardNumber);
-            updatedPaymentInformation = true;
-        }
-        if (needsChange(cardExpireDate)) {
-            LogicFacade.updateExpireDate(id, cardExpireDate);
-            updatedPaymentInformation = true;
-        }
         if (updatedCustomer) {
-            request.getSession().setAttribute("Customer", LogicFacade.getCustomerByID(id));
+            request.getSession().setAttribute("Customer", LogicFacade.getCustomerByUserID(id));
         }
         if (updatedAddress) {
             request.getSession().setAttribute("Address", LogicFacade.getAddressByID(id));
         }
-        if (updatedPaymentInformation) {
-            request.getSession().setAttribute("Payment", LogicFacade.getPaymentInformationByID(id));
-        }
-        if (updatedCustomer || updatedAddress || updatedPaymentInformation) {
+        if (updatedCustomer || updatedAddress) {
             request.getSession().setAttribute("Updated", true);
         }
         return "CustomerPage";

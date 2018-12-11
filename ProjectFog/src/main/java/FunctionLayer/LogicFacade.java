@@ -10,7 +10,6 @@ import FunctionLayer.Entities.Employee;
 import FunctionLayer.Entities.Order;
 import FunctionLayer.Util.UtilCarportDrawing;
 import FunctionLayer.Entities.Part;
-import FunctionLayer.Entities.PaymentInformation;
 import FunctionLayer.Entities.User;
 import FunctionLayer.Exceptions.LoginException;
 import FunctionLayer.Exceptions.RegisterException;
@@ -57,10 +56,10 @@ public class LogicFacade {
     public static String getRandomSaltString(int length) {
         return Hashing.getRandomSaltString(length);
     }
-    
+
     public static String getSaltString(String email) throws LoginException {
         return DatabaseFacade.getSaltValue(email);
-    } 
+    }
 
     public static String hashPassword(String password, String salt) throws FogException {
         String concat = password.concat(salt);
@@ -81,22 +80,22 @@ public class LogicFacade {
         return PasswordComparator.checkPasswords(pass1, pass2);
     }
 
-    public static int createAddress(String city, String zip, String street, String number, int id, boolean customer) throws RegisterException {
-        return DatabaseFacade.createAddress(city, zip, street, number, id, customer);
+    public static int createAddress(String city, String zip, String street, String number, int customerID) throws RegisterException {
+        return DatabaseFacade.createAddress(city, zip, street, number, customerID);
     }
 
-    public static int createPaymentInformation(String cardNumber, String ExpireDate, int customerID) throws RegisterException {
-        return DatabaseFacade.createPaymentInformation(cardNumber, ExpireDate, customerID);
-    }
-
-    public static int createUser(String email, String password, int id, boolean customer) throws RegisterException, FogException {
+    public static int createUser(String email, String password) throws RegisterException, FogException {
         String salt = Hashing.getRandomSaltString(0);
         String hashedPassword = Hashing.hashPassword(password.concat(salt));
-        return DatabaseFacade.createUser(email, hashedPassword, salt, id, customer);
+        return DatabaseFacade.createUser(email, hashedPassword, salt);
     }
 
-    public static int createCustomer(String firstName, String lastName, String phone) throws RegisterException, FogException {
-        return DatabaseFacade.createCustomer(firstName, lastName, phone);
+    public static int createCustomer(String firstName, String lastName, String phone, int userID) throws RegisterException, FogException {
+        return DatabaseFacade.createCustomer(firstName, lastName, phone, userID);
+    }
+
+    public static Customer getCustomerByUserID(int userID) throws FogException {
+        return DatabaseFacade.getCustomerByUserID(userID);
     }
 
     public static Customer getCustomerByID(int id) throws FogException {
@@ -105,10 +104,6 @@ public class LogicFacade {
 
     public static Address getAddressByID(int id) throws FogException {
         return DatabaseFacade.getAddressByID(id);
-    }
-
-    public static PaymentInformation getPaymentInformationByID(int id) throws FogException {
-        return DatabaseFacade.getPaymentInformationByID(id);
     }
 
     public static User getUserByID(int id) throws FogException {
@@ -121,14 +116,6 @@ public class LogicFacade {
 
     public static Employee getEmployeeByID(int id) throws FogException {
         return DatabaseFacade.getEmployeeByID(id);
-    }
-
-    public static void updateCardNumber(int id, String cardNumber) throws RegisterException {
-        DatabaseFacade.updateCardNumber(id, cardNumber);
-    }
-
-    public static void updateExpireDate(int id, String expireDate) throws RegisterException {
-        DatabaseFacade.updateExpireDate(id, expireDate);
     }
 
     public static void updateCity(int customerID, String city) throws RegisterException {

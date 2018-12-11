@@ -5,7 +5,6 @@
 --%>
 
 <%@page import="FunctionLayer.Entities.User"%>
-<%@page import="FunctionLayer.Entities.PaymentInformation"%>
 <%@page import="FunctionLayer.Entities.Address"%>
 <%@page import="FunctionLayer.Entities.Customer"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -19,7 +18,6 @@
         <%
             Customer customer = (Customer) request.getSession().getAttribute("Customer");
             Address address = (Address) request.getSession().getAttribute("Address");
-            PaymentInformation payment = (PaymentInformation) request.getSession().getAttribute("Payment");
             User user = (User) request.getSession().getAttribute("User");
         %>
     </head>
@@ -43,7 +41,7 @@
         <br>
         <div class="container-fluid">   
             <div class="row justify-content-md-center">
-                <div class="col-lg-5">
+                <div class="col-lg-6">
                     <div class="card border border-warning">
                         <div class="card-header border border-warning">
                             <h3>Dine informationer</h3>
@@ -89,27 +87,12 @@
                                             </tr>
                                         </tbody>
                                     </table>
-                                    <h3>Kort oplysninger:</h3>
-                                    <table class="table table-primary table-condensed table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th>Kort nummer</th>
-                                                <th>udløbsdato</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td><%=payment.getCardNumber()%></td>
-                                                <td><%=payment.getExpireDate()%></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
                                 </div>
                             </label>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-5">
+                <div class="col-lg-4">
                     <div class="card border border-warning">
                         <div class="card-header border border-warning">
                             <h3>Ændre informationer</h3>
@@ -127,9 +110,7 @@
                                         <input type="String" class="form-control" name="changeZip" placeholder="Postnummer">
                                         <input type="String" class="form-control" name="changeStreet" placeholder="Vej">
                                         <input type="String" class="form-control" name="changeNumber" placeholder="Nummer">
-                                        <input type="String" class="form-control" name="changeCardNumber" placeholder="Kort nummer">
-                                        <input type="String" class="form-control" name="changeExpireDate" placeholder="Kort udløbsdato">
-                                        <br><br>
+                                        <br>
                                         <div class="row">
                                             <div class="col-lg-1 align-self-end">
                                                 <input type="submit" class="btn btn-primary" name="next" value="Gem ændringer">
