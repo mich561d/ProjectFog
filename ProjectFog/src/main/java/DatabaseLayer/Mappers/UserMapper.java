@@ -134,4 +134,16 @@ public class UserMapper {
         }
     }
 
+    public static void deleteUser(int id) throws FogException {
+        try {
+            Connection con = DatabaseConnector.connection();
+            String SQL = "DELETE FROM `user` WHERE `id` = ?";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ps.setInt(1, id);
+            ps.executeUpdate();
+        } catch (ClassNotFoundException | SQLException ex) {
+            throw new FogException(ex.getMessage(), Level.SEVERE);
+        }
+    }
+
 }

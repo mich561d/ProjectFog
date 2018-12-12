@@ -122,4 +122,8 @@ public class DatabaseFacade {
     public static void createOrder(int customerID, int productID) throws FogException {
         OrderMapper.createOrder(customerID, productID);
     }
+
+    public static void deleteUser(int id) throws FogException {
+        UserMapper.deleteUser(id);
+    }
 }

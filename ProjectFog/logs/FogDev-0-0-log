@@ -1047,3 +1047,5 @@ Only a type can be imported. FunctionLayer.Entities.PaymentInformation resolves 
 Stacktrace:
 dec. 11, 2018 12:59:15 PM FunctionLayer.Logging.Logging write
 SEVERE: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'order WHERE customerID = 1' at line 1
+dec. 12, 2018 10:57:29 AM FunctionLayer.Logging.Logging write
+INFO: Du skal logge ind før du kan gå videre!

@@ -169,4 +169,8 @@ public class LogicFacade {
     public static void createOrder(int customerID, int productID) throws FogException {
         DatabaseFacade.createOrder(customerID, productID);
     }
+
+    public static void deleteUser(int id) throws FogException {
+        DatabaseFacade.deleteUser(id);
+    }
 }

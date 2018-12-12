@@ -10,11 +10,11 @@ import java.sql.SQLException;
  */
 public class DatabaseConnector {
 
-    private static final String IP = "104.248.26.203";
+    private static final String IP = "104.248.29.81";
     private static final String PORT = "3306";
     public static final String DATABASE = "ProjectFogDatabase";
-    private static final String USERNAME = "Ryge";
-    private static final String PASSWORD = "1234";
+    private static final String USERNAME = "Michael";
+    private static final String PASSWORD = "1997DuE";
 
     private static Connection singleton;
 
