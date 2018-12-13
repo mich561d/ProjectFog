@@ -5,12 +5,12 @@ import FunctionLayer.Entities.Order;
 import FunctionLayer.Enums.OrderStatus;
 import FunctionLayer.Exceptions.FogException;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.logging.Level;
 
 /**
@@ -29,7 +29,7 @@ public class OrderMapper {
             ArrayList<Order> orders = new ArrayList();
             while (rs.next()) {
                 int id = rs.getInt("id");
-                String status = rs.getString("orderStatus");
+                String status = rs.getString("orderStatus").toUpperCase();
                 String boughtDate = rs.getString("boughtDate");
                 String sentDate = rs.getString("delieveredDate");
                 int productID = rs.getInt("productID");
@@ -48,7 +48,7 @@ public class OrderMapper {
             String SQL = "INSERT INTO `order`(orderStatus, boughtDate, delieveredDate, productID, customerID) VALUES (?, ?, ?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(SQL);
             ps.setString(1, OrderStatus.ORDERED.name());
-            ps.setDate(2, (Date) Calendar.getInstance().getTime());
+            ps.setDate(2, java.sql.Date.valueOf(java.time.LocalDate.now()));
             ps.setDate(3, null);
             ps.setInt(4, productID);
             ps.setInt(5, customerID);

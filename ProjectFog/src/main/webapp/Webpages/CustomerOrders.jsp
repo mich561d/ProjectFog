@@ -68,9 +68,9 @@
                                                 <td><%=products.get(i).getShedWidth()%> cm</td>
                                                 <td><%=products.get(i).getFlooring()%></td>
                                                 <%} else {%>
-                                                <td>Denne order har ikke et skur</td>
-                                                <td>Denne order har ikke et skur</td>
-                                                <td>Denne order har ikke et skur</td>
+                                                <td>Denne ordre har ikke et skur</td>
+                                                <td>Denne ordre har ikke et skur</td>
+                                                <td>Denne ordre har ikke et skur</td>
                                                 <%}%>
                                                 <% if (products.get(i).isAngledRoof()) {%>
                                                 <td><%=products.get(i).getAngle()%> grader</td>
