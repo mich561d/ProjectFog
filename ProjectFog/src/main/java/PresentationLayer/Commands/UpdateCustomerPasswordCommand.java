@@ -21,15 +21,15 @@ public class UpdateCustomerPasswordCommand implements Command {
         String pass2 = request.getParameter("changePass2");
         if (needsChange(pass1) && needsChange(pass2)) {
             if (LogicFacade.checkPasswords(pass1, pass2)) {
-                Customer customer = LogicFacade.getCustomerByUserID(Integer.parseInt(request.getSession().getAttribute("CustomerID").toString()));
-                int id = customer.getId();
+                Customer customer = LogicFacade.getCustomerByID((int)request.getSession().getAttribute("CustomerID"));
+                int userID = customer.getUserID();
 
-                String email = LogicFacade.getUserByID(id).getEmail();
+                String email = LogicFacade.getUserByID(userID).getEmail();
                 String salt = LogicFacade.getSaltString(email);
                 String hashedPassword = LogicFacade.hashPassword(pass1, salt);
-                LogicFacade.updatePassword(id, hashedPassword);
+                LogicFacade.updatePassword(userID, hashedPassword);
 
-                request.getSession().setAttribute("User", LogicFacade.getUserByID(id));
+                request.getSession().setAttribute("User", LogicFacade.getUserByID(userID));
                 request.getSession().setAttribute("Updated", true);
             }
         }

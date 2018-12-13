@@ -87,6 +87,7 @@
                                             </tr>
                                         </tbody>
                                     </table>
+                                    <br style="line-height: 58px">
                                 </div>
                             </label>
                         </div>
@@ -137,8 +138,7 @@
                                     <form name="CustomerEmailChange" action="FrontController" method="POST">
                                         <input type="hidden" name="command" value="UpdateCustomerEmail">
                                         <input type="email" class="form-control" name="changeEmail" placeholder="Indtast ny email">
-                                        <p><strong>*Der vil blive sendt et nyt aktiverings link til den nye mail!</strong></p>
-                                        <br>
+                                        <br style="line-height: 62px">
                                         <div class="row">
                                             <div class="col-lg-1 align-self-end">
                                                 <input type="submit" class="btn btn-primary" name="next" value="Gem ændringer">

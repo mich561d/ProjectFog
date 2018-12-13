@@ -146,12 +146,12 @@ public class LogicFacade {
         DatabaseFacade.updatePhone(id, phone);
     }
 
-    public static void updateEmail(int customerID, String email) throws RegisterException {
-        DatabaseFacade.updateEmail(customerID, email);
+    public static void updateEmail(int id, String email) throws RegisterException {
+        DatabaseFacade.updateEmail(id, email);
     }
 
-    public static void updatePassword(int customerID, String password) throws RegisterException {
-        DatabaseFacade.updatePassword(customerID, password);
+    public static void updatePassword(int id, String password) throws RegisterException {
+        DatabaseFacade.updatePassword(id, password);
     }
 
     public static ArrayList<Order> getAllOrdersByCustomerID(int id) throws FogException {

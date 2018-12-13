@@ -99,12 +99,12 @@ public class DatabaseFacade {
         CustomerMapper.updatePhone(id, phone);
     }
 
-    public static void updateEmail(int customerID, String email) throws RegisterException {
-        UserMapper.updateEmail(customerID, email);
+    public static void updateEmail(int id, String email) throws RegisterException {
+        UserMapper.updateEmail(id, email);
     }
 
-    public static void updatePassword(int customerID, String password) throws RegisterException {
-        UserMapper.updatePassword(customerID, password);
+    public static void updatePassword(int id, String password) throws RegisterException {
+        UserMapper.updatePassword(id, password);
     }
 
     public static ArrayList<Order> getAllOrdersByCustomerID(int id) throws FogException {

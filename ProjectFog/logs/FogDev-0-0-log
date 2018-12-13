@@ -1049,3 +1049,19 @@ dec. 11, 2018 12:59:15 PM FunctionLayer.Logging.Logging write
 SEVERE: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'order WHERE customerID = 1' at line 1
 dec. 12, 2018 10:57:29 AM FunctionLayer.Logging.Logging write
 INFO: Du skal logge ind før du kan gå videre!
+dec. 13, 2018 9:15:42 AM FunctionLayer.Logging.Logging write
+SEVERE: Unknown column 'customerID' in 'where clause'
+dec. 13, 2018 9:20:04 AM FunctionLayer.Logging.Logging write
+SEVERE: Unknown column 'customerID' in 'where clause'
+dec. 13, 2018 9:22:26 AM FunctionLayer.Logging.Logging write
+SEVERE: Unknown column 'customerID' in 'where clause'
+dec. 13, 2018 9:23:17 AM FunctionLayer.Logging.Logging write
+SEVERE: Unknown column 'customerID' in 'where clause'
+dec. 13, 2018 9:24:23 AM FunctionLayer.Logging.Logging write
+SEVERE: Unknown column 'customerID' in 'where clause'
+dec. 13, 2018 9:26:56 AM FunctionLayer.Logging.Logging write
+WARNING: java.lang.NullPointerException
+dec. 13, 2018 9:27:55 AM FunctionLayer.Logging.Logging write
+WARNING: java.lang.NullPointerException
+dec. 13, 2018 9:28:54 AM FunctionLayer.Logging.Logging write
+INFO: Could not validate user

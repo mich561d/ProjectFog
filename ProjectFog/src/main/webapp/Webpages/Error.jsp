@@ -23,7 +23,7 @@
             <br>
             <h3>Du må rigtig gerne sende en besked til vores udvikler team.</h3>
             <h3>Så vi kan gøre vores bedste for at rette denne fejl i fremtiden!</h3>
-            <h3>Mail: fog-developer@gmail.com</h3>
+            <h3>Mail: <a href="mailto:fog-developer@gmail.com">fog-developer@gmail.com</a></h3>
         </div>
         <%@include file="/WEB-INF/Imports/Footer.jsp" %>
     </body>

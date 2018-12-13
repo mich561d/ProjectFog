@@ -108,26 +108,26 @@ public class UserMapper {
         }
     }
 
-    public static void updateEmail(int customerID, String email) throws RegisterException {
+    public static void updateEmail(int id, String email) throws RegisterException {
         try {
             Connection con = DatabaseConnector.connection();
-            String SQL = "UPDATE `user` SET `email` = ? WHERE `customerID` = ?";
+            String SQL = "UPDATE `user` SET `email` = ? WHERE `id` = ?";
             PreparedStatement ps = con.prepareStatement(SQL);
             ps.setString(1, email);
-            ps.setInt(2, customerID);
+            ps.setInt(2, id);
             ps.executeUpdate();
         } catch (ClassNotFoundException | SQLException ex) {
             throw new RegisterException(ex.getMessage(), Level.SEVERE);
         }
     }
 
-    public static void updatePassword(int customerID, String password) throws RegisterException {
+    public static void updatePassword(int id, String password) throws RegisterException {
         try {
             Connection con = DatabaseConnector.connection();
-            String SQL = "UPDATE `user` SET `password` = ? WHERE `customerID` = ?";
+            String SQL = "UPDATE `user` SET `password` = ? WHERE `id` = ?";
             PreparedStatement ps = con.prepareStatement(SQL);
             ps.setString(1, password);
-            ps.setInt(2, customerID);
+            ps.setInt(2, id);
             ps.executeUpdate();
         } catch (ClassNotFoundException | SQLException ex) {
             throw new RegisterException(ex.getMessage(), Level.SEVERE);
