@@ -190,4 +190,12 @@ public class LogicFacade {
     public static ArrayList<Part> getAllParts() throws FogException {
         return DatabaseFacade.getAllParts();
     }
+
+    public static void createPart(String type, String material, String size, String description, double price, String brand) throws FogException {
+        DatabaseFacade.createPart(type, material, size, description, price, brand);
+    }
+
+    public static void deletePart(int partID) throws FogException {
+        DatabaseFacade.deletePart(partID);
+    }
 }

@@ -97,4 +97,33 @@ public class PartMapper {
         }
     }
 
+    public static void createPart(String type, String material, String size, String description, double price, String brand) throws FogException {
+        try {
+            Connection con = DatabaseConnector.connection();
+            String SQL = "INSERT INTO `part`(type, material, size, description, price, brand) VALUES (?, ?, ?, ?, ?, ?)";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ps.setString(1, type);
+            ps.setString(2, material);
+            ps.setString(3, size);
+            ps.setString(4, description);
+            ps.setDouble(5, price);
+            ps.setString(6, brand);
+            ps.executeUpdate();
+        } catch (ClassNotFoundException | SQLException ex) {
+            throw new FogException(ex.getMessage(), Level.SEVERE);
+        }
+    }
+
+    public static void deletePart(int partID) throws FogException {
+        try {
+            Connection con = DatabaseConnector.connection();
+            String SQL = "DELETE FROM `part` WHERE `id` = ?";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ps.setInt(1, partID);
+            ps.executeUpdate();
+        } catch (ClassNotFoundException | SQLException ex) {
+            throw new FogException(ex.getMessage(), Level.SEVERE);
+        }
+    }
+
 }

@@ -32,6 +32,9 @@ public abstract class CommandController {
         commands.put("OrderPage", new OrderPageCommand());
         commands.put("SendOrder", new SendOrderCommand());
         commands.put("PartPage", new PartPageCommand());
+        commands.put("CreatePart", new CreatePartCommand());
+        commands.put("UploadMaterial", new UploadMaterialCommand());
+        commands.put("DeletePart", new DeletePartCommand());
     }
 
     static Command from(HttpServletRequest request) {

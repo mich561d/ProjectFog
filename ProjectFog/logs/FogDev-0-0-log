@@ -1317,3 +1317,100 @@ An error occurred at line: [372] in the generated java file: [C:\Users\Michael\A
 Syntax error, insert "}" to complete ClassBody
 
 Stacktrace:
+dec. 13, 2018 4:47:43 PM FunctionLayer.Logging.Logging write
+WARNING: Unable to compile class for JSP: 
+
+An error occurred at line: 25 in the jsp file: /Webpages/PartCreationSchema.jsp
+password cannot be resolved to a variable
+22:                     <form name="CustomerCreation" action="FrontController" method="POST">
+23:                         <input type="hidden" name="command" value="CreateCustomer">
+24:                         <input type="hidden" name="email" value="<%=request.getSession().getAttribute("RegisterEmail")%>">
+25:                         <input type="hidden" name="password" value="<%=password%>">
+26:                         <div class="card-header">
+27:                             <h3>Udfyld skemaet for at oprette dig i systemet</h3>
+28:                             <p><strong>*Udfyld skemaet som vist ved hjælp at 'pladsholderende'</strong></p>
+
+
+An error occurred at line: 61 in the jsp file: /Webpages/PartCreationSchema.jsp
+convertedPass cannot be resolved to a variable
+58:                                         <br>
+59:                                         <label>
+60:                                             <p>Password:</p>
+61:                                             <input type="password" class="form-control" name="password" placeholder="<%=convertedPass%>" readonly>
+62:                                         </label>
+63:                                     </label>
+64:                                 </div>
+
+
+Stacktrace:
+dec. 13, 2018 4:48:08 PM FunctionLayer.Logging.Logging write
+WARNING: Unable to compile class for JSP: 
+
+An error occurred at line: 25 in the jsp file: /Webpages/PartCreationSchema.jsp
+password cannot be resolved to a variable
+22:                     <form name="CustomerCreation" action="FrontController" method="POST">
+23:                         <input type="hidden" name="command" value="CreateCustomer">
+24:                         <input type="hidden" name="email" value="<%=request.getSession().getAttribute("RegisterEmail")%>">
+25:                         <input type="hidden" name="password" value="<%=password%>">
+26:                         <div class="card-header">
+27:                             <h3>Udfyld skemaet for at oprette dig i systemet</h3>
+28:                             <p><strong>*Udfyld skemaet som vist ved hjælp at 'pladsholderende'</strong></p>
+
+
+An error occurred at line: 61 in the jsp file: /Webpages/PartCreationSchema.jsp
+convertedPass cannot be resolved to a variable
+58:                                         <br>
+59:                                         <label>
+60:                                             <p>Password:</p>
+61:                                             <input type="password" class="form-control" name="password" placeholder="<%=convertedPass%>" readonly>
+62:                                         </label>
+63:                                     </label>
+64:                                 </div>
+
+
+Stacktrace:
+dec. 13, 2018 4:49:17 PM FunctionLayer.Logging.Logging write
+WARNING: Unable to compile class for JSP: 
+
+An error occurred at line: 25 in the jsp file: /Webpages/PartCreationSchema.jsp
+password cannot be resolved to a variable
+22:                     <form name="CustomerCreation" action="FrontController" method="POST">
+23:                         <input type="hidden" name="command" value="CreateCustomer">
+24:                         <input type="hidden" name="email" value="<%=request.getSession().getAttribute("RegisterEmail")%>">
+25:                         <input type="hidden" name="password" value="<%=password%>">
+26:                         <div class="card-header">
+27:                             <h3>Udfyld skemaet for at oprette materialet i systemet</h3>
+28:                             <p><strong>*Udfyld skemaet som vist ved hjælp at 'pladsholderende'</strong></p>
+
+
+An error occurred at line: 59 in the jsp file: /Webpages/PartCreationSchema.jsp
+convertedPass cannot be resolved to a variable
+56:                                         <br>
+57:                                         <label>
+58:                                             <p>Password:</p>
+59:                                             <input type="password" class="form-control" name="password" placeholder="<%=convertedPass%>" readonly>
+60:                                         </label>
+61:                                     </label>
+62:                                 </div>
+
+
+Stacktrace:
+dec. 13, 2018 4:49:34 PM FunctionLayer.Logging.Logging write
+WARNING: Unable to compile class for JSP: 
+
+An error occurred at line: 25 in the jsp file: /Webpages/PartCreationSchema.jsp
+password cannot be resolved to a variable
+22:                     <form name="CustomerCreation" action="FrontController" method="POST">
+23:                         <input type="hidden" name="command" value="CreateCustomer">
+24:                         <input type="hidden" name="email" value="<%=request.getSession().getAttribute("RegisterEmail")%>">
+25:                         <input type="hidden" name="password" value="<%=password%>">
+26:                         <div class="card-header">
+27:                             <h3>Udfyld skemaet for at oprette materialet i systemet</h3>
+28:                             <p><strong>*Udfyld skemaet som vist ved hjælp at 'pladsholderende'</strong></p>
+
+
+Stacktrace:
+dec. 13, 2018 5:41:27 PM FunctionLayer.Logging.Logging write
+SEVERE: No value specified for parameter 6
+dec. 13, 2018 5:41:50 PM FunctionLayer.Logging.Logging write
+WARNING: java.lang.NullPointerException

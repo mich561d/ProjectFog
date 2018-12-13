@@ -131,7 +131,7 @@ public class DatabaseFacade {
     public static int createEmployee(String firstName, String lastName, String phone, String workPhone, EmployeeRole role, int userID) throws RegisterException {
         return EmployeeMapper.createEmployee(firstName, lastName, phone, workPhone, role, userID);
     }
-    
+
     public static ArrayList<Order> getAllOrders() throws FogException {
         return OrderMapper.getAllOrders();
     }
@@ -142,5 +142,13 @@ public class DatabaseFacade {
 
     public static ArrayList<Part> getAllParts() throws FogException {
         return PartMapper.getAllParts();
+    }
+
+    public static void createPart(String type, String material, String size, String description, double price, String brand) throws FogException {
+        PartMapper.createPart(type, material, size, description, price, brand);
+    }
+
+    public static void deletePart(int partID) throws FogException {
+        PartMapper.deletePart(partID);
     }
 }
