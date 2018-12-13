@@ -18,6 +18,9 @@ public class CustomCarportCommand implements Command {
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws FogException, LoginException {
+        if (request.getSession().getAttribute("EmployeeID") != null) {
+            throw new LoginException("Du skal logge ind som en brugere!", Level.INFO);
+        }
         if (request.getSession().getAttribute("CustomerID") == null) {
             throw new LoginException("Du skal logge ind før du kan gå videre!", Level.INFO);
         }

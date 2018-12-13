@@ -9,8 +9,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.logging.Level;
 
 /**
@@ -52,6 +50,42 @@ public class OrderMapper {
             ps.setDate(3, null);
             ps.setInt(4, productID);
             ps.setInt(5, customerID);
+            ps.executeUpdate();
+        } catch (ClassNotFoundException | SQLException ex) {
+            throw new FogException(ex.getMessage(), Level.SEVERE);
+        }
+    }
+
+    public static ArrayList<Order> getAllOrders() throws FogException {
+        try {
+            Connection con = DatabaseConnector.connection();
+            String SQL = "SELECT * FROM `order`";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ResultSet rs = ps.executeQuery();
+            ArrayList<Order> orders = new ArrayList();
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String status = rs.getString("orderStatus").toUpperCase();
+                String boughtDate = rs.getString("boughtDate");
+                String sentDate = rs.getString("delieveredDate");
+                int productID = rs.getInt("productID");
+                int customerID = rs.getInt("customerID");
+                Order order = new Order(id, OrderStatus.valueOf(status), boughtDate, sentDate, productID, customerID);
+                orders.add(order);
+            }
+            return orders;
+        } catch (SQLException | ClassNotFoundException ex) {
+            throw new FogException(ex.getMessage(), Level.SEVERE);
+        }
+    }
+
+    public static void sentOrder(int orderID) throws FogException {
+        try {
+            Connection con = DatabaseConnector.connection();
+            String SQL = "UPDATE `order` SET `delieveredDate` = ? WHERE `id` = ?";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ps.setDate(1, java.sql.Date.valueOf(java.time.LocalDate.now()));
+            ps.setInt(2, orderID);
             ps.executeUpdate();
         } catch (ClassNotFoundException | SQLException ex) {
             throw new FogException(ex.getMessage(), Level.SEVERE);

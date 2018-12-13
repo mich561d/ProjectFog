@@ -131,4 +131,12 @@ public class DatabaseFacade {
     public static int createEmployee(String firstName, String lastName, String phone, String workPhone, EmployeeRole role, int userID) throws RegisterException {
         return EmployeeMapper.createEmployee(firstName, lastName, phone, workPhone, role, userID);
     }
+    
+    public static ArrayList<Order> getAllOrders() throws FogException {
+        return OrderMapper.getAllOrders();
+    }
+
+    public static void sentOrder(int orderID) throws FogException {
+        OrderMapper.sentOrder(orderID);
+    }
 }

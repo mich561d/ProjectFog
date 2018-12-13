@@ -15,8 +15,8 @@
         <title>Mine ordre</title>
         <%@include file="/WEB-INF/Imports/StyleImporter.jsp" %>
         <link href="Webpages/CSS/FogStyling.css" rel="stylesheet" type="text/css"/>
-        <% ArrayList<Order> orders = (ArrayList<Order>)request.getSession().getAttribute("Orders");
-            ArrayList<Carport> products = (ArrayList<Carport>)request.getSession().getAttribute("Products");%>
+        <% ArrayList<Order> orders = (ArrayList<Order>) request.getSession().getAttribute("Orders");
+            ArrayList<Carport> products = (ArrayList<Carport>) request.getSession().getAttribute("Products");%>
     </head>
     <body>
         <%@include file="/WEB-INF/Imports/NavBar.jsp" %>
@@ -50,13 +50,13 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            <%for (int i = 0; i < orders.size(); i++) {%>
                                             <tr>
-                                                <%for (int i = 0; i < orders.size(); i++) {%>
                                                 <td><%=orders.get(i).getId()%></td>
                                                 <td><%=orders.get(i).getStatus()%></td>
-                                                <td><%=orders.get(i).getBoughtDate()%></td>
+                                                <td><%=orders.get(i).getBoughtDate().split(" ")[0]%></td>
                                                 <% if (orders.get(i).getSentDate() != null) {%>
-                                                <td><%=orders.get(i).getSentDate()%></td>
+                                                <td><%=orders.get(i).getSentDate().split(" ")[0]%></td>
                                                 <%} else {%>
                                                 <td>Din ordre er ikke blevet sendt endnu!</td>
                                                 <%}%>
@@ -78,8 +78,8 @@
                                                 <%} else {%>
                                                 <td>Der er ikke tilvalgt hældning på dette tag</td>
                                                 <td>Trapezplader</td>
-                                                <%}}%>
                                             </tr>
+                                            <%}}%>
                                         </tbody>
                                     </table>
                                 </div>

@@ -17,8 +17,8 @@
     </head>
     <body>
         <%@include file="/WEB-INF/Imports/NavBar.jsp" %>
-        <% if (request.getSession().getAttribute("CustomerID") == null && request.getSession().getAttribute("EmployeeID") == null) { %>
         <% if (request.getSession().getAttribute("ErrorMsg") == null) { %>
+        <% if (request.getSession().getAttribute("CustomerID") == null && request.getSession().getAttribute("EmployeeID") == null) { %>
         <div class="container">
             <div class="row">
                 <div class="col-lg">
@@ -29,7 +29,8 @@
                 </div>
             </div>
         </div>
-        <%} else {%>
+        <%} %>
+        <% } else {%>
         <div class="container">
             <div class="row">
                 <div class="col-lg">
@@ -40,9 +41,8 @@
                 </div>
             </div>
         </div>
-        <% request.getSession().setAttribute("ErrorMsg", null);
-                }
-            }%>
+        <% }
+        request.getSession().setAttribute("ErrorMsg", null);%>
         <br>
         <div class="container">
             <div class="row no-gutters">

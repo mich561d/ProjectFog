@@ -174,8 +174,16 @@ public class LogicFacade {
     public static void deleteUser(int id) throws FogException {
         DatabaseFacade.deleteUser(id);
     }
-    
+
     public static int createEmployee(String firstName, String lastName, String phone, String workPhone, EmployeeRole role, int userID) throws RegisterException {
         return DatabaseFacade.createEmployee(firstName, lastName, phone, workPhone, role, userID);
+    }
+
+    public static ArrayList<Order> getAllOrders() throws FogException {
+        return DatabaseFacade.getAllOrders();
+    }
+
+    public static void sentOrder(int orderID) throws FogException {
+        DatabaseFacade.sentOrder(orderID);
     }
 }

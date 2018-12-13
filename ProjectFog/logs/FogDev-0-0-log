@@ -1099,3 +1099,221 @@ dec. 13, 2018 1:10:39 PM FunctionLayer.Logging.Logging write
 OFF: 404 - Siden du ledte efter kunne ikke findes!
 dec. 13, 2018 1:11:26 PM FunctionLayer.Logging.Logging write
 OFF: 404 - Siden du ledte efter kunne ikke findes!
+dec. 13, 2018 2:47:30 PM FunctionLayer.Logging.Logging write
+OFF: 404 - Siden du ledte efter kunne ikke findes!
+dec. 13, 2018 2:47:53 PM FunctionLayer.Logging.Logging write
+OFF: 404 - Siden du ledte efter kunne ikke findes!
+dec. 13, 2018 2:47:55 PM FunctionLayer.Logging.Logging write
+OFF: 404 - Siden du ledte efter kunne ikke findes!
+dec. 13, 2018 2:47:59 PM FunctionLayer.Logging.Logging write
+OFF: 404 - Siden du ledte efter kunne ikke findes!
+dec. 13, 2018 2:48:00 PM FunctionLayer.Logging.Logging write
+OFF: 404 - Siden du ledte efter kunne ikke findes!
+dec. 13, 2018 2:48:01 PM FunctionLayer.Logging.Logging write
+OFF: 404 - Siden du ledte efter kunne ikke findes!
+dec. 13, 2018 2:48:13 PM FunctionLayer.Logging.Logging write
+OFF: 404 - Siden du ledte efter kunne ikke findes!
+dec. 13, 2018 2:56:17 PM FunctionLayer.Logging.Logging write
+WARNING: Unable to compile class for JSP: 
+
+An error occurred at line: 17 in the jsp file: /Webpages/OrderPage.jsp
+ArrayList cannot be resolved to a variable
+14:         <title>Send ordre</title>
+15:         <%@include file="/WEB-INF/Imports/StyleImporter.jsp" %>
+16:         <link href="Webpages/CSS/FogStyling.css" rel="stylesheet" type="text/css"/>
+17:         <%= ArrayList<Order> orders = request.getSession().getAttribute("Orders") %>
+18:     </head>
+19:     <body>
+20:         <%@include file="/WEB-INF/Imports/NavBar.jsp" %>
+
+
+An error occurred at line: 17 in the jsp file: /Webpages/OrderPage.jsp
+Order cannot be resolved to a variable
+14:         <title>Send ordre</title>
+15:         <%@include file="/WEB-INF/Imports/StyleImporter.jsp" %>
+16:         <link href="Webpages/CSS/FogStyling.css" rel="stylesheet" type="text/css"/>
+17:         <%= ArrayList<Order> orders = request.getSession().getAttribute("Orders") %>
+18:     </head>
+19:     <body>
+20:         <%@include file="/WEB-INF/Imports/NavBar.jsp" %>
+
+
+An error occurred at line: 17 in the jsp file: /Webpages/OrderPage.jsp
+orders cannot be resolved to a variable
+14:         <title>Send ordre</title>
+15:         <%@include file="/WEB-INF/Imports/StyleImporter.jsp" %>
+16:         <link href="Webpages/CSS/FogStyling.css" rel="stylesheet" type="text/css"/>
+17:         <%= ArrayList<Order> orders = request.getSession().getAttribute("Orders") %>
+18:     </head>
+19:     <body>
+20:         <%@include file="/WEB-INF/Imports/NavBar.jsp" %>
+
+
+An error occurred at line: 17 in the jsp file: /Webpages/OrderPage.jsp
+Syntax error on token "=", <= expected
+14:         <title>Send ordre</title>
+15:         <%@include file="/WEB-INF/Imports/StyleImporter.jsp" %>
+16:         <link href="Webpages/CSS/FogStyling.css" rel="stylesheet" type="text/css"/>
+17:         <%= ArrayList<Order> orders = request.getSession().getAttribute("Orders") %>
+18:     </head>
+19:     <body>
+20:         <%@include file="/WEB-INF/Imports/NavBar.jsp" %>
+
+
+Stacktrace:
+dec. 13, 2018 3:00:10 PM FunctionLayer.Logging.Logging write
+WARNING: An exception occurred processing JSP page /Webpages/OrderPage.jsp at line 50
+
+47:                 </tr>
+48:             </thead>
+49:             <tbody>
+50:                 <% for (int i = 0; i < orders.size(); i++) {
+51:                         Order order = orders.get(i);
+52:                 %>
+53:                 <tr>
+
+
+Stacktrace:
+dec. 13, 2018 3:00:34 PM FunctionLayer.Logging.Logging write
+WARNING: An exception occurred processing JSP page /Webpages/OrderPage.jsp at line 50
+
+47:                 </tr>
+48:             </thead>
+49:             <tbody>
+50:                 <% for (int i = 0; i < orders.size(); i++) {
+51:                         Order order = orders.get(i);
+52:                 %>
+53:                 <tr>
+
+
+Stacktrace:
+dec. 13, 2018 3:01:44 PM FunctionLayer.Logging.Logging write
+WARNING: An exception occurred processing JSP page /Webpages/OrderPage.jsp at line 49
+
+46:                 </tr>
+47:             </thead>
+48:             <tbody>
+49:                 <% for (int i = 0; i < orders.size(); i++) {
+50:                         Order order = orders.get(i);%>
+51:                 <tr>
+52:                     <th scope="row"><%=i + 1%></th>
+
+
+Stacktrace:
+dec. 13, 2018 3:03:17 PM FunctionLayer.Logging.Logging write
+WARNING: An exception occurred processing JSP page /Webpages/OrderPage.jsp at line 50
+
+47:                 </tr>
+48:             </thead>
+49:             <tbody>
+50:                 <% for (int i = 0; i < orders.size(); i++) {
+51:                         Order order = orders.get(i);%>
+52:                 <tr>
+53:                     <th scope="row"><%=i + 1%></th>
+
+
+Stacktrace:
+dec. 13, 2018 3:03:28 PM FunctionLayer.Logging.Logging write
+WARNING: An exception occurred processing JSP page /Webpages/OrderPage.jsp at line 49
+
+46:                 </tr>
+47:             </thead>
+48:             <tbody>
+49:                 <% for (int i = 0; i < orders.size(); i++) {
+50:                         Order order = orders.get(i);%>
+51:                 <tr>
+52:                     <th scope="row"><%=i + 1%></th>
+
+
+Stacktrace:
+dec. 13, 2018 3:04:19 PM FunctionLayer.Logging.Logging write
+WARNING: An exception occurred processing JSP page /Webpages/OrderPage.jsp at line 49
+
+46:                 </tr>
+47:             </thead>
+48:             <tbody>
+49:                 <% for (int i = 0; i < orders.size(); i++) {
+50:                         Order order = orders.get(i);%>
+51:                 <tr>
+52:                     <th scope="row"><%=i + 1%></th>
+
+
+Stacktrace:
+dec. 13, 2018 3:04:38 PM FunctionLayer.Logging.Logging write
+WARNING: An exception occurred processing JSP page /Webpages/OrderPage.jsp at line 49
+
+46:                 </tr>
+47:             </thead>
+48:             <tbody>
+49:                 <% for (int i = 0; i < orders.size(); i++) {
+50:                         Order order = orders.get(i);%>
+51:                 <tr>
+52:                     <th scope="row"><%=i + 1%></th>
+
+
+Stacktrace:
+dec. 13, 2018 3:07:46 PM FunctionLayer.Logging.Logging write
+WARNING: An exception occurred processing JSP page /Webpages/OrderPage.jsp at line 49
+
+46:                 </tr>
+47:             </thead>
+48:             <tbody>
+49:                 <% for (int i = 0; i < orders.size(); i++) {
+50:                         Order order = orders.get(i);%>
+51:                 <tr>
+52:                     <th scope="row"><%=i + 1%></th>
+
+
+Stacktrace:
+dec. 13, 2018 3:10:38 PM FunctionLayer.Logging.Logging write
+WARNING: An exception occurred processing JSP page /Webpages/OrderPage.jsp at line 49
+
+46:                 </tr>
+47:             </thead>
+48:             <tbody>
+49:                 <% for (int i = 0; i < orders.size(); i++) {
+50:                         Order order = orders.get(i);%>
+51:                 <tr>
+52:                     <th scope="row"><%=i + 1%></th>
+
+
+Stacktrace:
+dec. 13, 2018 3:26:31 PM FunctionLayer.Logging.Logging write
+OFF: 404 - Siden du ledte efter kunne ikke findes!
+dec. 13, 2018 3:27:04 PM FunctionLayer.Logging.Logging write
+WARNING: java.lang.NullPointerException
+dec. 13, 2018 3:27:17 PM FunctionLayer.Logging.Logging write
+INFO: Du skal logge ind før du kan gå videre!
+dec. 13, 2018 3:28:04 PM FunctionLayer.Logging.Logging write
+INFO: Du skal logge ind før du kan gå videre!
+dec. 13, 2018 3:31:01 PM FunctionLayer.Logging.Logging write
+INFO: Du skal logge ind før du kan gå videre!
+dec. 13, 2018 3:31:04 PM FunctionLayer.Logging.Logging write
+INFO: Du skal logge ind før du kan gå videre!
+dec. 13, 2018 3:31:05 PM FunctionLayer.Logging.Logging write
+INFO: Du skal logge ind før du kan gå videre!
+dec. 13, 2018 3:31:23 PM FunctionLayer.Logging.Logging write
+INFO: Du skal logge ind som en brugere!
+dec. 13, 2018 3:31:25 PM FunctionLayer.Logging.Logging write
+INFO: Du skal logge ind som en brugere!
+dec. 13, 2018 3:32:35 PM FunctionLayer.Logging.Logging write
+WARNING: Unable to compile class for JSP: 
+
+An error occurred at line: 87 in the jsp file: /Webpages/CustomerOrders.jsp
+Syntax error, insert "}" to complete Statement
+84:                                     </table>
+85:                                 </div>
+86:                             </label>
+87:                             <% }else { %>
+88:                             <h3><strong>BemÃ¦rk: </strong>Du har ingen ordre gemt!</h3>
+89:                             <% }%>
+90:                         </div>
+
+
+An error occurred at line: [371] in the generated java file: [C:\Users\Michael\AppData\Roaming\NetBeans\8.2\apache-tomcat-8.0.27.0_base\work\Catalina\localhost\ProjectFog\org\apache\jsp\Webpages\CustomerOrders_jsp.java]
+Syntax error on token "}", delete this token
+
+An error occurred at line: [372] in the generated java file: [C:\Users\Michael\AppData\Roaming\NetBeans\8.2\apache-tomcat-8.0.27.0_base\work\Catalina\localhost\ProjectFog\org\apache\jsp\Webpages\CustomerOrders_jsp.java]
+Syntax error, insert "}" to complete ClassBody
+
+Stacktrace:

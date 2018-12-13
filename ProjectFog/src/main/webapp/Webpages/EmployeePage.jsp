@@ -1,7 +1,7 @@
 <%-- 
     Document   : EmployeePage
     Created on : 13-12-2018, 12:19:30
-    Author     : Michael
+    Author     : Michael & Christian
 --%>
 
 <%@page import="FunctionLayer.Enums.EmployeeRole"%>
@@ -10,7 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Opret medarbjedere</title>
         <%@include file="/WEB-INF/Imports/StyleImporter.jsp" %>
         <link href="Webpages/CSS/FogStyling.css" rel="stylesheet" type="text/css"/>
     </head>
@@ -27,7 +27,7 @@
                 </div>
             </div>
         </div>
-        <% request.getSession().setAttribute("ErrorMsg", null);
+        <% request.getSession().setAttribute("msg", null);
             }
         %>
         <br>

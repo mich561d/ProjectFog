@@ -60,8 +60,9 @@
                 </form>
             </div>
             <div class="col-lg-auto">
-                <form name="FogPro" action="https://www.johannesfog.dk/pro/">
-                    <button type="submit" class="btn btn-outline-warning ">Send ordre</button>
+                <form name="OrdersPage" action="FrontController" method="POST">
+                    <input type="hidden" name="command" value="OrderPage">
+                    <button type="submit" class="btn btn-outline-warning">Send ordre</button>
                 </form>
             </div>
             <div class="col-lg-auto">
