@@ -50,18 +50,18 @@
             <div class="col-lg-auto">
                 <form name="CustomerPage" action="FrontController" method="POST">
                     <input type="hidden" name="command" value="CustomerPage">
-                    <button type="submit" class="btn btn-outline-warning ">Min side</button>
+                    <button type="submit" class="btn btn-outline-warning ">Opret ny medarbejder</button>
                 </form>
             </div>
             <div class="col-lg-auto">
                 <form name="CustomerOrders" action="FrontController" method="POST">
                     <input type="hidden" name="command" value="CustomerOrders">
-                    <button type="submit" class="btn btn-outline-warning">Ordre</button>
+                    <button type="submit" class="btn btn-outline-warning">Opdater materialer</button>
                 </form>
             </div>
             <div class="col-lg-auto">
                 <form name="FogPro" action="https://www.johannesfog.dk/pro/">
-                    <button type="submit" class="btn btn-outline-warning ">FogPro</button>
+                    <button type="submit" class="btn btn-outline-warning ">Send ordre</button>
                 </form>
             </div>
             <div class="col-lg-auto">
@@ -72,7 +72,5 @@
             </div>
         </div>
     </div>
-</div>
-<% }%>
-</div>
+    <% }%>
 </div>
