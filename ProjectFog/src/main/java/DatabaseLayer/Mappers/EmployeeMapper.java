@@ -3,11 +3,14 @@ package DatabaseLayer.Mappers;
 import DatabaseLayer.DatabaseConnector;
 import FunctionLayer.Entities.Customer;
 import FunctionLayer.Entities.Employee;
+import FunctionLayer.Enums.EmployeeRole;
 import FunctionLayer.Exceptions.FogException;
+import FunctionLayer.Exceptions.RegisterException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.logging.Level;
 
 /**
@@ -37,6 +40,26 @@ public class EmployeeMapper {
             }
         } catch (SQLException | ClassNotFoundException ex) {
             throw new FogException(ex.getMessage(), Level.SEVERE);
+        }
+    }
+    
+    public static int createEmployee(String firstName, String lastName, String phone, String workPhone, EmployeeRole role, int userID) throws RegisterException {
+        try {
+            Connection con = DatabaseConnector.connection();
+            String SQL = "INSERT INTO `employee`(firstName, lastName, phone, workPhone, role, userID) VALUES (?, ?, ?, ?, ?, ?)";
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            ps.setString(1, firstName);
+            ps.setString(2, lastName);
+            ps.setString(3, phone);
+            ps.setString(4, workPhone);
+            ps.setString(5, role.toString());
+            ps.setInt(6, userID);
+            ps.executeUpdate();
+            ResultSet rs = ps.getGeneratedKeys();
+            rs.next();
+            return rs.getInt(1);
+        } catch (ClassNotFoundException | SQLException ex) {
+            throw new RegisterException(ex.getMessage(), Level.SEVERE);
         }
     }
 }

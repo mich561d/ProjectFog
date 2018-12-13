@@ -11,6 +11,7 @@ import FunctionLayer.Entities.Order;
 import FunctionLayer.Util.UtilCarportDrawing;
 import FunctionLayer.Entities.Part;
 import FunctionLayer.Entities.User;
+import FunctionLayer.Enums.EmployeeRole;
 import FunctionLayer.Exceptions.LoginException;
 import FunctionLayer.Exceptions.RegisterException;
 import java.util.ArrayList;
@@ -172,5 +173,9 @@ public class LogicFacade {
 
     public static void deleteUser(int id) throws FogException {
         DatabaseFacade.deleteUser(id);
+    }
+    
+    public static int createEmployee(String firstName, String lastName, String phone, String workPhone, EmployeeRole role, int userID) throws RegisterException {
+        return DatabaseFacade.createEmployee(firstName, lastName, phone, workPhone, role, userID);
     }
 }

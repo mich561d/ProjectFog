@@ -7,9 +7,9 @@ body {
     background-color: #e8edfc;
 }
 
+.employeeTable {
+     text-align:left;
+     vertical-align:top;
+     padding-right: 25px;
+}
 
-
-//What is this
-.form-control { display: block; width: 100%; box-sizing: border-box; }
-
-.table-optimizer { width: 100%; align-content: center; }

@@ -46,7 +46,7 @@
         <br>
         <div class="container">
             <div class="row no-gutters">
-                <div class="col-lg-7 border border-primary">
+                <div class="col-lg-7 border border-primary" style="background-color: white;">
                     <form name="Calculator" action="FrontController" method="POST">
                         <input type="hidden" name="command" value="CustomCarport">
                         <div class="imageContainer">
@@ -83,29 +83,21 @@
                             <form name="Register" action="FrontController" method="POST">
                                 <input type="hidden" name="command" value="Register">
                                 <strong>Email:</strong>
-                                <br>
-                                <input type="email" name="email" placeholder="example@gmail.com" max="45" required>
-                                <br>
+                                <input type="email" class="form-control" name="email" placeholder="example@gmail.com" max="45" required>
                                 <strong>Password:</strong>
-                                <br>
-                                <input type="password" name="password1" placeholder="password" min="8" max="45" required>
-                                <input type="password" name="password2" placeholder="gentag password" min="8" max="45" required>
-                                <br><br>
-                                <input type="submit" name="register" value="Opret bruger">
+                                <input type="password" class="form-control" name="password1" placeholder="password" min="8" max="45" required>
+                                <input type="password" class="form-control" name="password2" placeholder="gentag password" min="8" max="45" required>
+                                <button type="submit" class="btn btn-primary" style="margin-top: 10px; margin-bottom: 10px">Opret bruger</button>
                             </form>
                         </div>
                         <div class="tab-pane container fade" id="login">   
                             <form name="Login" action="FrontController" method="POST">
                                 <input type="hidden" name="command" value="Login">
                                 <strong>Email:</strong>
-                                <br>
-                                <input type="email" name="LoginEmail" placeholder="example@gmail.com" required>
-                                <br>
+                                <input type="email" class="form-control" name="LoginEmail" placeholder="example@gmail.com" required>
                                 <strong>Password:</strong>
-                                <br>
-                                <input type="password" name="LoginPassword" placeholder="password" required>
-                                <br><br><br>
-                                <input type="submit" name="register" value="Log ind">
+                                <input type="password" class="form-control" name="LoginPassword" placeholder="password" required>
+                                <button type="submit" class="btn btn-primary" style="margin-top: 10px; margin-bottom: 48px">Log ind</button>
                             </form>
                         </div>
                         <div class="tab-pane container fade" id="forgotPassword">
@@ -113,10 +105,9 @@
                                 <input type="hidden" name="command" value="Login">
                                 <strong>Email:</strong>
                                 <br>
-                                <input type="email" name="LoginEmail" placeholder="example@gmail.com" required>
-                                <p><strong>*Der sendes et nyt autogenereret password til ovenstående email, som du har mulighed for at ændre, når du er logget ind.</strong></p>
-                                <br>
-                                <input disabled="disabled" type="submit" name="register" value="Nulstil password">
+                                <input type="email" class="form-control" name="LoginEmail" placeholder="example@gmail.com" required>
+                                <p style="margin-bottom: 14px"><strong>*Der sendes et nyt autogenereret password til ovenstående email, som du har mulighed for at ændre, når du er logget ind.</strong></p>
+                                <button disabled type="submit" class="btn btn-primary" style="margin-bottom: 10px">Send nyt password</button>
                             </form>
                         </div>
                     </div>

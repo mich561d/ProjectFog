@@ -8,6 +8,7 @@ import FunctionLayer.Entities.Employee;
 import FunctionLayer.Entities.Order;
 import FunctionLayer.Entities.Part;
 import FunctionLayer.Entities.User;
+import FunctionLayer.Enums.EmployeeRole;
 import FunctionLayer.Exceptions.FogException;
 import FunctionLayer.Exceptions.LoginException;
 import FunctionLayer.Exceptions.RegisterException;
@@ -125,5 +126,9 @@ public class DatabaseFacade {
 
     public static void deleteUser(int id) throws FogException {
         UserMapper.deleteUser(id);
+    }
+
+    public static int createEmployee(String firstName, String lastName, String phone, String workPhone, EmployeeRole role, int userID) throws RegisterException {
+        return EmployeeMapper.createEmployee(firstName, lastName, phone, workPhone, role, userID);
     }
 }

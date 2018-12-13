@@ -48,8 +48,8 @@
     <div class="col-lg-5" style="padding-top:2%">
         <div class="row">
             <div class="col-lg-auto">
-                <form name="CustomerPage" action="FrontController" method="POST">
-                    <input type="hidden" name="command" value="CustomerPage">
+                <form name="EmployeePage" action="FrontController" method="POST">
+                    <input type="hidden" name="command" value="EmployeePage">
                     <button type="submit" class="btn btn-outline-warning ">Opret ny medarbejder</button>
                 </form>
             </div>
