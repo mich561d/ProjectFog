@@ -139,4 +139,8 @@ public class DatabaseFacade {
     public static void sentOrder(int orderID) throws FogException {
         OrderMapper.sentOrder(orderID);
     }
+
+    public static ArrayList<Part> getAllParts() throws FogException {
+        return PartMapper.getAllParts();
+    }
 }

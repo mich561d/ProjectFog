@@ -54,8 +54,8 @@
                 </form>
             </div>
             <div class="col-lg-auto">
-                <form name="CustomerOrders" action="FrontController" method="POST">
-                    <input type="hidden" name="command" value="CustomerOrders">
+                <form name="PartPage" action="FrontController" method="POST">
+                    <input type="hidden" name="command" value="PartPage">
                     <button type="submit" class="btn btn-outline-warning">Opdater materialer</button>
                 </form>
             </div>

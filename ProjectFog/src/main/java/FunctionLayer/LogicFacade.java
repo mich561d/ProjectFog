@@ -186,4 +186,8 @@ public class LogicFacade {
     public static void sentOrder(int orderID) throws FogException {
         DatabaseFacade.sentOrder(orderID);
     }
+
+    public static ArrayList<Part> getAllParts() throws FogException {
+        return DatabaseFacade.getAllParts();
+    }
 }

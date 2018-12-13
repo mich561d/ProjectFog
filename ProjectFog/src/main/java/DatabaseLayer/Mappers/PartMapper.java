@@ -70,4 +70,31 @@ public class PartMapper {
         }
     }
 
+    public static ArrayList<Part> getAllParts() throws FogException {
+        try {
+            Connection con = DatabaseConnector.connection();
+            String SQL = "SELECT * FROM `part`";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ResultSet rs = ps.executeQuery();
+            ArrayList<Part> parts = new ArrayList();
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String type = rs.getString("type");
+                String material = rs.getString("material");
+                String size = rs.getString("size");
+                String description = rs.getString("description");
+                String brand = rs.getString("brand");
+                double price = rs.getDouble("price");
+                Part part = new Part(id, type, material, size, description, brand, price);
+                parts.add(part);
+            }
+            if (parts.isEmpty()) {
+                throw new FogException("Der er fejl i databasen, da vi ikke kan finde nogen materialer!", Level.WARNING);
+            }
+            return parts;
+        } catch (SQLException | ClassNotFoundException ex) {
+            throw new FogException(ex.getMessage(), Level.SEVERE);
+        }
+    }
+
 }
