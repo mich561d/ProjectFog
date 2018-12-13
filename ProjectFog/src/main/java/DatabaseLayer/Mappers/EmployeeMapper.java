@@ -16,20 +16,21 @@ import java.util.logging.Level;
  */
 public class EmployeeMapper {
 
-    public static Employee getEmployeeByID(int id) throws FogException {
+    public static Employee getEmployeeByUserID(int userID) throws FogException {
         try {
             Connection con = DatabaseConnector.connection();
-            String SQL = "SELECT * FROM `employee` WHERE `id` = ?";
+            String SQL = "SELECT * FROM `employee` WHERE `userID` = ?";
             PreparedStatement ps = con.prepareStatement(SQL);
-            ps.setInt(1, id);
+            ps.setInt(1, userID);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
+                int id = rs.getInt("id");
                 String firstName = rs.getString("firstName");
                 String lastName = rs.getString("lastName");
                 String phone = rs.getString("phone");
                 String workPhone = rs.getString("workPhone");
                 String role = rs.getString("role");
-                Employee employee = new Employee(id, firstName, lastName, phone, workPhone, role);
+                Employee employee = new Employee(id, firstName, lastName, phone, workPhone, role, userID);
                 return employee;
             } else {
                 throw new FogException("Medarbejderen findes ikke i systemet!", Level.WARNING);

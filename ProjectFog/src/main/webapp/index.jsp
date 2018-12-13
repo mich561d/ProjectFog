@@ -17,7 +17,7 @@
     </head>
     <body>
         <%@include file="/WEB-INF/Imports/NavBar.jsp" %>
-        <% if (request.getSession().getAttribute("CustomerID") == null) { %>
+        <% if (request.getSession().getAttribute("CustomerID") == null && request.getSession().getAttribute("EmployeeID") == null) { %>
         <% if (request.getSession().getAttribute("ErrorMsg") == null) { %>
         <div class="container">
             <div class="row">
@@ -63,7 +63,7 @@
                     <!--This is a placeholder for whitespace! Since i cannot figure out how to do this properly... this is a quick fix!-->
                 </div>
                 <div class="col-lg-4 border border-primary" style="background-color: #D1ECF1;">
-                    <% if (request.getSession().getAttribute("CustomerID") == null) { %>
+                    <% if (request.getSession().getAttribute("CustomerID") == null && request.getSession().getAttribute("EmployeeID") == null) { %>
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs">
                         <li class="nav-item">
@@ -122,7 +122,7 @@
                     </div>
                     <% } else {%>
                     <div style="padding: 5%; text-align: center">
-                        <p><Strong>Hej <%=request.getSession().getAttribute("CustomerName")%>!</Strong></p>
+                        <p><Strong>Hej <%=request.getSession().getAttribute("Name")%>!</Strong></p>
                         Du er allerede logget ind.<br>
                         Hvis du vil logge ud,<br>
                         skal du klikke på knappen.<br><br>

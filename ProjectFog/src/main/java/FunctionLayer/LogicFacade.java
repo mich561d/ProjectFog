@@ -114,8 +114,8 @@ public class LogicFacade {
         return DatabaseFacade.getAllRoofBricksAsList();
     }
 
-    public static Employee getEmployeeByID(int id) throws FogException {
-        return DatabaseFacade.getEmployeeByID(id);
+    public static Employee getEmployeeByUserID(int userID) throws FogException {
+        return DatabaseFacade.getEmployeeByUserID(userID);
     }
 
     public static void updateCity(int customerID, String city) throws RegisterException {

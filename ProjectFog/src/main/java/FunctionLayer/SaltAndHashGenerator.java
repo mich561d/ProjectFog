@@ -8,7 +8,7 @@ import FunctionLayer.Exceptions.FogException;
  */
 public class SaltAndHashGenerator {
 
-    private static final String PASSWORD = "testtest";
+    private static final String PASSWORD = "password";
 
     public static void main(String[] args) throws FogException {
         String salt = LogicFacade.getRandomSaltString(0);

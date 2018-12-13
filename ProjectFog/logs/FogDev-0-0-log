@@ -1065,3 +1065,9 @@ dec. 13, 2018 9:27:55 AM FunctionLayer.Logging.Logging write
 WARNING: java.lang.NullPointerException
 dec. 13, 2018 9:28:54 AM FunctionLayer.Logging.Logging write
 INFO: Could not validate user
+dec. 13, 2018 10:07:58 AM FunctionLayer.Logging.Logging write
+WARNING: Medarbejderen findes ikke i systemet!
+dec. 13, 2018 10:08:21 AM FunctionLayer.Logging.Logging write
+WARNING: Medarbejderen findes ikke i systemet!
+dec. 13, 2018 10:11:36 AM FunctionLayer.Logging.Logging write
+WARNING: Medarbejderen findes ikke i systemet!

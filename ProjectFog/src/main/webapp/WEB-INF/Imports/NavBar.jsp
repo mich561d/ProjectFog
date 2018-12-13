@@ -44,6 +44,35 @@
             </div>
         </div>
     </div>
-    <% }%>
+    <% } else if (request.getSession().getAttribute("EmployeeID") != null) {%>
+    <div class="col-lg-5" style="padding-top:2%">
+        <div class="row">
+            <div class="col-lg-auto">
+                <form name="CustomerPage" action="FrontController" method="POST">
+                    <input type="hidden" name="command" value="CustomerPage">
+                    <button type="submit" class="btn btn-outline-warning ">Min side</button>
+                </form>
+            </div>
+            <div class="col-lg-auto">
+                <form name="CustomerOrders" action="FrontController" method="POST">
+                    <input type="hidden" name="command" value="CustomerOrders">
+                    <button type="submit" class="btn btn-outline-warning">Ordre</button>
+                </form>
+            </div>
+            <div class="col-lg-auto">
+                <form name="FogPro" action="https://www.johannesfog.dk/pro/">
+                    <button type="submit" class="btn btn-outline-warning ">FogPro</button>
+                </form>
+            </div>
+            <div class="col-lg-auto">
+                <form name="Logout" action="FrontController" method="POST">
+                    <input type="hidden" name="command" value="Logout">
+                    <button type="submit" class="btn btn-outline-danger">Log ud</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<% }%>
 </div>
 </div>

@@ -23,11 +23,11 @@ public class LoginCommand implements Command {
         try {
             Customer customer = LogicFacade.getCustomerByUserID(userID);
             request.getSession().setAttribute("CustomerID", customer.getId());
-            request.getSession().setAttribute("CustomerName", customer.getFullName());
+            request.getSession().setAttribute("Name", customer.getFullName());
         } catch (FogException e) {
-            Employee employee = LogicFacade.getEmployeeByID(userID);
+            Employee employee = LogicFacade.getEmployeeByUserID(userID);
             request.getSession().setAttribute("EmployeeID", employee.getId());
-            request.getSession().setAttribute("EmployeeName", employee.getFullName());
+            request.getSession().setAttribute("Name", employee.getFullName());
         }
         return "index";
     }
