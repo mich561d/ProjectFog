@@ -35,6 +35,8 @@ public abstract class CommandController {
         commands.put("CreatePart", new CreatePartCommand());
         commands.put("UploadMaterial", new UploadMaterialCommand());
         commands.put("DeletePart", new DeletePartCommand());
+        commands.put("UpdatePart", new UpdatePartCommand());
+        commands.put("UpdateMaterial", new UpdateMaterialCommand());
     }
 
     static Command from(HttpServletRequest request) {

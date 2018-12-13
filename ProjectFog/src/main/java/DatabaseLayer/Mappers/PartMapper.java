@@ -126,4 +126,47 @@ public class PartMapper {
         }
     }
 
+    public static Part getPartByID(int partID) throws FogException {
+        try {
+            Connection con = DatabaseConnector.connection();
+            String SQL = "SELECT * FROM `part` WHERE `id` = ?";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ps.setInt(1, partID);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                int id = rs.getInt("id");
+                String type = rs.getString("type");
+                String material = rs.getString("material");
+                String size = rs.getString("size");
+                String description = rs.getString("description");
+                String brand = rs.getString("brand");
+                double price = rs.getDouble("price");
+                return new Part(id, type, material, size, description, brand, price);
+            } else {
+                throw new FogException("Der er fejl i databasen, da vi ikke kan finde materialet!", Level.WARNING);
+            }
+        } catch (SQLException | ClassNotFoundException ex) {
+            throw new FogException(ex.getMessage(), Level.SEVERE);
+        }
+    }
+
+    public static void updatePart(int id, String type, String material, String size, String description, double price, String brand) throws FogException {
+        try {
+            Connection con = DatabaseConnector.connection();
+            String SQL = "UPDATE `part` SET `type` = ?, `material` = ?, `size` = ?, `description` = ?, `price` = ?, `brand` = ? WHERE `id` = ?";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ps.setString(1, type);
+            ps.setString(2, material);
+            ps.setString(3, size);
+            ps.setString(4, description);
+            ps.setDouble(5, price);
+            ps.setString(6, brand);
+            ps.setInt(7, id);
+            ps.executeUpdate();
+
+        } catch (ClassNotFoundException | SQLException ex) {
+            throw new FogException(ex.getMessage(), Level.SEVERE);
+        }
+    }
+
 }

@@ -1414,3 +1414,116 @@ dec. 13, 2018 5:41:27 PM FunctionLayer.Logging.Logging write
 SEVERE: No value specified for parameter 6
 dec. 13, 2018 5:41:50 PM FunctionLayer.Logging.Logging write
 WARNING: java.lang.NullPointerException
+dec. 13, 2018 6:12:03 PM FunctionLayer.Logging.Logging write
+WARNING: An exception occurred processing JSP page /Webpages/PartUpdateSchema.jsp at line 15
+
+12:         <title>Opdater materiale</title>
+13:         <%@include file="/WEB-INF/Imports/StyleImporter.jsp" %>
+14:         <link href="Webpages/CSS/FogStyling.css" rel="stylesheet" type="text/css"/>
+15:         <% Part part = (Part) request.getSession().getAttribute("part");%>
+16:     </head>
+17:     <body>
+18:         <%@include file="/WEB-INF/Imports/NavBar.jsp" %>
+
+
+Stacktrace:
+dec. 13, 2018 6:14:21 PM FunctionLayer.Logging.Logging write
+WARNING: An exception occurred processing JSP page /Webpages/PartUpdateSchema.jsp at line 15
+
+12:         <title>Opdater materiale</title>
+13:         <%@include file="/WEB-INF/Imports/StyleImporter.jsp" %>
+14:         <link href="Webpages/CSS/FogStyling.css" rel="stylesheet" type="text/css"/>
+15:         <% Part part = (Part) request.getSession().getAttribute("part");%>
+16:     </head>
+17:     <body>
+18:         <%@include file="/WEB-INF/Imports/NavBar.jsp" %>
+
+
+Stacktrace:
+dec. 13, 2018 6:19:13 PM FunctionLayer.Logging.Logging write
+WARNING: An exception occurred processing JSP page /Webpages/PartUpdateSchema.jsp at line 15
+
+12:         <title>Opdater materiale</title>
+13:         <%@include file="/WEB-INF/Imports/StyleImporter.jsp" %>
+14:         <link href="Webpages/CSS/FogStyling.css" rel="stylesheet" type="text/css"/>
+15:         <% Part part = (Part) request.getSession().getAttribute("part");%>
+16:     </head>
+17:     <body>
+18:         <%@include file="/WEB-INF/Imports/NavBar.jsp" %>
+
+
+Stacktrace:
+dec. 13, 2018 6:22:13 PM FunctionLayer.Logging.Logging write
+WARNING: Unable to compile class for JSP: 
+
+An error occurred at line: 35 in the jsp file: /Webpages/PartUpdateSchema.jsp
+The method getType() is undefined for the type Part
+32:                                     <td style="width:50%">
+33:                                         <label>
+34:                                             <p>Type:</p>
+35:                                             <input type="text" class="form-control" name="type" placeholder="Eks. Brædt" value="<%=part.getType()%>" required>
+36:                                         </label>
+37:                                     </td>
+38:                                     <td style="width:50%">
+
+
+Stacktrace:
+dec. 13, 2018 6:23:52 PM FunctionLayer.Logging.Logging write
+WARNING: Unable to compile class for JSP: 
+
+An error occurred at line: 35 in the jsp file: /Webpages/PartUpdateSchema.jsp
+The method getType() is undefined for the type Part
+32:                                     <td style="width:50%">
+33:                                         <label>
+34:                                             <p>Type:</p>
+35:                                             <input type="text" class="form-control" name="type" placeholder="Eks. Brædt" value="<%=part.getType()%>" required>
+36:                                         </label>
+37:                                     </td>
+38:                                     <td style="width:50%">
+
+
+An error occurred at line: 41 in the jsp file: /Webpages/PartUpdateSchema.jsp
+The method getMaterial() is undefined for the type Part
+38:                                     <td style="width:50%">
+39:                                         <label>
+40:                                             <p>Materiale:</p>
+41:                                             <input type="text" class="form-control" name="material" placeholder="Eks. Trykimp Fyr" value="<%=part.getMaterial()%>" required>
+42:                                         </label>
+43:                                     </td>
+44:                                 </tr>
+
+
+An error occurred at line: 55 in the jsp file: /Webpages/PartUpdateSchema.jsp
+The method getDescription() is undefined for the type Part
+52:                                     <td style="width:50%">
+53:                                         <label>
+54:                                             <p>Beskrivelse:</p>
+55:                                             <input type="text" class="form-control" name="description" placeholder="Eks. Tryk impreneret brædt" value="<%=part.getDescription()%>" required>
+56:                                         </label>
+57:                                     </td>
+58:                                 </tr>
+
+
+An error occurred at line: 63 in the jsp file: /Webpages/PartUpdateSchema.jsp
+The method getPrice() is undefined for the type Part
+60:                                     <td style="width:50%">
+61:                                         <label>
+62:                                             <p>Pris:</p>
+63:                                             <input type="text" class="form-control" name="price" placeholder="Eks. 149.85" value="<%=part.getPrice()%>" required>
+64:                                         </label>
+65:                                     </td>
+66:                                     <td style="width:50%">
+
+
+An error occurred at line: 69 in the jsp file: /Webpages/PartUpdateSchema.jsp
+The method getBrand() is undefined for the type Part
+66:                                     <td style="width:50%">
+67:                                         <label>
+68:                                             <p>Mærke:</p>
+69:                                             <input type="text" class="form-control" name="brand" placeholder="Eks. FOG" value="<%=part.getBrand()%>" required>
+70:                                         </label>
+71:                                     </td>
+72:                                 </tr>
+
+
+Stacktrace:

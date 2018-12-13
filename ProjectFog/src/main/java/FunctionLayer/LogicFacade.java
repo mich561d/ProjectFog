@@ -198,4 +198,12 @@ public class LogicFacade {
     public static void deletePart(int partID) throws FogException {
         DatabaseFacade.deletePart(partID);
     }
+
+    public static Part getPartByID(int partID) throws FogException {
+        return DatabaseFacade.getPartByID(partID);
+    }
+
+    public static void updatePart(int id, String type, String material, String size, String description, double price, String brand) throws FogException {
+        DatabaseFacade.updatePart(id, type, material, size, description, price, brand);
+    }
 }

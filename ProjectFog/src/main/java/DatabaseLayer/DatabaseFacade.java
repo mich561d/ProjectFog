@@ -151,4 +151,12 @@ public class DatabaseFacade {
     public static void deletePart(int partID) throws FogException {
         PartMapper.deletePart(partID);
     }
+
+    public static Part getPartByID(int partID) throws FogException {
+        return PartMapper.getPartByID(partID);
+    }
+
+    public static void updatePart(int id, String type, String material, String size, String description, double price, String brand) throws FogException {
+        PartMapper.updatePart(id, type, material, size, description, price, brand);
+    }
 }
