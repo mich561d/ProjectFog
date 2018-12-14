@@ -104,7 +104,7 @@
                                                 <p>Bredde:</p>
                                                 <input type="number" class="form-control" name="shedWidth" placeholder="Cm" min="0" max="720" value="0" required>
                                             </label>
-                                            <p> *Hvis de ønsker et skur, vil det blive integreret i deres carport. De skal derfor øge længden af deres carport tilsvarende skurets længde.
+                                            <p> *skurets længde skal minimum være 30 cm mindre en carportens længde
                                         </label>
                                     </th>
                                 </tr>

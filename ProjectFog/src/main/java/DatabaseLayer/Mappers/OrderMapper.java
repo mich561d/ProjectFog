@@ -82,10 +82,11 @@ public class OrderMapper {
     public static void sentOrder(int orderID) throws FogException {
         try {
             Connection con = DatabaseConnector.connection();
-            String SQL = "UPDATE `order` SET `delieveredDate` = ? WHERE `id` = ?";
+            String SQL = "UPDATE `order` SET `delieveredDate` = ?, `orderStatus` = ? WHERE `id` = ?";
             PreparedStatement ps = con.prepareStatement(SQL);
             ps.setDate(1, java.sql.Date.valueOf(java.time.LocalDate.now()));
-            ps.setInt(2, orderID);
+            ps.setString(2, OrderStatus.SENT.toString());
+            ps.setInt(3, orderID);
             ps.executeUpdate();
         } catch (ClassNotFoundException | SQLException ex) {
             throw new FogException(ex.getMessage(), Level.SEVERE);
