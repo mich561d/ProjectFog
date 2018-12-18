@@ -21,13 +21,12 @@ public class Logging {
 
     private static final Logger LOGGER = Logger.getLogger(Logger.class.getName());
     private static final String PATH = "C:/Git/ProjectFog/ProjectFog/logs/";
-    private static final String LOGFILEPATH = "/logging/Fog.log";
+    private static final String LOGFILEPATH = "/var/fog/FogLog.log";
     private static final String DEVLOGFILEPATH = PATH + "FogDev-%u-%g-log";
 
     public void write(Level level, String message) throws IOException {
         addHandlers();
         LOGGER.log(level, message);
-
         Handler[] handlers = LOGGER.getHandlers();
         for (Handler handler : handlers) {
             handler.close();
@@ -35,14 +34,11 @@ public class Logging {
     }
 
     public void addHandlers() throws IOException {
-
         String path = DEVLOGFILEPATH;
-
         if (new File(LOGFILEPATH).exists()) {
             path = LOGFILEPATH;
         }
         FileHandler handler = new FileHandler(path, true);
-
         handler.setFormatter(new SimpleFormatter());
         LOGGER.addHandler(handler);
     }
