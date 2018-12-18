@@ -1,6 +1,6 @@
 package FunctionLayer.Calculation;
 
-import FunctionLayer.Calculation.Shed.CarportShedCalculator;
+import FunctionLayer.Calculation.Shed.ShedCalculator;
 import FunctionLayer.Calculation.Roof.RoofCalculator;
 import FunctionLayer.Calculation.Base.BaseCalculator;
 import DatabaseLayer.DatabaseFacade;
@@ -63,7 +63,7 @@ public class CarportCalculator {
         parts = crc.calcRoof();
 
         if (SHED) {
-            CarportShedCalculator csc = new CarportShedCalculator(LENGTH, WIDTH, HEIGHT, SHEDLENGTH, SHEDWIDTH, parts);
+            ShedCalculator csc = new ShedCalculator(LENGTH, WIDTH, HEIGHT, SHEDLENGTH, SHEDWIDTH, parts);
             parts = csc.calcShed();
         }
     }

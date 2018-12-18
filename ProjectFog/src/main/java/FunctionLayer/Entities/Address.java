@@ -6,40 +6,40 @@ package FunctionLayer.Entities;
  */
 public class Address {
 
-    private int id, customerID;
-    private String city, zip, street, number;
+    private final int ID, CUSTOMER_ID;
+    private final String CITY, ZIP, STREET, NUMBER;
 
     public Address(int id, String city, String zip, String street, String number, int customerID) {
-        this.id = id;
-        this.street = street;
-        this.number = number;
-        this.city = city;
-        this.zip = zip;
-        this.customerID = customerID;
+        this.ID = id;
+        this.STREET = street;
+        this.NUMBER = number;
+        this.CITY = city;
+        this.ZIP = zip;
+        this.CUSTOMER_ID = customerID;
     }
 
     public int getId() {
-        return id;
+        return ID;
     }
 
     public String getStreet() {
-        return street;
+        return STREET;
     }
 
     public String getNumber() {
-        return number;
+        return NUMBER;
     }
 
     public String getCity() {
-        return city;
+        return CITY;
     }
 
     public String getZip() {
-        return zip;
+        return ZIP;
     }
 
     public int getCustomerID() {
-        return customerID;
+        return CUSTOMER_ID;
     }
 
 }

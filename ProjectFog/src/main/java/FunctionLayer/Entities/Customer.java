@@ -6,38 +6,38 @@ package FunctionLayer.Entities;
  */
 public class Customer {
 
-    private int id, userID;
-    private String firstName, lastName, phone;
+    private final int ID, USER_ID;
+    private final String FIRST_NAME, LAST_NAME, PHONE;
 
     public Customer(int id, String firstName, String lastName, String phone, int userID) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.phone = phone;
-        this.userID = userID;
+        this.ID = id;
+        this.FIRST_NAME = firstName;
+        this.LAST_NAME = lastName;
+        this.PHONE = phone;
+        this.USER_ID = userID;
     }
 
     public int getId() {
-        return id;
+        return ID;
     }
 
     public String getFirstName() {
-        return firstName;
+        return FIRST_NAME;
     }
 
     public String getLastName() {
-        return lastName;
+        return LAST_NAME;
     }
 
     public String getFullName() {
-        return firstName + " " + lastName;
+        return FIRST_NAME + " " + LAST_NAME;
     }
 
     public String getPhone() {
-        return phone;
+        return PHONE;
     }
     
     public int getUserID() {
-        return userID;
+        return USER_ID;
     }
 }

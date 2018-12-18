@@ -6,66 +6,66 @@ package FunctionLayer.Entities;
  */
 public class Carport {
 
-    int id, carportLength, carportWidth, carportHeight, angle, shedLength, shedWidth;
-    boolean angledRoof, shed;
-    String roofing, flooring;
+    private final int ID, CARPORT_LENGTH, CARPORT_WIDTH, CARPORT_HEIGHT, ANGLE, SHED_LENGTH, SHED_WIDTH;
+    private final boolean ANGLED_ROOF, SHED;
+    private final String ROOFING, FLOORING;
 
     public Carport(int id, int carportLength, int carportWidth, int carportHeight, boolean angledRoof, int angle, String roofing, boolean shed, int shedLength, int shedWidth, String flooring) {
-        this.id = id;
-        this.carportLength = carportLength;
-        this.carportWidth = carportWidth;
-        this.carportHeight = carportHeight;
-        this.angledRoof = angledRoof;
-        this.angle = angle;
-        this.roofing = roofing;
-        this.shed = shed;
-        this.shedLength = shedLength;
-        this.shedWidth = shedWidth;
-        this.flooring = flooring;
+        this.ID = id;
+        this.CARPORT_LENGTH = carportLength;
+        this.CARPORT_WIDTH = carportWidth;
+        this.CARPORT_HEIGHT = carportHeight;
+        this.ANGLED_ROOF = angledRoof;
+        this.ANGLE = angle;
+        this.ROOFING = roofing;
+        this.SHED = shed;
+        this.SHED_LENGTH = shedLength;
+        this.SHED_WIDTH = shedWidth;
+        this.FLOORING = flooring;
     }
 
     public int getId() {
-        return id;
+        return ID;
     }
 
     public int getCarportLength() {
-        return carportLength;
+        return CARPORT_LENGTH;
     }
 
     public int getCarportWidth() {
-        return carportWidth;
+        return CARPORT_WIDTH;
     }
 
     public int getCarportHeight() {
-        return carportHeight;
+        return CARPORT_HEIGHT;
     }
 
     public boolean isAngledRoof() {
-        return angledRoof;
+        return ANGLED_ROOF;
     }
 
     public int getAngle() {
-        return angle;
+        return ANGLE;
     }
 
     public String getRoofing() {
-        return roofing;
+        return ROOFING;
     }
 
     public boolean isShed() {
-        return shed;
+        return SHED;
     }
 
     public int getShedLength() {
-        return shedLength;
+        return SHED_LENGTH;
     }
 
     public int getShedWidth() {
-        return shedWidth;
+        return SHED_WIDTH;
     }
 
     public String getFlooring() {
-        return flooring;
+        return FLOORING;
     }
 
 }

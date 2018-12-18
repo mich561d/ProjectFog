@@ -1,7 +1,6 @@
 package DatabaseLayer.Mappers;
 
 import DatabaseLayer.DatabaseConnector;
-import FunctionLayer.Entities.Customer;
 import FunctionLayer.Entities.Employee;
 import FunctionLayer.Enums.EmployeeRole;
 import FunctionLayer.Exceptions.FogException;

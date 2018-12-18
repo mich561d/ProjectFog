@@ -6,46 +6,46 @@ package FunctionLayer.Entities;
  */
 public class Part {
 
-    int id;
-    String type, material, size, description, brand;
-    double price;
+    private final int ID;
+    private final String TYPE, MATERIAL, SIZE, DESCRIPTION, BRAND;
+    private final double PRICE;
 
     public Part(int id, String type, String material, String size, String description, String brand, double price) {
-        this.id = id;
-        this.type = type;
-        this.material = material;
-        this.size = size;
-        this.description = description;
-        this.brand = brand;
-        this.price = price;
+        this.ID = id;
+        this.TYPE = type;
+        this.MATERIAL = material;
+        this.SIZE = size;
+        this.DESCRIPTION = description;
+        this.BRAND = brand;
+        this.PRICE = price;
     }
 
     public int getId() {
-        return id;
+        return ID;
     }
 
     public String getType() {
-        return type;
+        return TYPE;
     }
 
     public String getMaterial() {
-        return material;
+        return MATERIAL;
     }
 
     public String getSize() {
-        return size;
+        return SIZE;
     }
 
     public String getDescription() {
-        return description;
+        return DESCRIPTION;
     }
 
     public String getBrand() {
-        return brand;
+        return BRAND;
     }
 
     public double getPrice() {
-        return price;
+        return PRICE;
     }
 
 }

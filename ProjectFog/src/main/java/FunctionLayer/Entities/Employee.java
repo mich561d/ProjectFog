@@ -6,49 +6,49 @@ package FunctionLayer.Entities;
  */
 public class Employee {
 
-    private int id, userID;
-    private String firstName, lastName, phone, workPhone, role;
+    private final int ID, USER_ID;
+    private final String FIRST_NAME, LAST_NAME, PHONE, WORK_PHONE, ROLE;
 
     public Employee(int id, String firstName, String lastName, String phone, String workPhone, String role, int UserID) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.phone = phone;
-        this.workPhone = workPhone;
-        this.role = role;
-        this.userID = UserID;
+        this.ID = id;
+        this.FIRST_NAME = firstName;
+        this.LAST_NAME = lastName;
+        this.PHONE = phone;
+        this.WORK_PHONE = workPhone;
+        this.ROLE = role;
+        this.USER_ID = UserID;
     }
 
     public int getId() {
-        return id;
+        return ID;
     }
 
     public String getFirstName() {
-        return firstName;
+        return FIRST_NAME;
     }
 
     public String getLastName() {
-        return lastName;
+        return LAST_NAME;
     }
 
     public String getFullName() {
-        return firstName + " " + lastName;
+        return FIRST_NAME + " " + LAST_NAME;
     }
 
     public String getPhone() {
-        return phone;
+        return PHONE;
     }
 
     public String getWorkPhone() {
-        return workPhone;
+        return WORK_PHONE;
     }
 
     public String getRole() {
-        return role;
+        return ROLE;
     }
     
     public int getUserID() {
-        return userID;
+        return USER_ID;
     }
 
 }

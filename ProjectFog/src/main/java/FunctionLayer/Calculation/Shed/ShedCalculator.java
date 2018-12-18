@@ -8,12 +8,12 @@ import java.util.ArrayList;
  *
  * @author Michael & Christian
  */
-public class CarportShedCalculator {
+public class ShedCalculator {
 
     private final int LENGTH, WIDTH, HEIGHT, SHEDLENGTH, SHEDWIDTH;
     private final ArrayList<Part> PARTS;
 
-    public CarportShedCalculator(int LENGTH, int WIDTH, int HEIGHT, int SHEDLENGTH, int SHEDWIDTH, ArrayList<Part> PARTS) {
+    public ShedCalculator(int LENGTH, int WIDTH, int HEIGHT, int SHEDLENGTH, int SHEDWIDTH, ArrayList<Part> PARTS) {
         this.LENGTH = LENGTH;
         this.WIDTH = WIDTH;
         this.HEIGHT = HEIGHT;

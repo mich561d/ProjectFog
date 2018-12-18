@@ -8,41 +8,41 @@ import FunctionLayer.Enums.OrderStatus;
  */
 public class Order {
 
-    int id, productsID, customerID;
-    OrderStatus status;
-    String boughtDate, sentDate;
+    private final int ID, PRODUCT_ID, CUSTOMER_ID;
+    private final OrderStatus STATUS;
+    private final String BOUGHT_DATE, SENT_DATE;
 
     public Order(int id, OrderStatus status, String boughtDate, String sentDate, int productsID, int customerID) {
-        this.id = id;
-        this.status = status;
-        this.boughtDate = boughtDate;
-        this.sentDate = sentDate;
-        this.productsID = productsID;
-        this.customerID = customerID;
+        this.ID = id;
+        this.STATUS = status;
+        this.BOUGHT_DATE = boughtDate;
+        this.SENT_DATE = sentDate;
+        this.PRODUCT_ID = productsID;
+        this.CUSTOMER_ID = customerID;
     }
 
     public int getId() {
-        return id;
+        return ID;
     }
 
     public OrderStatus getStatus() {
-        return status;
+        return STATUS;
     }
 
     public String getBoughtDate() {
-        return boughtDate;
+        return BOUGHT_DATE;
     }
 
     public String getSentDate() {
-        return sentDate;
+        return SENT_DATE;
     }
 
     public int getProductsID() {
-        return productsID;
+        return PRODUCT_ID;
     }
 
     public int getCustomerID() {
-        return customerID;
+        return CUSTOMER_ID;
     }
 
 }

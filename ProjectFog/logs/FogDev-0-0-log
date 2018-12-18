@@ -1531,3 +1531,5 @@ dec. 14, 2018 9:51:31 AM FunctionLayer.Logging.Logging write
 INFO: Dit valgte skur er længere end de valgte carport mål!
 dec. 14, 2018 9:54:32 AM FunctionLayer.Logging.Logging write
 INFO: Der skete en fejl!.. Prøv at logge ind igen!
+dec. 18, 2018 10:28:38 AM FunctionLayer.Logging.Logging write
+INFO: User 'fdsa@fdsa.dd' do not exist!
