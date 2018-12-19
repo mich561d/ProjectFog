@@ -1,0 +1,14 @@
+DatabaseLayer
+DatabaseLayer.Mappers
+FunctionLayer
+FunctionLayer.Calculation
+FunctionLayer.Calculation.Base
+FunctionLayer.Calculation.Roof
+FunctionLayer.Calculation.Shed
+FunctionLayer.Entities
+FunctionLayer.Enums
+FunctionLayer.Exceptions
+FunctionLayer.Logging
+FunctionLayer.Util
+PresentationLayer
+PresentationLayer.Commands

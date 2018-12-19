@@ -1,0 +1,1535 @@
+dec. 04, 2018 10:13:34 AM FunctionLayer.Logging.Logging write
+INFO: Could not get salt value!
+dec. 04, 2018 10:15:44 AM FunctionLayer.Logging.Logging write
+INFO: User: gg@gg.dk do not exist!
+dec. 04, 2018 10:16:14 AM FunctionLayer.Logging.Logging write
+INFO: User 'gg@gg.dk' do not exist!
+dec. 04, 2018 10:35:40 AM FunctionLayer.Logging.Logging write
+INFO: User 'gg@gg.dk' do not exist!
+dec. 04, 2018 10:35:51 AM FunctionLayer.Logging.Logging write
+INFO: User 'test@test.dk' do not exist!
+dec. 04, 2018 11:27:23 AM FunctionLayer.Logging.Logging write
+INFO: User 'test@test.dk' do not exist!
+dec. 04, 2018 11:28:12 AM FunctionLayer.Logging.Logging write
+OFF: Email already exists!
+dec. 04, 2018 11:28:56 AM FunctionLayer.Logging.Logging write
+OFF: Email already exists!
+dec. 04, 2018 1:21:36 PM FunctionLayer.Logging.Logging write
+SEVERE: Column 'id' not found.
+dec. 04, 2018 2:21:27 PM FunctionLayer.Logging.Logging write
+SEVERE: Column 'id' not found.
+dec. 04, 2018 2:28:33 PM FunctionLayer.Logging.Logging write
+OFF: Passwords not equal!
+dec. 04, 2018 2:30:45 PM FunctionLayer.Logging.Logging write
+SEVERE: Column 'id' not found.
+dec. 04, 2018 2:34:17 PM FunctionLayer.Logging.Logging write
+SEVERE: Field 'id' doesn't have a default value
+dec. 04, 2018 2:36:15 PM FunctionLayer.Logging.Logging write
+SEVERE: Field 'id' doesn't have a default value
+dec. 04, 2018 2:44:31 PM FunctionLayer.Logging.Logging write
+SEVERE: Duplicate entry '' for key 'email_UNIQUE'
+dec. 04, 2018 3:09:26 PM FunctionLayer.Logging.Logging write
+INFO: User 'admin@fog.dk' do not exist!
+dec. 04, 2018 3:09:43 PM FunctionLayer.Logging.Logging write
+INFO: Could not validate user
+dec. 04, 2018 3:29:35 PM FunctionLayer.Logging.Logging write
+OFF: 404 - Page not found!
+dec. 04, 2018 4:32:21 PM FunctionLayer.Logging.Logging write
+WARNING: Customer is not in the system
+dec. 04, 2018 5:28:35 PM FunctionLayer.Logging.Logging write
+WARNING: Unable to compile class for JSP: 
+
+An error occurred at line: 43 in the jsp file: /Webpages/CustomerPage.jsp
+Set cannot be resolved to a type
+40:                                         </thead>
+41:                                         <tbody>
+42:                                             <%
+43:                                                 Set set = products.keySet();
+44:                                                 ArrayList<String> keys = new ArrayList<>();
+45:                                                 keys.addAll(set);
+46:                                                 for (int i = 0; i < keys.size(); i++) {
+
+
+An error occurred at line: 43 in the jsp file: /Webpages/CustomerPage.jsp
+products cannot be resolved
+40:                                         </thead>
+41:                                         <tbody>
+42:                                             <%
+43:                                                 Set set = products.keySet();
+44:                                                 ArrayList<String> keys = new ArrayList<>();
+45:                                                 keys.addAll(set);
+46:                                                 for (int i = 0; i < keys.size(); i++) {
+
+
+An error occurred at line: 44 in the jsp file: /Webpages/CustomerPage.jsp
+ArrayList cannot be resolved to a type
+41:                                         <tbody>
+42:                                             <%
+43:                                                 Set set = products.keySet();
+44:                                                 ArrayList<String> keys = new ArrayList<>();
+45:                                                 keys.addAll(set);
+46:                                                 for (int i = 0; i < keys.size(); i++) {
+47:                                                     ArrayList<Part> parts = products.get(keys.get(i));
+
+
+An error occurred at line: 44 in the jsp file: /Webpages/CustomerPage.jsp
+ArrayList cannot be resolved to a type
+41:                                         <tbody>
+42:                                             <%
+43:                                                 Set set = products.keySet();
+44:                                                 ArrayList<String> keys = new ArrayList<>();
+45:                                                 keys.addAll(set);
+46:                                                 for (int i = 0; i < keys.size(); i++) {
+47:                                                     ArrayList<Part> parts = products.get(keys.get(i));
+
+
+An error occurred at line: 47 in the jsp file: /Webpages/CustomerPage.jsp
+ArrayList cannot be resolved to a type
+44:                                                 ArrayList<String> keys = new ArrayList<>();
+45:                                                 keys.addAll(set);
+46:                                                 for (int i = 0; i < keys.size(); i++) {
+47:                                                     ArrayList<Part> parts = products.get(keys.get(i));
+48:                                                     Part part = parts.get(0);
+49:                                             %>
+50:                                             <tr>
+
+
+An error occurred at line: 47 in the jsp file: /Webpages/CustomerPage.jsp
+products cannot be resolved
+44:                                                 ArrayList<String> keys = new ArrayList<>();
+45:                                                 keys.addAll(set);
+46:                                                 for (int i = 0; i < keys.size(); i++) {
+47:                                                     ArrayList<Part> parts = products.get(keys.get(i));
+48:                                                     Part part = parts.get(0);
+49:                                             %>
+50:                                             <tr>
+
+
+An error occurred at line: 51 in the jsp file: /Webpages/CustomerPage.jsp
+The method getType() is undefined for the type Part
+48:                                                     Part part = parts.get(0);
+49:                                             %>
+50:                                             <tr>
+51:                                                 <td><%= part.getType()%></td>
+52:                                                 <td><%= part.getSize()%></td>
+53:                                                 <td><%= part.getDescription()%></td>
+54:                                                 <td><%= parts.size()%></td>
+
+
+An error occurred at line: 53 in the jsp file: /Webpages/CustomerPage.jsp
+The method getDescription() is undefined for the type Part
+50:                                             <tr>
+51:                                                 <td><%= part.getType()%></td>
+52:                                                 <td><%= part.getSize()%></td>
+53:                                                 <td><%= part.getDescription()%></td>
+54:                                                 <td><%= parts.size()%></td>
+55:                                                 <td><%= part.getPrice()%> kr.</td>
+56:                                             </tr>
+
+
+An error occurred at line: 55 in the jsp file: /Webpages/CustomerPage.jsp
+The method getPrice() is undefined for the type Part
+52:                                                 <td><%= part.getSize()%></td>
+53:                                                 <td><%= part.getDescription()%></td>
+54:                                                 <td><%= parts.size()%></td>
+55:                                                 <td><%= part.getPrice()%> kr.</td>
+56:                                             </tr>
+57:                                             <% }%>
+58:                                         </tbody>
+
+
+An error occurred at line: 65 in the jsp file: /Webpages/CustomerPage.jsp
+formattedTotalPrice cannot be resolved to a variable
+62:                                     <h3 style="text-align: center">Pris</h3>
+63:                                     <div style="text-align: right; margin-right: 5%">
+64:                                         <label>
+65:                                             <p>Total: <%= formattedTotalPrice%> kr.</p>
+66:                                         </label>
+67:                                         <br>
+68:                                         <label>
+
+
+An error occurred at line: 69 in the jsp file: /Webpages/CustomerPage.jsp
+formattedTax cannot be resolved to a variable
+66:                                         </label>
+67:                                         <br>
+68:                                         <label>
+69:                                             <p>Heraf moms: <%= formattedTax%> kr.</p>
+70:                                         </label>
+71:                                     </div>
+72:                                 </label>
+
+
+Stacktrace:
+dec. 04, 2018 5:29:56 PM FunctionLayer.Logging.Logging write
+WARNING: Unable to compile class for JSP: 
+
+An error occurred at line: 43 in the jsp file: /Webpages/CustomerPage.jsp
+Set cannot be resolved to a type
+40:                                         </thead>
+41:                                         <tbody>
+42:                                             <%
+43:                                                 Set set = products.keySet();
+44:                                                 ArrayList<String> keys = new ArrayList<>();
+45:                                                 keys.addAll(set);
+46:                                                 for (int i = 0; i < keys.size(); i++) {
+
+
+An error occurred at line: 43 in the jsp file: /Webpages/CustomerPage.jsp
+products cannot be resolved
+40:                                         </thead>
+41:                                         <tbody>
+42:                                             <%
+43:                                                 Set set = products.keySet();
+44:                                                 ArrayList<String> keys = new ArrayList<>();
+45:                                                 keys.addAll(set);
+46:                                                 for (int i = 0; i < keys.size(); i++) {
+
+
+An error occurred at line: 44 in the jsp file: /Webpages/CustomerPage.jsp
+ArrayList cannot be resolved to a type
+41:                                         <tbody>
+42:                                             <%
+43:                                                 Set set = products.keySet();
+44:                                                 ArrayList<String> keys = new ArrayList<>();
+45:                                                 keys.addAll(set);
+46:                                                 for (int i = 0; i < keys.size(); i++) {
+47:                                                     ArrayList<Part> parts = products.get(keys.get(i));
+
+
+An error occurred at line: 44 in the jsp file: /Webpages/CustomerPage.jsp
+ArrayList cannot be resolved to a type
+41:                                         <tbody>
+42:                                             <%
+43:                                                 Set set = products.keySet();
+44:                                                 ArrayList<String> keys = new ArrayList<>();
+45:                                                 keys.addAll(set);
+46:                                                 for (int i = 0; i < keys.size(); i++) {
+47:                                                     ArrayList<Part> parts = products.get(keys.get(i));
+
+
+An error occurred at line: 47 in the jsp file: /Webpages/CustomerPage.jsp
+ArrayList cannot be resolved to a type
+44:                                                 ArrayList<String> keys = new ArrayList<>();
+45:                                                 keys.addAll(set);
+46:                                                 for (int i = 0; i < keys.size(); i++) {
+47:                                                     ArrayList<Part> parts = products.get(keys.get(i));
+48:                                                     Part part = parts.get(0);
+49:                                             %>
+50:                                             <tr>
+
+
+An error occurred at line: 47 in the jsp file: /Webpages/CustomerPage.jsp
+products cannot be resolved
+44:                                                 ArrayList<String> keys = new ArrayList<>();
+45:                                                 keys.addAll(set);
+46:                                                 for (int i = 0; i < keys.size(); i++) {
+47:                                                     ArrayList<Part> parts = products.get(keys.get(i));
+48:                                                     Part part = parts.get(0);
+49:                                             %>
+50:                                             <tr>
+
+
+An error occurred at line: 51 in the jsp file: /Webpages/CustomerPage.jsp
+The method getType() is undefined for the type Part
+48:                                                     Part part = parts.get(0);
+49:                                             %>
+50:                                             <tr>
+51:                                                 <td><%= part.getType()%></td>
+52:                                                 <td><%= part.getSize()%></td>
+53:                                                 <td><%= part.getDescription()%></td>
+54:                                                 <td><%= parts.size()%></td>
+
+
+An error occurred at line: 53 in the jsp file: /Webpages/CustomerPage.jsp
+The method getDescription() is undefined for the type Part
+50:                                             <tr>
+51:                                                 <td><%= part.getType()%></td>
+52:                                                 <td><%= part.getSize()%></td>
+53:                                                 <td><%= part.getDescription()%></td>
+54:                                                 <td><%= parts.size()%></td>
+55:                                                 <td><%= part.getPrice()%> kr.</td>
+56:                                             </tr>
+
+
+An error occurred at line: 55 in the jsp file: /Webpages/CustomerPage.jsp
+The method getPrice() is undefined for the type Part
+52:                                                 <td><%= part.getSize()%></td>
+53:                                                 <td><%= part.getDescription()%></td>
+54:                                                 <td><%= parts.size()%></td>
+55:                                                 <td><%= part.getPrice()%> kr.</td>
+56:                                             </tr>
+57:                                             <% }%>
+58:                                         </tbody>
+
+
+An error occurred at line: 65 in the jsp file: /Webpages/CustomerPage.jsp
+formattedTotalPrice cannot be resolved to a variable
+62:                                     <h3 style="text-align: center">Pris</h3>
+63:                                     <div style="text-align: right; margin-right: 5%">
+64:                                         <label>
+65:                                             <p>Total: <%= formattedTotalPrice%> kr.</p>
+66:                                         </label>
+67:                                         <br>
+68:                                         <label>
+
+
+An error occurred at line: 69 in the jsp file: /Webpages/CustomerPage.jsp
+formattedTax cannot be resolved to a variable
+66:                                         </label>
+67:                                         <br>
+68:                                         <label>
+69:                                             <p>Heraf moms: <%= formattedTax%> kr.</p>
+70:                                         </label>
+71:                                     </div>
+72:                                 </label>
+
+
+Stacktrace:
+dec. 04, 2018 5:38:58 PM FunctionLayer.Logging.Logging write
+WARNING: Unable to compile class for JSP: 
+
+An error occurred at line: 54 in the jsp file: /Webpages/CustomerPage.jsp
+The method getEmail() is undefined for the type User
+51:                                                 <td><%=customer.getFirstName()%></td>
+52:                                                 <td><%=customer.getLastName()%></td>
+53:                                                 <td><%=customer.getPhone()%></td>
+54:                                                 <td><%=user.getEmail()%></td>
+55:                                             </tr>
+56:                                         </tbody>
+57:                                     </table>
+
+
+Stacktrace:
+dec. 04, 2018 5:41:03 PM FunctionLayer.Logging.Logging write
+WARNING: An exception occurred processing JSP page /Webpages/CustomerPage.jsp at line 21
+
+18:         <link href="Webpages/CSS/FogStyling.css" rel="stylesheet" type="text/css"/>
+19:         <%
+20:             Customer customer = (Customer) request.getSession().getAttribute("Customer");
+21:             Address address = (Address) request.getSession().getAttribute("Customer");
+22:             PaymentInformation payment = (PaymentInformation) request.getSession().getAttribute("Customer");
+23:             User user = (User) request.getSession().getAttribute("Customer");
+24:         %>
+
+
+Stacktrace:
+dec. 04, 2018 5:43:39 PM FunctionLayer.Logging.Logging write
+WARNING: An exception occurred processing JSP page /Webpages/CustomerPage.jsp at line 21
+
+18:         <link href="Webpages/CSS/FogStyling.css" rel="stylesheet" type="text/css"/>
+19:         <%
+20:             Customer customer = (Customer) request.getSession().getAttribute("Customer");
+21:             Address address = (Address) request.getSession().getAttribute("Customer");
+22:             PaymentInformation payment = (PaymentInformation) request.getSession().getAttribute("Customer");
+23:             User user = (User) request.getSession().getAttribute("Customer");
+24:         %>
+
+
+Stacktrace:
+dec. 04, 2018 6:12:22 PM FunctionLayer.Logging.Logging write
+SEVERE: Column 'cardNumber' not found.
+dec. 04, 2018 7:27:36 PM FunctionLayer.Logging.Logging write
+INFO: Der skete en fejl!.. Prï¿½v at logge ind igen!
+dec. 04, 2018 7:27:47 PM FunctionLayer.Logging.Logging write
+SEVERE: Unknown column 'cardNumber' in 'field list'
+dec. 04, 2018 7:28:47 PM FunctionLayer.Logging.Logging write
+SEVERE: Unknown column 'cardNumber' in 'field list'
+dec. 04, 2018 9:08:39 PM FunctionLayer.Logging.Logging write
+INFO: Der skete en fejl!.. Prï¿½v at logge ind igen!
+dec. 05, 2018 11:06:28 AM FunctionLayer.Logging.Logging write
+WARNING: Unable to compile class for JSP: 
+
+An error occurred at line: 64 in the jsp file: /Webpages/CustomCarport.jsp
+The method getType() is undefined for the type Part
+61:                                                 <select name="cars" class="form-control">
+62:                                                     <option value="tagpap">Tagpap</option>
+63:                                                     <% for (int i = 0; i < roofBrickList.size(); i++) {%>
+64:                                                     <option value="<%= roofBrickList.get(i).getType()%>"><%= roofBrickList.get(i).getType()%></option>
+65:                                                     <% }%>
+66: 
+67:                                                     }
+
+
+An error occurred at line: 64 in the jsp file: /Webpages/CustomCarport.jsp
+The method getType() is undefined for the type Part
+61:                                                 <select name="cars" class="form-control">
+62:                                                     <option value="tagpap">Tagpap</option>
+63:                                                     <% for (int i = 0; i < roofBrickList.size(); i++) {%>
+64:                                                     <option value="<%= roofBrickList.get(i).getType()%>"><%= roofBrickList.get(i).getType()%></option>
+65:                                                     <% }%>
+66: 
+67:                                                     }
+
+
+Stacktrace:
+dec. 05, 2018 11:39:11 AM FunctionLayer.Logging.Logging write
+SEVERE: Unknown column 'Tegl' in 'where clause'
+dec. 05, 2018 5:14:05 PM FunctionLayer.Logging.Logging write
+WARNING: Der er fejl i databasen, da vi ikke kan finde delen!
+dec. 05, 2018 5:16:34 PM FunctionLayer.Logging.Logging write
+WARNING: Der er fejl i databasen, da vi ikke kan finde delen!
+dec. 05, 2018 6:15:28 PM FunctionLayer.Logging.Logging write
+SEVERE: Det valgte tag kan ikke findes!
+dec. 05, 2018 6:25:49 PM FunctionLayer.Logging.Logging write
+SEVERE: Det valgte tag kan ikke findes!
+dec. 05, 2018 6:54:25 PM FunctionLayer.Logging.Logging write
+SEVERE: Det valgte tag kan ikke findes!
+dec. 05, 2018 6:56:43 PM FunctionLayer.Logging.Logging write
+WARNING: Der er fejl i databasen, da vi ikke kan finde delen!
+dec. 06, 2018 9:21:54 AM FunctionLayer.Logging.Logging write
+OFF: 404 - Page not found!
+dec. 06, 2018 9:21:57 AM FunctionLayer.Logging.Logging write
+OFF: 404 - Page not found!
+dec. 06, 2018 9:21:59 AM FunctionLayer.Logging.Logging write
+OFF: 404 - Page not found!
+dec. 06, 2018 9:21:59 AM FunctionLayer.Logging.Logging write
+OFF: 404 - Page not found!
+dec. 06, 2018 9:22:00 AM FunctionLayer.Logging.Logging write
+OFF: 404 - Page not found!
+dec. 06, 2018 9:22:01 AM FunctionLayer.Logging.Logging write
+OFF: 404 - Page not found!
+dec. 06, 2018 9:22:01 AM FunctionLayer.Logging.Logging write
+OFF: 404 - Page not found!
+dec. 06, 2018 9:22:02 AM FunctionLayer.Logging.Logging write
+OFF: 404 - Page not found!
+dec. 06, 2018 9:22:02 AM FunctionLayer.Logging.Logging write
+OFF: 404 - Page not found!
+dec. 06, 2018 9:22:02 AM FunctionLayer.Logging.Logging write
+OFF: 404 - Page not found!
+dec. 06, 2018 9:22:03 AM FunctionLayer.Logging.Logging write
+OFF: 404 - Page not found!
+dec. 06, 2018 9:22:03 AM FunctionLayer.Logging.Logging write
+OFF: 404 - Page not found!
+dec. 06, 2018 9:22:04 AM FunctionLayer.Logging.Logging write
+OFF: 404 - Page not found!
+dec. 06, 2018 9:27:04 AM FunctionLayer.Logging.Logging write
+INFO: Dit valgte skur er for lille til at der kan placeres en dï¿½r!
+dec. 06, 2018 9:28:46 AM FunctionLayer.Logging.Logging write
+INFO: Dit valgte skur er for lille til at der kan placeres en dï¿½r!
+dec. 06, 2018 9:38:40 AM FunctionLayer.Logging.Logging write
+INFO: Dit valgte skur er for lille til at der kan placeres en dï¿½r!
+dec. 06, 2018 9:38:56 AM FunctionLayer.Logging.Logging write
+INFO: Dit valgte skur er for lille til at der kan placeres en dï¿½r!
+dec. 06, 2018 9:51:57 AM FunctionLayer.Logging.Logging write
+INFO: Dit valgte skur er for lille til at der kan placeres en dï¿½r!
+dec. 06, 2018 9:58:25 AM FunctionLayer.Logging.Logging write
+INFO: Dit valgte skur er lï¿½ngere end de valgte carport mï¿½l!
+dec. 06, 2018 9:58:57 AM FunctionLayer.Logging.Logging write
+INFO: Dit valgte skur er lï¿½ngere end de valgte carport mï¿½l!
+dec. 06, 2018 9:59:24 AM FunctionLayer.Logging.Logging write
+INFO: Dit valgte skur er for lille til at der kan placeres en dï¿½r!
+dec. 06, 2018 9:59:38 AM FunctionLayer.Logging.Logging write
+INFO: Dit valgte skur er lï¿½ngere end de valgte carport mï¿½l!
+dec. 06, 2018 9:59:49 AM FunctionLayer.Logging.Logging write
+INFO: Dit valgte skur er lï¿½ngere end de valgte carport mï¿½l!
+dec. 06, 2018 11:02:13 AM FunctionLayer.Logging.Logging write
+INFO: Dit valgte skur er lï¿½ngere end de valgte carport mï¿½l!
+dec. 06, 2018 12:28:36 PM FunctionLayer.Logging.Logging write
+WARNING: Unable to compile class for JSP: 
+
+An error occurred at line: 44 in the jsp file: /Webpages/ProductReview.jsp
+The method setAttribute(String, Object) in the type HttpSession is not applicable for the arguments (String)
+41:                             <div class="card-body">
+42:                                 <input type="hidden" name="command" value="Cart">
+43:                                 <h3>MÃ¥l:</h3>
+44:                                 <h6>Carport: <%= request.getSession().getAttribute("CarportLength"), request.getSession().setAttribute("CarportWidth")%></h6>
+45:                                 <h6>Skur:</h6>
+46:                                 <h6>Gulv:</h6>
+47:                                 <h6>Tag:</h6>
+
+
+Stacktrace:
+dec. 07, 2018 9:48:48 AM FunctionLayer.Logging.Logging write
+WARNING: An exception occurred processing JSP page /Webpages/ProductReview.jsp at line 48
+
+45:                                 <%if ((boolean)request.getSession().getAttribute("Shed")) { %>
+46:                                 <h6>Skur:</h6>
+47:                                 <%}%>
+48:                                 <%if ((boolean)request.getSession().getAttribute("Floor")) { %>
+49:                                 <h6>Gulv:</h6>
+50:                                 <%}%>
+51:                                 <h6>Tag: <%= request.getParameter("angledRoof")%></h6>
+
+
+Stacktrace:
+dec. 07, 2018 10:06:23 AM FunctionLayer.Logging.Logging write
+WARNING: Unable to compile class for JSP: 
+
+An error occurred at line: 46 in the jsp file: /Webpages/ProductReview.jsp
+Syntax error, insert ";" to complete Statement
+43:                                 <h3>Dine valgte mÃ¥l:</h3>
+44:                                 <h6>Carport: <%= request.getSession().getAttribute("CarportLength")%>x<%= request.getSession().getAttribute("CarportWidth")%>x<%= request.getSession().getAttribute("CarportHeight")%>mm</h6>
+45:                                 <%if ((boolean) request.getSession().getAttribute("Shed")) { %>
+46:                                 <h6>Skur: <%= request.getSession().getAttribute("ShedLength")%>x<%request.getSession().getAttribute("ShedWidth")%></h6>
+47:                                 <%}%>
+48:                                 <%if (request.getSession().getAttribute("Floor") != null) {
+49:                                         if ((boolean) request.getSession().getAttribute("Floor")) { %>
+
+
+Stacktrace:
+dec. 07, 2018 10:08:54 AM FunctionLayer.Logging.Logging write
+WARNING: Unable to compile class for JSP: 
+
+An error occurred at line: 54 in the jsp file: /Webpages/ProductReview.jsp
+The method getParameter(String) is undefined for the type HttpSession
+51:                                 <%}
+52:                                     }%>
+53:                                 <%if (request.getParameter("angledRoof") != null) {%>
+54:                                 <h6>Tag: Tag med rejsning - <%= request.getSession().getParameter("RoofAngle")%></h6>
+55:                                 <h6>Tagmateriale: <%= request.getSession().getAttribute("Roofing")%></h6>
+56:                                 <%} else {%>
+57:                                 <h6>Tag: Fladt tag</h6>
+
+
+Stacktrace:
+dec. 07, 2018 10:16:53 AM FunctionLayer.Logging.Logging write
+WARNING: Unable to compile class for JSP: 
+
+An error occurred at line: 55 in the jsp file: /Webpages/ProductReview.jsp
+customer cannot be resolved
+52:                                         </thead>
+53:                                         <tbody>
+54:                                             <tr>
+55:                                                 <td><%=customer.getFirstName()%></td>
+56:                                                 <td><%=customer.getLastName()%></td>
+57:                                                 <td><%=customer.getPhone()%></td>
+58:                                                 <td><%=user.getEmail()%></td>
+
+
+An error occurred at line: 56 in the jsp file: /Webpages/ProductReview.jsp
+customer cannot be resolved
+53:                                         <tbody>
+54:                                             <tr>
+55:                                                 <td><%=customer.getFirstName()%></td>
+56:                                                 <td><%=customer.getLastName()%></td>
+57:                                                 <td><%=customer.getPhone()%></td>
+58:                                                 <td><%=user.getEmail()%></td>
+59:                                             </tr>
+
+
+An error occurred at line: 57 in the jsp file: /Webpages/ProductReview.jsp
+customer cannot be resolved
+54:                                             <tr>
+55:                                                 <td><%=customer.getFirstName()%></td>
+56:                                                 <td><%=customer.getLastName()%></td>
+57:                                                 <td><%=customer.getPhone()%></td>
+58:                                                 <td><%=user.getEmail()%></td>
+59:                                             </tr>
+60:                                         </tbody>
+
+
+An error occurred at line: 58 in the jsp file: /Webpages/ProductReview.jsp
+user cannot be resolved
+55:                                                 <td><%=customer.getFirstName()%></td>
+56:                                                 <td><%=customer.getLastName()%></td>
+57:                                                 <td><%=customer.getPhone()%></td>
+58:                                                 <td><%=user.getEmail()%></td>
+59:                                             </tr>
+60:                                         </tbody>
+61:                                     </table>
+
+
+An error occurred at line: 74 in the jsp file: /Webpages/ProductReview.jsp
+address cannot be resolved
+71:                                         </thead>
+72:                                         <tbody>
+73:                                             <tr>
+74:                                                 <td><%=address.getCity()%></td>
+75:                                                 <td><%=address.getZip()%></td>
+76:                                                 <td><%=address.getStreet()%></td>
+77:                                                 <td><%=address.getNumber()%></td>
+
+
+An error occurred at line: 75 in the jsp file: /Webpages/ProductReview.jsp
+address cannot be resolved
+72:                                         <tbody>
+73:                                             <tr>
+74:                                                 <td><%=address.getCity()%></td>
+75:                                                 <td><%=address.getZip()%></td>
+76:                                                 <td><%=address.getStreet()%></td>
+77:                                                 <td><%=address.getNumber()%></td>
+78:                                             </tr>
+
+
+An error occurred at line: 76 in the jsp file: /Webpages/ProductReview.jsp
+address cannot be resolved
+73:                                             <tr>
+74:                                                 <td><%=address.getCity()%></td>
+75:                                                 <td><%=address.getZip()%></td>
+76:                                                 <td><%=address.getStreet()%></td>
+77:                                                 <td><%=address.getNumber()%></td>
+78:                                             </tr>
+79:                                         </tbody>
+
+
+An error occurred at line: 77 in the jsp file: /Webpages/ProductReview.jsp
+address cannot be resolved
+74:                                                 <td><%=address.getCity()%></td>
+75:                                                 <td><%=address.getZip()%></td>
+76:                                                 <td><%=address.getStreet()%></td>
+77:                                                 <td><%=address.getNumber()%></td>
+78:                                             </tr>
+79:                                         </tbody>
+80:                                     </table>
+
+
+An error occurred at line: 91 in the jsp file: /Webpages/ProductReview.jsp
+payment cannot be resolved
+88:                                         </thead>
+89:                                         <tbody>
+90:                                             <tr>
+91:                                                 <td><%=payment.getCardNumber()%></td>
+92:                                                 <td><%=payment.getExpireDate()%></td>
+93:                                             </tr>
+94:                                         </tbody>
+
+
+An error occurred at line: 92 in the jsp file: /Webpages/ProductReview.jsp
+payment cannot be resolved
+89:                                         <tbody>
+90:                                             <tr>
+91:                                                 <td><%=payment.getCardNumber()%></td>
+92:                                                 <td><%=payment.getExpireDate()%></td>
+93:                                             </tr>
+94:                                         </tbody>
+95:                                     </table>
+
+
+Stacktrace:
+dec. 07, 2018 10:43:54 AM FunctionLayer.Logging.Logging write
+WARNING: Unable to compile class for JSP: 
+
+An error occurred at line: [404] in the generated java file: [C:\Users\ryger\AppData\Roaming\NetBeans\8.2\apache-tomcat-8.0.27.0_base\work\Catalina\localhost\ProjectFog\org\apache\jsp\Webpages\ProductReview_jsp.java]
+Syntax error, insert "else Statement" to complete IfStatement
+
+An error occurred at line: [404] in the generated java file: [C:\Users\ryger\AppData\Roaming\NetBeans\8.2\apache-tomcat-8.0.27.0_base\work\Catalina\localhost\ProjectFog\org\apache\jsp\Webpages\ProductReview_jsp.java]
+Syntax error, insert "}" to complete Block
+
+An error occurred at line: [421] in the generated java file: [C:\Users\ryger\AppData\Roaming\NetBeans\8.2\apache-tomcat-8.0.27.0_base\work\Catalina\localhost\ProjectFog\org\apache\jsp\Webpages\ProductReview_jsp.java]
+Syntax error on token "}", delete this token
+
+An error occurred at line: [422] in the generated java file: [C:\Users\ryger\AppData\Roaming\NetBeans\8.2\apache-tomcat-8.0.27.0_base\work\Catalina\localhost\ProjectFog\org\apache\jsp\Webpages\ProductReview_jsp.java]
+Syntax error, insert "}" to complete ClassBody
+
+Stacktrace:
+dec. 07, 2018 11:01:10 AM FunctionLayer.Logging.Logging write
+INFO: Der skete en fejl!.. Prï¿½v at logge ind igen!
+dec. 07, 2018 11:47:41 AM FunctionLayer.Logging.Logging write
+OFF: 404 - Page not found!
+dec. 07, 2018 11:49:28 AM FunctionLayer.Logging.Logging write
+OFF: 404 - Page not found!
+dec. 07, 2018 11:51:39 AM FunctionLayer.Logging.Logging write
+SEVERE: Illegal operation on empty result set.
+dec. 07, 2018 11:52:16 AM FunctionLayer.Logging.Logging write
+SEVERE: Illegal operation on empty result set.
+dec. 07, 2018 12:03:31 PM FunctionLayer.Logging.Logging write
+SEVERE: Illegal operation on empty result set.
+dec. 07, 2018 12:06:28 PM FunctionLayer.Logging.Logging write
+SEVERE: Illegal operation on empty result set.
+dec. 07, 2018 12:13:26 PM FunctionLayer.Logging.Logging write
+SEVERE: Unknown column 'cardExpireDate' in 'field list'
+dec. 07, 2018 12:19:38 PM FunctionLayer.Logging.Logging write
+WARNING: An exception occurred processing JSP page /Webpages/CustomerPage.jsp at line 66
+
+63:                                         </thead>
+64:                                         <tbody>
+65:                                             <tr>
+66:                                                 <td><%=customer.getFirstName()%></td>
+67:                                                 <td><%=customer.getLastName()%></td>
+68:                                                 <td><%=customer.getPhone()%></td>
+69:                                                 <td><%=user.getEmail()%></td>
+
+
+Stacktrace:
+dec. 08, 2018 2:57:07 PM FunctionLayer.Logging.Logging write
+OFF: 404 - Page not found!
+dec. 08, 2018 3:03:26 PM FunctionLayer.Logging.Logging write
+OFF: 404 - Siden du ledte efter kunne ikke findes!
+dec. 08, 2018 3:05:11 PM FunctionLayer.Logging.Logging write
+OFF: 404 - Siden du ledte efter kunne ikke findes!
+dec. 08, 2018 3:06:13 PM FunctionLayer.Logging.Logging write
+OFF: 404 - Siden du ledte efter kunne ikke findes!
+dec. 08, 2018 3:07:49 PM FunctionLayer.Logging.Logging write
+OFF: 404 - Siden du ledte efter kunne ikke findes!
+dec. 08, 2018 3:08:26 PM FunctionLayer.Logging.Logging write
+OFF: 404 - Siden du ledte efter kunne ikke findes!
+dec. 08, 2018 3:08:31 PM FunctionLayer.Logging.Logging write
+OFF: 404 - Siden du ledte efter kunne ikke findes!
+dec. 08, 2018 3:20:25 PM FunctionLayer.Logging.Logging write
+OFF: Passwords not equal!
+dec. 08, 2018 3:26:10 PM FunctionLayer.Logging.Logging write
+WARNING: Unable to compile class for JSP: 
+
+An error occurred at line: 41 in the jsp file: /Webpages/CustomerOrders.jsp
+customer cannot be resolved
+38:                                         </thead>
+39:                                         <tbody>
+40:                                             <tr>
+41:                                                 <td><%=customer.getFirstName()%></td>
+42:                                                 <td><%=customer.getLastName()%></td>
+43:                                                 <td><%=customer.getPhone()%></td>
+44:                                                 <td><%=user.getEmail()%></td>
+
+
+An error occurred at line: 42 in the jsp file: /Webpages/CustomerOrders.jsp
+customer cannot be resolved
+39:                                         <tbody>
+40:                                             <tr>
+41:                                                 <td><%=customer.getFirstName()%></td>
+42:                                                 <td><%=customer.getLastName()%></td>
+43:                                                 <td><%=customer.getPhone()%></td>
+44:                                                 <td><%=user.getEmail()%></td>
+45:                                             </tr>
+
+
+An error occurred at line: 43 in the jsp file: /Webpages/CustomerOrders.jsp
+customer cannot be resolved
+40:                                             <tr>
+41:                                                 <td><%=customer.getFirstName()%></td>
+42:                                                 <td><%=customer.getLastName()%></td>
+43:                                                 <td><%=customer.getPhone()%></td>
+44:                                                 <td><%=user.getEmail()%></td>
+45:                                             </tr>
+46:                                         </tbody>
+
+
+An error occurred at line: 44 in the jsp file: /Webpages/CustomerOrders.jsp
+user cannot be resolved
+41:                                                 <td><%=customer.getFirstName()%></td>
+42:                                                 <td><%=customer.getLastName()%></td>
+43:                                                 <td><%=customer.getPhone()%></td>
+44:                                                 <td><%=user.getEmail()%></td>
+45:                                             </tr>
+46:                                         </tbody>
+47:                                     </table>
+
+
+An error occurred at line: 60 in the jsp file: /Webpages/CustomerOrders.jsp
+address cannot be resolved
+57:                                         </thead>
+58:                                         <tbody>
+59:                                             <tr>
+60:                                                 <td><%=address.getCity()%></td>
+61:                                                 <td><%=address.getZip()%></td>
+62:                                                 <td><%=address.getStreet()%></td>
+63:                                                 <td><%=address.getNumber()%></td>
+
+
+An error occurred at line: 61 in the jsp file: /Webpages/CustomerOrders.jsp
+address cannot be resolved
+58:                                         <tbody>
+59:                                             <tr>
+60:                                                 <td><%=address.getCity()%></td>
+61:                                                 <td><%=address.getZip()%></td>
+62:                                                 <td><%=address.getStreet()%></td>
+63:                                                 <td><%=address.getNumber()%></td>
+64:                                             </tr>
+
+
+An error occurred at line: 62 in the jsp file: /Webpages/CustomerOrders.jsp
+address cannot be resolved
+59:                                             <tr>
+60:                                                 <td><%=address.getCity()%></td>
+61:                                                 <td><%=address.getZip()%></td>
+62:                                                 <td><%=address.getStreet()%></td>
+63:                                                 <td><%=address.getNumber()%></td>
+64:                                             </tr>
+65:                                         </tbody>
+
+
+An error occurred at line: 63 in the jsp file: /Webpages/CustomerOrders.jsp
+address cannot be resolved
+60:                                                 <td><%=address.getCity()%></td>
+61:                                                 <td><%=address.getZip()%></td>
+62:                                                 <td><%=address.getStreet()%></td>
+63:                                                 <td><%=address.getNumber()%></td>
+64:                                             </tr>
+65:                                         </tbody>
+66:                                     </table>
+
+
+An error occurred at line: 77 in the jsp file: /Webpages/CustomerOrders.jsp
+payment cannot be resolved
+74:                                         </thead>
+75:                                         <tbody>
+76:                                             <tr>
+77:                                                 <td><%=payment.getCardNumber()%></td>
+78:                                                 <td><%=payment.getExpireDate()%></td>
+79:                                             </tr>
+80:                                         </tbody>
+
+
+An error occurred at line: 78 in the jsp file: /Webpages/CustomerOrders.jsp
+payment cannot be resolved
+75:                                         <tbody>
+76:                                             <tr>
+77:                                                 <td><%=payment.getCardNumber()%></td>
+78:                                                 <td><%=payment.getExpireDate()%></td>
+79:                                             </tr>
+80:                                         </tbody>
+81:                                     </table>
+
+
+Stacktrace:
+dec. 09, 2018 4:42:17 PM FunctionLayer.Logging.Logging write
+WARNING: Unable to compile class for JSP: 
+
+An error occurred at line: 16 in the jsp file: /Webpages/Cart.jsp
+DecimalFormat cannot be resolved to a type
+13:         <%@include file="/WEB-INF/Imports/StyleImporter.jsp" %>
+14:         <link href="Webpages/CSS/FogStyling.css" rel="stylesheet" type="text/css"/>
+15:         <%
+16:             DecimalFormat df = new DecimalFormat(".##");
+17:             double totalPrice = (double) request.getSession().getAttribute("ProductPrice");
+18:             double price = totalPrice / 100 * 75;
+19:             double tax = totalPrice - price;
+
+
+An error occurred at line: 16 in the jsp file: /Webpages/Cart.jsp
+DecimalFormat cannot be resolved to a type
+13:         <%@include file="/WEB-INF/Imports/StyleImporter.jsp" %>
+14:         <link href="Webpages/CSS/FogStyling.css" rel="stylesheet" type="text/css"/>
+15:         <%
+16:             DecimalFormat df = new DecimalFormat(".##");
+17:             double totalPrice = (double) request.getSession().getAttribute("ProductPrice");
+18:             double price = totalPrice / 100 * 75;
+19:             double tax = totalPrice - price;
+
+
+Stacktrace:
+dec. 09, 2018 4:44:34 PM FunctionLayer.Logging.Logging write
+OFF: 404 - Siden du ledte efter kunne ikke findes!
+dec. 09, 2018 4:53:06 PM FunctionLayer.Logging.Logging write
+WARNING: Unable to compile class for JSP: 
+
+An error occurred at line: 54 in the jsp file: /Webpages/Payment.jsp
+Set cannot be resolved to a type
+51:                                             </thead>
+52:                                             <tbody>
+53:                                                 <%
+54:                                                     Set set = products.keySet();
+55:                                                     ArrayList<String> keys = new ArrayList<>();
+56:                                                     keys.addAll(set);
+57:                                                     for (int i = 0; i < keys.size(); i++) {
+
+
+An error occurred at line: 54 in the jsp file: /Webpages/Payment.jsp
+products cannot be resolved
+51:                                             </thead>
+52:                                             <tbody>
+53:                                                 <%
+54:                                                     Set set = products.keySet();
+55:                                                     ArrayList<String> keys = new ArrayList<>();
+56:                                                     keys.addAll(set);
+57:                                                     for (int i = 0; i < keys.size(); i++) {
+
+
+An error occurred at line: 55 in the jsp file: /Webpages/Payment.jsp
+ArrayList cannot be resolved to a type
+52:                                             <tbody>
+53:                                                 <%
+54:                                                     Set set = products.keySet();
+55:                                                     ArrayList<String> keys = new ArrayList<>();
+56:                                                     keys.addAll(set);
+57:                                                     for (int i = 0; i < keys.size(); i++) {
+58:                                                         ArrayList<Part> parts = products.get(keys.get(i));
+
+
+An error occurred at line: 55 in the jsp file: /Webpages/Payment.jsp
+ArrayList cannot be resolved to a type
+52:                                             <tbody>
+53:                                                 <%
+54:                                                     Set set = products.keySet();
+55:                                                     ArrayList<String> keys = new ArrayList<>();
+56:                                                     keys.addAll(set);
+57:                                                     for (int i = 0; i < keys.size(); i++) {
+58:                                                         ArrayList<Part> parts = products.get(keys.get(i));
+
+
+An error occurred at line: 58 in the jsp file: /Webpages/Payment.jsp
+ArrayList cannot be resolved to a type
+55:                                                     ArrayList<String> keys = new ArrayList<>();
+56:                                                     keys.addAll(set);
+57:                                                     for (int i = 0; i < keys.size(); i++) {
+58:                                                         ArrayList<Part> parts = products.get(keys.get(i));
+59:                                                         Part part = parts.get(0);
+60:                                                 %>
+61:                                                 <tr>
+
+
+An error occurred at line: 58 in the jsp file: /Webpages/Payment.jsp
+products cannot be resolved
+55:                                                     ArrayList<String> keys = new ArrayList<>();
+56:                                                     keys.addAll(set);
+57:                                                     for (int i = 0; i < keys.size(); i++) {
+58:                                                         ArrayList<Part> parts = products.get(keys.get(i));
+59:                                                         Part part = parts.get(0);
+60:                                                 %>
+61:                                                 <tr>
+
+
+An error occurred at line: 62 in the jsp file: /Webpages/Payment.jsp
+The method getType() is undefined for the type Part
+59:                                                         Part part = parts.get(0);
+60:                                                 %>
+61:                                                 <tr>
+62:                                                     <td><%= part.getType()%></td>
+63:                                                     <td><%= part.getSize()%></td>
+64:                                                     <td><%= part.getDescription()%></td>
+65:                                                     <td><%= parts.size()%></td>
+
+
+An error occurred at line: 64 in the jsp file: /Webpages/Payment.jsp
+The method getDescription() is undefined for the type Part
+61:                                                 <tr>
+62:                                                     <td><%= part.getType()%></td>
+63:                                                     <td><%= part.getSize()%></td>
+64:                                                     <td><%= part.getDescription()%></td>
+65:                                                     <td><%= parts.size()%></td>
+66:                                                     <td><%= part.getPrice()%> kr.</td>
+67:                                                 </tr>
+
+
+An error occurred at line: 66 in the jsp file: /Webpages/Payment.jsp
+The method getPrice() is undefined for the type Part
+63:                                                     <td><%= part.getSize()%></td>
+64:                                                     <td><%= part.getDescription()%></td>
+65:                                                     <td><%= parts.size()%></td>
+66:                                                     <td><%= part.getPrice()%> kr.</td>
+67:                                                 </tr>
+68:                                                 <% }%>
+69:                                             </tbody>
+
+
+Stacktrace:
+dec. 09, 2018 4:53:59 PM FunctionLayer.Logging.Logging write
+WARNING: Unable to compile class for JSP: 
+
+An error occurred at line: 67 in the jsp file: /Webpages/Payment.jsp
+The method getType() is undefined for the type Part
+64:                                                         Part part = parts.get(0);
+65:                                                 %>
+66:                                                 <tr>
+67:                                                     <td><%= part.getType()%></td>
+68:                                                     <td><%= part.getSize()%></td>
+69:                                                     <td><%= part.getDescription()%></td>
+70:                                                     <td><%= parts.size()%></td>
+
+
+An error occurred at line: 69 in the jsp file: /Webpages/Payment.jsp
+The method getDescription() is undefined for the type Part
+66:                                                 <tr>
+67:                                                     <td><%= part.getType()%></td>
+68:                                                     <td><%= part.getSize()%></td>
+69:                                                     <td><%= part.getDescription()%></td>
+70:                                                     <td><%= parts.size()%></td>
+71:                                                     <td><%= part.getPrice()%> kr.</td>
+72:                                                 </tr>
+
+
+An error occurred at line: 71 in the jsp file: /Webpages/Payment.jsp
+The method getPrice() is undefined for the type Part
+68:                                                     <td><%= part.getSize()%></td>
+69:                                                     <td><%= part.getDescription()%></td>
+70:                                                     <td><%= parts.size()%></td>
+71:                                                     <td><%= part.getPrice()%> kr.</td>
+72:                                                 </tr>
+73:                                                 <% }%>
+74:                                             </tbody>
+
+
+Stacktrace:
+dec. 09, 2018 4:55:23 PM FunctionLayer.Logging.Logging write
+WARNING: Unable to compile class for JSP: 
+
+An error occurred at line: 67 in the jsp file: /Webpages/Payment.jsp
+The method getType() is undefined for the type Part
+64:                                                         Part part = parts.get(0);
+65:                                                 %>
+66:                                                 <tr>
+67:                                                     <td><%= part.getType()%></td>
+68:                                                     <td><%= part.getSize()%></td>
+69:                                                     <td><%= part.getDescription()%></td>
+70:                                                     <td><%= parts.size()%></td>
+
+
+An error occurred at line: 69 in the jsp file: /Webpages/Payment.jsp
+The method getDescription() is undefined for the type Part
+66:                                                 <tr>
+67:                                                     <td><%= part.getType()%></td>
+68:                                                     <td><%= part.getSize()%></td>
+69:                                                     <td><%= part.getDescription()%></td>
+70:                                                     <td><%= parts.size()%></td>
+71:                                                     <td><%= part.getPrice()%> kr.</td>
+72:                                                 </tr>
+
+
+An error occurred at line: 71 in the jsp file: /Webpages/Payment.jsp
+The method getPrice() is undefined for the type Part
+68:                                                     <td><%= part.getSize()%></td>
+69:                                                     <td><%= part.getDescription()%></td>
+70:                                                     <td><%= parts.size()%></td>
+71:                                                     <td><%= part.getPrice()%> kr.</td>
+72:                                                 </tr>
+73:                                                 <% }%>
+74:                                             </tbody>
+
+
+Stacktrace:
+dec. 09, 2018 4:55:54 PM FunctionLayer.Logging.Logging write
+WARNING: Unable to compile class for JSP: 
+
+An error occurred at line: 67 in the jsp file: /Webpages/Payment.jsp
+The method getType() is undefined for the type Part
+64:                                                         Part part = parts.get(0);
+65:                                                 %>
+66:                                                 <tr>
+67:                                                     <td><%= part.getType()%></td>
+68:                                                     <td><%= part.getSize()%></td>
+69:                                                     <td><%= part.getDescription()%></td>
+70:                                                     <td><%= parts.size()%></td>
+
+
+An error occurred at line: 69 in the jsp file: /Webpages/Payment.jsp
+The method getDescription() is undefined for the type Part
+66:                                                 <tr>
+67:                                                     <td><%= part.getType()%></td>
+68:                                                     <td><%= part.getSize()%></td>
+69:                                                     <td><%= part.getDescription()%></td>
+70:                                                     <td><%= parts.size()%></td>
+71:                                                     <td><%= part.getPrice()%> kr.</td>
+72:                                                 </tr>
+
+
+An error occurred at line: 71 in the jsp file: /Webpages/Payment.jsp
+The method getPrice() is undefined for the type Part
+68:                                                     <td><%= part.getSize()%></td>
+69:                                                     <td><%= part.getDescription()%></td>
+70:                                                     <td><%= parts.size()%></td>
+71:                                                     <td><%= part.getPrice()%> kr.</td>
+72:                                                 </tr>
+73:                                                 <% }%>
+74:                                             </tbody>
+
+
+Stacktrace:
+dec. 09, 2018 5:55:26 PM FunctionLayer.Logging.Logging write
+INFO: Du skal logge ind fï¿½r du kan gï¿½ videre!
+dec. 09, 2018 5:55:27 PM FunctionLayer.Logging.Logging write
+INFO: Du skal logge ind fï¿½r du kan gï¿½ videre!
+dec. 09, 2018 5:57:59 PM FunctionLayer.Logging.Logging write
+SEVERE: Cannot add or update a child row: a foreign key constraint fails (`ProjectFogDatabase`.`address`, CONSTRAINT `Employee_Has_Address` FOREIGN KEY (`employeeID`) REFERENCES `employee` (`id`) ON DELETE CASCADE ON UPDATE CASCADE)
+dec. 09, 2018 7:37:50 PM FunctionLayer.Logging.Logging write
+SEVERE: Cannot add or update a child row: a foreign key constraint fails (`ProjectFogDatabase`.`address`, CONSTRAINT `Employee_Has_Address` FOREIGN KEY (`employeeID`) REFERENCES `employee` (`id`) ON DELETE CASCADE ON UPDATE CASCADE)
+dec. 10, 2018 9:56:43 AM FunctionLayer.Logging.Logging write
+SEVERE: Cannot add or update a child row: a foreign key constraint fails (`ProjectFogDatabase`.`address`, CONSTRAINT `Employee_Has_Address` FOREIGN KEY (`employeeID`) REFERENCES `employee` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION)
+dec. 11, 2018 12:23:04 PM FunctionLayer.Logging.Logging write
+SEVERE: Column 'customerID' not found.
+dec. 11, 2018 12:23:34 PM FunctionLayer.Logging.Logging write
+SEVERE: Column 'customerID' not found.
+dec. 11, 2018 12:38:31 PM FunctionLayer.Logging.Logging write
+INFO: User 'test-bruger@gmail.com' do not exist!
+dec. 11, 2018 12:38:54 PM FunctionLayer.Logging.Logging write
+SEVERE: Column 'customerID' not found.
+dec. 11, 2018 12:40:36 PM FunctionLayer.Logging.Logging write
+SEVERE: Unknown column 'customerID' in 'where clause'
+dec. 11, 2018 12:48:07 PM FunctionLayer.Logging.Logging write
+SEVERE: Unknown column 'customerID' in 'where clause'
+dec. 11, 2018 12:52:26 PM FunctionLayer.Logging.Logging write
+SEVERE: Unknown column 'customerID' in 'where clause'
+dec. 11, 2018 12:55:34 PM FunctionLayer.Logging.Logging write
+WARNING: Unable to compile class for JSP: 
+
+An error occurred at line: [15] in the generated java file: [C:\Users\Michael\AppData\Roaming\NetBeans\8.2\apache-tomcat-8.0.27.0_base\work\Catalina\localhost\ProjectFog\org\apache\jsp\Webpages\CustomerPage_jsp.java]
+Only a type can be imported. FunctionLayer.Entities.PaymentInformation resolves to a package
+
+Stacktrace:
+dec. 11, 2018 12:59:15 PM FunctionLayer.Logging.Logging write
+SEVERE: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'order WHERE customerID = 1' at line 1
+dec. 12, 2018 10:57:29 AM FunctionLayer.Logging.Logging write
+INFO: Du skal logge ind før du kan gå videre!
+dec. 13, 2018 9:15:42 AM FunctionLayer.Logging.Logging write
+SEVERE: Unknown column 'customerID' in 'where clause'
+dec. 13, 2018 9:20:04 AM FunctionLayer.Logging.Logging write
+SEVERE: Unknown column 'customerID' in 'where clause'
+dec. 13, 2018 9:22:26 AM FunctionLayer.Logging.Logging write
+SEVERE: Unknown column 'customerID' in 'where clause'
+dec. 13, 2018 9:23:17 AM FunctionLayer.Logging.Logging write
+SEVERE: Unknown column 'customerID' in 'where clause'
+dec. 13, 2018 9:24:23 AM FunctionLayer.Logging.Logging write
+SEVERE: Unknown column 'customerID' in 'where clause'
+dec. 13, 2018 9:26:56 AM FunctionLayer.Logging.Logging write
+WARNING: java.lang.NullPointerException
+dec. 13, 2018 9:27:55 AM FunctionLayer.Logging.Logging write
+WARNING: java.lang.NullPointerException
+dec. 13, 2018 9:28:54 AM FunctionLayer.Logging.Logging write
+INFO: Could not validate user
+dec. 13, 2018 10:07:58 AM FunctionLayer.Logging.Logging write
+WARNING: Medarbejderen findes ikke i systemet!
+dec. 13, 2018 10:08:21 AM FunctionLayer.Logging.Logging write
+WARNING: Medarbejderen findes ikke i systemet!
+dec. 13, 2018 10:11:36 AM FunctionLayer.Logging.Logging write
+WARNING: Medarbejderen findes ikke i systemet!
+dec. 13, 2018 1:04:49 PM FunctionLayer.Logging.Logging write
+OFF: 404 - Siden du ledte efter kunne ikke findes!
+dec. 13, 2018 1:05:17 PM FunctionLayer.Logging.Logging write
+OFF: 404 - Siden du ledte efter kunne ikke findes!
+dec. 13, 2018 1:06:39 PM FunctionLayer.Logging.Logging write
+OFF: 404 - Siden du ledte efter kunne ikke findes!
+dec. 13, 2018 1:06:42 PM FunctionLayer.Logging.Logging write
+OFF: 404 - Siden du ledte efter kunne ikke findes!
+dec. 13, 2018 1:06:43 PM FunctionLayer.Logging.Logging write
+OFF: 404 - Siden du ledte efter kunne ikke findes!
+dec. 13, 2018 1:06:43 PM FunctionLayer.Logging.Logging write
+OFF: 404 - Siden du ledte efter kunne ikke findes!
+dec. 13, 2018 1:06:43 PM FunctionLayer.Logging.Logging write
+OFF: 404 - Siden du ledte efter kunne ikke findes!
+dec. 13, 2018 1:06:52 PM FunctionLayer.Logging.Logging write
+OFF: 404 - Siden du ledte efter kunne ikke findes!
+dec. 13, 2018 1:07:07 PM FunctionLayer.Logging.Logging write
+OFF: 404 - Siden du ledte efter kunne ikke findes!
+dec. 13, 2018 1:07:09 PM FunctionLayer.Logging.Logging write
+OFF: 404 - Siden du ledte efter kunne ikke findes!
+dec. 13, 2018 1:07:10 PM FunctionLayer.Logging.Logging write
+OFF: 404 - Siden du ledte efter kunne ikke findes!
+dec. 13, 2018 1:10:37 PM FunctionLayer.Logging.Logging write
+OFF: 404 - Siden du ledte efter kunne ikke findes!
+dec. 13, 2018 1:10:39 PM FunctionLayer.Logging.Logging write
+OFF: 404 - Siden du ledte efter kunne ikke findes!
+dec. 13, 2018 1:11:26 PM FunctionLayer.Logging.Logging write
+OFF: 404 - Siden du ledte efter kunne ikke findes!
+dec. 13, 2018 2:47:30 PM FunctionLayer.Logging.Logging write
+OFF: 404 - Siden du ledte efter kunne ikke findes!
+dec. 13, 2018 2:47:53 PM FunctionLayer.Logging.Logging write
+OFF: 404 - Siden du ledte efter kunne ikke findes!
+dec. 13, 2018 2:47:55 PM FunctionLayer.Logging.Logging write
+OFF: 404 - Siden du ledte efter kunne ikke findes!
+dec. 13, 2018 2:47:59 PM FunctionLayer.Logging.Logging write
+OFF: 404 - Siden du ledte efter kunne ikke findes!
+dec. 13, 2018 2:48:00 PM FunctionLayer.Logging.Logging write
+OFF: 404 - Siden du ledte efter kunne ikke findes!
+dec. 13, 2018 2:48:01 PM FunctionLayer.Logging.Logging write
+OFF: 404 - Siden du ledte efter kunne ikke findes!
+dec. 13, 2018 2:48:13 PM FunctionLayer.Logging.Logging write
+OFF: 404 - Siden du ledte efter kunne ikke findes!
+dec. 13, 2018 2:56:17 PM FunctionLayer.Logging.Logging write
+WARNING: Unable to compile class for JSP: 
+
+An error occurred at line: 17 in the jsp file: /Webpages/OrderPage.jsp
+ArrayList cannot be resolved to a variable
+14:         <title>Send ordre</title>
+15:         <%@include file="/WEB-INF/Imports/StyleImporter.jsp" %>
+16:         <link href="Webpages/CSS/FogStyling.css" rel="stylesheet" type="text/css"/>
+17:         <%= ArrayList<Order> orders = request.getSession().getAttribute("Orders") %>
+18:     </head>
+19:     <body>
+20:         <%@include file="/WEB-INF/Imports/NavBar.jsp" %>
+
+
+An error occurred at line: 17 in the jsp file: /Webpages/OrderPage.jsp
+Order cannot be resolved to a variable
+14:         <title>Send ordre</title>
+15:         <%@include file="/WEB-INF/Imports/StyleImporter.jsp" %>
+16:         <link href="Webpages/CSS/FogStyling.css" rel="stylesheet" type="text/css"/>
+17:         <%= ArrayList<Order> orders = request.getSession().getAttribute("Orders") %>
+18:     </head>
+19:     <body>
+20:         <%@include file="/WEB-INF/Imports/NavBar.jsp" %>
+
+
+An error occurred at line: 17 in the jsp file: /Webpages/OrderPage.jsp
+orders cannot be resolved to a variable
+14:         <title>Send ordre</title>
+15:         <%@include file="/WEB-INF/Imports/StyleImporter.jsp" %>
+16:         <link href="Webpages/CSS/FogStyling.css" rel="stylesheet" type="text/css"/>
+17:         <%= ArrayList<Order> orders = request.getSession().getAttribute("Orders") %>
+18:     </head>
+19:     <body>
+20:         <%@include file="/WEB-INF/Imports/NavBar.jsp" %>
+
+
+An error occurred at line: 17 in the jsp file: /Webpages/OrderPage.jsp
+Syntax error on token "=", <= expected
+14:         <title>Send ordre</title>
+15:         <%@include file="/WEB-INF/Imports/StyleImporter.jsp" %>
+16:         <link href="Webpages/CSS/FogStyling.css" rel="stylesheet" type="text/css"/>
+17:         <%= ArrayList<Order> orders = request.getSession().getAttribute("Orders") %>
+18:     </head>
+19:     <body>
+20:         <%@include file="/WEB-INF/Imports/NavBar.jsp" %>
+
+
+Stacktrace:
+dec. 13, 2018 3:00:10 PM FunctionLayer.Logging.Logging write
+WARNING: An exception occurred processing JSP page /Webpages/OrderPage.jsp at line 50
+
+47:                 </tr>
+48:             </thead>
+49:             <tbody>
+50:                 <% for (int i = 0; i < orders.size(); i++) {
+51:                         Order order = orders.get(i);
+52:                 %>
+53:                 <tr>
+
+
+Stacktrace:
+dec. 13, 2018 3:00:34 PM FunctionLayer.Logging.Logging write
+WARNING: An exception occurred processing JSP page /Webpages/OrderPage.jsp at line 50
+
+47:                 </tr>
+48:             </thead>
+49:             <tbody>
+50:                 <% for (int i = 0; i < orders.size(); i++) {
+51:                         Order order = orders.get(i);
+52:                 %>
+53:                 <tr>
+
+
+Stacktrace:
+dec. 13, 2018 3:01:44 PM FunctionLayer.Logging.Logging write
+WARNING: An exception occurred processing JSP page /Webpages/OrderPage.jsp at line 49
+
+46:                 </tr>
+47:             </thead>
+48:             <tbody>
+49:                 <% for (int i = 0; i < orders.size(); i++) {
+50:                         Order order = orders.get(i);%>
+51:                 <tr>
+52:                     <th scope="row"><%=i + 1%></th>
+
+
+Stacktrace:
+dec. 13, 2018 3:03:17 PM FunctionLayer.Logging.Logging write
+WARNING: An exception occurred processing JSP page /Webpages/OrderPage.jsp at line 50
+
+47:                 </tr>
+48:             </thead>
+49:             <tbody>
+50:                 <% for (int i = 0; i < orders.size(); i++) {
+51:                         Order order = orders.get(i);%>
+52:                 <tr>
+53:                     <th scope="row"><%=i + 1%></th>
+
+
+Stacktrace:
+dec. 13, 2018 3:03:28 PM FunctionLayer.Logging.Logging write
+WARNING: An exception occurred processing JSP page /Webpages/OrderPage.jsp at line 49
+
+46:                 </tr>
+47:             </thead>
+48:             <tbody>
+49:                 <% for (int i = 0; i < orders.size(); i++) {
+50:                         Order order = orders.get(i);%>
+51:                 <tr>
+52:                     <th scope="row"><%=i + 1%></th>
+
+
+Stacktrace:
+dec. 13, 2018 3:04:19 PM FunctionLayer.Logging.Logging write
+WARNING: An exception occurred processing JSP page /Webpages/OrderPage.jsp at line 49
+
+46:                 </tr>
+47:             </thead>
+48:             <tbody>
+49:                 <% for (int i = 0; i < orders.size(); i++) {
+50:                         Order order = orders.get(i);%>
+51:                 <tr>
+52:                     <th scope="row"><%=i + 1%></th>
+
+
+Stacktrace:
+dec. 13, 2018 3:04:38 PM FunctionLayer.Logging.Logging write
+WARNING: An exception occurred processing JSP page /Webpages/OrderPage.jsp at line 49
+
+46:                 </tr>
+47:             </thead>
+48:             <tbody>
+49:                 <% for (int i = 0; i < orders.size(); i++) {
+50:                         Order order = orders.get(i);%>
+51:                 <tr>
+52:                     <th scope="row"><%=i + 1%></th>
+
+
+Stacktrace:
+dec. 13, 2018 3:07:46 PM FunctionLayer.Logging.Logging write
+WARNING: An exception occurred processing JSP page /Webpages/OrderPage.jsp at line 49
+
+46:                 </tr>
+47:             </thead>
+48:             <tbody>
+49:                 <% for (int i = 0; i < orders.size(); i++) {
+50:                         Order order = orders.get(i);%>
+51:                 <tr>
+52:                     <th scope="row"><%=i + 1%></th>
+
+
+Stacktrace:
+dec. 13, 2018 3:10:38 PM FunctionLayer.Logging.Logging write
+WARNING: An exception occurred processing JSP page /Webpages/OrderPage.jsp at line 49
+
+46:                 </tr>
+47:             </thead>
+48:             <tbody>
+49:                 <% for (int i = 0; i < orders.size(); i++) {
+50:                         Order order = orders.get(i);%>
+51:                 <tr>
+52:                     <th scope="row"><%=i + 1%></th>
+
+
+Stacktrace:
+dec. 13, 2018 3:26:31 PM FunctionLayer.Logging.Logging write
+OFF: 404 - Siden du ledte efter kunne ikke findes!
+dec. 13, 2018 3:27:04 PM FunctionLayer.Logging.Logging write
+WARNING: java.lang.NullPointerException
+dec. 13, 2018 3:27:17 PM FunctionLayer.Logging.Logging write
+INFO: Du skal logge ind før du kan gå videre!
+dec. 13, 2018 3:28:04 PM FunctionLayer.Logging.Logging write
+INFO: Du skal logge ind før du kan gå videre!
+dec. 13, 2018 3:31:01 PM FunctionLayer.Logging.Logging write
+INFO: Du skal logge ind før du kan gå videre!
+dec. 13, 2018 3:31:04 PM FunctionLayer.Logging.Logging write
+INFO: Du skal logge ind før du kan gå videre!
+dec. 13, 2018 3:31:05 PM FunctionLayer.Logging.Logging write
+INFO: Du skal logge ind før du kan gå videre!
+dec. 13, 2018 3:31:23 PM FunctionLayer.Logging.Logging write
+INFO: Du skal logge ind som en brugere!
+dec. 13, 2018 3:31:25 PM FunctionLayer.Logging.Logging write
+INFO: Du skal logge ind som en brugere!
+dec. 13, 2018 3:32:35 PM FunctionLayer.Logging.Logging write
+WARNING: Unable to compile class for JSP: 
+
+An error occurred at line: 87 in the jsp file: /Webpages/CustomerOrders.jsp
+Syntax error, insert "}" to complete Statement
+84:                                     </table>
+85:                                 </div>
+86:                             </label>
+87:                             <% }else { %>
+88:                             <h3><strong>BemÃ¦rk: </strong>Du har ingen ordre gemt!</h3>
+89:                             <% }%>
+90:                         </div>
+
+
+An error occurred at line: [371] in the generated java file: [C:\Users\Michael\AppData\Roaming\NetBeans\8.2\apache-tomcat-8.0.27.0_base\work\Catalina\localhost\ProjectFog\org\apache\jsp\Webpages\CustomerOrders_jsp.java]
+Syntax error on token "}", delete this token
+
+An error occurred at line: [372] in the generated java file: [C:\Users\Michael\AppData\Roaming\NetBeans\8.2\apache-tomcat-8.0.27.0_base\work\Catalina\localhost\ProjectFog\org\apache\jsp\Webpages\CustomerOrders_jsp.java]
+Syntax error, insert "}" to complete ClassBody
+
+Stacktrace:
+dec. 13, 2018 4:47:43 PM FunctionLayer.Logging.Logging write
+WARNING: Unable to compile class for JSP: 
+
+An error occurred at line: 25 in the jsp file: /Webpages/PartCreationSchema.jsp
+password cannot be resolved to a variable
+22:                     <form name="CustomerCreation" action="FrontController" method="POST">
+23:                         <input type="hidden" name="command" value="CreateCustomer">
+24:                         <input type="hidden" name="email" value="<%=request.getSession().getAttribute("RegisterEmail")%>">
+25:                         <input type="hidden" name="password" value="<%=password%>">
+26:                         <div class="card-header">
+27:                             <h3>Udfyld skemaet for at oprette dig i systemet</h3>
+28:                             <p><strong>*Udfyld skemaet som vist ved hjÃ¦lp at 'pladsholderende'</strong></p>
+
+
+An error occurred at line: 61 in the jsp file: /Webpages/PartCreationSchema.jsp
+convertedPass cannot be resolved to a variable
+58:                                         <br>
+59:                                         <label>
+60:                                             <p>Password:</p>
+61:                                             <input type="password" class="form-control" name="password" placeholder="<%=convertedPass%>" readonly>
+62:                                         </label>
+63:                                     </label>
+64:                                 </div>
+
+
+Stacktrace:
+dec. 13, 2018 4:48:08 PM FunctionLayer.Logging.Logging write
+WARNING: Unable to compile class for JSP: 
+
+An error occurred at line: 25 in the jsp file: /Webpages/PartCreationSchema.jsp
+password cannot be resolved to a variable
+22:                     <form name="CustomerCreation" action="FrontController" method="POST">
+23:                         <input type="hidden" name="command" value="CreateCustomer">
+24:                         <input type="hidden" name="email" value="<%=request.getSession().getAttribute("RegisterEmail")%>">
+25:                         <input type="hidden" name="password" value="<%=password%>">
+26:                         <div class="card-header">
+27:                             <h3>Udfyld skemaet for at oprette dig i systemet</h3>
+28:                             <p><strong>*Udfyld skemaet som vist ved hjÃ¦lp at 'pladsholderende'</strong></p>
+
+
+An error occurred at line: 61 in the jsp file: /Webpages/PartCreationSchema.jsp
+convertedPass cannot be resolved to a variable
+58:                                         <br>
+59:                                         <label>
+60:                                             <p>Password:</p>
+61:                                             <input type="password" class="form-control" name="password" placeholder="<%=convertedPass%>" readonly>
+62:                                         </label>
+63:                                     </label>
+64:                                 </div>
+
+
+Stacktrace:
+dec. 13, 2018 4:49:17 PM FunctionLayer.Logging.Logging write
+WARNING: Unable to compile class for JSP: 
+
+An error occurred at line: 25 in the jsp file: /Webpages/PartCreationSchema.jsp
+password cannot be resolved to a variable
+22:                     <form name="CustomerCreation" action="FrontController" method="POST">
+23:                         <input type="hidden" name="command" value="CreateCustomer">
+24:                         <input type="hidden" name="email" value="<%=request.getSession().getAttribute("RegisterEmail")%>">
+25:                         <input type="hidden" name="password" value="<%=password%>">
+26:                         <div class="card-header">
+27:                             <h3>Udfyld skemaet for at oprette materialet i systemet</h3>
+28:                             <p><strong>*Udfyld skemaet som vist ved hjÃ¦lp at 'pladsholderende'</strong></p>
+
+
+An error occurred at line: 59 in the jsp file: /Webpages/PartCreationSchema.jsp
+convertedPass cannot be resolved to a variable
+56:                                         <br>
+57:                                         <label>
+58:                                             <p>Password:</p>
+59:                                             <input type="password" class="form-control" name="password" placeholder="<%=convertedPass%>" readonly>
+60:                                         </label>
+61:                                     </label>
+62:                                 </div>
+
+
+Stacktrace:
+dec. 13, 2018 4:49:34 PM FunctionLayer.Logging.Logging write
+WARNING: Unable to compile class for JSP: 
+
+An error occurred at line: 25 in the jsp file: /Webpages/PartCreationSchema.jsp
+password cannot be resolved to a variable
+22:                     <form name="CustomerCreation" action="FrontController" method="POST">
+23:                         <input type="hidden" name="command" value="CreateCustomer">
+24:                         <input type="hidden" name="email" value="<%=request.getSession().getAttribute("RegisterEmail")%>">
+25:                         <input type="hidden" name="password" value="<%=password%>">
+26:                         <div class="card-header">
+27:                             <h3>Udfyld skemaet for at oprette materialet i systemet</h3>
+28:                             <p><strong>*Udfyld skemaet som vist ved hjÃ¦lp at 'pladsholderende'</strong></p>
+
+
+Stacktrace:
+dec. 13, 2018 5:41:27 PM FunctionLayer.Logging.Logging write
+SEVERE: No value specified for parameter 6
+dec. 13, 2018 5:41:50 PM FunctionLayer.Logging.Logging write
+WARNING: java.lang.NullPointerException
+dec. 13, 2018 6:12:03 PM FunctionLayer.Logging.Logging write
+WARNING: An exception occurred processing JSP page /Webpages/PartUpdateSchema.jsp at line 15
+
+12:         <title>Opdater materiale</title>
+13:         <%@include file="/WEB-INF/Imports/StyleImporter.jsp" %>
+14:         <link href="Webpages/CSS/FogStyling.css" rel="stylesheet" type="text/css"/>
+15:         <% Part part = (Part) request.getSession().getAttribute("part");%>
+16:     </head>
+17:     <body>
+18:         <%@include file="/WEB-INF/Imports/NavBar.jsp" %>
+
+
+Stacktrace:
+dec. 13, 2018 6:14:21 PM FunctionLayer.Logging.Logging write
+WARNING: An exception occurred processing JSP page /Webpages/PartUpdateSchema.jsp at line 15
+
+12:         <title>Opdater materiale</title>
+13:         <%@include file="/WEB-INF/Imports/StyleImporter.jsp" %>
+14:         <link href="Webpages/CSS/FogStyling.css" rel="stylesheet" type="text/css"/>
+15:         <% Part part = (Part) request.getSession().getAttribute("part");%>
+16:     </head>
+17:     <body>
+18:         <%@include file="/WEB-INF/Imports/NavBar.jsp" %>
+
+
+Stacktrace:
+dec. 13, 2018 6:19:13 PM FunctionLayer.Logging.Logging write
+WARNING: An exception occurred processing JSP page /Webpages/PartUpdateSchema.jsp at line 15
+
+12:         <title>Opdater materiale</title>
+13:         <%@include file="/WEB-INF/Imports/StyleImporter.jsp" %>
+14:         <link href="Webpages/CSS/FogStyling.css" rel="stylesheet" type="text/css"/>
+15:         <% Part part = (Part) request.getSession().getAttribute("part");%>
+16:     </head>
+17:     <body>
+18:         <%@include file="/WEB-INF/Imports/NavBar.jsp" %>
+
+
+Stacktrace:
+dec. 13, 2018 6:22:13 PM FunctionLayer.Logging.Logging write
+WARNING: Unable to compile class for JSP: 
+
+An error occurred at line: 35 in the jsp file: /Webpages/PartUpdateSchema.jsp
+The method getType() is undefined for the type Part
+32:                                     <td style="width:50%">
+33:                                         <label>
+34:                                             <p>Type:</p>
+35:                                             <input type="text" class="form-control" name="type" placeholder="Eks. BrÃ¦dt" value="<%=part.getType()%>" required>
+36:                                         </label>
+37:                                     </td>
+38:                                     <td style="width:50%">
+
+
+Stacktrace:
+dec. 13, 2018 6:23:52 PM FunctionLayer.Logging.Logging write
+WARNING: Unable to compile class for JSP: 
+
+An error occurred at line: 35 in the jsp file: /Webpages/PartUpdateSchema.jsp
+The method getType() is undefined for the type Part
+32:                                     <td style="width:50%">
+33:                                         <label>
+34:                                             <p>Type:</p>
+35:                                             <input type="text" class="form-control" name="type" placeholder="Eks. BrÃ¦dt" value="<%=part.getType()%>" required>
+36:                                         </label>
+37:                                     </td>
+38:                                     <td style="width:50%">
+
+
+An error occurred at line: 41 in the jsp file: /Webpages/PartUpdateSchema.jsp
+The method getMaterial() is undefined for the type Part
+38:                                     <td style="width:50%">
+39:                                         <label>
+40:                                             <p>Materiale:</p>
+41:                                             <input type="text" class="form-control" name="material" placeholder="Eks. Trykimp Fyr" value="<%=part.getMaterial()%>" required>
+42:                                         </label>
+43:                                     </td>
+44:                                 </tr>
+
+
+An error occurred at line: 55 in the jsp file: /Webpages/PartUpdateSchema.jsp
+The method getDescription() is undefined for the type Part
+52:                                     <td style="width:50%">
+53:                                         <label>
+54:                                             <p>Beskrivelse:</p>
+55:                                             <input type="text" class="form-control" name="description" placeholder="Eks. Tryk impreneret brÃ¦dt" value="<%=part.getDescription()%>" required>
+56:                                         </label>
+57:                                     </td>
+58:                                 </tr>
+
+
+An error occurred at line: 63 in the jsp file: /Webpages/PartUpdateSchema.jsp
+The method getPrice() is undefined for the type Part
+60:                                     <td style="width:50%">
+61:                                         <label>
+62:                                             <p>Pris:</p>
+63:                                             <input type="text" class="form-control" name="price" placeholder="Eks. 149.85" value="<%=part.getPrice()%>" required>
+64:                                         </label>
+65:                                     </td>
+66:                                     <td style="width:50%">
+
+
+An error occurred at line: 69 in the jsp file: /Webpages/PartUpdateSchema.jsp
+The method getBrand() is undefined for the type Part
+66:                                     <td style="width:50%">
+67:                                         <label>
+68:                                             <p>MÃ¦rke:</p>
+69:                                             <input type="text" class="form-control" name="brand" placeholder="Eks. FOG" value="<%=part.getBrand()%>" required>
+70:                                         </label>
+71:                                     </td>
+72:                                 </tr>
+
+
+Stacktrace:
+dec. 14, 2018 9:51:31 AM FunctionLayer.Logging.Logging write
+INFO: Dit valgte skur er længere end de valgte carport mål!
+dec. 14, 2018 9:54:32 AM FunctionLayer.Logging.Logging write
+INFO: Der skete en fejl!.. Prøv at logge ind igen!
+dec. 18, 2018 10:28:38 AM FunctionLayer.Logging.Logging write
+INFO: User 'fdsa@fdsa.dd' do not exist!

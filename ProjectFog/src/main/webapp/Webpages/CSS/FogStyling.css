@@ -1,0 +1,15 @@
+/* 
+    Created on : 15-11-2018, 07:47:01
+    Author     : Michael & Christian
+*/
+
+body {
+    background-color: #e8edfc;
+}
+
+.employeeTable {
+     text-align:left;
+     vertical-align:top;
+     padding-right: 25px;
+}
+
