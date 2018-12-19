@@ -20,9 +20,9 @@ public class Hashing {
         try {
             MessageDigest md = MessageDigest.getInstance("SHA-1");
             md.update(password.getBytes());
-            byte[] toHash = md.digest();
-            String ans = DatatypeConverter.printHexBinary(toHash);
-            return ans;
+            byte[] bytes = md.digest();
+            String hashed = DatatypeConverter.printHexBinary(bytes);
+            return hashed;
         } catch (NoSuchAlgorithmException ex) {
             throw new FogException("An error occurred while trying to hash password!", Level.SEVERE);
         }
